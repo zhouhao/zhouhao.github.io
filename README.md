@@ -1,4 +1,3 @@
-此Git库为我的博客  [Luke's Homepage](http://geeklu.com)。   
 使用Jekyll进行搭建，Jekyll是一个Ruby写的程序，可以将Markdown写的文章通过模板生成最终的Html静态文件。   
 Github Page服务原生支持Jekyll，且Github Page支持域名绑定，所以用Github Page + Jekyll进行博客搭建，不失为技术人员的上乘之选。   
 博客文章的评论功能使用了Disqus。      
