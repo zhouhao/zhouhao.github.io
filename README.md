@@ -8,3 +8,4 @@ Github Page服务原生支持Jekyll，且Github Page支持域名绑定，所以�
  
 #Yeah, it never works for me!#
 ##I must go to work now, and I will deal with it in the summer holiday~##
+#^_^#
