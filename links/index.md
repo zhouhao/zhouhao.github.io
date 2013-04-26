@@ -4,5 +4,5 @@ layout: page
 comments: yes
 ---
 
-暂无
+我的微博：http://weibo.com/sbzhouhao
 
