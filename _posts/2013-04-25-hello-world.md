@@ -2,8 +2,8 @@
 layout: post
 title: "hello world"
 description: ""
-category: 
-tags: []
+category: test
+tags: [Hello, world]
 ---
 ---
 Hello World
