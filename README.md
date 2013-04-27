@@ -1,4 +1,4 @@
-如果你直接拷贝或Fork本Git库作为自己的博客，但是请务必做好一下的事：
+如果你直接拷贝或Fork本Git库作为自己的博客，但是请务必做好以下的事：     
 1. 一定不要忘记删除我写的文章，    
 2. 修改 `_includes / comments.md` 中的代码（此处用的是国内友言），    
 3. 修改 `_layouts / default.html`中 google analytics的标识  ` _gaq.push(['_setAccount', 'UA-39886095-1']);`。      
