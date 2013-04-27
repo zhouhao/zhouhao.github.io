@@ -13,6 +13,7 @@ comments: yes
 新浪微博: [http://weibo.com/sbzhouhao](http://weibo.com/sbzhouhao "疯狂的咸蛋")       
 GitHub:   [http://github.com/zhouhao](http://github.com/zhouhao "我写了一些很糟糕的代码在这里")       
 LinkedIn: [http://www.linkedin.com/in/sbzhouhao](http://www.linkedin.com/in/sbzhouhao "我的个人介绍")     
+[交流QQ群：295302923]
 
 <!--<iframe width="600" height="500" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=600&height=500&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=2184854490&verifier=72498178&dpc=1"></iframe>     
 -->
