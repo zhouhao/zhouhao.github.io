@@ -10,7 +10,7 @@ comments: yes
 目前就读于伍斯特理工，专业依旧计算机。现在一直努力想让自己成为一个interesting的人。
 
 个人邮箱: [hzhou@wpi.edu](mailto:hzhou@wpi.edu "Send Me Email, and I can reply you in 5 Min")    
-备用邮箱：[zhouhao@sbzhouhao.net](mailto:zhouhao@sbzhouhao.net "Yeah, I am not always check this.")
+备用邮箱：[zhouhao@sbzhouhao.net](mailto:zhouhao@sbzhouhao.net "Yeah, I am not always check this.")     
 新浪微博: [http://weibo.com/sbzhouhao](http://weibo.com/sbzhouhao "疯狂的咸蛋")       
 GitHub:   [http://github.com/zhouhao](http://github.com/zhouhao "我写了一些很糟糕的代码在这里")       
 LinkedIn: [http://www.linkedin.com/in/sbzhouhao](http://www.linkedin.com/in/sbzhouhao "我的个人介绍")     
