@@ -12,6 +12,5 @@ tags: [life]
 
 ***<span style="float:right">05-03-2013</span>***
 <br/><br/>
-<p style="text-align:center;"><a href="http://www.flickr.com/photos/sbzhouhao/8708412237/" title="hair by Zhou Hao, on Flickr"><img src="http://farm9.staticflickr.com/8414/8708412237_2a6d253c0d.jpg" width="440" height="440" alt="hair"></a></p>
-<p>理发前后，舍友的杰作</p>
+<p style="text-align:center;"><a href="http://www.flickr.com/photos/sbzhouhao/8708412237/" title="hair by Zhou Hao, on Flickr"><img src="http://farm9.staticflickr.com/8414/8708412237_2a6d253c0d.jpg" width="440" height="440" alt="hair"></a><br/>理发前后，舍友的杰作</p>
 ***<span style="float:right">05-04-2013</span>***
