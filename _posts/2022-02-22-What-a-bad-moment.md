@@ -12,6 +12,10 @@ tags: [life]
 
 ***<span style="float:right">05-03-2013</span>***
 <br/><br/>
+<p style="font-size:13px">周六“实习例会”，4个人（整个公司开始也没多少人，但是就我一个实习的coder，还有一个part-time的），每次讨论晚一个话题的收尾一句话就是：“周浩，这个就交给你实现”。现在做网页页面也不给个具体的图，就在瞎子摸象似的，我是按照他的反馈要求做的，但是当讨论说不那么“美观”的时候竟然说是我的“错”。囧爆了~</p>
+
+***<span style="float:right">05-04-2013</span>***
+<br/><br/>
 <p style="text-align:center;"><a href="http://www.flickr.com/photos/sbzhouhao/8708412237/" title="hair by Zhou Hao, on Flickr"><img src="http://farm9.staticflickr.com/8414/8708412237_2a6d253c0d.jpg" width="440" height="440" alt="hair"></a><br/>理发前后，舍友的杰作（小清新变流氓了）</p>
 ***<span style="float:right">05-04-2013</span>***
 <br/><br/>
