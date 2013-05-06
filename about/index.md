@@ -12,7 +12,7 @@ comments: yes
 我会编程。但是更多人不会。这真他妈的酷！（引用自笨方法学Python的结束语）      
 
 个人邮箱: [hzhou@wpi.edu](mailto:hzhou@wpi.edu "Send Me Email, and I can reply you in 5 Min")    
-备用邮箱：[zhouhao@sbzhouhao.net](mailto:zhouhao@sbzhouhao.net "Yeah, I do not always check this.")     
+备用邮箱: [zhouhao@sbzhouhao.net](mailto:zhouhao@sbzhouhao.net "Yeah, I do not always check this.")     
 新浪微博: [http://weibo.com/sbzhouhao](http://weibo.com/sbzhouhao "疯狂的咸蛋")       
 GitHub:   [http://github.com/zhouhao](http://github.com/zhouhao "我写了一些很糟糕的代码在这里")       
 LinkedIn: [http://www.linkedin.com/in/sbzhouhao](http://www.linkedin.com/in/sbzhouhao "我的个人介绍")     
