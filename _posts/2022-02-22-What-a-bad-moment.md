@@ -19,3 +19,7 @@ tags: [life]
 <p style="text-align:center;"><a href="http://www.flickr.com/photos/sbzhouhao/8708412237/" title="hair by Zhou Hao, on Flickr"><img src="http://farm9.staticflickr.com/8414/8708412237_2a6d253c0d.jpg" width="440" height="440" alt="hair"></a><br/>理发前后，舍友的杰作（小清新变流氓了）</p>
 ***<span style="float:right">05-04-2013</span>***
 <br/><br/>
+<p style="font-size:13px">每次不小心从镜子中看到自己的头，都会把吓一跳~ </p>
+
+***<span style="float:right">05-05-2013</span>***
+<br/><br/>
