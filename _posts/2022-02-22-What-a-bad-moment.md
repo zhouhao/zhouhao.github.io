@@ -23,3 +23,7 @@ tags: [life]
 
 ***<span style="float:right">05-05-2013</span>***
 <br/><br/>
+<p style="font-size:13px">气筒还没有发货，我的自行车却快没气了~抗住，车仔！T_T </p>
+
+***<span style="float:right">05-07-2013</span>***
+<br/><br/>
