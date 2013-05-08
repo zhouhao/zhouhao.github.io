@@ -27,3 +27,7 @@ tags: [life]
 
 ***<span style="float:right">05-07-2013</span>***
 <br/><br/>
+<p style="font-size:13px">刚刚花了一首半歌的时间冲了个澡，等出来身上差不多干的时候，一搓，直掉。悲剧，又花了两首歌的时间搓了一把澡！</p>
+
+***<span style="float:right">05-07-2013</span>***
+<br/><br/>
