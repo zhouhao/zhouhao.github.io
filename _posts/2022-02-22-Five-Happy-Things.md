@@ -21,5 +21,5 @@ tags: [life]
 <li>配合Python看了点MongoDB，哇，COOL</li>       
 <li>原来老印是知道我们不喜欢吃披萨，她吃着米饭，我嚼着披萨的时候，她说：“Miss Rice, haaaa~”</li>     
 </ol>
-***<span style="float:right">05-07-2013</span>***
+***<span style="float:right">05-08-2013</span>***
 <br/><br/>
