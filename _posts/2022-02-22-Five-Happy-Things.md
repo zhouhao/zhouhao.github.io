@@ -14,3 +14,12 @@ tags: [life]
 </ol>
 ***<span style="float:right">05-07-2013</span>***
 <br/><br/>
+<ol style="font-size:13px">
+<li>回来的时候遇到了大雨，在一个停着的大车和一个貌似披萨店的屋檐下躲了一小会，近距离接触暴雨</li>            
+<li>晚上回来给自己做了一顿美食----超级鸡翅</li>    
+<li>研究了一会Python，觉得这个语言很有意思</li>       
+<li>配合Python看了点MongoDB，哇，COOL</li>       
+<li>原来老印是知道我们不喜欢吃披萨，她吃着米饭，我嚼着披萨的时候，她说：“Miss Rice, haaaa~”</li>     
+</ol>
+***<span style="float:right">05-07-2013</span>***
+<br/><br/>
