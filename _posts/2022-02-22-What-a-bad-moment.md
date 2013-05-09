@@ -31,3 +31,7 @@ tags: [life]
 
 ***<span style="float:right">05-07-2013</span>***
 <br/><br/>
+<p style="font-size:13px">昨天回家路上的雨竟然那么大，我总觉得它是针对我的！全身都湿了，我的手机都不出声了~</p>
+
+***<span style="float:right">05-08-2013</span>***
+<br/><br/>
