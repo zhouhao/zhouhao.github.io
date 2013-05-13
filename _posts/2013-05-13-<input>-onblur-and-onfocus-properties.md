@@ -6,9 +6,9 @@ category: input
 tags: [html]
 ---
   <form>
-    <input type="text" name="address" size="60" maxlength="60" style="color:gray; background: #fff;" value="Test For Fun" onfocus="if(this.value=='Test For Fun'){this.value=''};this.style.color='black';" onblur="if(this.value==''||this.value=='Test For Fun'){this.value='Test For Fun';this.style.color='gray';}">
+    <input type="text" name="address" size="60" maxlength="60" style="color:gray; background: #fff; border: 1px solid #000;" value="Test For Fun" onfocus="if(this.value=='Test For Fun'){this.value=''};this.style.color='black';" onblur="if(this.value==''||this.value=='Test For Fun'){this.value='Test For Fun';this.style.color='gray';}">
   </form>
 
 <form>
-<input type="text" name="address" size="60" maxlength="60" style="color:gray; background: #fff;" value="Test For Fun" onfocus="if(this.value=='Test For Fun'){this.value=''};this.style.color='black';" onblur="if(this.value==''||this.value=='Test For Fun'){this.value='Test For Fun';this.style.color='gray';}">
+<input type="text" name="address" size="60" maxlength="60" style="color:gray; background: #fff; border: 1px solid #000;" value="Test For Fun" onfocus="if(this.value=='Test For Fun'){this.value=''};this.style.color='black';" onblur="if(this.value==''||this.value=='Test For Fun'){this.value='Test For Fun';this.style.color='gray';}">
 </form>
