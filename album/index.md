@@ -12,7 +12,7 @@ h2{font-size:13px; margin:15px 0 0 0;}
 </style>
 <link rel="stylesheet" href="../media/css/colorbox.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="../media/js/jquery.colorbox-min.js"></script>
+<script src="../media/js/jquery.colorbox.js"></script>
 <script>
 $(document).ready(function(){
 //Examples of how to assign the Colorbox event to elements
