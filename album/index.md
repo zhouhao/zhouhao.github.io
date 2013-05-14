@@ -13,7 +13,7 @@ $(".group").colorbox({rel:'group', slideshow:true});
 });
 </script>
 		
-<h2>Slideshow</h2>
+<h2>Album Initialization</h2>
 <a class="group" href="http://farm8.staticflickr.com/7282/8736543871_87e74136aa_z.jpg" title="2 by Zhou Hao, on Flickr"><img src="http://farm8.staticflickr.com/7282/8736543871_87e74136aa_z.jpg" width="100" alt="1"></a>
 <a class="group" href="http://farm8.staticflickr.com/7282/8736543871_87e74136aa_z.jpg" title="2 by Zhou Hao, on Flickr"><img src="http://farm8.staticflickr.com/7282/8736543871_87e74136aa_z.jpg" width="100" alt="1"></a><a class="group" href="http://farm8.staticflickr.com/7282/8736543871_87e74136aa_z.jpg" title="2 by Zhou Hao, on Flickr"><img src="http://farm8.staticflickr.com/7282/8736543871_87e74136aa_z.jpg" width="100" alt="1"></a><a class="group" href="http://farm8.staticflickr.com/7282/8736543871_87e74136aa_z.jpg" title="2 by Zhou Hao, on Flickr"><img src="http://farm8.staticflickr.com/7282/8736543871_87e74136aa_z.jpg" width="100" alt="1"></a><a class="group" href="http://farm8.staticflickr.com/7282/8736543871_87e74136aa_z.jpg" title="2 by Zhou Hao, on Flickr"><img src="http://farm8.staticflickr.com/7282/8736543871_87e74136aa_z.jpg" width="100" alt="1"></a>
 		
