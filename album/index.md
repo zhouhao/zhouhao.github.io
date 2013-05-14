@@ -1,5 +1,5 @@
 ---
-title: About me
+title: My Album
 layout: page
 comments: yes
 ---
@@ -9,6 +9,7 @@ body{font:12px/1.2 Verdana, sans-serif; padding:0 10px;}
 a {text-decoration:none;}
 a:link, a:visited{text-decoration:none; color:#416CE5; border-bottom:1px solid #416CE5;}
 h2{font-size:13px; margin:15px 0 0 0;}
+p {text-align:left;}
 </style>
 <link rel="stylesheet" href="../media/css/colorbox.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
