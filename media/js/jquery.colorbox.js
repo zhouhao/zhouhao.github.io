@@ -51,7 +51,7 @@
 		reposition: true,
 		loop: true,
 		slideshow: false,
-		slideshowAuto: true,
+		slideshowAuto: false,
 		slideshowSpeed: 2500,
 		slideshowStart: "start slideshow",
 		slideshowStop: "stop slideshow",
