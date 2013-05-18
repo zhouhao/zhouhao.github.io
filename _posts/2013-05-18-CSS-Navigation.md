@@ -5,7 +5,7 @@ description: "纯CSS的首页导航推荐"
 category: Web
 tags: [CSS]
 ---
-<pre>
+
 <style type="text/css">
 ul,  li{
   margin: 0; padding: 0; border: 0;
@@ -75,6 +75,7 @@ ul,  li{
 }
 		
 </style>
+<pre>
 <div class="navigation">
 		<ul>
 			<li><a class="primary_a" href="#">Category 1</a>
