@@ -12,7 +12,7 @@ comments: yes
 我会编程。但是更多人不会。这真他妈的酷！（引用自笨方法学Python的结束语）      
 
 
-<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=IVtJTlRJQE5RTVRVTmFQUA9CTkw" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_12.png"/></a>      
+<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=IVtJTlRJQE5RTVRVTmFQUA9CTkw" style="text-decoration:none;"><img style="float:left;" src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_12.png"/></a>      
 个人邮箱: [hzhou@wpi.edu](mailto:hzhou@wpi.edu "Send Me Email, and I can reply you in 5 Min")    
 备用邮箱: [zhouhao@sbzhouhao.net](mailto:zhouhao@sbzhouhao.net "Yeah, I do not always check this.")     
 新浪微博: [http://weibo.com/sbzhouhao](http://weibo.com/sbzhouhao "疯狂的咸蛋")       
