@@ -39,3 +39,7 @@ tags: [life]
 
 ***<span style="float:right">05-14-2013</span>***
 <br/><br/>
+<p style="font-size:13px">吉他彻底成为一堆木头了！！！</p>
+
+***<span style="float:right">05-22-2013</span>***
+<br/><br/>
