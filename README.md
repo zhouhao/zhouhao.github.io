@@ -15,3 +15,5 @@ This project is forked from here: https://github.com/kejinlu/kejinlu.github.com
 >4). 添加了外链相册的功能     
 >2. Rakefile is not used when I add new articles.    
 
+###What's Next?
+1. Add code hight light in blog    
