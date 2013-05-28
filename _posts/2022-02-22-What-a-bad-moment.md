@@ -43,3 +43,7 @@ tags: [life]
 
 ***<span style="float:right">05-22-2013</span>***
 <br/><br/>
+<p style="font-size:13px">昨天打开厨房的上方的柜子门，日！！！忘合上了，我现在头上还能够通过头发明显的看到红的伤口呢！！！智商就是这么磕没的！！！</p>
+
+***<span style="float:right">05-27-2013</span>***
+<br/><br/>
