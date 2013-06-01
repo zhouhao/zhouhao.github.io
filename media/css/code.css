@@ -8,3 +8,4 @@ pre .keyword,pre .id,pre .phpdoc,pre .title,pre .built_in,pre .aggregate,pre .cs
 pre .markdown .emphasis{font-style:italic; background:#fff}
 pre .nginx .built_in{font-weight:normal; background:#fff}
 pre .coffeescript .javascript,pre .javascript .xml,pre .tex .formula,pre .xml .javascript,pre .xml .vbscript,pre .xml .css,pre .xml .cdata{opacity:.5; background:#fff}
+pre .setting{background:#fff;}
