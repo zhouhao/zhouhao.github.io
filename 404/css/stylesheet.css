@@ -6,7 +6,7 @@
 
 /* Body */
 body {
-	background: gray;
+	background: #EDEDED;
 	text-align: center;
 }
 
@@ -17,7 +17,7 @@ img {
 
 /* Warp around everything */
 #warp {
-	margin: 0 auto;
+	margin: 20px auto;
 	width: 985px;
 	font-family: Helvetica;
 	text-align: left;
