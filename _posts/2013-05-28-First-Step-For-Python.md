@@ -16,6 +16,6 @@ tags: [Python]
     # encoding: UTF-8
     import re
  
-    m = re.match(r'(((f|ht){1}tp://)[-a-zA-Z0-9@:%_\+.~#?&//=]+)', 'http://www.desteps.com/program/php/0100501.html http://www.desteps.com/program/ph1p/0100501.html hello world!')
+    m = re.match(r'(((f|ht){1}tp://)[-a-zA-Z0-9@:%_\+.~#?&//=]+)', 'http://sbzhouhao.net/2013/05/First-Step-For-Python/ http://sbzhouhao.net/2013/05/ hello world!')
     print m.group(0)
     print m.group(1)
