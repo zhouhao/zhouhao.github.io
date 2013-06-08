@@ -16,6 +16,8 @@ tags: [Python]
     # encoding: UTF-8
     import re
  
-    m = re.match(r'(((f|ht){1}tp://)[-a-zA-Z0-9@:%_\+.~#?&//=]+)', 'http://sbzhouhao.net/2013/05/First-Step-For-Python/ http://sbzhouhao.net/2013/05/ hello world!')
-    print m.group(0)
-    print m.group(1)
+    #m = re.match(r'(((f|ht){1}tp://)[-a-zA-Z0-9@:%_\+.~#?&//=]+)', 'http://sbzhouhao.net/2013/05/First-Step-For-Python/ http://sbzhouhao.net/2013/05/ hello world!')
+    m = re.search(r'(((f|ht){1}tp://)[-a-zA-Z0-9@:%_\+.~#?&//=]+)', 'http://sbzhouhao.net/2013/05/First-Step-For-Python/ http://sbzhouhao.net/2013/05/ hello world!')
+    
+    print m.group()
+
