@@ -47,3 +47,7 @@ tags: [life]
 
 ***<span style="float:right">05-27-2013</span>***
 <br/><br/>
+<p style="font-size:13px">这雨下的，每次骑车都一屁股泥！！！</p>
+
+***<span style="float:right">06-11-2013</span>***
+<br/><br/>
