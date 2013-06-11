@@ -22,3 +22,4 @@ $(".group").colorbox({rel:'group', slideshow:true});
 <a class="group" href="http://farm9.staticflickr.com/8558/8940637473_95631e1e55_z.jpg" title="IMG_1049 by Zhou Hao, on Flickr"><img src="http://farm9.staticflickr.com/8558/8940637473_95631e1e55_z.jpg" width="100" alt="IMG_1049"></a>
 <a class="group" href="http://farm4.staticflickr.com/3776/8932722450_bc78269a8c_z.jpg" title="IMG_1059 by Zhou Hao, on Flickr"><img src="http://farm4.staticflickr.com/3776/8932722450_bc78269a8c_z.jpg" width="100" alt="IMG_1059"></a>
 <a class="group" href="http://farm8.staticflickr.com/7401/9012278129_62064655ae_z.jpg" title="这个是我偷拍的"><img src="http://farm8.staticflickr.com/7401/9012278129_62064655ae_z.jpg" width="100" alt="IMG_1514"></a>
+<a class="group" href="http://farm8.staticflickr.com/7287/9013458306_8611c50aa1_z.jpg" title="IMG_1617 by Zhou Hao, on Flickr"><img src="http://farm8.staticflickr.com/7287/9013458306_8611c50aa1_z.jpg" width="100" alt="IMG_1617"></a>
