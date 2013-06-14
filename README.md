@@ -16,4 +16,4 @@ This project is forked from here: https://github.com/kejinlu/kejinlu.github.com
 >2. Rakefile is not used when I add new articles.    
 
 ###What's Next?
-- [x] Add code hight light in blog    
+[x] Add code hight light in blog    
