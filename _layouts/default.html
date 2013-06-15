@@ -23,9 +23,29 @@
     <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
     <script>
       hljs.initHighlightingOnLoad();
+      $(document).ready(function(){
+		//首先将#back-to-top隐藏
+		 $("#back-to-top").hide();
+		//当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
+		$(function () {
+			$(window).scroll(function(){
+				if ($(window).scrollTop()>100){
+					$("#back-to-top").fadeIn(500);
+				}
+				else
+				{
+					$("#back-to-top").fadeOut(500);
+				}
+				});
+				$("#back-to-top").click(function(){
+					$('body,html').animate({scrollTop:0},500);
+					return false;
+				});
+			});
+		});
     </script>
   </head>
-  <body>
+  <body id="top">
     <div id="container"> 
         <div class="head">
             <nav>
@@ -60,7 +80,7 @@
     </footer>
 
     </div>
-
+	<p id="back-to-top"><a href="#top"><span></span>Go Top</a></p>
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-39886095-1']);
