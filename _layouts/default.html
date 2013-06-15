@@ -59,7 +59,7 @@
       $(document).ready(function(){
 		 $("#back-to-top").hide();
 		$(function () {
-			$('#tags_cloud').tagcloud({centrex:250, centrey:250, init_motion_x:10, init_motion_y:10});
+			$('#tags_cloud').tagcloud({centrex:120, centrey:100, init_motion_x:10, init_motion_y:10});
 			$(window).scroll(function(){
 				if ($(window).scrollTop()>100){
 					$("#back-to-top").fadeIn(500);
@@ -103,7 +103,7 @@
 		    	<a href="http://www.renren.com/254042131?ss=17095&origin=920001" target="_blank"><img src="http://signature.xnimg.cn/badge/signature/sig/254042131/af31bc083cb27a9a4dfa0c6f9dfae4d2/0/4.png" width="260px"></a>  
 		    	<script type="text/javascript" src="http://je.revolvermaps.com/2/1.js?i=4f5m56i6edh&amp;s=260&amp;m=8&amp;v=false&amp;r=false&amp;b=ffffff&amp;n=false&amp;c=ff0000" async="async"></script>
 		    	<div id="tags_cloud" style="width:260px; height:200px;">
-					<ul>
+					<ul style="list-style-type:none;">
 					{% for tag in site.tags %}
 						<li><a href="http://sbzhouhao.net/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a></li>
 					{% endfor %}
