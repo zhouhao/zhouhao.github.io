@@ -44,7 +44,6 @@
 		      height:80px;
 		      width:80px;
 		      margin-bottom:5px;
-		      /*ʹ��CSS3�е�transition���Ը�<span>��ǩ������ɫ���ӽ���Ч��*/
 		      -moz-transition:background 1s;
 		      -webkit-transition:background 1s;
 		      -o-transition:background 1s;
@@ -100,15 +99,28 @@
 		        </article>
 		    </div>
 		    <div class="mainright">
+		    	<form action="http://google.com/search" method="get" _lpchecked="1">
+  			<fieldset role="search">
+  				<legend>Search:</legend>
+    				<input type="hidden" name="q" value="site:sbzhouhao.net">
+    				<input class="search" type="text" name="q" results="0" placeholder="Search" autocomplete="off">
+  			</fieldset>
+			</form>
 		    	<a href="http://www.renren.com/254042131?ss=17095&origin=920001" target="_blank"><img src="http://signature.xnimg.cn/badge/signature/sig/254042131/af31bc083cb27a9a4dfa0c6f9dfae4d2/0/4.png" width="260px"></a>  
 		    	<script type="text/javascript" src="http://je.revolvermaps.com/2/1.js?i=4f5m56i6edh&amp;s=260&amp;m=8&amp;v=false&amp;r=false&amp;b=ffffff&amp;n=false&amp;c=ff0000" async="async"></script>
 		    	<div id="tags_cloud" style="width:258px; height:200px;">
-					<ul style="list-style-type:none;">
-					{% for tag in site.tags %}
-						<li><a href="http://sbzhouhao.net/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a></li>
-					{% endfor %}
-					</ul>
-				</div>
+				<ul style="list-style-type:none;">
+				{% for tag in site.tags %}
+					<li><a href="http://sbzhouhao.net/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a></li>
+				{% endfor %}
+				</ul>
+			</div>
+			<fieldset>
+    			<legend>Link:</legend>
+    			<ul>
+    				<li><a href="http://mitchief.org/">麻省理工学院中国创新与创业论坛</a></li>
+    			</ul>
+			</fieldset>
 		    </div>
 		    <div style="clear:both;"></div>
       	</div>
