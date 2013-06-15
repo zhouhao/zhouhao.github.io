@@ -12,7 +12,19 @@ $(document).ready(function(){
 $(".group").colorbox({rel:'group', slideshow:true});			
 });
 </script>
-		
+<!-- 将此代码放在适当的位置，建议在body结束前 -->
+<script id="bdimgshare_shell"></script>
+<script>
+var bdShare_config_imgshare = {
+	"type":"list"
+	,"size":"small"
+	,"pos":"bottom"
+	,"color":"black"
+	,"list":["tsina","tqq","renren","t163","qzone"]
+	,"uid":"3683657"
+};
+document.getElementById("bdimgshare_shell").src="http://bdimg.share.baidu.com/static/js/imgshare_shell.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>		
 <h2>Album Initialization</h2>
 <a class="group" href="http://mitchief.org/media-files/photo/20130411-xuxiaoping/img_7108.jpg" title="http://mitchief.org"><img src="http://mitchief.org/media-files/photo/20130411-xuxiaoping/img_7108.jpg" width="100" alt="1"></a>
 <a class="group" href="http://farm9.staticflickr.com/8277/8940631287_27a74a6419_z.jpg" title="IMG_1036 by Zhou Hao, on Flickr"><img src="http://farm9.staticflickr.com/8277/8940631287_27a74a6419_z.jpg" width="100" alt="IMG_1036"></a>
