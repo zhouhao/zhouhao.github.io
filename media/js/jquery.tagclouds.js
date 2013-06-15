@@ -1,7 +1,7 @@
 (function($) {
 
-  $.fn.tagcloud = function(options) {
-    var opts = $.extend({}, $.fn.tagcloud.defaults, options);
+  $.fn.tagclouds = function(options) {
+    var opts = $.extend({}, $.fn.tagclouds.defaults, options);
     tagWeights = this.map(function(){
       return $(this).attr("rel");
     });
@@ -29,7 +29,7 @@
     });
   };
 
-  $.fn.tagcloud.defaults = {
+  $.fn.tagclouds.defaults = {
     size: {start: 14, end: 18, unit: "pt"}
   };
 
