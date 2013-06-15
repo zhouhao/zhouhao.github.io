@@ -14,6 +14,9 @@ This project is forked from here: https://github.com/kejinlu/kejinlu.github.com
 >3). 修改了404页面，使其更加好看点    
 >4). 添加了外链相册的功能     
 >2. Rakefile is not used when I add new articles.    
+>3. revise the GUI of web     
 
 ###What's Next?
 - [x] Add code hight light in blog    
+- [ ] Add “back to top” button    
+- [ ] customize the right side of main page    
