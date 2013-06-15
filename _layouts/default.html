@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="/media/css/style.css">
     <link rel="stylesheet" href="/media/css/highlight.css">
     <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/media/js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="/media/js/jquery.tagsphere.min.js"></script>
     <link rel="stylesheet" href="/media/css/code.css">
     <style rel="stylesheet" type="text/css">
-	    nav{font-family:"Electrolize",sans-serif;font-size:1.3em;text-transform:uppercase;float:left; width:800px; margin-left:300px;margin-top:40px;}
+		nav{font-family:"Electrolize",sans-serif;font-size:1.3em;text-transform:uppercase;float:left; width:800px; margin-left:300px;margin-top:40px;}
 		nav span{margin-left:10px;float:left;text-decoration:none;}
 		nav a{display:block;padding:.7em 1em;color:#46442f;}
 		nav a:hover{text-decoration:none;color:#f00;-webkit-transition:color .2s linear;}
@@ -48,15 +50,14 @@
 		      -o-transition:background 1s;
 		}
 		#back-to-top a:hover span{background:#979797 url(/media/images/arrow-up.png) no-repeat center center;}
-
+		#tags_cloud li a{ text-decoration:none; color:blue;}
+		#tags_cloud{border: 5px solid #555;	}
 	</style>
     <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
     <script>
       hljs.initHighlightingOnLoad();
       $(document).ready(function(){
-		//���Ƚ�#back-to-top����
 		 $("#back-to-top").hide();
-		//����������λ�ô��ھඥ��100��������ʱ����ת���ӳ��֣�������ʧ
 		$(function () {
 			$(window).scroll(function(){
 				if ($(window).scrollTop()>100){
@@ -67,11 +68,15 @@
 					$("#back-to-top").fadeOut(500);
 				}
 				});
+				
 				$("#back-to-top").click(function(){
 					$('body,html').animate({scrollTop:0},500);
 					return false;
 				});
 			});
+		});
+		$(function(){
+	    $('#tags_cloud').tagcloud({centrex:250, centrey:250, init_motion_x:10, init_motion_y:10});
 		});
     </script>
   </head>
@@ -99,6 +104,13 @@
 		    <div class="mainright">
 		    	<a href="http://www.renren.com/254042131?ss=17095&origin=920001" target="_blank"><img src="http://signature.xnimg.cn/badge/signature/sig/254042131/af31bc083cb27a9a4dfa0c6f9dfae4d2/0/4.png" width="260px"></a>  
 		    	<script type="text/javascript" src="http://je.revolvermaps.com/2/1.js?i=4f5m56i6edh&amp;s=260&amp;m=8&amp;v=false&amp;r=false&amp;b=ffffff&amp;n=false&amp;c=ff0000" async="async"></script>
+		    	<div id="tags_cloud" style="width:260px; height:200px;">
+					<ul>
+					{% for tag in site.tags %}
+						<li><a href="http://sbzhouhao.net/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a></li>
+					{% endfor %}
+					</ul>
+				</div>
 		    </div>
 		    <div style="clear:both;"></div>
       	</div>
