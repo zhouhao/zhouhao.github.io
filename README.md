@@ -18,5 +18,5 @@ This project is forked from here: https://github.com/kejinlu/kejinlu.github.com
 
 ###What's Next?
 - [x] Add code hight light in blog    
-- [ ] Add “back to top” button    
+- [x] Add “back to top” button    
 - [ ] customize the right side of main page    
