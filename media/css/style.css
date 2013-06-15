@@ -13,7 +13,7 @@
 @import url(http://fonts.googleapis.com/css?family=Electrolize);
 @import url(http://fonts.googleapis.com/css?family=Cuprum);
 body{font-size:14px;word-spacing:1px;background-color:#EDEDED;margin-left:auto;
-margin-right:auto;	font-family:"Galdeano","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;color:#000000;}
+margin-right:auto;	font-family:"Galdeano","Hiragino Sans GB","Microsoft YaHei","Trebuchet","Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;color:#000000;}
 *{padding:0;margin: 0;border:none;outline:none;background-color:#EDEDED;}
 a{color:#dd0000;text-decoration:none;}
 a:hover{color:#333333;text-decoration:underline;}
@@ -23,29 +23,31 @@ li{padding:.2em 0;}
 ol,ul{list-style-position:inside;}
 ol ul, ul ol, ul ul, ol ol {margin-left:1em;}
 pre code{margin:1em 0;font-size:13px;line-height:1.6;display:block;overflow:auto;}
+.clearBoth{clear:both;}
 blockquote{display:block;text-align:justify;border-left:4px solid #eeeeee;}
 blockquote{margin:1em 0em;padding-left:1.5em;}
 blockquote p{margin:0;padding:.5em 0;}
-#container{width:600px;margin:2em auto;display:block;padding:0 2em;}
+#container{width:1024px;margin:2em auto;display:block;padding:0 2em;}
 .content{font-size:16px;line-height:24px;}
 .content h1{padding:.5em 0;}
-.content img{max-width:600px;display:block;margin:4px auto;-webkit-box-shadow:#999 1px 1px 4px;-moz-box-shadow:#999 1px 1px 4px;box-shadow:#999 1px 1px 4px;}
+.content img{max-width:640px;display:block;margin:4px auto;-webkit-box-shadow:#999 1px 1px 4px;-moz-box-shadow:#999 1px 1px 4px;box-shadow:#999 1px 1px 4px;}
 .group img{display:inline; margin-left:10px;}
 #tag_cloud{margin-bottom: 1em;}
 #tag_cloud a:hover{color:#333333 !important;text-decoration:none;}
 .listing-item,.listing-seperator{list-style-type:none;}
-.listing-item a{
-	padding:.2em 1em;
-
-}
-
+.listing-item a{padding:.2em 1em;}
 .listing-item time{color:#999999;}
 .listing-seperator{font-weight:bold;}
 .meta{text-align:right;font-size:12px;}
 header{padding:.5em 0;border-bottom: 1px solid #cccccc;}
-nav{font-family:"Electrolize",sans-serif;font-size:1.1em;text-transform:uppercase;float:left;margin-left:-12em;width:9em;text-align:right;}
-nav a{display:block;padding:.7em 1em;color:#000000;}
-nav a:hover{background-color:#00B2EE;text-decoration:none;color:#f9f9f9;-webkit-transition:color .2s linear;}
+.head{width:1024px;height:212px;background: url(/media/images/head.png);
+nav{font-family:"Electrolize",sans-serif;font-size:1.1em;text-transform:uppercase;float:left; width:800px; margin-left:450px;margin-top:40px;}
+nav span{margin-left:20px;float:left;text-decoration:none;}
+nav a{display:block;padding:.7em 1em;color:#46442f;}
+nav a:hover{background-color:#00B2EE;text-decoration:none;color:#f00;-webkit-transition:color .2s linear;}
+.main{width:1024px;background: url(/media/images/body.png) repeat-y;z-index:999; }
+.mainleft{width:640px;min-height:600px;margin-left: 20px;float:left;z-index:9999; }
+.mainright{width:260px;float:left; margin-left: 40px;min-height:600px;}
 .post{padding:.5em 0em;}
 h1{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1.6em;color:#000;}
 h2{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1.4em;color:#111;}

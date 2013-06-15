@@ -17,26 +17,33 @@
     </script>
   </head>
   <body>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>{{ page.title }}</h1>
-        </header>
-        <nav>
-        <span><a title="home page" class="" href="/">Blog</a></span>
-        <span><a title="Album" class="" href="/album">Album</a></span>
-        <span><a title="about" class="" href="/about/">About Me</a></span>
-        <span><a title="guestbook" class="" href="/guestbook/">Comments</a></span>
-        <span><a title="categories" class="" href="/categories/">Categories</a></span>
-        <span><a title="tags" class="" href="/tags/">Tags</a></span>
-        <span><a title="links" class="" href="/links/">Links</a></span>
-        <span><a title="subscribe by RSS" target="_blank" class="" href="/feed/">Subscribe</a></span>
-        </nav>
-        <article class="content">
-        {{ content }}
-        </article>
-      </div>
-
+    <div id="container"> 
+        <div class="head">
+            <nav>
+		        <span><a title="home page" class="" href="/">Blog</a></span>
+		        <span><a title="Album" class="" href="/album">Album</a></span>
+		        <span><a title="categories" class="" href="/categories/">Categories</a></span>
+		        <span><a title="tags" class="" href="/tags/">Tags</a></span>
+		        <span><a title="guestbook" class="" href="/guestbook/">Comments</a></span>
+		        <span><a title="about" class="" href="/about/">About Me</a></span>
+	        </nav>
+        </div>
+        <div id="main" role="main" class="main">
+		    <header>
+	        <h1>{{ page.title }}</h1>
+	        </header>
+		    <div class="mainleft">
+		        <article class="content">
+		        {{ content }}
+		        </article>
+		    </div>
+		    <div class="mainright">
+		    
+		    </div>
+      	</div>
+		<div class="foot">
+            <img src="/media/images/bottom.png" alt="" />
+        </div>
     <footer>
         <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2008 - {{site.time | date:"%Y"}} by <a href="http://zhouhao.github.com/about/">Zhou Hao</a> | <span class="label label-info">{{site.time | date:"%Y-%m-%d %H:%M:%S %Z"}}</span></small></p>
     </footer>
