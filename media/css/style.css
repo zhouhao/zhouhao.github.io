@@ -51,6 +51,7 @@ embed,object,iframe{display:block;margin:4px auto;}
 
 footer{
 width:1024px;
+margin: 0 auto;
 display:block;
 border-top: 1px dashed #CCC;
 text-align: center;
