@@ -4,9 +4,7 @@
 * @author linghua.zhang@me.com
 * @link http://lhzhang.com/
 * @update 2011-12-20
-* 
-* |/ | (~ (~
-* |\.|._)._)
+
 * --------------------------------- */
 
 @import url(http://fonts.googleapis.com/css?family=Galdeano);
@@ -45,7 +43,7 @@ nav{font-family:"Electrolize",sans-serif;font-size:1.1em;text-transform:uppercas
 nav span{margin-left:20px;float:left;text-decoration:none;}
 nav a{display:block;padding:.7em 1em;color:#46442f;}
 nav a:hover{background-color:#00B2EE;text-decoration:none;color:#f00;-webkit-transition:color .2s linear;}
-.main{width:1024px;background: url(/media/images/body.png) repeat-y;z-index:999; }
+#main{width:1024px;background: url(/media/images/body.png) repeat-y;z-index:999; }
 .mainleft{width:640px;min-height:600px;margin-left: 20px;float:left;z-index:9999; }
 .mainright{width:260px;float:left; margin-left: 40px;min-height:600px;}
 .post{padding:.5em 0em;}
@@ -61,6 +59,7 @@ embed,object,iframe{display:block;margin:4px auto;}
 footer{
 display:block;
 border-top: 1px dashed #CCC;
+text-align: center;
 }
 
 footer small {
