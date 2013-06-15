@@ -56,7 +56,8 @@
     <script>
       hljs.initHighlightingOnLoad();
       $(document).ready(function(){
-		 $("#back-to-top").hide();
+      		$(".group").colorbox({rel:'group', slideshow:true});		
+		$("#back-to-top").hide();
 		$(function () {
 			$('#tags_cloud').tagcloud({centrex:120, centrey:100, init_motion_x:10, init_motion_y:10});
 			$(window).scroll(function(){
