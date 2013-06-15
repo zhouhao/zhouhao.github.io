@@ -3,4 +3,4 @@ permalink: /:year/:month/:title/
 url: http://sbzhouhao.net
 author: Zhou Hao
 pygments: true
-paginate: 16
+paginate: 13
