@@ -9,7 +9,7 @@
 This project is forked from here: https://github.com/kejinlu/kejinlu.github.com      
 
 >1. 改进的地方：    
->1). <s>用国内的友言替换了默认的disqus，因为后者提供的facebook之类的国内不方便登录</s>   
+>1). <s>用国内的友言替换了默认的disqus，因为后者提供的facebook之类的国内不方便登录</s>重新用了disqus，友言加载太慢了   
 >2). 添加了分享到其他网站的功能（可以评论的地方就可以分享）    
 >3). 修改了404页面，使其更加好看点    
 >4). 添加了外链相册的功能     
