@@ -19,6 +19,36 @@
 		.main{width:1024px;background: url(/media/images/body.png) repeat-y;z-index:999; }
 		.mainleft{width:640px;min-height:600px;margin-left: 20px;float:left;z-index:9999; }
 		.mainright{width:260px;float:left; margin-left: 40px;min-height:600px;}
+		p#back-to-top{
+		      position:fixed;
+		      bottom:80px;
+		      right:80px;
+		}
+		p#back-to-top a{
+		      text-align:center;
+		      text-decoration:none;
+		      color:#d1d1d1;
+		      display:block;
+		      width:80px;
+		      -moz-transition:color 1s;
+		      -webkit-transition:color 1s;
+		      -o-transition:color 1s;
+		}
+		p#back-to-top a:hover{color:#979797;}
+		p#back-to-top a span{
+		      background:#d1d1d1 url(/media/images/arrow-up.png) no-repeat center center;
+		      border-radius:6px;
+		      display:block;
+		      height:80px;
+		      width:80px;
+		      margin-bottom:5px;
+		      /*使用CSS3中的transition属性给<span>标签背景颜色添加渐变效果*/
+		      -moz-transition:background 1s;
+		      -webkit-transition:background 1s;
+		      -o-transition:background 1s;
+		}
+		#back-to-top a:hover span{background:#979797 url(/media/images/arrow-up.png) no-repeat center center;}
+
 	</style>
     <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
     <script>
