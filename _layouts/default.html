@@ -59,6 +59,7 @@
       $(document).ready(function(){
 		 $("#back-to-top").hide();
 		$(function () {
+			$('#tags_cloud').tagcloud({centrex:250, centrey:250, init_motion_x:10, init_motion_y:10});
 			$(window).scroll(function(){
 				if ($(window).scrollTop()>100){
 					$("#back-to-top").fadeIn(500);
@@ -74,9 +75,6 @@
 					return false;
 				});
 			});
-		});
-		$(function(){
-	    $('#tags_cloud').tagcloud({centrex:250, centrey:250, init_motion_x:10, init_motion_y:10});
 		});
     </script>
   </head>
