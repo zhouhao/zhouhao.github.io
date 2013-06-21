@@ -33,7 +33,7 @@ tags: [Perl]
 2. 遍历每个产品，把产品名中非字母的字符替换为空格，然后把产品名根据空格split为数组，然后把数组中的每个单词与步骤1中的hash map匹对，一旦找到相符的，更新分类，并跳到下一个产品。   
 3. 把未分类的产品存储到一个新的Excel文件中（其实我是用了两个），方便日后再次归类。    
 
-**你可以在此查看Perl代码。[Github](https://github.com/zhouhao/User_Perl_to_Process_Spreadsheet_and_MySQL/)**     
+**你可以在此查看Perl代码。[Github](https://github.com/zhouhao/User_Perl_to_Process_Spreadsheet_and_MySQL/blob/master/perl_spreadsheet_mysql.pl)**     
 
 
 Perl加载excel表格的时候速度比较慢（害得我开始估计错了时间，整个80000多的记录5分钟不到就跑完了）。      
