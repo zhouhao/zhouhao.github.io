@@ -14,7 +14,8 @@ tags: [Intro]
   	Tag cloud失效，并且揉做一团      
 
 <img src="http://farm4.staticflickr.com/3818/9111154303_518dd6d102_z.jpg" width="600" height="403" alt="这个地球统计Flash彻底破坏了页面的层次">     
-		这个地球统计Flash彻底破坏了页面的层次（通过js导入的，还不好设置z-index。大家多看几眼吧，说不定哪天你再来访问，它就不见了）    
+	这个地球统计Flash彻底破坏了页面的层次
+	（通过js导入的，还不好设置z-index。大家多看几眼吧，说不定哪天你再来访问，它就不见了）    
 
 **现在能完全正确的运行的应该只有Chrome（Chromium也不行）**
 
