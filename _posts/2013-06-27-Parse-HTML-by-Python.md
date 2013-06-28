@@ -97,3 +97,5 @@ if __name__=="__main__":
     main()
 </code>
 </pre>
+
+###Find more info about it in [Github](https://github.com/zhouhao/Use_BeautifulSoup_to_Parse_Chemicalbook_website).
