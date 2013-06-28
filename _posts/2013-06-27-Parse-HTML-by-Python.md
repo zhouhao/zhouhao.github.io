@@ -28,7 +28,7 @@ from BeautifulSoup import BeautifulSoup
 
 #------------------------------------------------------------------------------
 
-# remove <a><b> from string
+# remove &lt;a&gt;, &lt;b&gt; from string
 def filter_tags(htmlstr):
     re_h=re.compile('</?[ab]+[^>]*>')
     s=re_h.sub('',htmlstr) 
