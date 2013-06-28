@@ -16,7 +16,7 @@ Common use:
 >4.Wash liquid  
 >5.Sauce for cooking  
 >6.Rice cooker    
->7.Electric Kettle
+>7.Electric Kettle    
 >8.....
 
 Personal use:
