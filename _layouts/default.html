@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/media/css/style.css">
     <link rel="stylesheet" href="/media/css/highlight.css">
     <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
     <link rel="stylesheet" href="/media/css/jqcloud.css">
     <script type="text/javascript" src="/media/js/jqcloud-1.0.4.min.js"></script>
     <link rel="stylesheet" href="/media/css/code.css">
@@ -91,7 +90,9 @@
 	<script type="text/javascript">
 	//https://github.com/lucaong/jQCloud/blob/master/examples/index.html
       var word_list = [
-        {% for tag in site.tags %}{text: "{{ tag[0] }}", weight: {{ tag[1].size }}, link: "http://sbzhouhao.net/tags/#{{ tag[0] }}"},{% endfor %}
+        {% for tag in site.tags %}
+        	{text: "{{ tag[0] }}", weight: {{ tag[1].size }}, link: "http://sbzhouhao.net/tags/#{{ tag[0] }}"},
+        {% endfor %}
 
       ];
       $(function() {
