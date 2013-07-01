@@ -34,12 +34,14 @@ layout: default
 </span>
 {% endif %}
 </section>
-{% if page.next %}
-<a href="{{ site.url }}{{ page.next.url }}">{{ page.next.title }}</a>
-{% endif %}
 {% if page.previous %}
-<a href="{{ site.url }}{{ page.previous.url }}">{{ page.previous.title }}</a>
+>> Previous: <a href="{{ site.url }}{{ page.previous.url }}">{{ page.previous.title }}</a>
 {% endif %}
+<br/>
+{% if page.next %}
+>> Next: <a href="{{ site.url }}{{ page.next.url }}">{{ page.next.title }}</a>
+{% endif %}
+
 {% include comments.md %}
 
 
