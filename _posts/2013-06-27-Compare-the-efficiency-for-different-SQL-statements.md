@@ -7,7 +7,7 @@ tags: [MySQL]
 ---
 ### forgot to get the screen shot... No image, No truth!
 
-```
+<pre><code>
 --显示行 0 - 4 ( 5 总计, 查询花费 3.0473 秒)
 select distinct p.products_image,  p.products_quantity ,  p.products_id,  pd.products_name,  p.products_price,  p.products_tax_class_id, p.products_price_sorter, p.products_qty_box_status, p.master_categories_id 
 FROM products p join  products_description pd on p.products_id = pd.products_id 
@@ -90,5 +90,4 @@ where pro.products_status=1 and pro.products_id in (
 order by pro.products_catalog -- if remove order by 显示行 0 - 49 ( 50 总计, 查询花费 0.0950 秒)
 limit 0, 50
 
-
-```
+</code></pre>
