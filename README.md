@@ -4,7 +4,8 @@
 >3. 修改 `_layouts / default.html`中 google analytics的标识  ` _gaq.push(['_setAccount', 'UA-39886095-1']);`[If you do not need it, just delete it. It doesn't matter.];    
 >4. 修改部分页面里面的邮箱地址；    
 >5. 如果你没有自己独立的域名，记得把`CNAME`文件删掉(just delete it, you can add it, when you have your own domail name)，否则就替换成你自己的域名。不然网站无法运行        
-  
+>6. Absolutely, there are more details needed to be fixed...       
+
 
 This project is forked from here: https://github.com/kejinlu/kejinlu.github.com      
 
