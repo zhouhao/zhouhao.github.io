@@ -18,7 +18,7 @@ WHERE `field_name` LIKE '%from_str%'
 
 
 
-MySQL "where" field is case-sensitive. so when you need to make in-sensitive, you'd add `COLLATE UTF8_GENERAL_CI` when doing search, like below:    
+MySQL "where" field is case-sensitive. so when you need to make in-sensitive, you'd add **COLLATE UTF8_GENERAL_CI** when doing search, like below:    
 <pre>
 <code>SELECT  *
 FROM    trees
