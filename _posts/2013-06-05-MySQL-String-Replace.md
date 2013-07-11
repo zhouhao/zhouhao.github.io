@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MySQL String Replace"
+title: "MySQL String Replace[Contain other operations]"
 description: "MySQL字段替换"
 category: Database
 tags: [MySQL]
@@ -13,4 +13,15 @@ tags: [MySQL]
     
 参考页面：[http://www.cnblogs.com/freespider/archive/2011/09/13/2174386.html](http://www.cnblogs.com/freespider/archive/2011/09/13/2174386.html)
 
-<h1 class="h1user">Zhou Hao</h1>
+
+
+MySQL "where" field is case-sensitive. so when you need to make in-sensitive, you'd add `COLLATE UTF8_GENERAL_CI` when doing search, like below:    
+<pre>
+<code>
+SELECT  *
+FROM    trees
+WHERE   trees.`title` COLLATE UTF8_GENERAL_CI LIKE '%elm%'
+<code>
+<pre>
+
+Thanks for: http://stackoverflow.com/questions/2876789/case-insensitive-for-sql-like-wildcard-statement  
