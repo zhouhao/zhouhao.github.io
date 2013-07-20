@@ -60,7 +60,7 @@ Below are two pictures for my first plugin of chrome, which is just for fun.
     
 2. <img src="http://farm3.staticflickr.com/2842/9322482839_aab456d49f_z.jpg" width="640" height="94" alt="follow step 1,2,3">     
 
-  1). Enable `Developer Mode`    
+  	1). Enable `Developer Mode`    
 	2). click `Load unpacked extension`, and select the folder which contains the files above   
 	3). Now, the plugin will shoe in the list below, if no error happens.     
 	4). If you want to make it as a `*.crx` file, just follow the steps after clicking `Pack extension`.
