@@ -43,7 +43,7 @@ For this demo, there are three important code files:
 		<script src="test.js" type="text/javascript"></script>
 		</head>
 		</html>
-    /code></pre>
+    </code></pre>
 
 ###code for `test.js`:    
 <pre>
