@@ -37,12 +37,12 @@ For this demo, there are three important code files:
 </code></pre>
 
 ###code for `background_page.html`:   
-<pre><code>
-<html>
-<head>
-<script src="test.js" type="text/javascript"></script>
-</head>
-</html>
+    <pre><code>
+    <html>
+    <head>
+    <script src="test.js" type="text/javascript"></script>
+    </head>
+    </html>
 </code></pre>
 
 ###code for `test.js`:    
