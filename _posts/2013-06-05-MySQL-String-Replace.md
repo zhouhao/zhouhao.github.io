@@ -9,8 +9,7 @@ tags: [MySQL]
 <pre>
 <code>UPDATE `table_name` 
 SET `field_name` = replace (`field_name`,'from_str','to_str') 
-WHERE `field_name` LIKE '%from_str%'
-</code>
+WHERE `field_name` LIKE '%from_str%'</code>
 </pre>
 就这么一句话解决了所有的问题！在此感谢博客园。
     
@@ -18,12 +17,20 @@ WHERE `field_name` LIKE '%from_str%'
 
 
 
-MySQL "where" field is case-sensitive. so when you need to make in-sensitive, you'd add **COLLATE UTF8_GENERAL_CI** when doing search, like below:    
+####MySQL "where" field is case-sensitive. so when you need to make in-sensitive, you'd add *`COLLATE UTF8_GENERAL_CI`* when doing search, like below:    
 <pre>
 <code>SELECT  *
 FROM    trees
-WHERE   trees.`title` COLLATE UTF8_GENERAL_CI LIKE '%elm%'
-</code>
+WHERE   trees.`title` COLLATE UTF8_GENERAL_CI LIKE '%elm%'</code>
 </pre>
 
 Thanks for: [http://stackoverflow.com/questions/2876789/case-insensitive-for-sql-like-wildcard-statement](http://stackoverflow.com/questions/2876789/case-insensitive-for-sql-like-wildcard-statement)  
+
+####If you want to select the 500th record from a table, you can do it like below:   
+<pre>
+<code>SELECT products_id 
+FROM  products 
+ORDER BY products_id DESC 
+LIMIT 1 OFFSET 500</code>
+</pre>
+Thanks for: [http://stackoverflow.com/questions/16568/how-to-select-the-nth-row-in-a-sql-database-table](http://stackoverflow.com/questions/16568/how-to-select-the-nth-row-in-a-sql-database-table)
