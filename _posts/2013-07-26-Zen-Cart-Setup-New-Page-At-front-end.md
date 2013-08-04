@@ -57,10 +57,11 @@ define('HEADING_TITLE', 'Example page');
 &lt;br class="clearBoth"/&gt;</code></pre>
 
 ###Note:  
-I think step 3 is not necessary, as I have removed multi-language support, but for **compatibility** reason, I just keep it now in version 1.   
+<del>I think step 3 is not necessary, as I have removed multi-language support, but for **compatibility** reason, I just keep it now in version 1.</del>    
+<h5 style="color:blue">I do not create `example.php` for my new page, and it works well!</h5>   
 
 ###Now you can browse this page use the link: 
-[http://zen-cart.achemtek.com/index.php?main_page=example](http://zen-cart.achemtek.com/index.php?main_page=example)
+[http://example.com/index.php?main_page=example](http:/example.com/index.php?main_page=example)
 
 Good luck.    
 Any problem, you can email me: [hzhou@wpi.edu](mailto:hzhou@wpi.edu)
