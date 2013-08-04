@@ -58,10 +58,10 @@ define('HEADING_TITLE', 'Example page');
 
 ###Note:  
 <del>I think step 3 is not necessary, as I have removed multi-language support, but for **compatibility** reason, I just keep it now in version 1.</del>    
-<h5 style="color:blue">I do not create `example.php` for my new page, and it works well!</h5>   
+<h4 style="color:blue">I do not create `example.php` for my new page, and it works well!</h4>   
 
 ###Now you can browse this page use the link: 
-[http://example.com/index.php?main_page=example](http:/example.com/index.php?main_page=example)
+[http://example.com/index.php?main_page=example](http://example.com/index.php?main_page=example)
 
 Good luck.    
 Any problem, you can email me: [hzhou@wpi.edu](mailto:hzhou@wpi.edu)
