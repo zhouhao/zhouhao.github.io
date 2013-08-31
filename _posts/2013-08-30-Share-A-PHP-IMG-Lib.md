@@ -7,7 +7,7 @@ tags: [PHP, Codeigniter]
 ---
 
 ```
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+&lt;?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Imglib
 {
 
@@ -132,5 +132,5 @@ class Imglib
 	}
 	
 }
-?>
+?&gt;
 ```
