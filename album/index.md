@@ -24,3 +24,4 @@ $(".group").colorbox({rel:'group', slideshow:true});
 <a class="group" href="http://farm4.staticflickr.com/3762/9013457718_d657a045f5_z.jpg" title="IMG_1591 by Zhou Hao, on Flickr"><img src="http://farm4.staticflickr.com/3762/9013457718_d657a045f5_z.jpg" width="100" alt="IMG_1591"></a>
 <a class="group" href="http://farm4.staticflickr.com/3813/9013455532_0cece4a13a_z.jpg" title="这个小家伙太活跃了"><img src="http://farm4.staticflickr.com/3813/9013455532_0cece4a13a_z.jpg" width="100" alt="IMG_1525"></a>
 <a class="group" href="http://farm4.staticflickr.com/3672/9620134912_f10d6b6baa_z.jpg" title="CSSA招新"><img src="http://farm4.staticflickr.com/3672/9620134912_f10d6b6baa_z.jpg" width="100" alt="CSSA招新"></a>
+<a class="group" href="http://farm8.staticflickr.com/7350/9781036741_7d413c6f45_z.jpg" title="VSA-BBQ"><img src="http://farm8.staticflickr.com/7350/9781036741_7d413c6f45_t.jpg" width="100" alt="VSA-BBQ"></a>
