@@ -5,7 +5,8 @@ description: "Last Class for Spring Term"
 category: PHP
 tags: [PHP, Codeigniter]
 ---
-
+I wish you know how to use it. Actually, if you know something about Codeigniter, and you want to deal with Images, then you will find this library maybe helpful to you.     
+###If you have any questions, you can contact me at: hzhou@wpi.edu or zhouhao@mit.edu   
 <pre><code>
 &lt;?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Imglib
