@@ -11,26 +11,26 @@ tags: [Big Data, Hadoop]
 如何用mapper处理多输入的情况：  
 > 多个mapper：每个mapper处理对应的输入文件[https://github.com/zhouhao/Hadoop_Project1/blob/master/MapReduceQueries/Query3/query3.java][1]    
 
-     <pre><code>MultipleInputs.addInputPath(conf, new Path(args[0]), TextInputFormat.class, CustomerMap.class);
-      MultipleInputs.addInputPath(conf, new Path(args[1]), TextInputFormat.class, TransactionMap.class);
-      FileOutputFormat.setOutputPath(conf, new Path(args[2])); </code></pre>     
+<pre><code>MultipleInputs.addInputPath(conf, new Path(args[0]), TextInputFormat.class, CustomerMap.class);
+MultipleInputs.addInputPath(conf, new Path(args[1]), TextInputFormat.class, TransactionMap.class);
+FileOutputFormat.setOutputPath(conf, new Path(args[2])); </code></pre>     
 
 
 > 一个mapper：一个mapper处理所有不同的文件：[https://github.com/zhouhao/CS525-Big-Data-Course-Project/blob/master/OtherDemo/query1.java][2]（如下代码段，在mapper内部，我们可以数据来自哪个文件，然后进行相应的处理）      
     
-        <pre><code>public static class Map extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text> 
-        {
+<pre><code>public static class Map extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text> 
+{
 
-		public void map(LongWritable key, Text value, OutputCollector<Text,Text> output, Reporter reporter) throws IOException 
-		{
-			//Get FileName from reporter
-			FileSplit fileSplit = (FileSplit)reporter.getInputSplit();
-			String filename = fileSplit.getPath().getName();
+	public void map(LongWritable key, Text value, OutputCollector<Text,Text> output, Reporter reporter) throws IOException 
+	{
+		//Get FileName from reporter
+		FileSplit fileSplit = (FileSplit)reporter.getInputSplit();
+		String filename = fileSplit.getPath().getName();
 
-			//String line = value.toString();
-			output.collect(new Text(filename),value);  			
-	    }
-        }</code></pre>
+		//String line = value.toString();
+		output.collect(new Text(filename),value);  			
+	}
+}</code></pre>
 
 **PS: mapper的输入可以是一个文件夹：`FileInputFormat.setInputPaths(conf, new Path("/tmp/"));`**
 
