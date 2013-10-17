@@ -34,5 +34,6 @@ FileOutputFormat.setOutputPath(conf, new Path(args[2])); </code></pre>
 
 **PS: mapper的输入可以是一个文件夹：`FileInputFormat.setInputPaths(conf, new Path("/tmp/"));`**
 
+*My blog in OSChina: http://my.oschina.net/sbzhouhao/blog/165495*
   [1]: https://github.com/zhouhao/Hadoop_Project1/blob/master/MapReduceQueries/Query3/query3.java
   [2]: https://github.com/zhouhao/CS525-Big-Data-Course-Project/blob/master/OtherDemo/query1.java
