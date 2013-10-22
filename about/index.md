@@ -17,7 +17,7 @@ comments: yes
 	<p>我会编程。但是更多人不会。这真他妈的酷！（引用自笨方法学Python的结束语） </p>
 	<ul>
 		<li>个人邮箱: <a href="mailto:hzhou@wpi.edu"> hzhou@wpi.edu</a></li>    
-		<li>新浪微博: <a href="http://weibo.com/sbzhouhao]">疯狂的咸蛋</a></li>  
+		<li>新浪微博: <a href="http://weibo.com/sbzhouhao">疯狂的咸蛋</a></li>  
 		<li>GitHub:   <a href="http://github.com/zhouhao">我写了一些很糟糕的代码在这里</a></li>  
 		<li>LinkedIn: <a href="http://www.linkedin.com/in/sbzhouhao">我的个人介绍</a></li>  
 	</ul>
