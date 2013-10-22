@@ -24,5 +24,4 @@ layout: page
 	</li>
 	{% endfor %}
 	</ul>
-	<br/><br/>
 </div>
