@@ -8,13 +8,32 @@ layout: default
 	{{ content }}
 	</section>
 	<br/>
-	{% if page.previous %}
-	>> Previous: <a href="{{ site.url }}{{ page.previous.url }}">{{ page.previous.title }}</a>
-	{% endif %}
-	<br/>
-	{% if page.next %}
-	>> Next: <a href="{{ site.url }}{{ page.next.url }}">{{ page.next.title }}</a>
-	{% endif %}
+
+	<footer class="entry-meta">
+		<ul class="cmsms_tags">
+		{% if page.tags %}
+			<li>Tags: </li>
+		 	% for tag in page.tags %}
+			<li><a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>, </li>
+			{% endfor %}
+		{% endif %}
+
+		</ul>
+	</footer>
+											
+	<div class="project_navi">
+		
+		{% if page.next %}
+		<span class="fr"> <a href="{{ site.url }}{{ page.next.url }}" class="next">{{ page.next.title }}</a></span>
+		{% endif %}
+		{% if page.previous %}
+		<span class="fl"> <a href="{{ site.url }}{{ page.previous.url }}" class="prev">{{ page.previous.title }}</a></span>
+		{% endif %}
+
+	</div>
+	<div class="cl"></div>
+
+
 	<section class="meta">
 	<span class="author">
 	  <a href="http://sbzhouhao.net/">{{ site.author }}</a>
@@ -23,15 +42,6 @@ layout: default
 	  /
 	  <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date:"%Y-%m-%d" }}</time>
 	</span>
-	<br />
-	{% if page.tags %}
-	<span class="tags">
-	  tagged with 
-	  {% for tag in page.tags %}
-	  <a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;
-	  {% endfor %}
-	</span>
-	{% endif %}
 	</section>
 </div>
 
