@@ -1,6 +1,7 @@
 markdown: rdiscount
 permalink: /:year/:month/:title/
 url: http://sbzhouhao.net
+name: crazyEgg
 author: Hao Zhou
 email: hzhou@wpi.edu | zhouhao@mit.edu
 version: 3.0
