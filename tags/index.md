@@ -24,16 +24,4 @@ layout: page
 	</li>
 	{% endfor %}
 	</ul>
-
 </div>
-<script src="/media/js/jquery.tagclouds.js" type="text/javascript" charset="utf-8"></script> 
-<script language="javascript">
-$.fn.tagclouds.defaults = {
-    size: {start: 1, end: 1, unit: 'em'},
-      color: {start: '#FFAEB9', end: '#ff3333'}
-};
-
-$(function () {
-    $('#tag_cloud a').tagclouds();
-});
-</script>
