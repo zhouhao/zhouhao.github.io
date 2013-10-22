@@ -4,6 +4,10 @@ layout: default
 
 <div class="middle_inner">
 	<h1>{{ page.title }}</h1>
+	<section class="meta">
+		<span class="author"><a href="http://sbzhouhao.net/">{{ site.author }}</a></span>
+		<span class="time">/<time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date:"%Y-%m-%d" }}</time></span>
+	</section>
 	<section class="post">
 	{{ content }}
 	</section>
@@ -24,25 +28,15 @@ layout: default
 	<div class="project_navi">
 		
 		{% if page.next %}
-		<span class="fr"> <a href="{{ site.url }}{{ page.next.url }}" class="next">{{ page.next.title }}&lt;&lt;</a></span>
+		<span class="fr"> <a href="{{ site.url }}{{ page.next.url }}" class="next">{{ page.next.title }}&gt;&gt;</a></span>
 		{% endif %}
 		{% if page.previous %}
-		<span class="fl"> <a href="{{ site.url }}{{ page.previous.url }}" class="prev">&gt;&gt;{{ page.previous.title }}</a></span>
+		<span class="fl"> <a href="{{ site.url }}{{ page.previous.url }}" class="prev">&lt;&lt;{{ page.previous.title }}</a></span>
 		{% endif %}
 
 	</div>
 	<div class="cl"></div>
 
-
-	<section class="meta">
-	<span class="author">
-	  <a href="http://sbzhouhao.net/">{{ site.author }}</a>
-	</span>
-	<span class="time">
-	  /
-	  <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date:"%Y-%m-%d" }}</time>
-	</span>
-	</section>
 </div>
 
 {% include comments.md %}
