@@ -1,5 +1,5 @@
-<section id="bottom">
-	<div class="bottom_inner">
+<section id="middle">
+	<div class="middle_inner">
 		<!-- JiaThis Button BEGIN -->
 		<div class="jiathis_style">
 		  <span class="jiathis_txt">分享到：</span>
