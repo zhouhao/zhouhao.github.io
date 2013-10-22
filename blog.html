@@ -2,7 +2,12 @@
 title: CrazyEgg
 layout: page
 ---
-
+  <script type='text/javascript'>
+    $(document).ready(function() 
+    {
+      $('.blog_tab').attr('class', 'current_page_item');
+    });
+  </script>
 <ul class="listing">
 {% for post in paginator.posts %}
   {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
