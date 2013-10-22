@@ -1,3 +1,8 @@
+The theme of this website is bought here: http://themeforest.net/item/increase-premium-business-wordpress-theme/4769391?ref=cmsmasters.     
+If you like it, please buy it.     
+
+JUST A FORK IS NOT ENOUGHT!    
+======
 如果你直接拷贝或Fork本Git库作为自己的博客，但是请务必做好以下的事：     
 >1. 一定不要忘记删除我写的文章，    
 >2. 修改 `_includes / comments.md` 中的代码（此处用的是国内友言, all of these codes are related to my ID, so you should register for your own, and it is very easy）;    
