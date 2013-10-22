@@ -14,7 +14,7 @@ layout: default
 		{% if page.tags %}
 			<li>Tags: </li>
 		 	{% for tag in page.tags %}
-			<li><a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>, </li>
+			<li><a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;&nbsp; </li>
 			{% endfor %}
 		{% endif %}
 
@@ -24,10 +24,10 @@ layout: default
 	<div class="project_navi">
 		
 		{% if page.next %}
-		<span class="fr"> <a href="{{ site.url }}{{ page.next.url }}" class="next">{{ page.next.title }}</a></span>
+		<span class="fr"> <a href="{{ site.url }}{{ page.next.url }}" class="next">{{ page.next.title }}&lt;&lt;</a></span>
 		{% endif %}
 		{% if page.previous %}
-		<span class="fl"> <a href="{{ site.url }}{{ page.previous.url }}" class="prev">{{ page.previous.title }}</a></span>
+		<span class="fl"> <a href="{{ site.url }}{{ page.previous.url }}" class="prev">&gt;&gt;{{ page.previous.title }}</a></span>
 		{% endif %}
 
 	</div>
