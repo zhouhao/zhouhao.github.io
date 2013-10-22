@@ -11,19 +11,27 @@ layout: page
 </script>
 
 <div class="middle_inner">
-	<ul class="listing">
-	{% for post in paginator.posts %}
-		{% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
-		{% if year != y %}
-			{% assign year = y %}
-			<li class="listing-seperator">{{ y }}</li>
-		{% endif %}
-		<li class="listing-item">
-			<time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-			<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-		</li>
-	{% endfor %}
-	</ul>
+	<section id="content">
+		<div class="entry">
+
+			<ul>		
+			{% for post in paginator.posts %}
+				{% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
+				{% if year != y %}
+					{% assign year = y %}
+					</ul>
+					<h4>{{ y }}</h4>
+					<ul class="cmsms_timeline">
+				{% endif %}
+				<li>
+					<time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+					<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+				</li>
+			{% endfor %}
+			</ul>
+
+		</div>
+	</section>
 
 	<div id="post-pagination" class="paginator">
 
