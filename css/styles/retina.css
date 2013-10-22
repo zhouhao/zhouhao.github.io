@@ -1,0 +1,366 @@
+/**
+ * @package Site Template
+ * @subpackage Increase HTML
+ * @since Increase 1.0
+ * 
+ * Site Template for Retina Display
+ * Created by CMSMasters
+ * 
+ */
+
+
+@media (-webkit-min-device-pixel-ratio: 2) {	
+	
+	body {
+		background-image:url(../images/retina/bg_body@2x.jpg);
+		background-size:10px 2000px; 
+	}
+	
+	#slide_top {
+		background-image:url(../images/retina/arrow_top@2x.png);
+		background-size:35px 35px; 
+	}
+	
+	a span.image_rollover {
+		background-image:url(../images/retina/hover_content@2x.png);
+		background-size:100px 100px; 
+	}
+	
+	a.jackbox  span.image_rollover {
+		background-image:url(../images/retina/hover_image@2x.png);
+		background-size:100px 100px; 
+	}
+
+	.format-link a span.image_rollover {
+		background-image:url(../images/retina/hover_content@2x.png);
+		background-size:100px 100px; 
+	}
+
+	.format-video a span.image_rollover {
+		background-image:url(../images/retina/hover_content@2x.png);
+		background-size:100px 100px; 
+	}
+
+	.portfolio.format-album a span.image_rollover, 
+	.post.format-image a span.image_rollover, 
+	.post-article a span.image_rollover {
+		background-image:url(../images/retina/hover_content@2x.png);
+		background-size:100px 100px; 
+	}
+
+	.portfolio.format-album.format-cover a span.image_rollover, 
+	.post_type_shortcode .portfolio.format-album a span.image_rollover, 
+	.post_type_shortcode .post.format-image a span.image_rollover {
+		background-image:url(../images/retina/hover_content@2x.png);
+		background-size:100px 100px; 
+	}
+
+	.format-link a span.image_rollover {
+		background-image:url(../images/retina/hover_link@2x.png);
+		background-size:100px 100px; 
+	}
+
+	.format-video a span.image_rollover {
+		background-image:url(../images/retina/hover_video@2x.png);
+		background-size:100px 100px; 
+	}
+
+	.portfolio.format-album a span.image_rollover, 
+	.post.format-image a span.image_rollover, 
+	.post-article a span.image_rollover {
+		background-image:url(../images/retina/hover_image@2x.png);
+		background-size:100px 100px; 
+	}
+
+	.portfolio.format-album.format-cover a span.image_rollover, 
+	.post_type_shortcode .portfolio.format-album a span.image_rollover, 
+	.post_type_shortcode .post.format-image a span.image_rollover {
+		background-image:url(../images/retina/hover_content@2x.png);
+		background-size:100px 100px; 
+	}
+	
+	.social_toggle span {
+		background-image:url(../images/retina/social_toggle@2x.png);
+		background-size:13px 51px; 
+	}
+	
+	.pricingtable .cmsms_price {
+		background-image:url(../images/retina/pricingtable_bg@2x.png);
+		background-size:50px 50px; 
+	}
+
+	.one_third .pricingtable .cmsms_price, 
+	.one_half .pricingtable .cmsms_price, 
+	.one_first .pricingtable .cmsms_price {
+		background-image:url(../images/retina/pricingtable_bg_one_third@2x.png);
+		background-size:60px 60px; 
+	}
+	
+	.icon_banner {
+		background-image:url(../images/retina/icon_banner@2x.png);
+		background-size:55px 60px; 
+	}
+	
+	.tp-leftarrow.default, 
+	.tp-leftarrow.default:hover, 
+	.tp-rightarrow.default, 
+	.tp-rightarrow.default:hover { 
+		background-image:url(../images/retina/slider_arrow@2x.png);
+		background-size:74px 19px; 
+	}
+	
+	.box.error_box table td:first-child {
+		background-image:url(../images/retina/error@2x.png);
+		background-size:60px 43px; 
+	}
+
+	.box.success_box table td:first-child {
+		background-image:url(../images/retina/success@2x.png);
+		background-size:60px 43px; 
+	}
+
+	.box.notice_box table td:first-child {
+		background-image:url(../images/retina/notice@2x.png);
+		background-size:60px 43px; 
+	}
+
+	.box.warning_box table td:first-child {
+		background-image:url(../images/retina/warning@2x.png);
+		background-size:60px 43px; 
+	}
+
+	.box.download_box table td:first-child {
+		background-image:url(../images/retina/download@2x.png);
+		background-size:60px 43px; 
+	}
+	
+	.search_line input[type="submit"] {
+		background-image:url(../images/retina/search@2x.png);
+		background-size:17px 18px; 
+	}
+	
+	.widget_custom_portfolio_entries .widgettitle {
+		background-image:url(../images/retina/popular_projects_widgettitle_dark@2x.png);
+		background-size:20px 20px;
+	}
+
+	.bottom_inner .widget_custom_portfolio_entries .widgettitle {
+		background-image:url(../images/retina/popular_projects_widgettitle@2x.png);
+		background-size:20px 20px; 
+	}
+
+	.widget_links .widgettitle {
+		background-image:url(../images/retina/list_widgettitle_dark@2x.png);
+		background-size:20px 20px; 
+	}
+
+	.bottom_inner .widget_links .widgettitle {
+		background-image:url(../images/retina/list_widgettitle@2x.png);
+		background-size:20px 20px; 
+	}
+	
+	.widget_custom_twitter_entries .widgettitle {
+		background-image:url(../images/retina/twitter_widgettitle_dark@2x.png);
+		background-size:20px 20px; 
+	}
+
+	.bottom_inner .widget_custom_twitter_entries .widgettitle {
+		background-image:url(../images/retina/twitter_widgettitle@2x.png);
+		background-size:20px 20px; 
+	}
+	
+	.widget_custom_contact_form_entries .widgettitle {
+		background-image:url(../images/retina/contact_form_widgettitle_dark@2x.png);
+		background-size:20px 20px; 
+	}
+
+	.bottom_inner .widget_custom_contact_form_entries .widgettitle {
+		background-image:url(../images/retina/contact_form_widgettitle@2x.png);
+		background-size:20px 20px; 
+	}
+
+	.widget_custom_advertising_entries .widgettitle {
+		background-image:url(../images/retina/advertising_widgettitle_dark@2x.png);
+		background-size:20px 20px; 
+	}
+
+	.bottom_inner .widget_custom_advertising_entries .widgettitle {
+		background-image:url(../images/retina/advertising_widgettitle@2x.png);
+		background-size:20px 20px; 
+	}
+
+	.widget_custom_latest_popular_recent_entries .widgettitle {
+		background-image:url(../images/retina/recent_post_widgettitle_dark@2x.png);
+		background-size:20px 20px; 
+	}
+
+	.bottom_inner .widget_custom_latest_popular_recent_entries .widgettitle {
+		background-image:url(../images/retina/recent_post_widgettitle@2x.png);
+		background-size:20px 20px; 
+	}
+
+	.widget_custom_flickr_entries .widgettitle {
+		background-image:url(../images/retina/flickr_widgettitle_dark@2x.png);
+		background-size:20px 20px; 
+	}
+
+	.bottom_inner .widget_custom_flickr_entries .widgettitle {
+		background-image:url(../images/retina/flickr_widgettitle@2x.png);
+		background-size:20px 20px; 
+	}
+	
+	.cmsms_post_img {
+		background-image:url(../images/retina/format_image@2x.png);
+		background-size:48px 48px; 
+	}
+	
+	.format-standard .cmsms_post_img {
+		background-image:url(../images/retina/format_standard@2x.png);
+		background-size:48px 48px; 
+	}
+
+	.format-image .cmsms_post_img, 
+	.format-album .cmsms_post_img {
+		background-image:url(../images/retina/format_image@2x.png);
+		background-size:48px 48px; 
+	}
+
+	.format-aside .cmsms_post_img {
+		background-image:url(../images/retina/format_aside@2x.png);
+		background-size:48px 48px; 
+	}
+
+	.format-link .cmsms_post_img {
+		background-image:url(../images/retina/format_link@2x.png);
+		background-size:48px 48px; 
+	}
+
+	.format-slider .cmsms_post_img,
+	.format-gallery .cmsms_post_img {
+		background-image:url(../images/retina/format_gallery@2x.png);
+		background-size:48px 48px; 
+	}
+
+	.format-audio .cmsms_post_img {
+		background-image:url(../images/retina/format_audio@2x.png);
+		background-size:48px 48px; 
+	}
+
+	.format-video .cmsms_post_img {
+		background-image:url(../images/retina/format_video@2x.png);
+		background-size:48px 48px; 
+	}
+
+	.format-quote .cmsms_post_img {
+		background-image:url(../images/retina/format_quote@2x.png);
+		background-size:48px 48px; 
+	}
+	
+	.wp-pagenavi a span.next,
+	.wp-pagenavi a span.prev {
+		background-image:url(../images/retina/pagenavi@2x.png);
+		background-size:200px 200px; 
+	}
+	
+	.entry .project_navi span a {
+		background-image:url(../images/retina/nav_arrow_left@2x.png);
+		background-size:6px 8px; 
+	}
+	
+	.entry .project_navi span a.next, 
+	.cmsms_share {
+		background-image:url(../images/retina/nav_arrow_right@2x.png);
+		background-size:6px 8px; 
+	}
+	
+	.cmsms_like a {
+		background-image:url(../images/retina/heart@2x.png);
+		background-size:46px 92px; 
+	}
+	
+	.cmsms_like a.active {
+		background-image:url(../images/retina/heart@2x.png);
+		background-size:46px 92px; 
+	}
+	
+	.project_sidebar .cmsms_like a {
+		background-image:url(../images/retina/heart_second@2x.png);
+		background-size:38px 76px; 
+	}
+
+	.p_sort a:after,
+	a.p_cat_filter:after {
+		background-image:url(../images/retina/pj_sort_arrow@2x.png);
+		background-size:26px 38px; 
+	}
+	
+	.cmsms-form-builder .check_parent input[type="radio"]+label {
+		background-image:url(../images/retina/radio_check@2x.png);
+		background-size:19px 103px; 
+	}
+
+	.cmsms-form-builder .check_parent input[type="radio"]:checked+label {
+		background-image:url(../images/retina/radio_check@2x.png);
+		background-size:19px 103px; 
+	}
+	
+	a.cmsms_content_prev_slide, 
+	a.cmsms_content_next_slide {
+		background-image:url(../images/retina/widget_nav@2x.png);
+		background-size:21px 43px; 
+	}
+
+	.top_sidebar a.cmsms_content_prev_slide, 
+	.top_sidebar a.cmsms_content_next_slide, 
+	.middle_sidebar a.cmsms_content_prev_slide, 
+	.middle_sidebar a.cmsms_content_next_slide, 
+	.bottom_inner a.cmsms_content_prev_slide, 
+	.bottom_inner a.cmsms_content_next_slide {
+		background-image:url(../images/retina/widget_nav@2x.png);
+		background-size:21px 43px; 
+	}
+	
+	.bottom_inner a.cmsms_content_prev_slide, 
+	.bottom_inner a.cmsms_content_next_slide {
+		background-image:url(../images/retina/widget_nav_bottom@2x.png);
+		background-size:21px 43px; 
+	}
+	
+	.cmsms-form-builder .check_parent input[type="checkbox"] + label:before, 
+	.wpcf7 form.wpcf7-form span.wpcf7-list-item input[type="checkbox"] + span.wpcf7-list-item-label:before, 
+	.cmsms-form-builder .check_parent input[type="checkbox"]:checked + label:before, 
+	.wpcf7 form.wpcf7-form span.wpcf7-list-item input[type="checkbox"]:checked + span.wpcf7-list-item-label:before, 
+	.cmsms-form-builder .check_parent input[type="radio"] + label:before, 
+	.wpcf7 form.wpcf7-form span.wpcf7-list-item input[type="radio"] + span.wpcf7-list-item-label:before, 
+	.cmsms-form-builder .check_parent input[type="radio"]:checked + label:before, 
+	.wpcf7 form.wpcf7-form span.wpcf7-list-item input[type="radio"]:checked + span.wpcf7-list-item-label:before {
+		background-image:url(../images/radio_check.png);
+		background-size:19px 103px; 
+	}
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+	@media (-webkit-min-device-pixel-ratio: 2) {
+
+		.resp_navigation span {
+			background-image:url(../images/retina/resp_nav_but_bg@2x.png);
+			background-size:24px 12px; 
+		}
+		
+		#navigation li.drop > a > span:before {
+			background-image:url(../images/retina/resp_nav_arrow@2x.png);
+			background-size:35px 9px; 
+		}
+		
+		#navigation li.drop li a:hover span:before, 
+		#navigation li.current_page_item.drop span:before {
+			background-image:url(../images/retina/resp_nav_arrow@2x.png);
+			background-size:35px 9px;
+		}
+	
+	}
+
+}
+

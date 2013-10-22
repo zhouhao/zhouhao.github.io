@@ -1,0 +1,796 @@
+/**
+ * @package Site Template
+ * @subpackage Increase HTML
+ * @since Increase 1.0.1
+ * 
+ * Site Template Fonts & Colors
+ * Created by CMSMasters
+ * 
+ */
+ 
+/* Fonts */
+
+body, 
+li p,
+.sitemap > li ul > li ul li > a {font:13px/18px "Droid Sans", Arial, Geneva, Helvetica, sans-serif;}
+
+.cmsmsLike span {font:13px/18px "Droid Sans", Arial, Geneva, Helvetica, sans-serif;}
+
+.tweet_text, 
+ul.cmsms_category li, 
+.entry .project_navi span a, 
+.cmsms_share, 
+.tab.lpr .tabs_tab abbr, 
+.headline p {font:12px/18px "Droid Sans", Arial, Geneva, Helvetica, sans-serif;}
+	
+.wp-caption-text, 
+.p_sort .button, 
+.p_filter a.p_cat_filter {font:12px/18px "Droid Sans", Arial, Geneva, Helvetica, sans-serif;}
+
+h1 {font:100 32px/36px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+h2 {font:100 24px/36px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+h3 {font:100 22px/36px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+h4 {font:100 20px/36px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+h5 {font:100 18px/24px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+h6 {font:100 16px/24px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+h2.widgettitle {font:100 18px/24px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+.colored_button {font:100 28px/56px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+.sitemap > li > a, 
+.error h2 {font:100 24px/36px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+.widget_portfolio_link,
+.related_posts_content .one_half p {font:100 16px/18px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+.cmsms_info .cmsms_date_year_mounth {
+	line-height:14px;
+	font:normal 12px "Oxygen", ​Arial,​ Geneva,​Helvetica,​sans-serif;
+}
+
+.cmsms_info .cmsms_date_day {
+	font-size:34px;
+	line-height:36px;
+	font-family:"Oxygen", ​Arial,​ Geneva,​Helvetica,​sans-serif;
+}
+
+.cmsms_info .cmsms_date_year_mounth .mounth {font-size:15px;}
+
+.widget_portfolio_link,
+.related_posts_content .one_half p {text-transform:normal;}
+
+.sitemap > li ul > li ul li > a {text-transform:none;}
+
+.skill_item_colored_wrap,
+.sitemap > li ul > li > a {font:100 18px/24px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+.tog {font:16px/18px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+ul.p_filter li a {font:12px/18px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+.tabs li a, 
+.tour li a, 
+.comment-body .cmsms-edit, 
+.comment-reply-link {font:100 13px/18px "Droid Sans", Arial, Geneva, Helvetica, sans-serif;}
+
+.skill_item_colored_wrap {
+	font-weight:bold;
+	text-transform:uppercase;
+}
+
+.tabs li a, 
+.tour li a, 
+.entry .project_navi span a, 
+.cmsms_share, 
+.skill_item > span, 
+.headline p {text-transform:uppercase;}
+
+.comment-reply-link, 
+.tab.lpr .tabs li a {font:11px/18px "Droid Sans", Arial, Geneva, Helvetica, sans-serif;}
+
+.table thead th,
+.table tfoot th {
+	font-weight:normal;
+	text-transform:uppercase;
+}
+
+li {line-height:24px;}
+
+li p,
+li a,
+li abbr,
+li small {line-height:18px;}
+
+q, 
+blockquote,
+.format-quote .entry-title,
+q:before,
+blockquote:before,
+.post.format-aside .entry-content {font:16px/24px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+q, 
+q:before,
+.format-quote .entry-title {
+	font-weight:bold;
+	font-style:italic;
+}
+
+q:before, 
+blockquote:before {
+	font-size:26px;
+	line-height:1.5;
+	font-weight:normal;
+	font-family:'Headland One', serif;
+	color:#33bee5;
+}
+
+code, 
+.project ul.project_details li div {font:13px/18px "Droid Sans", Arial, Geneva, Helvetica, sans-serif;}
+
+small,
+small a,
+abbr,
+abbr a,
+.tab.lpr .tabs_tab strong,
+.cmsms_category li a,
+.post .entry-header .cmsms_post_info span, 
+.post .entry-header .cmsms_post_info .user_name,
+.post .entry-header .cmsms_post_info .published,
+.post .entry-header .cmsms_post_info .post-categories,
+.post.format-quote .entry-content,
+#comments .comment-body .published,
+.comment-body .comment-edit-link,
+.cmsms_tags, 
+.cmsms_tags li, 
+.cmsms_tags li a, 
+.project ul.project_details li span.fl, 
+.skill_item_colored > span {font:12px/18px "Droid Sans", Arial, Geneva, Helvetica, sans-serif;}
+
+input,
+input[type="submit"],
+textarea,
+select,
+option,
+label, 
+.cmsms_select span, 
+.cmsms-form-builder p, 
+.cmsms-form-builder .check_parent input[type="checkbox"]+label,
+.cmsms-form-builder .check_parent input[type="radio"]+label {font:12px/18px Arial, Geneva, Helvetica, sans-serif;}
+
+#navigation > li > a, 
+#navigation > li.current_page_item > a,
+#navigation > li.current_page_ancestor > a,
+#navigation > li.current-menu-ancestor > a,
+#navigation > li:hover > a {font:14px/18px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+#navigation ul li a, 
+.cmsms_shortcode_testimonials blockquote  {font:13px/18px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+.portfolio_container.two_blocks .portfolio_inner .project_rollover .entry-header h6 {font:100 18px/18px "Oxygen",Arial,Geneva,Helvetica,sans-serif;}
+
+.portfolio_container.one_block .portfolio_inner .project_rollover .entry-header h6 {font:100 18px/18px "Oxygen",Arial,Geneva,Helvetica,sans-serif;}
+
+.portfolio_container.three_blocks .portfolio_inner .project_rollover ul.cmsms_category li {font:14px/18px "Droid Sans",Arial,Geneva,Helvetica,sans-serif;}
+
+.portfolio_container.two_blocks .portfolio_inner .project_rollover ul.cmsms_category li {font:14px/18px "Droid Sans",Arial,Geneva,Helvetica,sans-serif;}
+
+.portfolio_container.one_block .portfolio_inner .project_rollover ul.cmsms_category li {font:14px/18px "Droid Sans",Arial,Geneva,Helvetica,sans-serif;}
+
+#slider h1 {
+	font-size:31px;
+	line-height:36px;
+}
+
+#slider,
+#slider a,
+#slider h6 {
+	font-size:15px;
+	line-height:18px;
+}
+
+span.dropcap, 
+span.dropcap2, 
+.pricingtable .title, 
+.pricingtable .currency, 
+.pricingtable .price, 
+.pricingtable .period, 
+.pricingtable .coins, 
+ul.p_filter li a {font-family:"Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+
+.pricingtable .currency, 
+.pricingtable .price, 
+.pricingtable .coins  {
+	font-size:42px;
+	line-height:42px;
+	color:#ffffff;
+}
+
+.pricingtable .title, 
+.pricingtable .currency, 
+.pricingtable .price, 
+.pricingtable .period, 
+.pricingtable .coins {font-weight:100;}
+
+.one_third .pricingtable .currency, 
+.one_third .pricingtable .price, 
+.one_third .pricingtable .coins {font-size:48px;}
+
+.one_half .pricingtable .currency, 
+.one_half .pricingtable .price, 
+.one_half .pricingtable .coins, 
+.one_first .pricingtable .currency, 
+.one_first .pricingtable .price, 
+.one_first .pricingtable .coins {font-size:54px;}
+
+.one_third .pricingtable .title {font-size:28px;}
+
+.one_half .pricingtable .title, 
+.one_first .pricingtable .title {font-size:32px;}
+
+.pricingtable .period {font-size:14px;}
+
+.one_third .pricingtable .period {font-size:18px;}
+
+.one_half .pricingtable .period, 
+.one_first .pricingtable .period {font-size:22px;}
+
+.one_third .pricingtable .but .button {font-size:15px;}
+
+.one_half .pricingtable .but .button, 
+.one_first .pricingtable .but .button {font-size:17px;}
+
+.pricingtable .title {line-height:24px;}
+
+.one_third .pricingtable .currency,
+.one_third .pricingtable .coins, 
+.one_third .pricingtable .price  {line-height:48px;}
+
+.one_half .pricingtable .currency,
+.one_half .pricingtable .coins, 
+.one_half .pricingtable .price, 
+.one_first .pricingtable .currency,
+.one_first .pricingtable .coins, 
+.one_first .pricingtable .price  {line-height:54px;}
+
+.one_third .pricingtable .title {line-height:28px;}
+
+.one_third .pricingtable .period {line-height:18px;}
+
+.one_half .pricingtable .period, 
+.one_first .pricingtable .period {line-height:24px;}
+
+.cmsms_shortcode_testimonials blockquote {line-height:22px;}
+
+span.dropcap {
+	font-size:28px;
+	line-height:48px;
+}
+
+span.dropcap2 {
+    font-size:42px;
+    line-height:42px;
+}
+
+span.dropcap, 
+span.dropcap2 {font-weight:bold;}
+
+/* Colors */
+
+body, 
+.tab.lpr .tabs_tab abbr, 
+.project ul.project_details li.published div {color:#727a7e;}
+
+.jp-playlist li div a, 
+#comments .comment-body .published, 
+a:hover, 
+.sitemap > li ul > li ul li > a:hover,
+.cms_archive li a:hover, 
+.jp-playlist li.jp-playlist div a,
+.project_sidebar .cmsms_like span, 
+.tabs li a.current {color:#727a7e;}
+
+.cmsms_shortcode_testimonials .cmsms_tags li, 
+.cmsms_shortcode_testimonials .cmsms_tags li a {
+	color:#c7cacb;
+	color:rgba(114, 122, 126, .4);
+}
+
+.footer_nav li a, 
+.bottom_inner .widget_links ul li a, 
+.bottom_inner .widget_portfolio_link,
+.bottom_inner .portfolio_inner .entry-title a,
+.skill_item_colored_wrap > span span,
+.bottom_inner .post .entry-header .entry-title a:hover {color:#b6c4cb;}
+
+.bottom_inner a {color:#B6C4CB;} 
+
+.bottom_inner a:hover, 
+abbr a:hover,
+.cmsms_like a.active:hover span, 
+ul.p_filter li a:hover, 
+.related_posts_content div p a:hover, 
+#comments .comment-body .published a:hover, 
+.bottom_inner .widget_links ul li a:hover, 
+.bottom_inner .footer_nav li a:hover, 
+.cmsms_shortcode_testimonials .cmsms_tags li a:hover, 
+.entry-title a:hover, 
+.project_sidebar .cmsms_like a:hover span, 
+.jp-playlist li div a:hover, 
+.jp-playlist li.jp-playlist-current div a {color:#33bee5;}
+
+.bottom_inner, 
+.bottom_inner .footer_nav li a, 
+.bottom_inner .widget_links ul li a, 
+.bottom_inner .widget_portfolio_link, 
+.bottom_inner .portfolio_inner .entry-title a, 
+.bottom_inner code, 
+.bottom_inner small, 
+.bottom_inner abbr, 
+.bottom_inner abbr a {color:#b6c4cb;}
+
+.related_posts_content .one_half p a, 
+.tog, 
+.tour li a, 
+.cmsms_shortcode_testimonials blockquote  {color:#4e5c64;}
+
+.tabs li a, 
+.skill_item_colored > span, 
+.cmsms_info .cmsms_date_year_mounth, 
+.cmsms_info .cmsms_date_day, 
+.pricingtable .period, 
+.portfolio_inner *,
+.portfolio_inner .project_rollover .entry-header .entry-title a:hover,
+.portfolio_inner a, 
+.portfolio_inner a:hover, 
+.colored_shortcode, 
+.colored_shortcode h2, 
+.colored_button, 
+.colored_button:hover {color:#ffffff;}
+
+a, 
+.tab.lpr .tabs_tab strong,
+.sitemap > li ul > li ul li > a,
+.cms_archive li a, 
+.jp-playlist li.jp-playlist-current div a, 
+.post .entry-header .cmsms_post_info .published,
+abbr a:hover, 
+.related_posts_content div p a:hover, 
+#comments .comment-body .published a:hover, 
+.bottom_inner .widget_links ul li a:hover, 
+.bottom_inner .footer_nav li a:hover, 
+ul.p_filter li a:hover, 
+ul.p_filter li.current a, 
+.cmsms_shortcode_testimonials .cmsms_tags li a:hover, 
+.entry-title a:hover {color:#33bee5;}
+
+.tog:hover,
+.tog.current {color:#4e5c64;}
+
+.tour li a:hover, 
+.tour li.current a, 
+.portfolio_inner .project_rollover, 
+.project_rollover h6,
+.project_rollover, 
+.portfolio_inner .cmsms_team_rollover, 
+.cmsms_team_rollover h6, 
+.cmsms_team_rollover {color:#ffffff;}
+
+h1 {color: #4e5c64;}
+
+h2 {color: #4e5c64;}
+
+h3 {color: #4e5c64;}
+
+h4 {color: #4e5c64;}
+
+h5 {color: #4e5c64;}
+
+h6 {color: #4e5c64;}
+
+.bottom_inner h2.widgettitle {color:#ffffff;}
+
+h1 a {color:#4e5c64;}
+
+#navigation li > a, 
+#navigation li.current_page_item > a,
+#navigation li.current_page_ancestor > a,
+#navigation li.current-menu-ancestor > a,
+#navigation li:hover > a:hover, 
+#navigation li:hover > a {color:#ffffff;}
+
+#navigation li li > a {color:#4e5c64;}
+
+#navigation li li.current_page_item > a,
+#navigation li li.current_page_ancestor > a,
+#navigation li li.current-menu-ancestor > a,
+#navigation li li:hover > a:hover, 
+#navigation ul li:hover > a {color:#33bee5;}
+
+q,
+span.dropcap,
+.table thead th,
+ul.p_filter li a {color:#ffffff;}
+
+code, 
+small, 
+abbr, 
+abbr a {color:#727a7e;}
+
+input, 
+textarea, 
+select, 
+option {color:#4e5c64;}
+
+.bottom_inner .cmsms-form-builder input, 
+.bottom_inner .cmsms-form-builder textarea, 
+.bottom_inner .cmsms-form-builder select, 
+.bottom_inner .cmsms-form-builder option, 
+.bottom_inner .cmsms-form-builder .check_parent input[type="checkbox"]+label, 
+.bottom_inner .cmsms-form-builder .check_parent input[type="radio"]+label {color:#ffffff;}
+
+.comment-reply-link,
+.button,
+.bottom_inner .button,
+.button_medium,
+.bottom_inner .button_medium,
+.button_large, 
+.bottom_inner .button_large {color:#ffffff;}
+
+.button.current, 
+.comment-reply-link:hover,
+.pricingtable .but .button:hover, 
+.p_filter_container:hover > a.p_cat_filter, 
+.p_sort .button:hover,
+.tabs li a:hover, 
+.button:hover,
+.button_medium:hover,
+.button_large:hover {color:#727A7E;}
+
+.bottom_inner .comment-reply-link:hover,
+.bottom_inner .tabs li a:hover, 
+.bottom_inner .tabs li a.current, 
+.bottom_inner .button:hover,
+.bottom_inner .button_medium:hover,
+.bottom_inner .button_large:hover {color:#d4d6d6;}
+
+.button.current,  
+.button_medium.current, 
+.button_large.current {background-color:#F8F8F8;}
+
+.comment-reply-link:hover, 
+.button.cmsms_share:hover, 
+.p_filter_container:hover > a.p_cat_filter,
+.p_sort a:hover, 
+.p_sort a.current, 
+.button:hover, 
+.tabs li a:hover, 
+.tabs li a.current, 
+.button_medium:hover, 
+.button_large:hover  {background-color:#F8F8F8;}
+
+.pricingtable .but .button:hover {background-color:#F8F8F8 !important;}
+
+.bottom_inner .comment-reply-link:hover,
+.bottom_inner .tabs li a:hover, 
+.bottom_inner .tabs li a.current, 
+.bottom_inner .button:hover,
+.bottom_inner .button_medium:hover,
+.bottom_inner .button_large:hover {background-color:#495459;}
+
+.color2 {color:#33bee5;}
+
+.cmsms_content_slider_parent ul.cmsms_slides_nav li a {background-color:#ffffff;}
+
+.cmsms_content_slider_parent ul.cmsms_slides_nav li a:hover,
+.cmsms_content_slider_parent ul.cmsms_slides_nav li.active a, 
+a.cmsms_content_next_slide:hover, 
+.bottom_inner a.cmsms_content_next_slide:hover, 
+a.cmsms_content_prev_slide:hover, 
+.bottom_inner a.cmsms_content_prev_slide:hover {background-color:#33bee5;}
+
+.tp-leftarrow:hover,
+.tp-rightarrow:hover {background-color:#33bee5 !important;}
+
+.resp_navigation {background-color:#33bee5;}
+
+a.cmsms_content_prev_slide:hover, 
+a.cmsms_content_next_slide:hover {
+	background-color:#33bee5;
+	background-color:rgba(51, 190, 229, .8);
+}
+
+span.dropcap,
+#slide_top, 
+.comment-reply-link,
+.button_medium,
+.button_large,
+.cmsmsLike:hover,
+.cmsmsLike.active,
+.cmsms_post_img {background-color:#33bee5;}
+
+.cmsms_plus_inner {background-color:#3a454b;}
+
+.button, 
+.table thead th {background-color:#33bee5;}
+
+code {
+	border:1px solid #ededed;
+	border-top:3px solid #33bee5;}
+
+input[type="text"]:focus,
+textarea:focus,
+select option:hover {
+	background:#33bee5;
+	color:#ffffff;
+}
+
+.cmsms-form-builder input[type="text"]:focus,
+.cmsms-form-builder textarea:focus,
+.cmsms-form-builder select:focus,
+option,
+.post .cmsms_tags li a:hover:before,
+.related_posts_content a img {
+	border:1px solid #ebebeb;
+	border:1px solid rgba(255, 255, 255, .08);
+}
+
+.cmsmsLike {background-color:#33bee5;}
+
+.cmsmsLike:hover {background-color:#ffffff;}
+
+.footer_inner {
+	color:#c4c8c9;
+	color:rgba(255, 255, 255, .7);
+}
+
+#footer .footer_nav > li.current-menu-ancestor a,
+#footer .footer_nav > li.current_page_item a,
+#footer .footer_nav > li a:hover {color:#33bee5;}
+
+.tp-rightarrow.default, 
+.tp-leftarrow.default {background-color:rgba(69, 75, 58, .2) !important;}
+
+.tp-bullets.simplebullets.round .bullet:hover, 
+.tp-rightarrow.default:hover, 
+.tp-leftarrow.default:hover, 
+.tp-bullets.simplebullets.round .bullet:hover, 
+.tp-bullets.simplebullets.round .bullet.selected, 
+.tp-bullets.simplebullets.navbar .bullet:hover, 
+.tp-bullets.simplebullets.navbar .bullet.selected {background-color:#33bee5 !important;}
+
+.tp-bullets.simplebullets.round .bullet {background-color:#ffffff !important;}
+
+/* ---------- Tablet Portrait (Note: Design for a width less than 1024px) ---------- */
+
+@media only screen and (max-width: 1024px) {
+
+	#navigation li > a {color:#4e5c64;}
+	
+	#navigation ul li a {font:14px/18px "Oxygen", Arial, Geneva, Helvetica, sans-serif;}
+	
+}
+
+/* ---------- Tablet Portrait (Note: Design for a width more than 950px but less than 1439px) ---------- */
+
+@media only screen and (min-width: 950px) and (max-width: 1439px) {
+	
+	.portfolio_container.three_blocks .portfolio_inner .project_rollover ul.cmsms_category li, 
+	.portfolio_container.two_blocks .portfolio_inner .project_rollover ul.cmsms_category li {font:12px/18px "Droid Sans",Arial,Geneva,Helvetica,sans-serif;}
+	
+	.portfolio_container.two_blocks .portfolio_inner .project_rollover .entry-header h6 {font:100 16px/18px "Oxygen",Arial,Geneva,Helvetica,sans-serif;}
+	
+}
+
+
+/* ---------- Tablet Portrait (Note: Design for a width more than 769px but less than 1024px) ---------- */
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+	
+	.portfolio_container.two_blocks .portfolio_inner .project_rollover .entry-header h6 {font:100 16px/18px "Oxygen",Arial,Geneva,Helvetica,sans-serif;}
+	
+}
+
+
+/* ---------- Tablet Portrait (Note: Design for a width more than 768px but less than 1024px) ---------- */
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+	
+	.portfolio_container.three_blocks .portfolio_inner .project_rollover ul.cmsms_category li, 
+	.portfolio_container.two_blocks .portfolio_inner .project_rollover ul.cmsms_category li {font:12px/18px "Droid Sans",Arial,Geneva,Helvetica,sans-serif;}
+
+}
+
+
+/* ---------- Small Tablet (Note: Design for a width more than 542px but less than 768px) ---------- */
+
+@media only screen and (min-width: 541px) and (max-width: 768px) {
+	
+	.portfolio_container.three_blocks .portfolio_inner .project_rollover ul.cmsms_category li, 
+	.portfolio_container.two_blocks .portfolio_inner .project_rollover ul.cmsms_category li {font:12px/18px "Droid Sans",Arial,Geneva,Helvetica,sans-serif;}
+	
+	.portfolio_container.two_blocks .portfolio_inner .project_rollover .entry-header h6 {font:100 16px/18px "Oxygen",Arial,Geneva,Helvetica,sans-serif;}
+	
+}
+
+
+/* ---------- Tablet Portrait (Note: Design for a width more than 768px but less than 950px) ---------- */
+
+@media only screen and (min-width: 768px) and (max-width: 950px) {
+	
+	.featured_block h2 {font-size:20px;}
+
+}
+
+
+/* ---------- Tablet Portrait (Note: Design for a width more than 769px but less than 800px) ---------- */
+
+@media only screen and (min-width: 769px) and (max-width: 800px) {
+	
+	.cmsms_our_team_wrap div .cmsms_team_rollover .entry-header h6, 
+	.project_rollover h6	{font:100 16px/20px "Oxygen",Arial,Geneva,Helvetica,sans-serif;}
+
+}
+
+
+/* ---------- Small Tablet (Note: Design for a width more than 650px but less than 700px) ---------- */
+
+@media only screen and (min-width: 650px) and (max-width: 700px) {
+	
+	.portfolio_container.two_blocks .portfolio_inner .project_rollover .entry-header h6 {font:100 18px/18px "Oxygen",Arial,Geneva,Helvetica,sans-serif;}
+	
+	.portfolio_container.two_blocks .portfolio_inner .project_rollover ul.cmsms_category li {font:14px/18px "Droid Sans",Arial,Geneva,Helvetica,sans-serif;}
+	
+}
+
+
+/* ---------- Small Tablet (Note: Design for a width more than 541px but less than 600px) ---------- */
+
+@media only screen and (min-width: 541px) and (max-width: 650px) {
+	
+	.portfolio_container.two_blocks .portfolio_inner .project_rollover .entry-header h6 {font:100 18px/18px "Oxygen",Arial,Geneva,Helvetica,sans-serif;}
+	
+	.portfolio_container.two_blocks .portfolio_inner .project_rollover ul.cmsms_category li {font:14px/18px "Droid Sans",Arial,Geneva,Helvetica,sans-serif;}
+
+}
+
+
+/* ---------- Mobile (Note: Design for a width more than 450 less than 540px) ---------- */
+
+@media only screen and (min-width: 450px) and (max-width: 540px) {
+	
+	.cmsms_our_team_wrap div .cmsms_team_rollover .entry-header h6, 
+	.portfolio_container.three_blocks .portfolio_inner .project_rollover .entry-header h6, 
+	.project_rollover h6	{font:100 18px/18px "Oxygen",Arial,Geneva,Helvetica,sans-serif;}
+	
+	.portfolio_container.three_blocks .portfolio_inner .project_rollover ul.cmsms_category li, 
+	.project_rollover ul.cmsms_category li {font:14px/18px "Droid Sans",Arial,Geneva,Helvetica,sans-serif;}
+
+}
+
+
+/* ---------- Tablet Portrait (Note: Design for a width more than 769px but less than 1024px) ---------- */
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+	
+	.pricingtable .title {font-size:1.538em;}
+	
+	.pricingtable .currency, 
+	.pricingtable .price, 
+	.pricingtable .coins {font-size:2.1em;}
+	
+	.one_third .pricingtable .currency, 
+	.one_third .pricingtable .price, 
+	.one_third .pricingtable .coins {font-size:3.1em;}
+	
+	.one_half .pricingtable .title {font-size:2.25em;}
+	
+	.one_half .pricingtable .currency, 
+	.one_half .pricingtable .price, 
+	.one_half .pricingtable .coins {font-size:3.8em;}
+	
+	.one_half .pricingtable .period {font-size:1.5em;}
+}
+
+
+/* ---------- Mobile (Note: Design for a width less than 700px) ---------- */
+
+@media only screen and (max-width: 700px) {
+	
+	.portfolio_container.one_block .portfolio_inner .project_rollover .entry-header h6 {font:100 16px/18px "Oxygen",Arial,Geneva,Helvetica,sans-serif;}
+	
+	.portfolio_container.one_block .portfolio_inner .project_rollover ul.cmsms_category li {font:12px/18px "Droid Sans",Arial,Geneva,Helvetica,sans-serif;}
+	
+}	
+
+
+/* ---------- Mobile (Note: Design for a width less than 540px) ---------- */
+
+@media only screen and (max-width: 540px) {
+	
+	.portfolio_container.two_blocks .portfolio_inner .project_rollover .entry-header h6 {font:100 16px/18px "Oxygen",Arial,Geneva,Helvetica,sans-serif;}
+	
+	.portfolio_container.two_blocks .portfolio_inner .project_rollover ul.cmsms_category li {font:12px/18px "Droid Sans",Arial,Geneva,Helvetica,sans-serif;}
+	
+}
+
+
+/* Colors Schemes */
+
+#navigation > li:hover ul li, 
+#navigation > li + li:hover ul li, 
+#navigation > li + li + li:hover ul li, 
+#navigation > li + li + li + li:hover ul li, 
+#navigation > li + li + li + li + li:hover ul li, 
+#navigation > li + li + li + li + li + li:hover ul li, 
+#navigation > li + li + li + li + li + li + li:hover ul li, 
+#navigation > li + li + li + li + li + li + li + li:hover ul li, 
+#navigation > li + li + li + li + li + li + li + li + li:hover ul li {background:#ffffff;}
+
+#navigation > li:hover, 
+#navigation > li.current_page_item > a, 
+.tour  > li a:hover, 
+.tour  > li.current a {background-color:#33bee5;}
+
+#navigation > li + li:hover, 
+#navigation > li + li.current_page_item > a, 
+.tour  > li + li a:hover, 
+.tour  > li + li.current a {background-color:#fabe09;}
+
+#navigation > li + li + li:hover, 
+#navigation > li + li + li.current_page_item > a, 
+.tour  > li + li + li a:hover, 
+.tour  > li + li + li.current a {background-color:#6cc437;}
+
+#navigation > li + li + li + li:hover, 
+#navigation > li + li + li + li.current_page_item > a, 
+.tour  > li + li + li + li a:hover, 
+.tour  > li + li + li + li.current a {background-color:#f97a14;}
+
+#navigation > li + li + li + li + li:hover, 
+#navigation > li + li + li + li + li.current_page_item > a, 
+.tour  > li + li + li + li + li a:hover, 
+.tour  > li + li + li + li + li.current a {background-color:#e94f4f;}
+
+#navigation > li + li + li + li + li + li:hover, 
+#navigation > li + li + li + li + li + li.current_page_item > a, 
+.tour  > li + li + li + li + li + li a:hover, 
+.tour  > li + li + li + li + li + li.current a {background-color:#33bee5;}
+
+#navigation > li + li + li + li + li + li + li:hover, 
+#navigation > li + li + li + li + li + li + li.current_page_item > a, 
+.tour  > li + li + li + li + li + li + li a:hover, 
+.tour  > li + li + li + li + li + li + li.current a {background-color:#48dcb8;}
+
+#navigation > li + li + li + li + li + li + li + li:hover, 
+#navigation > li + li + li + li + li + li + li + li.current_page_item > a, 
+.tour  > li + li + li + li + li + li + li + li a:hover, 
+.tour  > li + li + li + li + li + li + li + li.current a {background-color:#de5c8d;}
+
+#navigation > li + li + li + li + li + li + li + li + li:hover, 
+#navigation > li + li + li + li + li + li + li + li + li.current_page_item > a, 
+.tour  > li + li + li + li + li + li + li + li + li a:hover, 
+.tour  > li + li + li + li + li + li + li + li + li.current a {background-color:#db4141;}
+
+#navigation > li + li + li + li + li + li + li + li + li + li:hover, 
+#navigation > li + li + li + li + li + li + li + li + li + li.current_page_item > a, 
+.tour  > li + li + li + li + li + li + li + li + li + li a:hover, 
+.tour  > li + li + li + li + li + li + li + li + li + li.current a {background-color:#3387e5;}
+
+
+.social_block ul li {background-color:rgba(58, 69, 75, .15);}
+
+.social_block ul > li:hover {background-color:#3dd7e1;}
+
+.social_block ul > li + li:hover {background-color:#0076be;}
+
+.social_block ul > li + li+ li:hover {background-color:#375db0;}
+
+.social_block ul > li + li+ li+ li:hover {background-color:#30b2e3;}
+
+.social_block ul > li + li+ li+ li+ li:hover {background-color:#fe3432;}
