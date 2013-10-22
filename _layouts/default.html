@@ -97,74 +97,77 @@
 										</li>
 										<li data-transition="random" data-slotamount="7" >
 											<img alt="" src="images/revolution/bg-2.jpg" />
-											<div data-easing="easeOutBack" data-start="2200" data-speed="800" data-y="245" data-x="405" class="caption lfb tp-caption start">
-												<img alt="" src="images/revolution/img-6.jpg" />
-											</div>
+                                            <div data-linktoslide="4" data-easing="easeOutExpo" data-start="1800" data-speed="1000" data-y="82" data-x="76" class="caption sft tp-caption start">
+												<img alt="" src="images/revolution/img-4.jpg" />
 										</li>
 									</ul>
-								</div>
+                                </div>
 							</div>
 							<script type="text/javascript">
-								var tpj=jQuery;
-								tpj.noConflict();              
-								var revapi2;
-								tpj(document).ready(function() {
-								if (tpj.fn.cssOriginal != undefined)
-								    tpj.fn.css = tpj.fn.cssOriginal;
-
-								if(tpj('#rev_slider').revolution == undefined)
-								    revslider_showDoubleJqueryError('#rev_slider');
-								else
-								   revapi2 = tpj('#rev_slider').show().revolution(
-								    {	
-								        delay:9000,
-								        startwidth:1160,
-								        startheight:479,
-								        hideThumbs:200,
-								        
-								        thumbWidth:100,
-								        thumbHeight:50,
-								        thumbAmount:5,
-								        
-								        navigationType:"bullet",
-								        navigationArrows:"solo",
-								        navigationStyle:"round",
-								        
-								        touchenabled:"on",
-								        onHoverStop:"on",
-								        
-								        navigationHAlign:"center",
-								        navigationVAlign:"bottom",
-								        navigationHOffset:0,
-								        navigationVOffset:21,
-								    
-								        soloArrowLeftHalign:"left",
-								        soloArrowLeftValign:"center",
-								        soloArrowLeftHOffset:0,
-								        soloArrowLeftVOffset:0,
-								    
-								        soloArrowRightHalign:"right",
-								        soloArrowRightValign:"center",
-								        soloArrowRightHOffset:0,
-								        soloArrowRightVOffset:0,
-								                
-								        shadow:1,
-								        fullWidth:"on",
-								    
-								        stopLoop:"off",
-								        stopAfterLoops:-1,
-								        stopAtSlide:-1,
-								    
-								        shuffle:"off",
-								        
-								        hideSliderAtLimit:0,
-								        hideCaptionAtLimit:0,
-								        hideAllCaptionAtLilmit:0,
-								        startWithSlide:0	
-								    });
-
-								});	//ready
-
+    
+                                var tpj=jQuery;
+                                tpj.noConflict();
+                                                
+                                var revapi2;
+                                
+                                tpj(document).ready(function() {
+                                
+                                if (tpj.fn.cssOriginal != undefined)
+                                    tpj.fn.css = tpj.fn.cssOriginal;
+                                
+                                if(tpj('#rev_slider').revolution == undefined)
+                                    revslider_showDoubleJqueryError('#rev_slider');
+                                else
+                                   revapi2 = tpj('#rev_slider').show().revolution(
+                                    {	
+                                        delay:9000,
+                                        startwidth:1160,
+                                        startheight:479,
+                                        hideThumbs:200,
+                                        
+                                        thumbWidth:100,
+                                        thumbHeight:50,
+                                        thumbAmount:5,
+                                        
+                                        navigationType:"bullet",
+                                        navigationArrows:"solo",
+                                        navigationStyle:"round",
+                                        
+                                        touchenabled:"on",
+                                        onHoverStop:"on",
+                                        
+                                        navigationHAlign:"center",
+                                        navigationVAlign:"bottom",
+                                        navigationHOffset:0,
+                                        navigationVOffset:21,
+    
+                                        soloArrowLeftHalign:"left",
+                                        soloArrowLeftValign:"center",
+                                        soloArrowLeftHOffset:0,
+                                        soloArrowLeftVOffset:0,
+    
+                                        soloArrowRightHalign:"right",
+                                        soloArrowRightValign:"center",
+                                        soloArrowRightHOffset:0,
+                                        soloArrowRightVOffset:0,
+                                                
+                                        shadow:1,
+                                        fullWidth:"on",
+    
+                                        stopLoop:"off",
+                                        stopAfterLoops:-1,
+                                        stopAtSlide:-1,
+    
+                                        shuffle:"off",
+                                        
+                                        hideSliderAtLimit:0,
+                                        hideCaptionAtLimit:0,
+                                        hideAllCaptionAtLilmit:0,
+                                        startWithSlide:0	
+                                    });
+                                
+                                });	//ready
+                                
                             </script>
 							<div class="cl"></div>
 						</div>
