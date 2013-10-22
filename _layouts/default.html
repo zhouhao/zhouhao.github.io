@@ -98,9 +98,21 @@
 				</aside>
 			</div>
 			<div class="one_fourth">
-				<aside id="custom-twitter-4" class="widget widget_custom_twitter_entries">
-					<h2 class="widgettitle">Twitter</h2>
-					<div id="custom-twitter-4_tweets"></div>
+				<aside id="custom-twitter-4" class="widget widget_custom_flickr_entries">
+					<h2 class="widgettitle">Flickr</h2>
+					<ul id="flickr_images"></ul>
+					<p><a href="#">More flickr Image</a></p>
+					<script type="text/javascript">
+						jQuery(document).ready(function(){
+							jQuery('#flickr_images').jflickrfeed({
+							limit: 6,
+							qstrings: {
+								id: '86294173@N08'
+								},
+							itemTemplate: '<li><a href="{{image_b}}"><img src="{{image_s}}" alt="{{title}}" /></a></li>'
+							});
+						});
+					</script>
 				</aside>
 			</div>
 			<div class="one_fourth">
