@@ -29,12 +29,12 @@ layout: page
 
 	{% if paginator.previous_page %}
 		{% if paginator.previous_page == 1 %}
-			<a href="/"><前页</a>
+			<a href="/"><Prev Page</a>
 		{% else %}
-			<a href="/page{{paginator.previous_page}}"><前页</a>
+			<a href="/blog/page{{paginator.previous_page}}"><Prev Page</a>
 		{% endif %}
 	{% else %}
-		<span class="previous disabled"><前页</span>
+		<span class="previous disabled"><Prev Page</span>
 	{% endif %}
 
 	{% if paginator.page == 1 %}
@@ -47,15 +47,15 @@ layout: page
 		{% if count == paginator.page %}
 			<span class="current-page">{{count}}</span>
 		{% else %}
-			<a href="/page{{count}}">{{count}}</a>
+			<a href="/blog/page{{count}}">{{count}}</a>
 		{% endif %}
 	{% endfor %}
 
 	{% if paginator.next_page %}
-		<a class="next" href="/page{{paginator.next_page}}">后页></a>
+		<a class="next" href="/blog/page{{paginator.next_page}}">Next Page></a>
 	{% else %}
-		<span class="next disabled" >后页></span>
+		<span class="next disabled" >Next Page></span>
 	{% endif %}
-	(共{{ paginator.total_posts }}篇)
+	(total: {{ paginator.total_posts }})
 	</div>
 </div>
