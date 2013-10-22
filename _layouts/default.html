@@ -26,6 +26,10 @@
 	<script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.js"></script>
 	<script type="text/javascript" src="revolution/js/jquery.themepunch.revolution.min.js"></script>	
 	<script type="text/javascript" src="revolution/js/jquery.themepunch.plugins.min.js"></script>
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="css/styles/ie.css" type="text/css" />
+		<link rel="stylesheet" href="css/styles/ie_css3.css" type="text/css" media="screen" />
+	<![endif]-->
     <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
     <script language="javascript" type="text/javascript"> 
       	//window.location.href="http://zhouhao.scripts.mit.edu/"; 
@@ -55,17 +59,59 @@
       });
     </script>
   </head>
-  <body id="top">
-    <div id="container"> 
-        <div class="head">
-            <nav>
-		        <span><a title="home page" class="" href="/">Blog</a></span>
-		        <span><a title="Album" class="" href="/album">Album</a></span>
-		        <span><a title="tags" class="" href="/tags/">Tags</a></span>
-		        <span><a title="guestbook" class="" href="/guestbook/">Comments</a></span>
-		        <span><a title="about" class="" href="/about/">About Me</a></span>
-	        </nav>
-        </div>
+  <body>
+  	<section id="page">
+		<a href="#" id="slide_top"></a>
+
+    	<header id="header">
+			<div class="header_inner">
+				<div class="social_block">
+					<ul>
+						<li>
+							<a href="#" target="_blank">
+								<img alt="twitter" src="images/socicons/twitter.png">
+							</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+								<img alt="linkedin" src="images/socicons/linkedin.png">
+							</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+								<img alt="facebook" src="images/socicons/facebook.png">
+							</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+								<img alt="vimeo" src="images/socicons/vimeo.png">
+							</a>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+								<img alt="you tube" src="images/socicons/youtube.png">
+							</a>
+						</li>
+					</ul>
+					<a class="social_toggle" href="#"><span></span></a>
+				</div>
+				<a class="logo" href="index.html"><img src="images/logo.png" width="190" height="69" alt="" /></a>
+				<a class="resp_navigation" href="javascript:void(0);"><span></span></a>
+				<div class="cl"></div>
+				<nav>
+					<ul id="navigation">
+						<li class="current_page_item"><a href="index.html"><span>Home</span></a></li>
+						<li class="drop"><a href="/album"><span>Photo</span></a></li>
+						<li class="drop"><a href="#"><span>Blog</span></a></ul></li>
+						<li><a href="/about/"><span>Contacts</span></a></li>
+					</ul>
+					<div class="cl"></div>
+				</nav>
+				<div class="cl"></div>
+			</div>
+		</header>
+
+
         <div id="main" role="main" class="main" style="width:1024px;background:url(/images/body.png) repeat-y;z-index:999;">   
 		    <div class="mainleft">
 		    	<header>
