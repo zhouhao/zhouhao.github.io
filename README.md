@@ -1,5 +1,5 @@
 The theme of this website is bought here: http://themeforest.net/item/increase-premium-business-wordpress-theme/4769391?ref=cmsmasters.     
-If you like it, please buy it.     
+#If you like it, please buy it.     
 
 JUST A FORK IS NOT ENOUGHT!    
 ======
