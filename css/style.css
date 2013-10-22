@@ -452,6 +452,7 @@ a:hover span.image_rollover {
 	-ms-transition:all 0.02s;
 	-o-transition:all 0.02s;
 	transition:all 0.02s;
+
 }
 
 
@@ -1069,7 +1070,7 @@ a:hover span.image_rollover {
 
 #middle_content {
 	position:relative;
-	padding:40px 0 40px;
+	padding:0 0 40px;
 	z-index:0;
 }
 
