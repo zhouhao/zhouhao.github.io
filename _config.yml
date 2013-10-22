@@ -1,6 +1,8 @@
 markdown: rdiscount
 permalink: /:year/:month/:title/
 url: http://sbzhouhao.net
-author: Zhou Hao
+author: Hao Zhou
+email: hzhou@wpi.edu | zhouhao@mit.edu
+version: 3.0
 pygments: true
 paginate: 25
