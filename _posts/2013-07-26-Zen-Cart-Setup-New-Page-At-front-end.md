@@ -9,7 +9,7 @@ tags: [zen-cart]
 ###Here I will tell you how to setup a new function page for front-end, which often makes beginners discouraged.    
 [http://blog.csdn.net/chenjie3392593/article/details/7654410](http://blog.csdn.net/chenjie3392593/article/details/7654410)      
 Method 4 seems a good way, but it is not the best for my needs, as it will make the page you created editable at back-end(Just the file in directory of `/html_includes/`).   
-![define_pages_editor.php](/media/images/post/20130725130131.png)    
+![define_pages_editor.php](/pics/20130725130131.png)    
 
 Three reasons why this is not best:   
 1. We won't make it editable at back-end, which may induce troubles for administrator;    
