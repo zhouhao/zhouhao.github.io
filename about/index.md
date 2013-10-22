@@ -21,6 +21,5 @@ comments: yes
 		<li>GitHub:   <a href="http://github.com/zhouhao">我写了一些很糟糕的代码在这里</a></li>  
 		<li>LinkedIn: <a href="http://www.linkedin.com/in/sbzhouhao">我的个人介绍</a></li>  
 	</ul>
-	<i>这个网站是托管在GitHub上的，<a href="https://github.com/zhouhao/zhouhao.github.io" target="_blank" alt="find the code">click here</a></i>
 	<br/><br/>
 </div>

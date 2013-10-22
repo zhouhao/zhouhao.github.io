@@ -1,5 +1,5 @@
 ---
-title: My Album
+title: My Photos
 layout: page
 comments: yes
 ---
@@ -10,9 +10,10 @@ comments: yes
 	tpj(document).ready(function() {
 		tpj('.photo_tab').attr('class', 'current_page_item');})
 </script>
+
 <div class="wrap_headline">
 	<div class="headline">
-		<h1>Album</h1>
+		<h1>Photo</h1>
 	</div>
 </div>
 
@@ -34,36 +35,36 @@ comments: yes
 									</div>
 									<div class="cmsms_media_box">
 										<figure>
-											<a href="http://farm9.staticflickr.com/8277/8940631287_27a74a6419_z.jpg" class="preloader inBlog jackbox" data-group="openpost_1" title="">
-												<img src="http://farm9.staticflickr.com/8277/8940631287_27a74a6419_z.jpg" alt="" class="fullwidth" style="opacity: 1;">
+											<a href="http://farm3.staticflickr.com/2805/8941252442_4f0aa5ef34_z.jpg" class="preloader inBlog jackbox" data-group="openpost_1" title="">
+												<img src="http://farm3.staticflickr.com/2805/8941252442_4f0aa5ef34_z.jpg" alt="" class="fullwidth" style="opacity: 1;">
 											</a>
 										</figure>
 									</div>
 									<div class="cmsms_media_box">
 										<figure>
-											<a href="http://farm9.staticflickr.com/8277/8940631287_27a74a6419_z.jpg" class="preloader inBlog jackbox" data-group="openpost_1" title="">
-												<img src="http://farm9.staticflickr.com/8277/8940631287_27a74a6419_z.jpg" alt="" class="fullwidth" style="opacity: 1;">
+											<a href="http://farm8.staticflickr.com/7317/8940631901_2f95a32e1c_z.jpg" class="preloader inBlog jackbox" data-group="openpost_1" title="">
+												<img src="http://farm8.staticflickr.com/7317/8940631901_2f95a32e1c_z.jpg" alt="" class="fullwidth" style="opacity: 1;">
 											</a>
 										</figure>
 									</div>
 									<div class="cmsms_media_box">
 										<figure>
-											<a href="http://farm9.staticflickr.com/8277/8940631287_27a74a6419_z.jpg" class="preloader inBlog jackbox" data-group="openpost_1" title="">
-												<img src="http://farm9.staticflickr.com/8277/8940631287_27a74a6419_z.jpg" alt="" class="fullwidth" style="opacity: 1;">
+											<a href="http://farm4.staticflickr.com/3670/8940634287_aa5e9ebc03_z.jpg" class="preloader inBlog jackbox" data-group="openpost_1" title="">
+												<img src="http://farm4.staticflickr.com/3670/8940634287_aa5e9ebc03_z.jpg" alt="" class="fullwidth" style="opacity: 1;">
 											</a>
 										</figure>
 									</div>
 									<div class="cmsms_media_box">
 										<figure>
-											<a href="http://farm9.staticflickr.com/8277/8940631287_27a74a6419_z.jpg" class="preloader inBlog jackbox" data-group="openpost_1" title="">
-												<img src="http://farm9.staticflickr.com/8277/8940631287_27a74a6419_z.jpg" alt="" class="fullwidth" style="opacity: 1;">
+											<a href="http://farm9.staticflickr.com/8558/8940637473_95631e1e55_z.jpg" class="preloader inBlog jackbox" data-group="openpost_1" title="">
+												<img src="http://farm9.staticflickr.com/8558/8940637473_95631e1e55_z.jpg" alt="" class="fullwidth" style="opacity: 1;">
 											</a>
 										</figure>
 									</div>
 									<div class="cmsms_media_box">
 										<figure>
-											<a href="http://farm9.staticflickr.com/8277/8940631287_27a74a6419_z.jpg" class="preloader inBlog jackbox" data-group="openpost_1" title="">
-												<img src="http://farm9.staticflickr.com/8277/8940631287_27a74a6419_z.jpg" alt="" class="fullwidth" style="opacity: 1;">
+											<a href="http://farm4.staticflickr.com/3776/8932722450_bc78269a8c_z.jpg" class="preloader inBlog jackbox" data-group="openpost_1" title="">
+												<img src="http://farm4.staticflickr.com/3776/8932722450_bc78269a8c_z.jpg" alt="" class="fullwidth" style="opacity: 1;">
 											</a>
 										</figure>
 									</div>
