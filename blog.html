@@ -2,6 +2,14 @@
 title: Blog List
 layout: page
 ---
+
+<script type="text/javascript">
+	var tpj=jQuery;
+	tpj.noConflict();
+	tpj(document).ready(function() {
+		tpj('.blog_tab').attr('class', 'current_page_item');})
+</script>
+
 <div class="middle_inner">
 	<ul class="listing">
 	{% for post in paginator.posts %}
