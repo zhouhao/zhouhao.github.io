@@ -937,7 +937,7 @@ a:hover span.image_rollover {
     float:left;
 	overflow:hidden;
 	padding:20px 0;
-    width:72.4%;
+    /*width:72.4%;*/
 }
 
 #content.fr {float:right;}
