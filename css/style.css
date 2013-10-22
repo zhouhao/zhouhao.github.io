@@ -2795,7 +2795,7 @@ figure a {display:block;}
 .project_content {
 	float:left;
 	margin:18px 0 0;
-	width:71%;
+	/*width:71%;*/
 }
 
 .project_sidebar {
