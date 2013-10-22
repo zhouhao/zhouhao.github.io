@@ -1013,7 +1013,7 @@ a:hover span.image_rollover {
 
 .cmsms_timeline li {
 	position:relative;
-	padding-top:24px;
+	padding-top:5px;
 }
 
 .cmsms_timeline li:before,
