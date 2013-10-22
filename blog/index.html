@@ -37,7 +37,7 @@ layout: page
 
 	{% if paginator.previous_page %}
 		{% if paginator.previous_page == 1 %}
-			<a href="/"><Prev Page</a>
+			<a href="/blog/"><Prev Page</a>
 		{% else %}
 			<a href="/blog/page{{paginator.previous_page}}"><Prev Page</a>
 		{% endif %}
@@ -48,7 +48,7 @@ layout: page
 	{% if paginator.page == 1 %}
 		<span class="current-page">1</span>
 	{% else %}
-		<a href="/">1</a>
+		<a href="/blog/">1</a>
 	{% endif %}
 
 	{% for count in (2..paginator.total_pages) %}
