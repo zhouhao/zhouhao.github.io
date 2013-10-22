@@ -13,7 +13,7 @@ layout: default
 		<ul class="cmsms_tags">
 		{% if page.tags %}
 			<li>Tags: </li>
-		 	% for tag in page.tags %}
+		 	{% for tag in page.tags %}
 			<li><a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>, </li>
 			{% endfor %}
 		{% endif %}
