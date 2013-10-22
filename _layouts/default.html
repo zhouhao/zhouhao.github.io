@@ -30,12 +30,6 @@
 		<link rel="stylesheet" href="css/styles/ie.css" type="text/css" />
 		<link rel="stylesheet" href="css/styles/ie_css3.css" type="text/css" media="screen" />
 	<![endif]-->
-    <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
-    <script language="javascript" type="text/javascript"> 
-      	//window.location.href="http://zhouhao.scripts.mit.edu/"; 
-      	hljs.initHighlightingOnLoad();
-	</script> 
-
     <script type='text/javascript'>
 	(function() {
 	    var c = document.createElement('script'); 
@@ -46,18 +40,6 @@
 	    h.parentNode.insertBefore(c, h);
 	})();
 	</script>
-	<script type="text/javascript">
-	//https://github.com/lucaong/jQCloud/blob/master/examples/index.html
-      var word_list = [
-        {% for tag in site.tags %}
-        	{text: "{{ tag[0] }}", weight: {{ tag[1].size }}, link: "http://sbzhouhao.net/tags/#{{ tag[0] }}"},
-        {% endfor %}
-
-      ];
-      $(function() {
-        $("#my_favorite_latin_words").jQCloud(word_list);
-      });
-    </script>
   </head>
   <body>
   	<section id="page">
@@ -572,22 +554,13 @@
 								</div>
 								<div class="cl"></div>
 								
-								<div class="colored_shortcode">
-									<div class="colored_title">
-										<div class="colored_title_inner">
-											<h2>When vested in power the beauty always wins</h2>
-											<p>Increase is a wordpress theme that easily adapts to your needs, allowing you quickly create a beautiful website</p>
-										</div>
-									</div>
-									<a class="colored_button" href="#"><span class="icon_banner icon_down"></span>Buy Now!</a>
-								</div>
 							</div>
 						</section>
-<!-- __________________________________________________ Finish Content -->
+	<!-- __________________________________________________ Finish Content -->
 
 					</div>
 				</section>
-<!-- __________________________________________________ Finish Middle -->
+	<!-- __________________________________________________ Finish Middle -->
 
 
 
