@@ -4,6 +4,12 @@ layout: page
 comments: yes
 ---
 
+<script type="text/javascript">
+	var tpj=jQuery;
+	tpj.noConflict();
+	tpj(document).ready(function() {
+		tpj('.photo_tab').attr('class', 'current_page_item');})
+</script>
 <div class="wrap_headline">
 	<div class="headline">
 		<h1>Album</h1>
