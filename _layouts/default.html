@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<!--[if lt IE 7]><html dir="ltr" lang="en-US" class="ie6"><![endif]-->
+<!--[if IE 7]><html dir="ltr" lang="en-US" class="ie7"><![endif]-->
+<!--[if IE 8]><html dir="ltr" lang="en-US" class="ie8"><![endif]-->
+<!--[if gt IE 8]><!--><html dir="ltr" lang="en-US"><!--<![endif]-->
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="{{ site.author }}" />
+    <meta name="version" content="{{ site.version }}" />
     <title>{{ page.title }} | {{ site.author }}</title>
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/feed/" rel="alternate" title="{{ site.author }}" type="application/atom+xml" />
-    <link rel="stylesheet" href="/media/css/style.css">
-    <link rel="stylesheet" href="/media/css/highlight.css">
-    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
-    <link rel="stylesheet" href="/media/css/jqcloud.css">
-    <script type="text/javascript" src="/media/js/jqcloud-1.0.4.min.js"></script>
-    <link rel="stylesheet" href="/media/css/code.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+    <link rel="stylesheet" href="/css/jqcloud.css">
+    <script type="text/javascript" src="/js/jqcloud-1.0.4.min.js"></script>
+    <link rel="stylesheet" href="/css/code.css">
     <style rel="stylesheet" type="text/css">
 		nav{font-family:"Electrolize",sans-serif;font-size:1.3em;text-transform:uppercase;float:left; width:800px; margin-left:300px;margin-top:40px;}
 		nav span{margin-left:10px;float:left;text-decoration:none;}
 		nav a{display:block;padding:.7em 1em;color:#46442f;}
 		nav a:hover{text-decoration:none;color:#f00;-webkit-transition:color .2s linear;}
-		.main{width:1024px;background: url(/media/images/body.png) repeat-y;z-index:999; }
+		.main{width:1024px;background: url(/images/body.png) repeat-y;z-index:999; }
 		.mainleft{width:640px;min-height:600px;margin-left: 20px;float:left;z-index:9999; }
 		.mainright{width:260px;float:left; margin-left: 40px;min-height:600px;}
 		p#back-to-top{
@@ -37,7 +41,7 @@
 		}
 		p#back-to-top a:hover{color:#979797;}
 		p#back-to-top a span{
-		      background:#d1d1d1 url(/media/images/arrow-up.png) no-repeat center center;
+		      background:#d1d1d1 url(/images/arrow-up.png) no-repeat center center;
 		      border-radius:6px;
 		      display:block;
 		      height:80px;
@@ -47,7 +51,7 @@
 		      -webkit-transition:background 1s;
 		      -o-transition:background 1s;
 		}
-		#back-to-top a:hover span{background:#979797 url(/media/images/arrow-up.png) no-repeat center center;}
+		#back-to-top a:hover span{background:#979797 url(/images/arrow-up.png) no-repeat center center;}
 		#tags_cloud li a{ text-decoration:none; color:blue;}
 		#tags_cloud{border: 1px solid #555;	}
 	</style>
@@ -110,7 +114,7 @@
 		        <span><a title="about" class="" href="/about/">About Me</a></span>
 	        </nav>
         </div>
-        <div id="main" role="main" class="main" style="width:1024px;background:url(/media/images/body.png) repeat-y;z-index:999;">   
+        <div id="main" role="main" class="main" style="width:1024px;background:url(/images/body.png) repeat-y;z-index:999;">   
 		    <div class="mainleft">
 		    	<header>
 		        <h1>{{ page.title }}</h1>
@@ -152,7 +156,7 @@
 		    <div style="clear:both;"></div>
       	</div>
 		<div class="foot">
-            <img src="/media/images/bottom.png" alt="" />
+            <img src="/images/bottom.png" alt="" />
         </div>
     <footer style="width:1024px; text-align: center;">
         <p>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> & <a href="http://pages.github.com">GitHub</a> | Copyright 2008 - {{site.time | date:"%Y"}} by <a href="http://zhouhao.github.com/about/">Zhou Hao</a> | <span class="label label-info">{{site.time | date:"%Y-%m-%d %H:%M:%S %Z"}}</span></p>
