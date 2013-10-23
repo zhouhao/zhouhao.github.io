@@ -2,7 +2,12 @@
 title: Tags
 layout: page
 ---
-
+<script type="text/javascript">
+	var tpj=jQuery;
+	tpj.noConflict();
+	tpj(document).ready(function() {
+		tpj('.tag_tab').attr('class', 'current_page_item');})
+</script>
 <div class="middle_inner">
 	<div id='tag_cloud'>
 	{% for tag in site.tags %}
