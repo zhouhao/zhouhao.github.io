@@ -266,7 +266,7 @@ h3:after{
 	height:5px;
 	border-top:1px solid #ededed;
 	border-bottom:1px solid #ededed;
-	content:'';
+	/*content:'';*/
 }
 
 .main_text {
