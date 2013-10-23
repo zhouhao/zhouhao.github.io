@@ -31,6 +31,7 @@
 		<!-- UY END -->
 		<!-- UJian Button BEGIN -->
 		<div class="ujian-hook"></div>
+		<script type="text/javascript">var ujian_config = {num:7,itemTitle:'Guess you like:',picSize:84,textHeight:45};</script>
 		<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?uid=1770934"></script>
 		<a href="http://www.ujian.cc" style="border:0;"><img src="http://img.ujian.cc/pixel.png" alt="友荐云推荐" style="border:0;padding:0;margin:0;" /></a>
 		<!-- UJian Button END -->
