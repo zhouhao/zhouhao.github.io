@@ -1424,7 +1424,7 @@ blockquote:after {clear:both;}
 
 code {
 	position:relative;
-	display:block;
+	/*display:block;*/
 	padding:15px 20px;
 	border-top:2px solid #f5a615;
 	background:rgba(255, 255, 255, .1);
