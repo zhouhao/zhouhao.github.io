@@ -1425,7 +1425,7 @@ blockquote:after {clear:both;}
 code {
 	position:relative;
 	/*display:block;*/
-	padding:5px 20px;
+	padding:3px 5px;
 	/*border-top:2px solid #f5a615;*/
 	background:rgba(255, 255, 255, .1);
 }

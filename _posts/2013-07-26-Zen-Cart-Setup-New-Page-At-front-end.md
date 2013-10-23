@@ -20,7 +20,8 @@ To eliminate these three shortcomings, you can use my way as below(I will take c
   
 1. Create a folder named `example` in directory `includes/modules/pages`，then create `header_php.php` in this folder. You can copy the following code into this php file.    
 
-<pre><code>&lt;?php
+<pre class="brush: php">
+&lt;?php
 // This should be first line of the script:
 $zco_notifier->notify('NOTIFY_HEADER_START_EXAMPLE');
 
@@ -37,24 +38,29 @@ $body = "This is the body for Example Page.";
 
 // This should be last line of the script:
 $zco_notifier->notify('NOTIFY_HEADER_END_EXAMPLE');
-?></code></pre>
+?>
+</pre>
 
 2. Open `includes/filenames.php`, then add:    
-<pre><code>define('FILENAME_EXAMPLE', 'example');</code></pre>
+<pre class="brush: php">define('FILENAME_EXAMPLE', 'example');</pre>
 
 3. Open `includes/language/english`，create `example.php`:
 
-<pre><code>&lt;?php
+<pre class="brush: php">
+&lt;?php
 define('NAVBAR_TITLE', 'Example page');
 define('HEADING_TITLE', 'Example page');
-?></code></pre>
+?>
+</pre>
 
 4. Open `includes/templates/template_default/templates`, then create `tpl_example_default.php`, and add code: 
 
-<pre><code>&lt;div class="centerColumn" id="exampleDefault"&gt;
+<pre class="brush: php">
+&lt;div class="centerColumn" id="exampleDefault"&gt;
 &lt;h1 id="exampleDefaultHeading"&gt;&lt;?php echo HEADING_TITLE; ?&gt;&lt;/h1&gt;
  &lt;?php echo $body; ?&gt;
-&lt;br class="clearBoth"/&gt;</code></pre>
+&lt;br class="clearBoth"/&gt;
+</pre>
 
 ###Note:  
 <del>I think step 3 is not necessary, as I have removed multi-language support, but for **compatibility** reason, I just keep it now in version 1.</del>    
