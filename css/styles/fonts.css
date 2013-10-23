@@ -521,7 +521,8 @@ span.dropcap,
 
 code {
 	border:1px solid #ededed;
-	border-top:3px solid #33bee5;}
+	/*border-top:3px solid #33bee5;*/
+}
 
 input[type="text"]:focus,
 textarea:focus,
