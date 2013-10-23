@@ -18,7 +18,7 @@ FileOutputFormat.setOutputPath(conf, new Path(args[2])); </code></pre>
 
 > 一个mapper：一个mapper处理所有不同的文件：[https://github.com/zhouhao/CS525-Big-Data-Course-Project/blob/master/OtherDemo/query1.java][2]（如下代码段，在mapper内部，我们可以数据来自哪个文件，然后进行相应的处理）      
     
-<pre><code>public static class Map extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text> 
+<pre class="brush: java">public static class Map extends MapReduceBase implements Mapper<LongWritable, Text, Text, Text> 
 {
 
 	public void map(LongWritable key, Text value, OutputCollector<Text,Text> output, Reporter reporter) throws IOException 
@@ -30,7 +30,7 @@ FileOutputFormat.setOutputPath(conf, new Path(args[2])); </code></pre>
 		//String line = value.toString();
 		output.collect(new Text(filename),value);  			
 	}
-}</code></pre>
+}</pre>
 
 **PS: mapper的输入可以是一个文件夹：`FileInputFormat.setInputPaths(conf, new Path("/tmp/"));`**
 
