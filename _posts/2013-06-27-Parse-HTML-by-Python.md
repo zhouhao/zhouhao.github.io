@@ -14,8 +14,7 @@ tags: [Python, html]
 
 
 ####This is the first time I try to parse the html source code. So it is coarse.   
-<pre>
-<code>
+<pre class="brush: python">
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
@@ -30,7 +29,7 @@ from BeautifulSoup import BeautifulSoup
 
 # remove &lt;a&gt;, &lt;b&gt; from string
 def filter_tags(htmlstr):
-    re_h=re.compile('</?[ab]+[^>]*>')
+    re_h=re.compile('&lt;/?[ab]+[^>]*>')
     s=re_h.sub('',htmlstr) 
     return s
 
@@ -95,7 +94,6 @@ def main():
 ###############################################################################
 if __name__=="__main__":
     main()
-</code>
 </pre>
 
 ###Find more info about it in [Github](https://github.com/zhouhao/Use_BeautifulSoup_to_Parse_Chemicalbook_website).
