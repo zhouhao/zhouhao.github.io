@@ -6,8 +6,7 @@ category: Python
 tags: [Twitter API]
 ---
 ###Leave the code here first, and I will complete it this weekend
-<pre>
-<code>
+<pre class="brush: python">
 from rauth.service import OAuth2Service # for Twitter API v1.1 https://github.com/litl/rauth/blob/master/rauth/service.py
 
 # Get a real consumer key & secret from https://dev.twitter.com/apps/new
@@ -35,5 +34,4 @@ data = s.get('statuses/user_timeline.json', params=values).json()
 
 for status in data:
     print status['text'].encode('utf-8')
-</code>
 </pre>
