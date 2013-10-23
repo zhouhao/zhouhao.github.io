@@ -37,7 +37,7 @@ Below are two pictures for my first plugin of chrome, which is just for fun.
 </code></pre>
 
 ###code for `background_page.html`:   
-<pre class="brush:html">
+<pre class="brush:php">
     &lt;html>
     &lt;head>
     &lt;script src="test.js" type="text/javascript">&lt;/script>
