@@ -11,10 +11,11 @@ tags: [Big Data, Hadoop]
 如何用mapper处理多输入的情况：  
 > 多个mapper：每个mapper处理对应的输入文件[https://github.com/zhouhao/Hadoop_Project1/blob/master/MapReduceQueries/Query3/query3.java][1]    
 
-<pre><code>MultipleInputs.addInputPath(conf, new Path(args[0]), TextInputFormat.class, CustomerMap.class);
+<pre class="brush: java">
+MultipleInputs.addInputPath(conf, new Path(args[0]), TextInputFormat.class, CustomerMap.class);
 MultipleInputs.addInputPath(conf, new Path(args[1]), TextInputFormat.class, TransactionMap.class);
-FileOutputFormat.setOutputPath(conf, new Path(args[2])); </code></pre>     
-
+FileOutputFormat.setOutputPath(conf, new Path(args[2]));    
+</pre>
 
 > 一个mapper：一个mapper处理所有不同的文件：[https://github.com/zhouhao/CS525-Big-Data-Course-Project/blob/master/OtherDemo/query1.java][2]（如下代码段，在mapper内部，我们可以数据来自哪个文件，然后进行相应的处理）      
     
