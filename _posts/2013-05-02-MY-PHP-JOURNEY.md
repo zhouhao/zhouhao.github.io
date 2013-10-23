@@ -13,7 +13,7 @@ tags: [PHP]
 <br/>
 ####1. 单引号与双引号的区别
 <pre class="brush:php">
-  	<?php 
+  	&lt;?php 
 		$test = "PHP"; 
 		$str = "I love $test"; 
 		$str1 = 'I love $test'; 
