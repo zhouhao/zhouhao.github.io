@@ -10,10 +10,11 @@ tags: [html]
 >1. 当输入框不对焦时，显示灰色的Test For Fun    
 >2. 当鼠标点击输入框时，清空Test For Fun，并以黑色显示输入的文本    
 
+<pre class="brush:php">
   <form>
     <input type="text" name="address" size="60" maxlength="60" style="color:gray; background: #fff; border: 1px solid #000;" value="Test For Fun" onfocus="if(this.value=='Test For Fun'){this.value=''};this.style.color='black';" onblur="if(this.value==''||this.value=='Test For Fun'){this.value='Test For Fun';this.style.color='gray';}">
   </form>
-
+</pre>
 ###具体效果如下
 <form>
 <input type="text" name="address" size="60" maxlength="60" style="color:gray; background: #fff; border: 1px solid #000;" value="Test For Fun" onfocus="if(this.value=='Test For Fun'){this.value=''};this.style.color='black';" onblur="if(this.value==''||this.value=='Test For Fun'){this.value='Test For Fun';this.style.color='gray';}">
