@@ -37,22 +37,22 @@ Below are two pictures for my first plugin of chrome, which is just for fun.
 </code></pre>
 
 ###code for `background_page.html`:   
-
-    <html>
-    <head>
-    <script src="test.js" type="text/javascript"></script>
-    </head>
-    </html>
-
+<pre class="brush:html">
+    &lt;html>
+    &lt;head>
+    &lt;script src="test.js" type="text/javascript">&lt;/script>
+    &lt;/head>
+    &lt;html>
+</pre>
 
 ###code for `test.js`:    
-<pre>
-<code>  function open() 
+<pre class="brush:js">  
+  function open() 
   {
     chrome.tabs.update(null, {url:"http://sbzhouhao.net"});
   }
   chrome.browserAction.onClicked.addListener(open);
-</code>
+
 </pre>
 
 ###Tip on how to set up the environment:    
