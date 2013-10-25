@@ -5,6 +5,8 @@ description: "Sort algorithms in Java"
 category: Java
 tags: [Java, Sort algorithm]
 ---
+	I provide 4 common sorting algorithms here: Bubble, Selection, Merge, QUick.   
+	
 <pre class="brush:java">
 /**
  *
