@@ -9,7 +9,7 @@ tags: [life]
 
 I don't know, maybe you need to get some sympathy from others for some stupid reasons. maybe catching a cold will give you a reason to sleep a whole day without coding without feeling guilty.  
 
->I wish you can find you reason, so that we can take the following step.  
+>I wish you can find your reason, so that we can take the following step.  
 
 Actually, the next step is very easy, as it is cold outside during the night. So, the next step is **to keep your windows open** before sleep. (Yeah, I succeed in this this way.) 
 
