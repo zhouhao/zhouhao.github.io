@@ -19,12 +19,12 @@ Damn! The feeling is not so good!!! ---- But no regrat now, as it is too late.
 
 ------
 ###OK, it is time to tell you how & why I catch a cold.
-1. I bought a bottle of orange juice from super market     
+1. I bought a bottle of orange juice from super market.     
 2. I wanted to keep it cold, but I am "lazy", as I don't want to store it in the refrigerator    
-3. The best I came up with is to put it aside the window, as I know it is cold during the night(see the picture below).
+3. The best way I came up with is to put it aside the window (it is just nearby my bed), as I know it is cold during the night(see the picture below).
 ![a photo from bed](http://i.imgur.com/VeWy2Bd.jpg "a photo from bed")
 ![a photo from desk](http://i.imgur.com/aqEF3V7.jpg "a photo from desk")
-4. "Thanks to" the whole night, I caught a cold at last     
+4. "Thanks to" the whole night, I caught a cold at last.     
 5. But I hate this feeling, really hate it.    
 
 >At last, please take care of your body, because you are the only owner of it. No one can take care of it better except you.
