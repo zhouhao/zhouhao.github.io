@@ -23,3 +23,5 @@ comments: yes
 	</ul>
 	<br/><br/>
 </div>
+
+[Download My Resume](/resume/Resume_Hao_Zhou_11022013.pdf)
