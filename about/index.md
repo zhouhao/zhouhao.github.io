@@ -20,8 +20,9 @@ comments: yes
 		<li>新浪微博: <a href="http://weibo.com/sbzhouhao">疯狂的咸蛋</a></li>  
 		<li>GitHub:   <a href="http://github.com/zhouhao">我写了一些很糟糕的代码在这里</a></li>  
 		<li>LinkedIn: <a href="http://www.linkedin.com/in/sbzhouhao">我的个人介绍</a></li>  
+		<li><a href="/resume/Resume_Hao_Zhou_11022013.pdf">Download My Resume</a></li>
 	</ul>
-	<br/><br/>
+	<br/>
+	<br/>
 </div>
 
-[Download My Resume](/resume/Resume_Hao_Zhou_11022013.pdf)
