@@ -12,20 +12,20 @@ It is not necessary to handle RuntimeException, but if you do this, it will make
 
 ###Common RuntimeExceptions are as following:  
 <pre class="brush: java">  
-	1. ArithmeticException     
-	2. NullPointerException    
-	3. NegativeArraySizeException    
-	4. ArrayIndexOutOfBoundsException    
-	5. ClassNotFoundException    
-	6. ClassCastException    
-	7. SecurityException    
+ArithmeticException     
+NullPointerException    
+NegativeArraySizeException    
+ArrayIndexOutOfBoundsException    
+ClassNotFoundException    
+ClassCastException    
+SecurityException    
 </pre>
 ###Also Non-RuntimeExceptions are as following:  
 <pre class="brush: java">
-	1. NoSuchMethodException     
-	2. IOException     
-	3. EOFException     
-	4. FileNotFoundException     
-	5. NumberFormatException     
-	6. SQLException     
+NoSuchMethodException     
+IOException     
+EOFException     
+FileNotFoundException     
+NumberFormatException     
+SQLException     
 </pre>
