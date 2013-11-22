@@ -9,9 +9,9 @@ Interview always makes me nervous, especially phone interview.
 
 Today, I got an interview from the west of US.       
 
-My stupid assumption, I thought Friday will be more quiet than other days, as everyone will prepare for their weekend. But I am wrong. I was taking my interview aside the door, but as people went around, the door made great noise, so I went out to continue.     
+My stupid assumption, I thought Friday will be quieter than other days, as everyone will prepare for their weekend. But I am wrong. I was taking my interview aside the door, but as people went around, the door made great noise, so I went out to continue.     
 
-Seems everything is not so bad. Then my intervewer asked me to pick up a pen with paper. Haha, I wen inside to find my bag! Oh, nooooooo~ I found this sticker there. Can thing be worse?
+Seems everything is not so bad. Then my interveewer asked me to pick up a pen with paper. Haha, I wen inside to find my bag! Oh, nooooooo~ I found this sticker there. Can thing be worse?
 
 ![My package has been moved](/images/blog/myPackageBeMoved.png)   
 
