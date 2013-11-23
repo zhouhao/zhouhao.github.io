@@ -1,7 +1,7 @@
 ---
 title: About me
 layout: page
-comments: yes
+comments: no
 ---
 
 <script type="text/javascript">
