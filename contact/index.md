@@ -19,7 +19,7 @@ comments: no
 	(function(d, t){
 	   var g = d.createElement(t),
 	       s = d.getElementsByTagName(t)[0];
-	   g.src = "http://www.foxyform.com/js.php?id=497570&sec_hash=0f6ea107bd9&width=350px";
+	   g.src = "http://www.foxyform.com/js.php?id=497570&sec_hash=0f6ea107bd9&width=600px";
 	   s.parentNode.insertBefore(g, s);
 	}(document, "script"));
 	</script>
