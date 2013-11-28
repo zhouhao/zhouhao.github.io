@@ -122,6 +122,14 @@ comments: yes
 										</figure>
 									</div>
 									
+									<div class="cmsms_media_box">
+										<figure>
+											<a href="http://farm8.staticflickr.com/7294/11106559144_167252db05_c.jpg" class="preloader inBlog jackbox" data-group="openpost_1" title="">
+												<img src="http://farm8.staticflickr.com/7294/11106559144_167252db05_c.jpg" alt="" class="fullwidth" style="opacity: 1;">
+											</a>
+										</figure>
+									</div>
+									
 								</div>
 								<div class="cl"></div>
 							</div>
