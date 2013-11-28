@@ -10,5 +10,5 @@ At 2:00PM, I went to buy gloves, then I made an one-minute-call to a girl. It is
 
 ![Amazing Call](/images/blog/phoneCall.png "Amazing Call")     
 
-At last, as schedule, I will celebrate thanksgiving with my friends tomorrow evening, so I also some food for that.     
+At last, as schedule, I will celebrate thanksgiving with my friends tomorrow evening, so I also buy some food for that with friend.     
 :-)
