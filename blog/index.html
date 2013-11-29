@@ -8,21 +8,20 @@ layout: page
 <script type="text/javascript">
 	var tpj=jQuery;
 	tpj.noConflict();
-	tpj(document).ready(function() {
-		tpj('.blog_tab').attr('class', 'current_page_item');})
-</script>
-
-<script type="text/javascript">
-	//https://github.com/lucaong/jQCloud/blob/master/examples/index.html
 	var word_list = [
 		{% for tag in site.tags %}
 			{text: "{{ tag[0] }}", weight: {{ tag[1].size }}, link: "http://sbzhouhao.net/tags/#{{ tag[0] }}"},
 		{% endfor %}
 
 	];
-	$(function() {
-		$("#my_favorite_latin_words").jQCloud(word_list);
-	});
+
+	tpj(document).ready(function() {
+		tpj('.blog_tab').attr('class', 'current_page_item');
+		tpj("#my_favorite_latin_words").jQCloud(word_list);
+	})
+
+	//https://github.com/lucaong/jQCloud/blob/master/examples/index.html
+	
 </script>
 
 <div class="middle_inner">
