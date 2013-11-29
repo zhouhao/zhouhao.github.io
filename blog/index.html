@@ -216,21 +216,12 @@ layout: page
 			</aside>
 		</div>
 		<div class="one_first">
-			<aside class="widget widget_custom_flickr_entries">
+			<aside id="custom-twitter-4" class="widget widget_custom_flickr_entries">
 				<h2 class="widgettitle">Flickr</h2>
-				<ul id="flickr_images"></ul>
-                                        <p><a href="#">More flickr Image</a></p>
-				<script type="text/javascript">
-					jQuery(document).ready(function(){
-						jQuery('#flickr_images').jflickrfeed({
-							limit: 6,
-							qstrings: {
-								id: '49053047@N04'
-							},
-							itemTemplate: '<li><a href="{{image_b}}"><img src="{{image_s}}" alt="{{title}}" /></a></li>'
-						});
-					});
-				</script>
+				<div class="flickr-widget">
+					<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=2&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=86294173@N08"></script>
+					<div class="cl"></div>
+				</div>
 			</aside>
 		</div>
 	</section>
