@@ -2,12 +2,27 @@
 title: Blog List
 layout: page
 ---
+<link rel="stylesheet" href="/css/jqcloud.css">
+<script type="text/javascript" src="/js/jqcloud-1.0.4.min.js"></script>
 
 <script type="text/javascript">
 	var tpj=jQuery;
 	tpj.noConflict();
 	tpj(document).ready(function() {
 		tpj('.blog_tab').attr('class', 'current_page_item');})
+</script>
+
+<script type="text/javascript">
+	//https://github.com/lucaong/jQCloud/blob/master/examples/index.html
+	var word_list = [
+		{% for tag in site.tags %}
+			{text: "{{ tag[0] }}", weight: {{ tag[1].size }}, link: "http://sbzhouhao.net/tags/#{{ tag[0] }}"},
+		{% endfor %}
+
+	];
+	$(function() {
+		$("#my_favorite_latin_words").jQCloud(word_list);
+	});
 </script>
 
 <div class="middle_inner">
@@ -73,12 +88,7 @@ layout: page
 		<div class="one_first">
 			<aside class="widget widget_tag_clouds_entries">
 				<h2 class="widgettitle">Tags</h2>
-				<ul>
-					<li><a href="#"><img src="images/img/advertising_img_1.jpg" alt="" /></a></li>
-					<li><a href="#"><img src="images/img/advertising_img_2.jpg" alt="" /></a></li>
-					<li><a href="#"><img src="images/img/advertising_img_3.jpg" alt="" /></a></li>
-					<li><a href="#"><img src="images/img/advertising_img_4.jpg" alt="" /></a></li>
-				</ul>
+				<div id="my_favorite_latin_words" style="width: 258px; height: 200px; border: 1px solid #ccc;"></div>
 			</aside>	
 		</div>
 		<div class="one_first">
