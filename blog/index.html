@@ -11,6 +11,7 @@ layout: page
 </script>
 
 <div class="middle_inner">
+	<div class="content_wrap">
 	<section id="content">
 		<div class="entry">
 
@@ -31,40 +32,42 @@ layout: page
 			</ul>
 
 		</div>
+	
+		<div class="cl"></div>
+		<div id="post-pagination" class="paginator">
+
+			{% if paginator.previous_page %}
+				{% if paginator.previous_page == 1 %}
+					<a href="/blog/"><Prev Page</a>
+				{% else %}
+					<a href="/blog/page{{paginator.previous_page}}"><Prev Page</a>
+				{% endif %}
+			{% else %}
+				<span class="previous disabled"><Prev Page</span>
+			{% endif %}
+
+			{% if paginator.page == 1 %}
+				<span class="current-page">1</span>
+			{% else %}
+				<a href="/blog/">1</a>
+			{% endif %}
+
+			{% for count in (2..paginator.total_pages) %}
+				{% if count == paginator.page %}
+					<span class="current-page">{{count}}</span>
+				{% else %}
+					<a href="/blog/page{{count}}">{{count}}</a>
+				{% endif %}
+			{% endfor %}
+
+			{% if paginator.next_page %}
+				<a class="next" href="/blog/page{{paginator.next_page}}">Next Page></a>
+			{% else %}
+				<span class="next disabled" >Next Page></span>
+			{% endif %}
+			&nbsp;[total: {{ paginator.total_posts }}]	
+		<br/><br/>
+		</div>
 	</section>
-	<div class="cl"></div>
-	<div id="post-pagination" class="paginator">
-
-	{% if paginator.previous_page %}
-		{% if paginator.previous_page == 1 %}
-			<a href="/blog/"><Prev Page</a>
-		{% else %}
-			<a href="/blog/page{{paginator.previous_page}}"><Prev Page</a>
-		{% endif %}
-	{% else %}
-		<span class="previous disabled"><Prev Page</span>
-	{% endif %}
-
-	{% if paginator.page == 1 %}
-		<span class="current-page">1</span>
-	{% else %}
-		<a href="/blog/">1</a>
-	{% endif %}
-
-	{% for count in (2..paginator.total_pages) %}
-		{% if count == paginator.page %}
-			<span class="current-page">{{count}}</span>
-		{% else %}
-			<a href="/blog/page{{count}}">{{count}}</a>
-		{% endif %}
-	{% endfor %}
-
-	{% if paginator.next_page %}
-		<a class="next" href="/blog/page{{paginator.next_page}}">Next Page></a>
-	{% else %}
-		<span class="next disabled" >Next Page></span>
-	{% endif %}
-	&nbsp;[total: {{ paginator.total_posts }}]	
-	<br/><br/>
 	</div>
 </div>
