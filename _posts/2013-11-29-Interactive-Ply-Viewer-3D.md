@@ -51,9 +51,11 @@ The very first thing you need to do is determine if your video card can support 
 9). If you have any question, you can contact me: <a href="mailto:hzhou@wpi.edu">hzhou@wpi.edu</a>      
 
 ##Screen Shots:        
-![keyboard 'p' event](/images/blog/OpenGL/hw1/1.PNG "keyboard 'p' event")            
-![keyboard 't' event](/images/blog/OpenGL/hw1/2.PNG "keyboard 't' event")           
-![keyboard 'e' event](/images/blog/OpenGL/hw1/3.PNG "keyboard 'e' event")           
-![keyboard 'm' event](/images/blog/OpenGL/hw1/4.PNG "keyboard 'm' event")           
-![keyboard 'd' event](/images/blog/OpenGL/hw1/5.PNG "keyboard 'd' event")           
-![keyboard 'g' event](/images/blog/OpenGL/hw1/6.PNG "keyboard 'g' event")     
+![keyboard 'N' event](/images/blog/OpenGL/hw2/1.PNG "keyboard 'N' event")            
+![keyboard 'X' event](/images/blog/OpenGL/hw2/2.PNG "keyboard 'X' event")           
+![keyboard 'Y' event](/images/blog/OpenGL/hw2/3.PNG "keyboard 'Y' event")     
+![keyboard 'Z' event](/images/blog/OpenGL/hw2/3_5.PNG "keyboard 'Z' event")       
+![keyboard 'R' event](/images/blog/OpenGL/hw2/3_7.PNG "keyboard 'R' event")        
+![keyboard 'B' event](/images/blog/OpenGL/hw2/4.PNG "keyboard 'B' event")           
+![keyboard 'm' event](/images/blog/OpenGL/hw2/5.PNG "keyboard 'm' event")           
+![keyboard 'e' event](/images/blog/OpenGL/hw2/6.PNG "keyboard 'e' event")     
