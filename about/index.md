@@ -20,8 +20,8 @@ comments: yes
 		<li>新浪微博: <a href="http://weibo.com/sbzhouhao">疯狂的咸蛋</a></li>  
 		<li>GitHub:   <a href="http://github.com/zhouhao">I host a lot of code here</a></li>  
 		<li>LinkedIn: <a href="http://www.linkedin.com/in/sbzhouhao">My introduction page</a></li>  
-		<li><a href="/resume/Resume_Hao_Zhou_WEB_11292013.pdf">Download My Resume for Web</a></li>
-		<li><a href="/resume/Resume_Hao_Zhou_11292013.pdf">Download My Resume for Low level</a></li>
+		<li><a href="/resume/Resume_Hao_Zhou_WEB_11292013.pdf">Download My Resume for Web development</a></li>
+		<li><a href="/resume/Resume_Hao_Zhou_11292013.pdf">Download My Resume for Low level development</a></li>
 	</ul>
 	<br/>
 	<br/>
