@@ -20,19 +20,19 @@ The very first thing you need to do is determine if your video card can support 
 **Key K**: Toggle drawing PLY files with a mixture of reflection and refraction ON/OFF. Randomly select which PLY objects to make reflective or refractive. Since this choice is randomized, every time you toggle the K **Key ON, a different set of PLY objects are reflective vs refractive. When toggled ON, all PLY objects are drawn with either reflection or refraction. When OFF, the PLY objects are drawn with no reflection or refraction (same as you had in HW3)   
 
 ##How my program works:
-1). When you start it, it will display 3 trees, a car and a box without shadows
-2). Key D: Toggle shadows ON/OFF. When ON, the shadows show up and when OFF the shadows do not show up. 
-3). Key A: Toggle ON/OFF between a grass texture and stone texture. When ON, the floor is textured with grass and when OFF the floor is textured using the stone texture. 
-4). key F: Toggle between fog that changes linearly with depth, fog changing exponentially with depth, and no fog
-5). Key T: Toggle reflection ON/OFF. When ON, all PLY objects are drawn with reflection. When OFF, the PLY objects are drawn with no reflection
-6). Key V: Toggle refraction ON/OFF. When ON, all PLY objects are drawn with refraction. When OFF, the PLY objects are drawn with no refraction
-7). Key K: Toggle drawing PLY files with a mixture of reflection and refraction ON/OFF. Randomly select which PLY objects to make reflective or refractive. When toggled ON, all PLY objects are drawn with either reflection or refraction. When OFF, the PLY objects are drawn with no reflection or refraction 
+1). When you start it, it will display 3 trees, a car and a box without shadows        
+2). Key D: Toggle shadows ON/OFF. When ON, the shadows show up and when OFF the shadows do not show up.       
+3). Key A: Toggle ON/OFF between a grass texture and stone texture. When ON, the floor is textured with grass and when OFF the floor is textured using the stone texture.      
+4). key F: Toggle between fog that changes linearly with depth, fog changing exponentially with depth, and no fog     
+5). Key T: Toggle reflection ON/OFF. When ON, all PLY objects are drawn with reflection. When OFF, the PLY objects are drawn with no reflection    
+6). Key V: Toggle refraction ON/OFF. When ON, all PLY objects are drawn with refraction. When OFF, the PLY objects are drawn with no refraction    
+7). Key K: Toggle drawing PLY files with a mixture of reflection and refraction ON/OFF. Randomly select which PLY objects to make reflective or refractive. When toggled ON, all PLY objects are drawn with either reflection or refraction. When OFF, the PLY objects are drawn with no reflection or refraction      
 
-##Attention for keyboar issues F and K:
-1). For "F", I have three status: linear fog, exponential fog, and no fog
-2). For "K", if toggled ON, when you trigger key Issue "D", "A", and "F", my program will randomly re-select reflective or refractive for all PLY objects.
+##Attention for keyboar issues F and K:      
+1). For "F", I have three status: linear fog, exponential fog, and no fog      
+2). For "K", if toggled ON, when you trigger key Issue "D", "A", and "F", my program will randomly re-select reflective or refractive for all PLY objects.     
 
-##Attention for reflection & refraction: as I do some rotation for PLY objects, so it may reflection or refraction something "weird" for you, but I think it is not wrong in my program. (Different locations have different reflection or refraction effects)
+**Attention for reflection & refraction: as I do some rotation for PLY objects, so it may reflection or refraction something "weird" for you, but I think it is not wrong in my program. (Different locations have different reflection or refraction effects)**
 
 ##If you have any question, you can contact me: <a href="mailto:hzhou@wpi.edu">hzhou@wpi.edu</a>      
 
