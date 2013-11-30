@@ -18,9 +18,10 @@ comments: yes
 	<ul>
 		<li>个人邮箱: <a href="mailto:hzhou@wpi.edu"> hzhou@wpi.edu</a></li>    
 		<li>新浪微博: <a href="http://weibo.com/sbzhouhao">疯狂的咸蛋</a></li>  
-		<li>GitHub:   <a href="http://github.com/zhouhao">我写了一些很糟糕的代码在这里</a></li>  
-		<li>LinkedIn: <a href="http://www.linkedin.com/in/sbzhouhao">我的个人介绍</a></li>  
-		<li><a href="/resume/Resume_Hao_Zhou_11022013.pdf">Download My Resume</a></li>
+		<li>GitHub:   <a href="http://github.com/zhouhao">I host a lot of code here</a></li>  
+		<li>LinkedIn: <a href="http://www.linkedin.com/in/sbzhouhao">My introduction page</a></li>  
+		<li><a href="/resume/Resume_Hao_Zhou_WEB_11292013.pdf">Download My Resume for Web</a></li>
+		<li><a href="/resume/Resume_Hao_Zhou_11292013.pdf">Download My Resume for Low level</a></li>
 	</ul>
 	<br/>
 	<br/>
