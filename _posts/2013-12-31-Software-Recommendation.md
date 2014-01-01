@@ -17,3 +17,7 @@ tags: [Software]
 3. [FileZilla](https://filezilla-project.org/): For ALL platform, but I only use it on Ubuntu.     
 [**Note**: All of them support Key Authentication!]
 
+###Terminal
+1. [Cygwin](http://www.cygwin.com/): For WINDOWS. Always run commands on Linux, so feel weird to use DOS. With Cygwin, this can be achieved easily.    
+2. [iTerm2](http://www.iterm2.com/#/section/home): For Mac. Haven't used it for a long time, as the screen size of my air is 11 inch, which is too small for coding. But iTrem2 seems great to use (The original terminal of Mac is also great. It is your choice to use which one).     
+
