@@ -21,3 +21,9 @@ tags: [Software]
 1. [Cygwin](http://www.cygwin.com/): For WINDOWS. Always run commands on Linux, so feel weird to use DOS. With Cygwin, this can be achieved easily.    
 2. [iTerm2](http://www.iterm2.com/#/section/home): For Mac. Haven't used it for a long time, as the screen size of my air is 11 inch, which is too small for coding. But iTrem2 seems great to use (The original terminal of Mac is also great. It is your choice to use which one).     
 
+###To Do List
+1. [Wunderlist](https://www.wunderlist.com/en/): Has clients for iPhone, iPad, Mac, Windows, Android, Kindle Fire and the Web (On Ubuntu, you should use web). It is very convinient to orgniaze what to do. [I "hate" it becasue it lauches so slow in WINDOWS]      
+
+###Office & Email Client
+1. [WPS](http://www.wps.cn/):  For WINDOWS & Linux. (Lighter than MS office)
+2. [Mozilla Thunderbird](http://www.mozilla.org/en-US/thunderbird/): I hate outlook, so I use Thunderbird. And with [ExQuilla](https://addons.mozilla.org/en-us/thunderbird/addon/exquilla-exchange-web-services/), I can orgnize exchange service in Thunderbird. [No more Outlook]       
