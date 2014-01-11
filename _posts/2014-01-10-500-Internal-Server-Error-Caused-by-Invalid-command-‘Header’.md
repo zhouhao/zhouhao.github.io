@@ -12,7 +12,7 @@ Today, when I test an elegant multiple files uploading plugin([jQuery-File-Uploa
 With the error message "Invalid command ‘Header’, perhaps misspelled or defined by a module not included in the server configuration", I can easily get the answer from Google. 
 
 This error was cause by `.htaccess` file in `jQuery-File-Upload-9.5.2/server/php/files/`, whose content is as below:    
-<pre class="brush: html">
+<pre class="brush: plain">
 # The following directives force the content-type application/octet-stream
 # and force browsers to display a download dialog for non-image files.
 # This prevents the execution of script files in the context of the website:
@@ -34,11 +34,11 @@ Header set X-Content-Type-Options nosniff
 </pre>
 
 ###Two steps to fix this error:  
-<pre class="brush: html">
+<pre class="brush: bash">
 sudo ln -sf /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
 </pre>
 
-<pre class="brush: plain">
+<pre class="brush: bash">
 sudo /etc/init.d/apache2 restart
 </pre>
 
