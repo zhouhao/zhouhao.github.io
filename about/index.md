@@ -12,6 +12,8 @@ comments: yes
 </script>
 <div class="middle_inner">
 	<h1>Zhou Hao</h1>
+	<p>I am an Open Source enthusiast. And I feel proud that I can make others' lives better with my works. </p>
+	<p>I am the creator of WPILIFE website(http://wpilife.org/), which provides a information sharing platform for international students. So far, I have made a lot of help for startups. From last May, I am taking the IT-director position for MIT-CHIEF.</p>
 	<p>国内毕业于大连理工大学，专业计算机。自认一直在给母校丢人。当然母校当时给我也造成的深深的伤害：专业男女比例19：1至今让我与女生无法正常交流。</p> 
 	<p>目前就读于伍斯特理工，专业依旧计算机。现在一直努力想让自己成为一个interesting的人。</p>   
 	<p>我会编程。但是更多人不会。这真他妈的酷！（引用自笨方法学Python的结束语） </p>
