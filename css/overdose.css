@@ -1,0 +1,28 @@
+html {
+  font-size: 14px; }
+  @media only screen and (min-width: 624px) {
+    html {
+      font-size: 16px; } }
+
+body {
+  margin: 0;
+  color: #454545;
+  line-height: 1.5em;
+  -webkit-font-smoothing: antialiased; }
+
+a {
+  text-decoration: none;
+  color: #59ABE3;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  transition: color 0.3s ease; }
+  a:hover {
+    color: #1f79b7; }
+
+hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-bottom: 1px solid #EDEDED; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500; }

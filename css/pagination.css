@@ -1,0 +1,24 @@
+.pagination {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0; }
+  .pagination .current, .pagination a {
+    display: inline-block;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    padding: 0 0.25rem;
+    margin: 0 0.25rem;
+    border-bottom: 2px solid; }
+  .pagination .current {
+    color: #454545; }
+  .pagination .space {
+    color: #999; }
+  .pagination a {
+    color: #999;
+    border-color: transparent;
+    -webkit-transition: border-color 0.3s ease, color 0.3s ease;
+    -moz-transition: border-color 0.3s ease, color 0.3s ease;
+    transition: border-color 0.3s ease, color 0.3s ease; }
+    .pagination a:hover {
+      color: #59ABE3;
+      border-color: #59ABE3; }

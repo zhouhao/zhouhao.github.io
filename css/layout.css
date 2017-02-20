@@ -1,0 +1,18 @@
+.page-background {
+  z-index: -1;
+  background-color: #FFF;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+.content-outer {
+  margin-top: 8rem; }
+  @media only screen and (min-width: 624px) {
+    .content-outer {
+      margin-top: 4rem; } }
+
+.content-inner {
+  width: 100%;
+  padding: 1.5rem 0; }

@@ -1,0 +1,35 @@
+.profile {
+  position: relative;
+  display: block; }
+
+.profile__image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  margin: auto; }
+
+.profile__meta {
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 12px; }
+
+.profile__meta__author {
+  font-size: 24px;
+  color: #454545;
+  display: block; }
+
+.profile__meta__description {
+  font-size: 14px;
+  color: #999;
+  line-height: 1.4em;
+  margin-top: 4px; }
+
+.profile__social-links {
+  text-align: center;
+  margin-top: 24px; }
+
+.profile__social-links__item {
+  font-size: 24px;
+  color: #999;
+  margin: 0 12px; }

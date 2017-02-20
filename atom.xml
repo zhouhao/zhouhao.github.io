@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>疯狂de咸蛋</title>
+  <subtitle>Salty Egg</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://hzhou.me/"/>
+  <updated>2017-02-20T02:14:28.000Z</updated>
+  <id>http://hzhou.me/</id>
+  
+  <author>
+    <name>Salty Egg</name>
+    <email>i@hzhou.me</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Quick start: swagger, spring-boot and Jersey</title>
+    <link href="http://hzhou.me/2017/02/13/Quick-start-swagger-spring-boot-and-Jersey/"/>
+    <id>http://hzhou.me/2017/02/13/Quick-start-swagger-spring-boot-and-Jersey/</id>
+    <published>2017-02-13T18:56:40.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在做服务器端API开发的时候，如何保持文档的更新是一个比较头疼的问题。试过写成word文档，缺点很明显：</p>
+<ol>
+<li>更新不及时</li>
+<li>不便于查阅</li>
+</ol>
+<p>也试过用其他的在线API管理工具，太懒了，总是无法保持更新。而且大多数服务还是收费的。<br><a id="more"></a></p>
+<p>最近一次，我在试用<a href="https://www.eolinker.com/" target="_blank" rel="external">EOApi</a>，终于被它的访问速度打败了（貌似这个对path parameter支持的也不是很好），我不得不寻找新的工具。</p>
+<p>至于为什么最后会选择Swagger，我已经记不清了。其实对于Swagger我一直是有耳闻的，只是一开始我玩弄Swagger Editor的时候，我以为它只能从YAML/JSON生成Java代码的呢。没想到居然反着也行。</p>
+<p>长话短说，在此就简单介绍一下如果做Swagger， Spring-Boot和Jersey的快速集成。
+（其实我是根据这个链接来学习的: <a href="http://tech.asimio.net/2016/04/05/Microservices-using-Spring-Boot-Jersey-Swagger-and-Docker.html" target="_blank" rel="external">点我</a>）</p>
+<h3 id="1-建一个Spring-Boot的项目，添加必要的依赖"><a href="#1-建一个Spring-Boot的项目，添加必要的依赖" class="headerlink" title="1. 建一个Spring-Boot的项目，添加必要的依赖"></a>1. 建一个<code>Spring-Boot</code>的项目，添加必要的依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jersey<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.swagger<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>swagger-jersey2-jaxrs<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;swagger.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="2-配置Jersey和Swagger"><a href="#2-配置Jersey和Swagger" class="headerlink" title="2. 配置Jersey和Swagger"></a>2. 配置<code>Jersey</code>和<code>Swagger</code></h3><p><strong><em>Note:</em></strong> Swagger不和Jersey共用一个Jackson的<code>MapperObject</code>， 所以你如果要让你的Model/Entity显示为<code>SNAKE_CASE</code>，你需要加上</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">io.swagger.util.Json.mapper().setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);</div></pre></td></tr></table></figure>
+<p>但是这也会导致一个问题，如果你以<code>http://127.0.0.1:8080/swagger.json</code>来获取内容，你会发现那些<code>basePath</code>和<code>operationId</code>也变成了<code>SNAKE_CASE</code>,Swagger-UI会报错。
+其实这个时候你只要换成<code>http://127.0.0.1:8080/swagger.yaml</code>一切就妥妥的了。</p>
+<p><strong><em>Note:</em></strong> 在<code>Spring-boot</code>中，所有的Jesey的EndPoint必须一个个添加，不能直接<code>package(XXX)</code>之类的，<code>Spring-boot</code>官方文档有提到，我之前踩过这个坑。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JerseyConfig</span> <span class="keyword">extends</span> <span class="title">ResourceConfig</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.jersey.application-path:/&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String apiPath;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JerseyConfig</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.registerEndpoints();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@PostConstruct</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// Register components where DI is needed</span></div><div class="line">        <span class="keyword">this</span>.configureSwagger();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">registerEndpoints</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.register(HelloWorldResource.class);</div><div class="line">        <span class="comment">// Available at /&lt;Jersey's servlet path&gt;/application.wadl</span></div><div class="line">        <span class="keyword">this</span>.register(WadlResource.class);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">configureSwagger</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// Available at localhost:port/swagger.json</span></div><div class="line">        <span class="keyword">this</span>.register(ApiListingResource.class);</div><div class="line">        <span class="keyword">this</span>.register(SwaggerSerializers.class);</div><div class="line"></div><div class="line">        BeanConfig config = <span class="keyword">new</span> BeanConfig();</div><div class="line">        config.setConfigId(<span class="string">"springboot-jersey-swagger-docker-example"</span>);</div><div class="line">        config.setTitle(<span class="string">"Spring Boot + Jersey + Swagger + Docker Example"</span>);</div><div class="line">        config.setVersion(<span class="string">"v1"</span>);</div><div class="line">        config.setContact(<span class="string">"Hao Zhou"</span>);</div><div class="line">        config.setSchemes(<span class="keyword">new</span> String[]&#123;<span class="string">"http"</span>, <span class="string">"https"</span>&#125;);</div><div class="line">        config.setBasePath(<span class="keyword">this</span>.apiPath);</div><div class="line">        config.setResourcePackage(<span class="string">"me.hzhou.resource"</span>);</div><div class="line">        config.setPrettyPrint(<span class="keyword">true</span>);</div><div class="line">        config.setScan(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">        <span class="comment">// it does not work as below</span></div><div class="line">        <span class="comment">//config.getSwagger().setSecurityDefinitions(XX);</span></div><div class="line"></div><div class="line">        <span class="comment">// if you want to have you pojo parse as SNAKE_CASE, please add following line,</span></div><div class="line">        <span class="comment">// also in this case, you should use swagger.yaml, rather than swagger.json for output, as</span></div><div class="line">        <span class="comment">// some swagger keywords, such as operationId, will be parsed as operation_id. - syntax error</span></div><div class="line">        <span class="comment">//io.swagger.util.Json.mapper().setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-添加HelloWorld-resource"><a href="#3-添加HelloWorld-resource" class="headerlink" title="3. 添加HelloWorld resource"></a>3. 添加<code>HelloWorld resource</code></h3><p><strong><em>Note:</em></strong> <code>@SwaggerDefinition</code>这里面不是必要的，我加在这里只是为了提示Swagger有security方面的注解
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="meta">@Path</span>(<span class="string">"/"</span>)</div><div class="line"><span class="meta">@Consumes</span>(MediaType.APPLICATION_JSON)</div><div class="line"><span class="meta">@Produces</span>(MediaType.APPLICATION_JSON)</div><div class="line"></div><div class="line"><span class="meta">@Api</span>(value = <span class="string">"Hello resource"</span>, produces = <span class="string">"application/json"</span>)</div><div class="line"><span class="meta">@SwaggerDefinition</span>(securityDefinition =</div><div class="line"><span class="meta">@SecurityDefinition</span>(apiKeyAuthDefintions = &#123;</div><div class="line">        <span class="meta">@ApiKeyAuthDefinition</span>(key = <span class="string">"basic"</span>, name = <span class="string">"Authorization"</span>, in = ApiKeyAuthDefinition.ApiKeyLocation.HEADER)</div><div class="line">&#125;))</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldResource</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOGGER = LoggerFactory.getLogger(HelloWorldResource.class);</div><div class="line"></div><div class="line">    <span class="meta">@GET</span></div><div class="line">    <span class="meta">@Path</span>(<span class="string">"hello/&#123;name&#125;"</span>)</div><div class="line">    <span class="meta">@ApiOperation</span>(</div><div class="line">            value = <span class="string">"Get a hello resource."</span></div><div class="line">            , response = Hello.class</div><div class="line">            <span class="comment">//,responseContainer = "List" // if returned is a list of objects</span></div><div class="line">            <span class="comment">//,authorizations = @Authorization(value = "basic")</span></div><div class="line">    )</div><div class="line">    <span class="meta">@ApiResponses</span>(value = &#123;</div><div class="line">            <span class="meta">@ApiResponse</span>(code = <span class="number">200</span>, message = <span class="string">"hello resource found"</span>),</div><div class="line">            <span class="meta">@ApiResponse</span>(code = <span class="number">404</span>, message = <span class="string">"Given admin user not found"</span>)</div><div class="line">    &#125;)</div><div class="line">    <span class="function"><span class="keyword">public</span> Response <span class="title">getHelloVersionInUrl</span><span class="params">(@ApiParam @PathParam(<span class="string">"name"</span>)</span> String name) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="string">"404"</span>.equals(name)) &#123;</div><div class="line">            <span class="keyword">return</span> Response.status(Response.Status.NOT_FOUND).build();</div><div class="line">        &#125;</div><div class="line">        Hello result = <span class="keyword">new</span> Hello();</div><div class="line">        result.setMsg(String.format(<span class="string">"Hello %s. %s"</span>, name, <span class="string">"welcome to swagger"</span>));</div><div class="line">        <span class="keyword">return</span> Response.status(Response.Status.OK).entity(result).build();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="4-最后借助Swagger-UI来显示我们的API文档"><a href="#4-最后借助Swagger-UI来显示我们的API文档" class="headerlink" title="4. 最后借助Swagger-UI来显示我们的API文档"></a>4. 最后借助<code>Swagger-UI</code>来显示我们的API文档</h3><p><img src="/img/swagger-ui-api.png" alt="Swagger UI"></p>
+<h3 id="5-后续"><a href="#5-后续" class="headerlink" title="5. 后续"></a>5. 后续</h3><p>其实我还没有整明白如果实现<code>http-header</code>的<code>basic authorization</code>。等我哪天知道了再过来更新。</p>
+<h3 id="6-源码"><a href="#6-源码" class="headerlink" title="6. 源码"></a>6. 源码</h3><p><a href="https://github.com/zhouhao/swagger-spring-boot-jersey" target="_blank" rel="external">swagger-spring-boot-jersey</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在做服务器端API开发的时候，如何保持文档的更新是一个比较头疼的问题。试过写成word文档，缺点很明显：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;更新不及时&lt;/li&gt;
+&lt;li&gt;不便于查阅&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;也试过用其他的在线API管理工具，太懒了，总是无法保持更新。而且大多数服务还是收费的。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+      <category term="服务" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%9C%8D%E5%8A%A1/"/>
+    
+    
+      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
+    
+      <category term="Swagger" scheme="http://hzhou.me/tags/Swagger/"/>
+    
+      <category term="Spring Boot" scheme="http://hzhou.me/tags/Spring-Boot/"/>
+    
+      <category term="Jersey" scheme="http://hzhou.me/tags/Jersey/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo site search plugin with Tipue </title>
+    <link href="http://hzhou.me/2016/08/22/local-search-with-tipue/"/>
+    <id>http://hzhou.me/2016/08/22/local-search-with-tipue/</id>
+    <published>2016-08-23T01:22:01.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I used to use <a href="https://swiftype.com/" target="_blank" rel="external">swiftype</a> as my site search engine, however, it does not provide nay free plan now, what’s more, the <a href="https://swiftype.com/pricing" target="_blank" rel="external">price</a> is too high for my personal blog (Seems my previous free plan is not auto cancelled by swiftype). However, it is time to find an alternative now. And it is <a href="http://www.tipue.com/search/" target="_blank" rel="external">Tipue search</a>.</p>
+<a id="more"></a>
+<h2 id="Research"><a href="#Research" class="headerlink" title="Research"></a>Research</h2><p>I go through <a href="https://hexo.io/plugins/" target="_blank" rel="external">hexo plugin</a> page very carefully, and find there are 2 related plugins may be helpful for me:</p>
+<ol>
+<li><a href="https://github.com/PaicHyperionDev/hexo-generator-search" target="_blank" rel="external">hexo-generator-search</a>: this is XML based</li>
+<li><a href="https://github.com/alexbruno/hexo-generator-json-content" target="_blank" rel="external">hexo-generator-json-content</a>: this is JSON based</li>
+</ol>
+<p>I tried to use the latter one(I like JSON more than XML), but find I cannot use it well, as I am not a JS expert. Also, I googled some Open-Source search engine tools, and I finally find <a href="http://www.tipue.com/search/" target="_blank" rel="external">TIPUE SEARCH</a></p>
+<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Now I have the Open-Source search engine tool and JSON generator. But the JSON generated by <code>hexo-generator-json-content</code> does not fit <code>Tipue Search</code>. 
+Comes 2 solutions now:</p>
+<ol>
+<li>customize <code>hexo-generator-json-content</code></li>
+<li>customize <code>Tipue Search</code></li>
+</ol>
+<p>This is not a difficult decision, and I prefer the first one.</p>
+<p>So I create this repo: <a href="https://github.com/zhouhao/Hexo-Tipue-Search-Json" target="_blank" rel="external">Hexo-Tipue-Search-Json</a></p>
+<h2 id="How-to-install-it"><a href="#How-to-install-it" class="headerlink" title="How to install it"></a>How to install it</h2><p>You can find all information you want here: <a href="https://github.com/zhouhao/Hexo-Tipue-Search-Json" target="_blank" rel="external">https://github.com/zhouhao/Hexo-Tipue-Search-Json</a></p>
+<h3 id=""><a href="#" class="headerlink" title=";-)"></a>;-)</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I used to use &lt;a href=&quot;https://swiftype.com/&quot;&gt;swiftype&lt;/a&gt; as my site search engine, however, it does not provide nay free plan now, what’s more, the &lt;a href=&quot;https://swiftype.com/pricing&quot;&gt;price&lt;/a&gt; is too high for my personal blog (Seems my previous free plan is not auto cancelled by swiftype). However, it is time to find an alternative now. And it is &lt;a href=&quot;http://www.tipue.com/search/&quot;&gt;Tipue search&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="普通" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
+    
+    
+      <category term="hexo" scheme="http://hzhou.me/tags/hexo/"/>
+    
+      <category term="search" scheme="http://hzhou.me/tags/search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在美拔牙</title>
+    <link href="http://hzhou.me/2016/05/27/Teeth-Extraction-Boston/"/>
+    <id>http://hzhou.me/2016/05/27/Teeth-Extraction-Boston/</id>
+    <published>2016-05-28T00:29:01.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>哦耶，终于把4个智齿一次性都拔了！感觉口腔好空旷。底下就简单记录一下今天的拔牙过程。
+<a id="more"></a></p>
+<h3 id="开始前"><a href="#开始前" class="headerlink" title="开始前"></a>开始前</h3><p>先是助理医生让我坐在椅子上，不由自主的深呼吸了一下，因为我也不知道接下来究竟是不是很可怕。然后助理医生搬来一堆子器械，看到那些钳子，剪子之类的，内心开始慢慢动摇了—-难道非要拔牙不可吗？
+没过一会，助理医生过来用棉签占了一些红色的东西在我的智齿附近涂抹，并塞了一些纱布进我口腔，当时只是感觉有点反胃，然后牙龈就开始火辣辣的了。</p>
+<p>终于拔牙医生过来，很客气的说”How are you?”， 我都不好意思回答”I am fine”, 默默说了一句”I am a bit nervous”，认怂了。</p>
+<h3 id="打麻醉"><a href="#打麻醉" class="headerlink" title="打麻醉"></a>打麻醉</h3><p>借助之前棉签的作用，打麻醉的时候反到没拿疼，但是还是能感觉医生在一块区域不停的把麻醉针扎来扎去。</p>
+<h3 id="开始拔牙"><a href="#开始拔牙" class="headerlink" title="开始拔牙"></a>开始拔牙</h3><p>麻醉过后大约10到15分钟医生就准备给我拔牙了，那阵势真是有点可怕，大钳子直接伸进嘴里。第一颗（右上）很顺利，我都没感觉到就下来了，当时就想要是都这样就好了，但是我的运气就从没那么好过。
+第二颗（左上）的时候，我听见牙齿裂掉的声音了，日，医生和助理医生在那个牙龈处用“铲子”刮来刮去，反复拔，最后我也不知道是不是干净了，当时我一心就想快点结束。</p>
+<p>下面两颗貌似比较麻烦，他们居然先用电动的矬子磨我牙，然后用一根铁杆借助杠杆原理往上扳我牙。他奶奶的，我当时居然感觉到痛了，无奈医生就又补了几针麻醉，然后准备先拔掉左下。也不是那么干净利落，但也是拔下来了。他们还给我缝了几针。
+最后一个牙齿后来还是疼，接着补了麻醉，然后终于拔下了。拔下的那一瞬间，心情顿时就舒缓了。</p>
+<h3 id="拔牙后"><a href="#拔牙后" class="headerlink" title="拔牙后"></a>拔牙后</h3><p>口腔塞着纱布，好奇怪，一开始还能支支吾吾说几句，但是当我从CVS买完药的时候发现舌头终于撸不直了，害得我问个厕所都得打字给别人看。</p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>最后就去理了个头，算是弥补一下我的形象！负分~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;哦耶，终于把4个智齿一次性都拔了！感觉口腔好空旷。底下就简单记录一下今天的拔牙过程。
+    
+    </summary>
+    
+      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="操蛋" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%93%8D%E8%9B%8B/"/>
+    
+    
+      <category term="拔牙" scheme="http://hzhou.me/tags/%E6%8B%94%E7%89%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一次看牙医-疼</title>
+    <link href="http://hzhou.me/2016/05/08/%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%9C%8B%E7%89%99%E5%8C%BB-%E7%96%BC/"/>
+    <id>http://hzhou.me/2016/05/08/第一次看牙医-疼/</id>
+    <published>2016-05-08T04:03:14.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>牙疼疼了快一年了，最近终于不想忍了，就预约了牙医—-整个经历就是一个大写的<strong>疼</strong>。
+希望我的经历能对北美想看牙医的人有点帮助。
+<a id="more"></a>
+首先，我得承认为什么拖了一年才看牙医，纯粹是因为我懒。最近正好烦恼太多，无法安静干些“大”事，于是就准备处理牙。</p>
+<h3 id="1-找牙医"><a href="#1-找牙医" class="headerlink" title="1. 找牙医"></a>1. 找牙医</h3><p>之前问过同事，同事也给了建议，后来一拖全忘了，还好有好心人在公司内部收集了<a href="https://www.evernote.com/shard/s67/sh/c51de275-2f50-4044-9ac0-c73527a8615b/90a05af03bef5bc0" target="_blank" rel="external">一个牙医推荐</a>。我选了Seligman，但是没有处于任何原因。但是整个过程除了疼，还是很好的。</p>
+<h3 id="2-预约"><a href="#2-预约" class="headerlink" title="2. 预约"></a>2. 预约</h3><p>没什么好多的，美国凡事都得预约。又得用一下蹩脚的英语</p>
+<h3 id="3-检查牙"><a href="#3-检查牙" class="headerlink" title="3. 检查牙"></a>3. 检查牙</h3><p>一个医生用一个含着很不舒服的东西（有棱角，有些角度还是有点疼的），不停的换位置，让我夹着，给牙照相。拍完，来个一个看上去专业点的医生指着牙的部位对我说，左侧最里面智齿蛀掉一半，补牙成本太高，建议我拔，右边也是，虽然轻点，但是也要拔。为了上下平衡，把上面两颗对应的也要拔掉，于是就要拔掉4颗牙。为了安慰我，他说他和那个检查的医生都把那些牙拔了。WTF
+好吧，按照美国办事的尿性，肯定不会当天拔牙，于是医生给了我另一个人的信息，说是专门做牙科手术的，让我去预约时间。</p>
+<p>当然，他们还顺便推荐我当天洗牙</p>
+<h3 id="4-洗牙"><a href="#4-洗牙" class="headerlink" title="4.洗牙"></a>4.洗牙</h3><p>妈蛋，我以为就是简单洗洗，居然疼死我了。他们用不知道什么样的设备在我牙上刮来刮去（医生说全程闭眼会舒服点），几乎刮破了所有能刮破的牙龈（牙齿和肉衔接的地方）。漱口的时候全是血。因为洗牙需要用水，他们就在我口腔放了一个吸气的管子，问题是很多时候它吸到我肉上了，唉，肉疼。洗完之后，所有的医生都问我“舒服吗？”，舒服你妹啊，疼死老子了。</p>
+<p>于是悲剧的一天几乎就在满嘴血腥味中要结束了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;牙疼疼了快一年了，最近终于不想忍了，就预约了牙医—-整个经历就是一个大写的&lt;strong&gt;疼&lt;/strong&gt;。
+希望我的经历能对北美想看牙医的人有点帮助。
+    
+    </summary>
+    
+      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+      <category term="就医" scheme="http://hzhou.me/tags/%E5%B0%B1%E5%8C%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tip: Upload Multiple Files with Jersey</title>
+    <link href="http://hzhou.me/2016/05/01/Tip-Upload-Multiple-Files-with-Jersey/"/>
+    <id>http://hzhou.me/2016/05/01/Tip-Upload-Multiple-Files-with-Jersey/</id>
+    <published>2016-05-02T02:30:17.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这篇文章将简单介绍一下如何用Jersey（DropWizard）在一次Request中接受多个文件。其实Google一下，SO上会有很多回答，只是在这边献丑一下。
+<a id="more"></a></p>
+<h3 id="1-添加必要的依赖"><a href="#1-添加必要的依赖" class="headerlink" title="1. 添加必要的依赖"></a>1. 添加必要的依赖</h3><p>因为要上传文件，所以这个依赖是必须的
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.glassfish.jersey.media<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jersey-media-multipart<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.22.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="2-在配置文件中注册"><a href="#2-在配置文件中注册" class="headerlink" title="2. 在配置文件中注册"></a>2. 在配置文件中注册</h3><p>查看Github源文件：<a href="https://github.com/zhouhao/RESTful-Examples/blob/master/src/main/java/me/hzhou/demo/App.java" target="_blank" rel="external">https://github.com/zhouhao/RESTful-Examples/blob/master/src/main/java/me/hzhou/demo/App.java</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(Configure configuration, Environment environment)</span> </span>&#123;</div><div class="line">    <span class="comment">// more code</span></div><div class="line">    environment.jersey().register(MultiPartFeature.class);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-添加Resource"><a href="#3-添加Resource" class="headerlink" title="3. 添加Resource"></a>3. 添加Resource</h3><p>以下方法来自SO。查看<a href="https://github.com/zhouhao/RESTful-Examples/blob/master/src/main/java/me/hzhou/demo/Res.java" target="_blank" rel="external">demo源码</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Path</span>(<span class="string">"/upload"</span>)</div><div class="line"><span class="meta">@POST</span></div><div class="line"><span class="meta">@Consumes</span>(MediaType.MULTIPART_FORM_DATA)</div><div class="line"><span class="meta">@Produces</span>(MediaType.APPLICATION_JSON)</div><div class="line"><span class="function"><span class="keyword">public</span> Response <span class="title">upload</span><span class="params">(FormDataMultiPart form)</span> </span>&#123;</div><div class="line">    List&lt;FormDataBodyPart&gt; parts = form.getFields(<span class="string">"file"</span>);</div><div class="line">    List&lt;String&gt; result = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">    <span class="keyword">for</span> (FormDataBodyPart part : parts) &#123;</div><div class="line">        FormDataContentDisposition file = part.getFormDataContentDisposition();</div><div class="line">        InputStream fileInputStream = part.getValueAs(InputStream.class);</div><div class="line"></div><div class="line">        String filePath = <span class="string">"/tmp/"</span> + file.getFileName();</div><div class="line">        <span class="comment">// save the file to the server</span></div><div class="line">        saveFile(fileInputStream, filePath);</div><div class="line">        String output = <span class="string">"File saved to server location using FormDataMultiPart : "</span> + filePath;</div><div class="line">        result.add(output);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> Response.ok(result).build();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// save uploaded file to a defined location on the server</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">saveFile</span><span class="params">(InputStream uploadedInputStream, String serverLocation)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        OutputStream outputStream = <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(serverLocation));</div><div class="line">        <span class="keyword">int</span> read = <span class="number">0</span>;</div><div class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</div><div class="line">        <span class="keyword">while</span> ((read = uploadedInputStream.read(bytes)) != -<span class="number">1</span>) &#123;</div><div class="line">            outputStream.write(bytes, <span class="number">0</span>, read);</div><div class="line">        &#125;</div><div class="line">        outputStream.flush();</div><div class="line">        outputStream.close();</div><div class="line">        uploadedInputStream.close();</div><div class="line"></div><div class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-简单客户端测试"><a href="#4-简单客户端测试" class="headerlink" title="4. 简单客户端测试"></a>4. 简单客户端测试</h3><p>启动DropWizard线程之后，直接在浏览器打开这个文件即可进行测试
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Files Upload<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">"formtest"</span> <span class="attr">action</span>=<span class="string">"http://127.0.0.1:8080/upload"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span> <span class="attr">value</span>=<span class="string">""</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span> <span class="attr">value</span>=<span class="string">""</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"submit"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="5-All-set-have-fun"><a href="#5-All-set-have-fun" class="headerlink" title="5. All set, have fun!!!"></a>5. All set, have fun!!!</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这篇文章将简单介绍一下如何用Jersey（DropWizard）在一次Request中接受多个文件。其实Google一下，SO上会有很多回答，只是在这边献丑一下。
+    
+    </summary>
+    
+      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+      <category term="Java" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
+    
+    
+      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
+    
+      <category term="RESTful" scheme="http://hzhou.me/tags/RESTful/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读书:历史深处的民国</title>
+    <link href="http://hzhou.me/2016/04/29/%E8%AF%BB%E4%B9%A6-%E5%8E%86%E5%8F%B2%E6%B7%B1%E5%A4%84%E7%9A%84%E6%B0%91%E5%9B%BD/"/>
+    <id>http://hzhou.me/2016/04/29/读书-历史深处的民国/</id>
+    <published>2016-04-30T03:11:26.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>我不是一个喜欢阅读很厚的书的人，即使是计算机相关的书。我曾经唯一读过的一本相对比较厚的应该就是《明朝那些事儿》了，当时读它也是因为本科要毕业了实在无所事事，二来正好那个时间很喜欢装B。
+至于我为什么读《历史深处的民国》，我想是因为我这段时间过得太操蛋了。我想摆脱一下当前这种除了代码就是房子的事务的生活。</p>
+<a id="more"></a>
+<p>这本书其实读了我很久，应该是在4月中上旬就开始读了，直到4月倒数第二个周末，我在纽约回波士顿的汽车上才读完。</p>
+<p>我不确定书中说的是不是都正确，但是我选择相信里面的说法，哈哈，至少比我在学校学的正确太多了。我历史“学”的很差，不全是我的问题，当时学校都重视语数外，历史老师什么的很多时候都是其他兼职。
+首先，我觉得李鸿章很冤，完全可以把他当成偶像级别的人物，可是因为签了一两个条约就别群众误解了（比你强壮好多好多的人拿着刀架在你脖子上，并以你家人来威胁，我感觉我是怂了）。
+日军得瑟短时间攻占中国，感觉像是被张学良“惯”出来的。好好的东北没打就丢了。</p>
+<p>历史没有什么好在这谈论的，唯一安慰的是，历史里面的名人大部分都没有一帆风顺的。什么时候也应该轮到我去牛B一下。</p>
+<h3 id="福利时间，千万别在人多或上班的时候打开"><a href="#福利时间，千万别在人多或上班的时候打开" class="headerlink" title="福利时间，千万别在人多或上班的时候打开"></a>福利时间，千万别在人多或上班的时候打开</h3><p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<img src="/img/fuli.png" alt="福利图"></p>
+<h3 id="生活充满套路！！！哈哈"><a href="#生活充满套路！！！哈哈" class="headerlink" title="生活充满套路！！！哈哈~~"></a>生活充满套路！！！哈哈~~</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我不是一个喜欢阅读很厚的书的人，即使是计算机相关的书。我曾经唯一读过的一本相对比较厚的应该就是《明朝那些事儿》了，当时读它也是因为本科要毕业了实在无所事事，二来正好那个时间很喜欢装B。
+至于我为什么读《历史深处的民国》，我想是因为我这段时间过得太操蛋了。我想摆脱一下当前这种除了代码就是房子的事务的生活。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="文艺" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%96%87%E8%89%BA/"/>
+    
+    
+      <category term="读书" scheme="http://hzhou.me/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OpenShift简单折腾小记</title>
+    <link href="http://hzhou.me/2016/04/13/OpenShift%E7%AE%80%E5%8D%95%E6%8A%98%E8%85%BE%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://hzhou.me/2016/04/13/OpenShift简单折腾小记/</id>
+    <published>2016-04-13T18:59:00.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>前段时间趁着参加一个无聊活动的过程中折腾了一下OpenShift，即使有一些不足，但是感觉它比我想象的好用。底下就扯扯我是瞎折腾过程中得经验。</p>
+<a id="more"></a>
+<h3 id="官方解释："><a href="#官方解释：" class="headerlink" title="官方解释："></a>官方解释：</h3><p><em>OpenShift is Red Hat’s Platform-as-a-Service (PaaS) that allows developers to quickly develop, host, and scale applications in a cloud environment. With OpenShift you have a choice of offerings, including online, on-premise, and open source project options.</em></p>
+<h3 id="1-免费-有收费版"><a href="#1-免费-有收费版" class="headerlink" title="1. 免费(有收费版)"></a>1. 免费(有收费版)</h3><ol>
+<li>免费版可以建3个应用，除非是大型的应用，应该是够用的。为了使应用不进入休眠状态，需要在每个24小时应用被访问一下（网站类型的应用问题不大，那么多蜘蛛爬虫在呢）。</li>
+<li>应用支持的类型比较多：Java, PHP, nodeJS …,几乎能支持的都支持了。</li>
+<li>另外还有一种DIY的应用，顾名思义，但是我没用过</li>
+</ol>
+<h3 id="2-部署方便"><a href="#2-部署方便" class="headerlink" title="2. 部署方便"></a>2. 部署方便</h3><p>只需要<code>git push</code>，服务器端会自动触发部署。建议在命令行里面push，这样可以看log。另外因为每次<code>push</code>都会触发部署，我建议新建一个其他的remote来管理代码，积累一段时间在<code>push</code>到OpenShift上。</p>
+<h3 id="3-环境变量"><a href="#3-环境变量" class="headerlink" title="3.环境变量"></a>3.环境变量</h3><p>因为OpenShift上的应用都是预安装的，所以我们很难自己定制（出了DIY的应用类型），所以很多时候我们需要通过<a href="https://developers.openshift.com/managing-your-applications/environment-variables.html" target="_blank" rel="external">修改环境变量</a>来进行一些必要的配置。如下图就是一个tomcat应用的Java相关的环境变量截图：</p>
+<p><img src="https://dn-myblog.qbox.me/img/blog/openshift_java_env_vars.png" alt="Java相关的环境变量" title="Java相关的环境变量">
+<strong>糟糕的是：</strong> 有些变量我们无法直接设置（部分可以间接）。如：<code>PATH，known_hosts......</code>，所以上述图片中虽然我可以把<code>JAVA_HOME</code>设置成1.8的，并把它添加到<code>PATH</code>中，但是<code>PATH</code>中那个1.6的<code>bin</code>永远排在1.8之前，导致运行<code>maven</code>命令时调用的是1.6的<code>javac</code>. —- 或许有方法，只是我没有找到。另外如果你添加了Jenkins的应用，因为任务在编译之后需要吧war包通过<code>rsync</code>复制到对应服务器，因为<code>known_hosts</code>无法改写，所以导致permission denied。(网上也有人写了解决方案，但是我还没有去试一下)</p>
+<h3 id="4-其他"><a href="#4-其他" class="headerlink" title="4. 其他"></a>4. 其他</h3><p>git库里面有个<code>.openshift</code>的文件夹，里面可以做一些设置（如制定java版本）。</p>
+<h3 id="最后，补上一句一开始就应该说的：建议通过rhc工具来管理你的应用-Windows下一定要装1-9-3的ruby，最新的2-X版本会安装不了rhc-。"><a href="#最后，补上一句一开始就应该说的：建议通过rhc工具来管理你的应用-Windows下一定要装1-9-3的ruby，最新的2-X版本会安装不了rhc-。" class="headerlink" title="最后，补上一句一开始就应该说的：建议通过rhc工具来管理你的应用(Windows下一定要装1.9.3的ruby，最新的2.X版本会安装不了rhc)。"></a>最后，补上一句一开始就应该说的：建议通过<a href="https://developers.openshift.com/managing-your-applications/client-tools.html" target="_blank" rel="external"><code>rhc</code></a>工具来管理你的应用(Windows下一定要装1.9.3的ruby，最新的2.X版本会安装不了rhc)。</h3><p>FY: 我的这个个人小站就是放在OpenShift上的，因为Github Page禁止了百度蜘蛛爬取。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前段时间趁着参加一个无聊活动的过程中折腾了一下OpenShift，即使有一些不足，但是感觉它比我想象的好用。底下就扯扯我是瞎折腾过程中得经验。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+      <category term="OpenShift" scheme="http://hzhou.me/tags/OpenShift/"/>
+    
+      <category term="PaaS" scheme="http://hzhou.me/tags/PaaS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Welcome to 2016</title>
+    <link href="http://hzhou.me/2016/02/08/Welcome-to-2016/"/>
+    <id>http://hzhou.me/2016/02/08/Welcome-to-2016/</id>
+    <published>2016-02-08T18:55:31.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>回顾一下2015才会发现，这一年过得超级的快（或许是因为太忙了）。还没来得及做点什么就结束了。而自己得到的教训就是：<code>不要承诺别人太多而累了自己</code>。
+<a id="more"></a></p>
+<h3 id="简单列举一下2015年都做了什么："><a href="#简单列举一下2015年都做了什么：" class="headerlink" title="简单列举一下2015年都做了什么："></a>简单列举一下2015年都做了什么：</h3><ol>
+<li>年初开始帮别人搞一个海淘平台（基于PHP），现在基本成型，自己正慢慢淡出</li>
+<li>帮别人搞一个startup的平台，由于一开始模糊的需求，加上我过于看中我能不能实现，原本计划20小时的项目，导致后期他们一直不断要求这改那改（上周完成了“最后”一次修改，实在被折腾到了）。</li>
+<li>帮一个朋友的老爸完成一个个人“创业”的小平台，还好不怎么push，我”拖拖拉拉“一直干到现在也还没做完</li>
+<li>作为一个创始人，在和一个5+1小团队搞一个跨国物流优化的项目，也一直在花费着自己的时间 （由于太忙，也由一线退到一线半）</li>
+</ol>
+<p>上述的4件几乎占据着我的晚上和周末时间，唯一庆幸的是没有变胖。</p>
+<h3 id="下面顺便也说一下2015年的成就："><a href="#下面顺便也说一下2015年的成就：" class="headerlink" title="下面顺便也说一下2015年的成就："></a>下面顺便也说一下2015年的成就：</h3><ol>
+<li>7月底份完婚</li>
+<li>11月底买房</li>
+</ol>
+<p>一年完成了两件人生大事，底下安心的挣钱还贷就行了。</p>
+<h3 id="最后吐槽几句"><a href="#最后吐槽几句" class="headerlink" title="最后吐槽几句"></a>最后吐槽几句</h3><ol>
+<li>做了那么多项目，倒没感觉到技术的提升，反倒是耐心增强了</li>
+<li>不要拖延，会si人（ziji）了</li>
+<li>编码的技术是简单地，难的在于访问量多了，你的应用还能不能撑住。离开数据谈技术都是把问题简单化</li>
+</ol>
+<h2 id="最后祝大家新年愉快"><a href="#最后祝大家新年愉快" class="headerlink" title="最后祝大家新年愉快"></a>最后祝大家新年愉快</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;回顾一下2015才会发现，这一年过得超级的快（或许是因为太忙了）。还没来得及做点什么就结束了。而自己得到的教训就是：&lt;code&gt;不要承诺别人太多而累了自己&lt;/code&gt;。
+    
+    </summary>
+    
+      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="普通" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
+    
+    
+      <category term="生活" scheme="http://hzhou.me/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>改个密码都这么难-微博和网易</title>
+    <link href="http://hzhou.me/2015/11/04/%E6%94%B9%E4%B8%AA%E5%AF%86%E7%A0%81%E9%83%BD%E8%BF%99%E4%B9%88%E9%9A%BE-%E7%BD%91%E6%98%93%E5%BE%AE%E5%8D%9A/"/>
+    <id>http://hzhou.me/2015/11/04/改个密码都这么难-网易微博/</id>
+    <published>2015-11-05T04:39:15.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>也不知道怎么描述这件事了，本来大晚上写完代码，洗都洗完，准备入睡了，一时手贱查看了微信，日，一堆子人联系我，问我是不是微博号被盗了，还各种截屏骗子和他们聊天的图。    </p>
+<a id="more"></a>
+<p>让我很欣慰的是，大家都没有被骗，我姐还很自豪的告诉我她一下子就识破了。但是我仔细想了想，真<code>心酸</code>，我觉得即使我不是骗子我也不能在微博上借到任何钱。但是还没我<code>心酸</code>够，就有一些损友说借了我几百万，要赔偿。。。泪水终于控制不住了，果然好兄弟，骗我都说个这么大的数字。</p>
+<p>其实关于修改密码的事宜，我早就大半年前就和微博客服提过（私信和微博），但是每次都是一个聊天机器人在和我扯淡。   </p>
+<h3 id="新浪的逻辑："><a href="#新浪的逻辑：" class="headerlink" title="新浪的逻辑："></a>新浪的逻辑：</h3><p><img src="https://dn-myblog.qbox.me/img/blog/weibo_fuck.png" alt=""></p>
+<ol>
+<li>想改密码就必须用密码手机接收验证码  —- 我手机在我本科毕业就换了，不换国内的漫游费坑死人</li>
+<li>因为1，想改密码就必须解绑手机</li>
+<li>但准备解绑手机的时候，却说“先修改密码”</li>
+</ol>
+<p>这也是我一直没能换好密码的原因—-懒！之前也没在意，但是这次事后，把我惹毛了。想让朋友举报我微博号，但是都被系统驳回了。<br>直接给客服打电话，妈蛋，又是机器人给我大讲特讲一堆子常识又废话的东西，纯粹就是在浪费我的国际电话费。打了两三次，实在受不了了。</p>
+<p>想想自己的微博号用的是网易的邮箱，然后<a href="http://www.wooyun.org/bugs/wooyun-2015-0147763" target="_blank" rel="external">网易邮箱前段时间又正好发事了</a>，赶紧去check一下，果然，邮箱最近的邮件就是apple提醒了最近下了什么app。我擦，那些app一看就是弱智下得，什么龙珠直播平台什么的。</p>
+<p>网易有着和新浪一样的怪异要求。好在网易有更多的人工客服，没费什么功夫就联系上了，一番折腾之后，填了一个表，第二天就解绑原手机，并修改密码了。</p>
+<h3 id="我是不是应该表扬一下网易？？？"><a href="#我是不是应该表扬一下网易？？？" class="headerlink" title="我是不是应该表扬一下网易？？？"></a>我是不是应该表扬一下网易？？？</h3><p>新浪的问题还没解决，国内的服务也太让人失望了！！！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;也不知道怎么描述这件事了，本来大晚上写完代码，洗都洗完，准备入睡了，一时手贱查看了微信，日，一堆子人联系我，问我是不是微博号被盗了，还各种截屏骗子和他们聊天的图。    &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="操蛋" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%93%8D%E8%9B%8B/"/>
+    
+    
+      <category term="渣应用" scheme="http://hzhou.me/tags/%E6%B8%A3%E5%BA%94%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TripAdvisor的生活</title>
+    <link href="http://hzhou.me/2015/09/18/TripAdvisor%E7%9A%84%E7%94%9F%E6%B4%BB/"/>
+    <id>http://hzhou.me/2015/09/18/TripAdvisor的生活/</id>
+    <published>2015-09-18T21:59:52.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在TripAdvisor入职的已经3周多了。介于博客长时间没有更新，那就写一篇水文扯个淡。    </p>
+<a id="more"></a>
+<p>整体还是相当满意的，更好的工作环境，各种不限量的饮料（居然还有红牛），更有免费的午餐，每天都不一样，每次都吃的我好饱（不知道为什么，越来越觉得不那么好吃了，哈哈）。   </p>
+<p><img src="https://dn-myblog.qbox.me/img/blog/ta.png" alt="图片来自：http://www.nasdaq.com/press-release/photo-release--tripadvisor-opens-new-stateoftheart-global-headquarters-in-needham-massachusetts-20150721-00921" title="TripAdvisor">  </p>
+<p>因为才入职3周，还没接触什么核心的东西，但是根据周围同事的工作状况，感觉进度也不是特别push。而且因为我在的是中国组，组内几乎都是中国人，平时用中文交流（很多问题都避免的用蹩脚的英文描述）。</p>
+<p>当然了，说了这么多好处，其实让我不愉快的地方：</p>
+<h3 id="每天早上上班走高速堵成狗了。"><a href="#每天早上上班走高速堵成狗了。" class="headerlink" title="每天早上上班走高速堵成狗了。"></a>每天早上上班走高速堵成狗了。</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在TripAdvisor入职的已经3周多了。介于博客长时间没有更新，那就写一篇水文扯个淡。    &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="普通" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
+    
+    
+      <category term="Life" scheme="http://hzhou.me/tags/Life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Last Day in Ovitas</title>
+    <link href="http://hzhou.me/2015/09/04/Last-Day-in-Ovitas/"/>
+    <id>http://hzhou.me/2015/09/04/Last-Day-in-Ovitas/</id>
+    <published>2015-09-04T18:26:31.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>09/04/2015，今天是我在Ovitas的最后一天了。</p>
+<a id="more"></a>
+<p>一到公司，我刚打开电脑，还没来得及输入开机密码，Alfred就走过来递给我一个大盒子，说这是给你的结婚礼物，打开看看。没想到是一个巨大的相册。（美国兄弟真心挺nice+靠谱的）当我告诉他这是我最后一天的时候，感觉太还是有点吃惊的。</p>
+<p><img src="https://dn-myblog.qbox.me/img/blog/wedding-album.jpg" alt="结婚相册" title="结婚相册"></p>
+<p>这个上午，下午我就保持着低调的看一些信息，知道manager喊我去吃蛋糕，我才意识到，原来所有人都过来了。公司买了蛋糕来庆祝一下我最后一天。大家一起乱侃一通，祝福祝福。（没有一丝一毫的撕逼，耶）好多人以为今天是谁的生日，不明真相的群众（很多人和我工作上交集不多），都怪我之前没张扬。</p>
+<p><img src="https://dn-myblog.qbox.me/img/blog/last_day_in_ovitas.jpg" alt="My Last Day In Ovitas" title="My Last Day In Ovitas"></p>
+<p>祝大家日后顺利！！！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;09/04/2015，今天是我在Ovitas的最后一天了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="普通" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
+    
+    
+      <category term="Life" scheme="http://hzhou.me/tags/Life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java: JDK居然有个叫整型池的东西</title>
+    <link href="http://hzhou.me/2015/08/15/Java-JDK%E5%B1%85%E7%84%B6%E6%9C%89%E4%B8%AA%E5%8F%AB%E6%95%B4%E5%9E%8B%E6%B1%A0/"/>
+    <id>http://hzhou.me/2015/08/15/Java-JDK居然有个叫整型池/</id>
+    <published>2015-08-15T20:15:48.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>其实下面这些个<code>assert</code>语句都可以通过<code>junit</code>测试。
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">integerValueOfTest</span><span class="params">()</span> </span>&#123;</div><div class="line">    Assert.assertTrue(Integer.valueOf(-<span class="number">128</span>) == Integer.valueOf(-<span class="number">128</span>));</div><div class="line">    Assert.assertFalse(Integer.valueOf(<span class="number">128</span>) == Integer.valueOf(<span class="number">128</span>));</div><div class="line">    Assert.assertTrue(Integer.valueOf(<span class="number">127</span>) == Integer.valueOf(<span class="number">127</span>));</div><div class="line">    Assert.assertTrue(Integer.valueOf(<span class="number">1</span>) == Integer.valueOf(<span class="number">1</span>));</div><div class="line">    Assert.assertFalse(Integer.valueOf(<span class="number">1000</span>) == Integer.valueOf(<span class="number">1000</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p><img src="https://dn-myblog.qbox.me/img/blog/integer-valueof.png" alt="&quot;Integer.valueOf()&quot;" title="Integer.valueOf()"></p>
+<p><code>Integer</code>的<code>public static Integer valueOf(int i)</code>是一个工厂方法，每次调用都会返回一个新的<code>Integer</code>的对象。</p>
+<h3 id="但是为什么对于127和128的两个结果完全不一样？？？"><a href="#但是为什么对于127和128的两个结果完全不一样？？？" class="headerlink" title="但是为什么对于127和128的两个结果完全不一样？？？"></a>但是为什么对于<code>127</code>和<code>128</code>的两个结果完全不一样？？？</h3><p>撸一眼JDK的源码看看，底下就是那个<code>valueOf</code>的具体实现：
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">valueOf</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)</div><div class="line">        <span class="keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Integer(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>原来内部有个整型池(默认<code>IntegerCache.low = -128</code>和<code>IntegerCache.high = 127</code>)，这样<code>valueOf</code>对于<code>-128 ~ 127</code>之间的返回值都是从池里面获取的。</p>
+<h3 id="可怜的不在这个范围内的整数！默哀"><a href="#可怜的不在这个范围内的整数！默哀" class="headerlink" title="可怜的不在这个范围内的整数！默哀"></a>可怜的不在这个范围内的整数！默哀</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;其实下面这些个&lt;code&gt;assert&lt;/code&gt;语句都可以通过&lt;code&gt;junit&lt;/code&gt;测试。
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@Test&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;integerValueOfTest&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    Assert.assertTrue(Integer.valueOf(-&lt;span class=&quot;number&quot;&gt;128&lt;/span&gt;) == Integer.valueOf(-&lt;span class=&quot;number&quot;&gt;128&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    Assert.assertFalse(Integer.valueOf(&lt;span class=&quot;number&quot;&gt;128&lt;/span&gt;) == Integer.valueOf(&lt;span class=&quot;number&quot;&gt;128&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    Assert.assertTrue(Integer.valueOf(&lt;span class=&quot;number&quot;&gt;127&lt;/span&gt;) == Integer.valueOf(&lt;span class=&quot;number&quot;&gt;127&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    Assert.assertTrue(Integer.valueOf(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;) == Integer.valueOf(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    Assert.assertFalse(Integer.valueOf(&lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;) == Integer.valueOf(&lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+      <category term="Java" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
+    
+    
+      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>困惑的Java: 数组的hashCode()</title>
+    <link href="http://hzhou.me/2015/08/06/%E5%9B%B0%E6%83%91%E7%9A%84Java-%E6%95%B0%E7%BB%84%E7%9A%84hashCode/"/>
+    <id>http://hzhou.me/2015/08/06/困惑的Java-数组的hashCode/</id>
+    <published>2015-08-06T22:13:11.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是我在StackOverflow上提的第一个问题：<a href="http://stackoverflow.com/questions/29955291/why-objects-hash-returns-different-values-for-the-same-input" target="_blank" rel="external">Why Objects.hash() returns different values for the same input?</a></p>
+<a id="more"></a>
+<p><img src="https://dn-myblog.qbox.me/img/blog/hashcode.png" alt="hashCode" title="hashCode">    </p>
+<p>之所以会遇到这个问题，是因为我准备在<code>Spring</code>的项目中通过注解的方式使用<code>EhCache</code>。如果没记错的话，<code>@Cacheable</code>默认的<code>key</code>是function的<strong><em>输入参数</em></strong>（不含方法名），然后在我的<code>service</code>层中有许多的functions有同样的输入参数，比如<code>getRoleByUserId(int userId)</code>, <code>getInfoByUserId(int userId)</code>。如果这两个function都把<code>cache</code>指向<code>userCache</code>(<code>@Cacheable(value = &quot;userCache&quot;)</code>)，这样会导致<code>cache</code>会被误调用。</p>
+<p>这对这种情况，我当时的做法是自己写一个<code>MyKeyGenerator</code>。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">generate</span><span class="params">(Object target, Method method, Object... params)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> key = Objects.hashCode(method.getName(), params);</div><div class="line">    <span class="comment">//log.info("key = " + key);</span></div><div class="line">    <span class="keyword">return</span> key;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我以为这样是万事无忧的，然而实际中，我发现我的<code>Ehcache</code>根本没派上用场，每次service的调用都会执行数据库操作语句。经过丛丛调试，终于发现即使我每次的输入参数数据一模一样，但是每次生成的<code>key</code>值不一样。</p>
+<h3 id="问题所在"><a href="#问题所在" class="headerlink" title="问题所在"></a>问题所在</h3><p>后来发现问题出现是数字的<code>hashCode()</code>上，如SO的评论所说，<code>int[]</code>没有覆写<code>hashCode()</code>（如果没记错的话，Java反射机制通过<code>java.lang.reflect.Array</code>类来创建数组）。</p>
+<h3 id="修改如下"><a href="#修改如下" class="headerlink" title="修改如下"></a>修改如下</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> key = Objects.hashCode(method.getName(), Arrays.hashCode(params));</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是我在StackOverflow上提的第一个问题：&lt;a href=&quot;http://stackoverflow.com/questions/29955291/why-objects-hash-returns-different-values-for-the-same-input&quot;&gt;Why Objects.hash() returns different values for the same input?&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+      <category term="Java" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
+    
+    
+      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Apache Zip Compress Example</title>
+    <link href="http://hzhou.me/2015/08/05/Apache-Zip-Compress-Example/"/>
+    <id>http://hzhou.me/2015/08/05/Apache-Zip-Compress-Example/</id>
+    <published>2015-08-05T18:21:48.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>简单的hello world一下Apache compress中的zip压缩。正好最近项目中需要把一些xml文件分类打包成多个zip包。</p>
+<a id="more"></a>
+<p>这边也给出了一个example，和我调用的API不一样：
+<a href="http://thinktibits.blogspot.com/2012/12/Apache-Commons-Compress-How-to-create-zip-file-in-java-example-program.html" target="_blank" rel="external">Create Zip Files in Java - Example Program</a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Note： 他这个FileInputStream没有关闭</span></div><div class="line">IOUtils.copy(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"test_file_1.xml"</span>)), logical_zip);</div></pre></td></tr></table></figure></p>
+<h3 id="My-Example"><a href="#My-Example" class="headerlink" title="My Example"></a>My Example</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> me.hzhou.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.Closeable;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileInputStream;</div><div class="line"><span class="keyword">import</span> java.io.FileOutputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"><span class="keyword">import</span> java.util.zip.ZipEntry;</div><div class="line"><span class="keyword">import</span> java.util.zip.ZipOutputStream;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.commons.compress.utils.IOUtils;</div><div class="line"><span class="keyword">import</span> org.jetbrains.annotations.NotNull;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* Description: A utility class for zip files</div><div class="line">*</div><div class="line">* <span class="doctag">@author</span> hzhou</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ZipUtil</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ZipUtil</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">create</span><span class="params">(@NotNull List&lt;File&gt; srcs, @NotNull File dest)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        create(srcs, <span class="keyword">new</span> FileOutputStream(dest));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">create</span><span class="params">(@NotNull List&lt;File&gt; srcs, @NotNull String dest)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        create(srcs, <span class="keyword">new</span> FileOutputStream(dest));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">create</span><span class="params">(@NotNull List&lt;File&gt; srcs, @NotNull FileOutputStream dest)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        ZipOutputStream zip_output = <span class="keyword">new</span> ZipOutputStream(dest);</div><div class="line"></div><div class="line">        <span class="comment">// put files into zip output stream</span></div><div class="line">        <span class="keyword">for</span> (File file : srcs) &#123;</div><div class="line">            zip_output.putNextEntry(<span class="keyword">new</span> ZipEntry(file.getName()));</div><div class="line">            FileInputStream in = <span class="keyword">new</span> FileInputStream(file);</div><div class="line">            IOUtils.copy(in, zip_output);</div><div class="line">            closeQuietly(in); <span class="comment">// if you use common-compress-1.9, you can call IOUtils.closeQuietly(in) directly</span></div><div class="line">        &#125;</div><div class="line">        <span class="comment">/* Close output stream, our files are zipped */</span></div><div class="line">        closeQuietly(zip_output);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">    * Since common-compress 1.9, this function is added for IOUtils</div><div class="line">    * However, in 1.5, it doesn't have this one</div><div class="line">    * <span class="doctag">@param</span> c closeable</div><div class="line">    */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">closeQuietly</span><span class="params">(Closeable c)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (c != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                c.close();</div><div class="line">            &#125; <span class="keyword">catch</span> (IOException ignored) &#123; <span class="comment">// NOPMD</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://dn-myblog.qbox.me/img/blog/code/apache_zip.png" alt="Apache Zip Compress" title="Apache Zip Compress"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;简单的hello world一下Apache compress中的zip压缩。正好最近项目中需要把一些xml文件分类打包成多个zip包。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+      <category term="Java" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
+    
+    
+      <category term="压缩" scheme="http://hzhou.me/tags/%E5%8E%8B%E7%BC%A9/"/>
+    
+      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>万恶的Adobe Reader安装</title>
+    <link href="http://hzhou.me/2015/08/05/%E4%B8%87%E6%81%B6%E7%9A%84Adobe-Reader%E5%AE%89%E8%A3%85/"/>
+    <id>http://hzhou.me/2015/08/05/万恶的Adobe-Reader安装/</id>
+    <published>2015-08-05T17:53:43.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>对于PDF文件，我一直都是用<a href="https://www.foxitsoftware.com/products/pdf-reader/" target="_blank" rel="external">Foxit Reader</a>，但是最近在测试网站在IE中显示PDF文件的时候（IE真操蛋，没有内置的PDF渲染器，需要插件支持），公司让我安装一下Adobe Reader。
+<em>无奈</em> 之下又得安装一下。没想到整个安装过程比我想象的折腾。</p>
+<a id="more"></a>
+<p>大约在半年前，我是在我电脑上安装过Adobe Reader的，但是用起来比Foxit差太多了，然后就卸载了。于是这次<em>不干净的</em>卸载，给我今天的安装带来了莫大的折腾。</p>
+<h3 id="官网下载"><a href="#官网下载" class="headerlink" title="官网下载"></a>官网下载</h3><p>直接从官网下载了一个英文版的，准备直接安装，还没开始就跳出一个错误：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Windows Installer does not permit updating of managed advertised products.</div><div class="line">At least one feature of the product must be installed before applying the update.</div></pre></td></tr></table></figure></p>
+<p>也不知道这是微软的问题还是Adobe的问题。偶尔还会跳出另一个错误：<code>Setup had detected that you already have a more functional product installed. Setup will now terminate</code>。</p>
+<p>最后按照论坛中<a href="https://forums.adobe.com/message/6571183#6571183" target="_blank" rel="external">Unable to install Adobe Reader 10 or 11</a>操作了一遍。都逼我重启了，这个问题依旧在。</p>
+<h3 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h3><p>迫于无奈，我想既然不能在我电脑里面安装，拿我就试试我的虚拟机（之前为了测试多版本的IE而安装了虚拟机）。结果太令我失望了。虚拟机在我的电脑慢到令我发指，连Adobe官网都打不开。</p>
+<h3 id="最后的转机"><a href="#最后的转机" class="headerlink" title="最后的转机"></a>最后的转机</h3><p>最后我找了一个中文版（我也不知道为什么做出这个决定）的，安装，提示<code>已安装了一个更新的版本</code>。感觉深深的被Adobe玩了。直接用中文google了一下。然后答案出现了。
+<img src="https://dn-myblog.qbox.me/img/blog/sw/adobe-reg.png" alt="Adobe Reader" title="Adobe Reader"></p>
+<p><strong>打开注册表，找到<code>HKEY_CLASSES_ROOT\Installer \Products\68AB67CA7DA72502B7449A0000000010</code>，直接把这个文件夹删了。</strong></p>
+<p>也没更好的方法，将信将疑下，我照做了，最后居然就安装上了。WTF</p>
+<h3 id="谨此纪念一下Adobe对我人生造成的浪费！"><a href="#谨此纪念一下Adobe对我人生造成的浪费！" class="headerlink" title="谨此纪念一下Adobe对我人生造成的浪费！"></a>谨此纪念一下Adobe对我人生造成的浪费！</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对于PDF文件，我一直都是用&lt;a href=&quot;https://www.foxitsoftware.com/products/pdf-reader/&quot;&gt;Foxit Reader&lt;/a&gt;，但是最近在测试网站在IE中显示PDF文件的时候（IE真操蛋，没有内置的PDF渲染器，需要插件支持），公司让我安装一下Adobe Reader。
+&lt;em&gt;无奈&lt;/em&gt; 之下又得安装一下。没想到整个安装过程比我想象的折腾。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="二逼" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E4%BA%8C%E9%80%BC/"/>
+    
+    
+      <category term="应用软件" scheme="http://hzhou.me/tags/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客：从GitHub迁移到OpenShift</title>
+    <link href="http://hzhou.me/2015/07/28/%E5%8D%9A%E5%AE%A2-%E4%BB%8EGitHub%E8%BF%81%E7%A7%BB%E5%88%B0OpenShift/"/>
+    <id>http://hzhou.me/2015/07/28/博客-从GitHub迁移到OpenShift/</id>
+    <published>2015-07-29T02:59:04.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前博客一直以纯静态的方式托管在GitHub Page里面（是基于<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>的），遗憾的是</p>
+<ol>
+<li>百度蜘蛛频繁乱爬，导致GitHub对它采取了屏蔽。（参考：<a href="http://jerryzou.com/posts/feasibility-of-allowing-baiduSpider-for-Github-Pages/" target="_blank" rel="external">解决 Github Pages 禁止百度爬虫的方法与可行性分析</a>）另外这篇文章末尾给出了一个解决该问题的可行方法，但是我个人没有试。</li>
+<li>GitHub Page虽然支持自定义域名，但是对<code>https</code>支持的不好（这是一个次要的理由）。</li>
+</ol>
+<a id="more"></a>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ol>
+<li>针对<code>问题1</code>，可以把网站部署在<code>OpenShift</code></li>
+<li>针对<code>问题2</code>，可以使用<code>cloudflare</code>的<strong>免费</strong>服务来实现</li>
+</ol>
+<h2 id="如何在OpenShift上部署？"><a href="#如何在OpenShift上部署？" class="headerlink" title="如何在OpenShift上部署？"></a>如何在<code>OpenShift</code>上部署？</h2><ol>
+<li>注册一个OpenShift帐号（最左边的就行）： <a href="https://www.openshift.com/" target="_blank" rel="external">https://www.openshift.com/</a></li>
+<li>建一个<code>PHP5.X</code>的Application（注意：里面有直接的hexo应用，我不是很建议，因为是<code>node</code>驱动的，我用了之后发现<strong>如果url中出现中文，会导致404的问题</strong>。反正最终生成的是静态文件，我就决定Apache来托管）
+ 1). 因为没有采用直接的<code>hexo</code>应用，所以<a href="https://github.com/hexojs/hexo-deployer-openshift" target="_blank" rel="external"><code>hexo-openshift</code></a>插件我也没用，而是直接通过<code>git</code>的方式直接上传到OpenShift远程服务器上
+ 2). 这里需要配置ssh的key文件，考虑不同系统的差异，暂时先不介绍了</li>
+<li><p>配置hexo配置文件（虽然这个<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external"><code>hexo-git</code></a>插件的文档说可以支持多个repo，但是我实际发现会出一个git的<code>index.lock</code>的问题，所以这里把<code>github</code>的先注释了）</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  message:</span> <span class="string">"Sync blog from my local machine"</span></div><div class="line"><span class="attr">  repo:</span></div><div class="line">    <span class="comment">#github: https://github.com/zhouhao/zhouhao.github.io.git</span></div><div class="line"><span class="attr">    git:</span> ssh://<span class="number">55</span>b7e9de4382ecce1b000085@php-codeashobby.rhcloud.com/~/git/php.git/</div></pre></td></tr></table></figure>
+</li>
+<li><p>至此，每次你写完博客，<code>hexo generate</code> -&gt; <code>hexo deploy</code>就可以直接部署到OpenShift上了。</p>
+</li>
+</ol>
+<h2 id="如何使用CloudFlare服务？"><a href="#如何使用CloudFlare服务？" class="headerlink" title="如何使用CloudFlare服务？"></a>如何使用<a href="https://www.cloudflare.com/" target="_blank" rel="external"><code>CloudFlare</code></a>服务？</h2><p><code>CloudFlare</code> = DNS解析 + CDN + 简单网站数据分析 + https支持(对Google排名有利)</p>
+<p>这4个服务都是我需要的，而且这一切都可以是免费的。具体细节可以自己体验一下，前提是需要有自己的域名。</p>
+<p>点击试一下：<a href="https://sbzhouhao.net/" target="_blank" rel="external">https://sbzhouhao.net/</a></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>OpenShift的免费版本有24小时的<a href="https://www.openshift.com/products/pricing/plan-comparison" target="_blank" rel="external">APPLICATION IDLING</a>限制，换句话说如果你的网站24小时内连续没人访问，你的网站会被自动停止。</p>
+<h2 id="国内测速-http比https明显快很多"><a href="#国内测速-http比https明显快很多" class="headerlink" title="国内测速(http比https明显快很多)"></a>国内测速(http比https明显快很多)</h2><ol>
+<li><p><a href="http://sbzhouhao.net" target="_blank" rel="external">http://sbzhouhao.net</a>
+<img src="https://dn-myblog.qbox.me/img/blog/openshift/1.png" alt="CloudFare非https测速" title="CloudFare非https测速"></p>
+</li>
+<li><p><a href="https://sbzhouhao.net" target="_blank" rel="external">https://sbzhouhao.net</a>
+<img src="https://dn-myblog.qbox.me/img/blog/openshift/2.png" alt="CloudFare https测速" title="CloudFare https测速"></p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前博客一直以纯静态的方式托管在GitHub Page里面（是基于&lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;的），遗憾的是&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;百度蜘蛛频繁乱爬，导致GitHub对它采取了屏蔽。（参考：&lt;a href=&quot;http://jerryzou.com/posts/feasibility-of-allowing-baiduSpider-for-Github-Pages/&quot;&gt;解决 Github Pages 禁止百度爬虫的方法与可行性分析&lt;/a&gt;）另外这篇文章末尾给出了一个解决该问题的可行方法，但是我个人没有试。&lt;/li&gt;
+&lt;li&gt;GitHub Page虽然支持自定义域名，但是对&lt;code&gt;https&lt;/code&gt;支持的不好（这是一个次要的理由）。&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+      <category term="网站" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%BD%91%E7%AB%99/"/>
+    
+    
+      <category term="OpenShift" scheme="http://hzhou.me/tags/OpenShift/"/>
+    
+      <category term="GitHub" scheme="http://hzhou.me/tags/GitHub/"/>
+    
+      <category term="CloudFlare" scheme="http://hzhou.me/tags/CloudFlare/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的加密进化史</title>
+    <link href="http://hzhou.me/2015/07/28/%E6%88%91%E7%9A%84%E5%8A%A0%E5%AF%86%E8%BF%9B%E5%8C%96%E5%8F%B2/"/>
+    <id>http://hzhou.me/2015/07/28/我的加密进化史/</id>
+    <published>2015-07-28T18:53:09.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>加密是一个争论无止境的话题，<code>服务器端数据保存加密</code>，<code>数据传输加密</code>，等等。在这篇文章我就简单说说我这么多年来在<strong>服务器端保存密码</strong>的方法进化史。
+<a id="more"></a></p>
+<h3 id="阶段1：-明文密码"><a href="#阶段1：-明文密码" class="headerlink" title="阶段1： 明文密码"></a>阶段1： 明文密码</h3><p>在本科大一向大二过度的时候，第一次开始接触服务器端编程（当时还是用asp.net 2.0），第一次接触数据库，也第一次意识到原来那些新闻网站不需要每个新闻都建一个html页面。因为这段时间更看重的是能work（没有任何的实际的项目），
+任何数据都是通过前段的textbox直接传到后台，然后不加任何的处理直接存到数据库的.</p>
+<h3 id="阶段2：-MD5"><a href="#阶段2：-MD5" class="headerlink" title="阶段2： MD5"></a>阶段2： MD5</h3><p>阶段1没持续多久，并伴随着好多知名网站被<em>脱裤</em>，我开始知道<code>md5</code>这个加密方法（类似的方法还有SHA系列的）。至此，我“自诩”自己在安全方面跨出了一大步。一直到研一，我都觉得简单的MD5加密是有效的。</p>
+<p><strong>Note</strong>: 后来据说md5也被中国一个教授破解了，自己也把自己常用的md5字符串去解密网站试试，发现有些很容易就破解了，所以有时候为了安全会加两遍md5。</p>
+<h3 id="阶段3：-MD5-Salt"><a href="#阶段3：-MD5-Salt" class="headerlink" title="阶段3： MD5 + Salt"></a>阶段3： MD5 + Salt</h3><p>人也是不断成长的，后来无法忍受这种纯md5带来的安全假象，结合自己在网站的所闻，了解到了<code>盐</code>这个概念（<code>md5(password + salt)</code>）。关于<code>盐</code>，也分两个阶段：</p>
+<ol>
+<li>全局共享盐（所有人都共享一个盐值，图省事）</li>
+<li>私有盐（每个人有自己独立的盐）</li>
+</ol>
+<h3 id="阶段4：-bCrypt"><a href="#阶段4：-bCrypt" class="headerlink" title="阶段4： bCrypt"></a>阶段4： bCrypt</h3><p>这个是最近才逐渐了解的密码认证方式。以后再做任何验证相关的，都准备用这种方式了   </p>
+<p><strong><em>Note:</em></strong> <em>bCrypt 的结果长度为59或60，所以数据库设计成<code>char(60)</code>是安全的</em>。</p>
+<p><strong>Code Sample</strong>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">String password = <span class="string">"password"</span>;</div><div class="line"><span class="comment">// From spring-security-crypto Package</span></div><div class="line">BCryptPasswordEncoder passwordEncoder = <span class="keyword">new</span> BCryptPasswordEncoder();</div><div class="line">String encoded = passwordEncoder.encode(password);</div><div class="line">System.out.println(encoded);</div><div class="line"></div><div class="line"><span class="keyword">if</span>( passwordEncoder.matches(password, encoded))&#123;</div><div class="line">    System.out.println(<span class="string">"Match"</span>);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    System.out.println(<span class="string">"Not match"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Result</strong>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$2a</span><span class="variable">$10</span><span class="variable">$KE</span>/QEQgT5c3RfUqiCu2Ql.DtTuznW1y2i2f/LOruROD0YO7vj2492  // this will be different <span class="keyword">for</span> you</div><div class="line">Match</div></pre></td></tr></table></figure></p>
+<p><a href="http://stackoverflow.com/questions/6832445/how-can-bcrypt-have-built-in-salts" target="_blank" rel="external">SO: bcrypt工作原理</a></p>
+<p><img src="https://dn-myblog.qbox.me/img/blog/bCrypt.png" alt="&quot;bCrypt&quot;" title="bCrypt"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;加密是一个争论无止境的话题，&lt;code&gt;服务器端数据保存加密&lt;/code&gt;，&lt;code&gt;数据传输加密&lt;/code&gt;，等等。在这篇文章我就简单说说我这么多年来在&lt;strong&gt;服务器端保存密码&lt;/strong&gt;的方法进化史。
+    
+    </summary>
+    
+      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+      <category term="安全" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%AE%89%E5%85%A8/"/>
+    
+    
+      <category term="Encrypt" scheme="http://hzhou.me/tags/Encrypt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java Mail中文乱码</title>
+    <link href="http://hzhou.me/2015/07/22/Java-Mail%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/"/>
+    <id>http://hzhou.me/2015/07/22/Java-Mail中文乱码/</id>
+    <published>2015-07-22T21:05:12.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于长时间在自己coding中处理英文内容，导致今天发现自己在做的一单网站在给用户发新密码邮件的时候居然中文乱码。（原来我每天都说的中文在我写代码的时候被忽略了）
+<a id="more"></a></p>
+<p>其实解决这个问题的方法很简单—-添加<code>UTF-8</code>支持。因为中文只是我其中要支持的一种，觉得直接使用<code>GBK</code>是个stupid的想法。</p>
+<p><img src="https://dn-myblog.qbox.me/img/blog/java-mail.png" alt="Java Mail charset" title="Java Mail charset"></p>
+<p>I18N还是蛮坑的，那些页面的文字，以及操作的提示目前都得我一个个的添加—-好多条目。或者应该尝试将i18n直接应用在View的模板上，不同的locale调用对应locale的view。</p>
+<h3 id="最后提供一个简单的Java用mailgun发邮件的示例"><a href="#最后提供一个简单的Java用mailgun发邮件的示例" class="headerlink" title="最后提供一个简单的Java用mailgun发邮件的示例"></a>最后提供一个简单的Java用mailgun发邮件的示例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.UnsupportedEncodingException;</div><div class="line"><span class="keyword">import</span> java.util.Properties;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.mail.Authenticator;</div><div class="line"><span class="keyword">import</span> javax.mail.Message;</div><div class="line"><span class="keyword">import</span> javax.mail.MessagingException;</div><div class="line"><span class="keyword">import</span> javax.mail.PasswordAuthentication;</div><div class="line"><span class="keyword">import</span> javax.mail.Session;</div><div class="line"><span class="keyword">import</span> javax.mail.Transport;</div><div class="line"><span class="keyword">import</span> javax.mail.internet.InternetAddress;</div><div class="line"><span class="keyword">import</span> javax.mail.internet.MimeMessage;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.jetbrains.annotations.NotNull;</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="keyword">static</span> javax.mail.Message.RecipientType;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">SendMailKit</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SendMailKit</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">send</span><span class="params">(String toEmails, String content, String subject, @NotNull RecipientType recipientType)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> String username = Const.MAILGUN_USERNAME;</div><div class="line">        <span class="keyword">final</span> String password = Const.MAILGUN_PASSWORD;</div><div class="line">        <span class="keyword">final</span> String fromEmail = <span class="string">"notify@hzhou.me"</span>;</div><div class="line">        <span class="keyword">final</span> String fromName = <span class="string">"Hao Zhou"</span>;</div><div class="line"></div><div class="line">        Properties props = <span class="keyword">new</span> Properties();</div><div class="line">        props.setProperty(<span class="string">"mail.smtp.auth"</span>, <span class="string">"true"</span>);</div><div class="line">        props.setProperty(<span class="string">"mail.smtp.starttls.enable"</span>, <span class="string">"true"</span>);</div><div class="line">        props.setProperty(<span class="string">"mail.smtp.host"</span>, <span class="string">"smtp.mailgun.org"</span>);</div><div class="line">        props.setProperty(<span class="string">"mail.smtp.port"</span>, <span class="string">"587"</span>);</div><div class="line"></div><div class="line">        Session session = Session.getInstance(props, <span class="keyword">new</span> Authenticator() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">protected</span> PasswordAuthentication <span class="title">getPasswordAuthentication</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">new</span> PasswordAuthentication(username, password);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Message message = <span class="keyword">new</span> MimeMessage(session);</div><div class="line">            message.setFrom(<span class="keyword">new</span> InternetAddress(fromEmail, fromName));</div><div class="line">            message.setRecipients(recipientType, InternetAddress.parse(toEmails));</div><div class="line">            message.setSubject(subject);</div><div class="line">            <span class="comment">// Please append "charset=utf-8"</span></div><div class="line">            message.setContent(content, <span class="string">"text/html;charset=utf-8"</span>);</div><div class="line"></div><div class="line">            Transport.send(message);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (MessagingException | UnsupportedEncodingException e) &#123;</div><div class="line">            log.error(e);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        SendMailKit.send(<span class="string">"hzhou.me@gmail.com"</span>, <span class="string">"中文测试正文"</span>, <span class="string">"中文测试--title"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于长时间在自己coding中处理英文内容，导致今天发现自己在做的一单网站在给用户发新密码邮件的时候居然中文乱码。（原来我每天都说的中文在我写代码的时候被忽略了）
+    
+    </summary>
+    
+      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+      <category term="Java" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
+    
+    
+      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx: 简单负载均衡</title>
+    <link href="http://hzhou.me/2015/07/09/Nginx-%E7%AE%80%E5%8D%95%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+    <id>http://hzhou.me/2015/07/09/Nginx-简单负载均衡/</id>
+    <published>2015-07-09T23:52:58.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>工作之前的时候，做任何web项目，我都会选择用PHP，简洁，快速，有时候很赞同PHP是世界上最好的语言，但是有些时候还是不如Java来的利索。可惜的是Java“不支持”热部署（至少在生产环境下不建议热部署），
+导致每次部署都会有一段服务下线的时间（更糟糕的是用户的session也会随之丢失，最最糟糕的时候，每次部署，有时候还不得不重启一下Tomcat）。
+<a id="more"></a>
+以上就是大背景。</p>
+<p>我第一次使用nginx的原因是因为我不想通过配置tomcat来使它的端口改为<code>80</code>（Linux <code>1024</code>一下的端口需要root权限），正好本着体验新工具的想法就用nginx做了简单的<code>80</code>转发。</p>
+<p>随着自己做的<code>Java</code>相关的项目越来越多，我越来越感觉到这种<code>热部署</code>的重要性（保证服务下线时间最短）。介于自己是个穷DS，也买不了什么高大上的设备。就想到一个用nginx的负载均衡来简单实现一个可以貌似达到<code>7*24</code>的生产环境（<em>我自己现在也是做了一些测试，还没在真实环境中这么做</em>）。</p>
+<h3 id="底下我快速过一下如何快速部署nginx的负载均衡（Ubuntu-14-04）："><a href="#底下我快速过一下如何快速部署nginx的负载均衡（Ubuntu-14-04）：" class="headerlink" title="底下我快速过一下如何快速部署nginx的负载均衡（Ubuntu 14.04）："></a>底下我快速过一下如何快速部署nginx的负载均衡（Ubuntu 14.04）：</h3><ol>
+<li>打开<code>/etc/nginx/nginx.conf</code>，在<code>http</code>节点里添加:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">upstream myServer &#123;</div><div class="line">    <span class="comment"># server 127.0.0.1:9090 down;</span></div><div class="line">    server 127.0.0.1:8888 weight=2;</div><div class="line">    server 127.0.0.1:8080 weight=2;</div><div class="line">    <span class="comment"># server 127.0.0.1:6060;</span></div><div class="line">    <span class="comment"># server 127.0.0.1:7070 backup;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>打开<code>/etc/nginx/sites-available/default</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line"></div><div class="line">    <span class="comment">### a lot of default stuff, no need to change</span></div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">        <span class="comment"># First attempt to serve request as file, then</span></div><div class="line">        <span class="comment"># as directory, then fall back to displaying a 404.</span></div><div class="line">        <span class="comment"># try_files $uri $uri/ =404;</span></div><div class="line">        <span class="comment"># Uncomment to enable naxsi on this location</span></div><div class="line">        <span class="comment"># include /etc/nginx/naxsi.rules</span></div><div class="line"></div><div class="line">        proxy_pass http://myServer;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">### a lot of default stuff, no need to change</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过上述两步的操作，你可以访问那个<strong>对外的URL</strong>，它会同比例（自己在测试的时候，发现貌似不是1:1的，虽然weight值一样）的导向<code>127.0.0.1:8888</code>或<code>127.0.0.1:8080</code>。</p>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note:"></a>Note:</h3><p>这种负载均衡的一个缺点就是需要自己是同步<code>session</code>,不然用户不同的request导向不同的内部服务器，会把用户弄疯的。-&gt; 可以用<code>ip_hash</code>解决，但是如果用<code>redis</code>的话，估计拓展性更好</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>所以我觉得一个最妥协的伪热部署，就是在nginx后面部署两个或多个tomcat服务器，分批次部署最新的代码，保证服务的我线上时间。（自己想想还是有很多不合理的地方，毕竟我自己也没试过）。
+还有，我觉得内部的服务没必要被公网访问（安全，这样可以统一做认证），所以可以在内部用docker来部署多个tomcat。</p>
+<h3 id="感谢博客园的日志Nginx负载均衡，更多详情，大家可以参考这边文章"><a href="#感谢博客园的日志Nginx负载均衡，更多详情，大家可以参考这边文章" class="headerlink" title="感谢博客园的日志Nginx负载均衡，更多详情，大家可以参考这边文章"></a>感谢博客园的日志<a href="http://www.cnblogs.com/xiaogangqq123/archive/2011/03/04/1971002.html" target="_blank" rel="external">Nginx负载均衡</a>，更多详情，大家可以参考这边文章</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;工作之前的时候，做任何web项目，我都会选择用PHP，简洁，快速，有时候很赞同PHP是世界上最好的语言，但是有些时候还是不如Java来的利索。可惜的是Java“不支持”热部署（至少在生产环境下不建议热部署），
+导致每次部署都会有一段服务下线的时间（更糟糕的是用户的session也会随之丢失，最最糟糕的时候，每次部署，有时候还不得不重启一下Tomcat）。
+    
+    </summary>
+    
+      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+      <category term="网站" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%BD%91%E7%AB%99/"/>
+    
+    
+      <category term="Nginx" scheme="http://hzhou.me/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>My Windows Tools</title>
+    <link href="http://hzhou.me/2015/07/08/My-Windows-Tools/"/>
+    <id>http://hzhou.me/2015/07/08/My-Windows-Tools/</id>
+    <published>2015-07-08T18:04:33.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I am a software developer, and during my daily work time I use a DELL laptop with Win7. Since I have used windows for a long time, and used and am using a lot of awesome tools, below is the list of tools I recommend.</p>
+<a id="more"></a>
+<h3 id="Basic-must-have"><a href="#Basic-must-have" class="headerlink" title="Basic(must have)"></a>Basic(must have)</h3><ol>
+<li>JDK 6, 8 (My company uses 6, and 8 is for my personal use)</li>
+<li><a href="https://nodejs.org/" target="_blank" rel="external">Node.js</a></li>
+<li><a href="https://msysgit.github.io/" target="_blank" rel="external">Git</a>(<a href="https://windows.github.com/" target="_blank" rel="external">GitHub</a>)</li>
+</ol>
+<h3 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h3><ol>
+<li><a href="https://www.jetbrains.com/idea/" target="_blank" rel="external">Intellij</a>: [The community version is free] I used eclipse before, but after I use Intellij, I fall love with it</li>
+<li><a href="https://www.jetbrains.com/phpstorm/" target="_blank" rel="external">PHPStorm</a>: for PHP</li>
+</ol>
+<h3 id="Text-Editor"><a href="#Text-Editor" class="headerlink" title="Text Editor"></a>Text Editor</h3><ol>
+<li><a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text 3</a>: faster than Atom</li>
+<li><a href="https://atom.io/" target="_blank" rel="external">Atom</a></li>
+<li><a href="http://www.listary.com/text-editor-anywhere" target="_blank" rel="external">Text Editor Anywhere</a>: Edit Text Anywhere with Your Favorite Editor</li>
+<li><a href="http://markdownpad.com/" target="_blank" rel="external">MarkdownPad 2</a>: bought before, but not used so much</li>
+<li><a href="http://brackets.io/" target="_blank" rel="external">Brackets</a>: Just use this for front-end development</li>
+</ol>
+<h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><ol>
+<li><a href="https://winscp.net/eng/download.php" target="_blank" rel="external">WinSCP</a> + <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank" rel="external">Putty</a>: the best SFTP(SSH) combination so far in my mind</li>
+<li><a href="https://github.com/Maximus5/ConEmu" target="_blank" rel="external">ConEmu</a>: a cmd tool</li>
+<li><a href="https://github.com/bmatzelle/gow" target="_blank" rel="external">Gow(Gnu On Windows)</a>: lightweight alternative to Cygwin</li>
+<li><a href="http://www.xuetr.com/?p=191" target="_blank" rel="external">PC Hunter</a>: A poweful windows system tool(hasn’t been updated for a long time)</li>
+<li><a href="https://www.getwox.com/" target="_blank" rel="external">Wox</a>: An effective launcher for windows, like Alfred in Mac</li>
+<li><a href="http://zealdocs.org/" target="_blank" rel="external">Zeal</a>: Zeal is an offline documentation browser inspired by Dash</li>
+<li><a href="http://www.softwareok.com/?seite=Freeware/Q-Dir" target="_blank" rel="external">Q-Dir</a>: Another Windows Explorer</li>
+<li><a href="https://github.com/papplampe/virgo" target="_blank" rel="external">virgo</a>: Virtual desktops for Windows</li>
+<li><a href="https://github.com/java-decompiler/jd-gui" target="_blank" rel="external">jd-gui</a>: Standalone Java Decompiler GUI</li>
+<li><a href="https://www.elby.ch/en/products/vcd.html" target="_blank" rel="external">Virtual CloneDrive</a></li>
+<li><a href="http://ad-safe.com/" target="_blank" rel="external">ADSafe净网大师</a>: a client which can remove ads</li>
+<li><a href="http://www.rapidee.com/en/about" target="_blank" rel="external">Rapid Environment Editor</a>: an environment variables editor</li>
+</ol>
+<h3 id="Email"><a href="#Email" class="headerlink" title="Email"></a>Email</h3><ol>
+<li><a href="http://www.foxmail.com/" target="_blank" rel="external">Foxmail</a>: I use this both in Windows and Mac</li>
+</ol>
+<h3 id="Intellij-Plugins"><a href="#Intellij-Plugins" class="headerlink" title="Intellij Plugins"></a>Intellij Plugins</h3><ol>
+<li><a href="https://plugins.jetbrains.com/plugin/7275" target="_blank" rel="external">CodeGlance</a>: Embeds a code minimap, not very stable, sometimes crashes</li>
+<li><a href="https://plugins.jetbrains.com/plugin/7293" target="_blank" rel="external">MyBatis plugin</a>: Useful for MyBatis related operations, not free</li>
+<li><a href="https://plugins.jetbrains.com/plugin/7115" target="_blank" rel="external">VisualVM Launcher</a>: Launches <a href="https://visualvm.java.net/" target="_blank" rel="external">VisualVM</a> from within IDEA</li>
+<li>[JRebel]: <a href="https://my.jrebel.com/" target="_blank" rel="external">myJRebel</a>, a free version for personal usage</li>
+</ol>
+<h3 id="Music"><a href="#Music" class="headerlink" title="Music"></a>Music</h3><ol>
+<li><a href="http://music.163.com/" target="_blank" rel="external">网易云音乐</a></li>
+</ol>
+<p>### </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I am a software developer, and during my daily work time I use a DELL laptop with Win7. Since I have used windows for a long time, and used and am using a lot of awesome tools, below is the list of tools I recommend.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tool" scheme="http://hzhou.me/tags/Tool/"/>
+    
+  </entry>
+  
+</feed>

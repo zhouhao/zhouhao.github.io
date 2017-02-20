@@ -1,0 +1,21 @@
+.archive-list {
+  list-style: none;
+  padding-left: 0; }
+
+.archive-list-item {
+  margin-top: 12px; }
+  .archive-list-item:before {
+    content: '-';
+    margin-right: 4px; }
+
+.archive-list-link {
+  color: #454545;
+  margin-right: 4px; }
+
+.archive-list-count {
+  font-size: 14px;
+  color: #999; }
+  .archive-list-count:before {
+    content: '('; }
+  .archive-list-count:after {
+    content: ')'; }
