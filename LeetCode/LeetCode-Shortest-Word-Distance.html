@@ -53,8 +53,8 @@ ga('send', 'pageview');
   
 
   
-    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
-    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" media="screen" type="text/css">
 
@@ -163,7 +163,7 @@ Given word1 = <code>&quot;makes&quot;</code>, word2 = <code>&quot;coding&quot;</
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">shortestDistance</span><span class="params">(String[] words, String word1, String word2)</span> </span>&#123;</div><div class="line">        Map&lt;String, List&lt;Integer&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; words.length; i++) &#123;</div><div class="line">            String s = words[i];</div><div class="line">            List&lt;Integer&gt; list;</div><div class="line">            <span class="keyword">if</span> (map.containsKey(s)) &#123;</div><div class="line">                list = map.get(s);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">            &#125;</div><div class="line">            list.add(i);</div><div class="line">            map.put(s, list);</div><div class="line">        &#125;</div><div class="line">        List&lt;Integer&gt; l1 = map.get(word1);</div><div class="line">        List&lt;Integer&gt; l2 = map.get(word2);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> min = Integer.MAX_VALUE;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> a : l1) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> b : l2) &#123;</div><div class="line">                min = Math.min(Math.abs(b - a), min);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> min;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/LeetCode/LeetCode-Shortest-Word-Distance.html" data-id="cizdh0x3100f6hklxtn4v1uvq" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/LeetCode/LeetCode-Shortest-Word-Distance.html" data-id="cizemaiv400fabulxaq258lmc" class="article-share-link">Share</a>
         
           <a href="http://hzhou.me/LeetCode/LeetCode-Shortest-Word-Distance.html#comments" class="article-comment-link">Comments</a>
         
@@ -196,7 +196,6 @@ Given word1 = <code>&quot;makes&quot;</code>, word2 = <code>&quot;coding&quot;</
       
         <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i id="icon-rss" class="icon"></i></a></li>
       
-      <li><a class="social-tooltip" title="Email" href="mailto:i@hzhou.me" target="_blank"><i id="icon-email" class="icon"></i></a></li>
     </ul>
   </div>
   
@@ -234,10 +233,6 @@ Given word1 = <code>&quot;makes&quot;</code>, word2 = <code>&quot;coding&quot;</
         
           <li>
             <a href="http://wpilife.org">WPILIFE (WPI CSSA)</a>
-          </li>
-        
-          <li>
-            <a href="http://freetwitterkeywords.com">Free Twitter Keywords</a>
           </li>
         
       </ul>
