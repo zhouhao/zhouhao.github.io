@@ -93,27 +93,9 @@ ga('send', 'pageview');
             <nav id="sub-nav">
               <div id="search-form-wrap">
                 <div class="search">
-<!--
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="search">
-    <input type="hidden" name="q" value="site:hzhou.me">
-  </form>
--->
-  <form class="search-form">
-	  <input type="search" id="st-search-input" class="search-form-input" placeholder="search" />
-	</form>
-	<script type="text/javascript">
-	var Swiftype = window.Swiftype || {};
-	  (function() {
-	    Swiftype.key = '7Q4fXSChRnPVrHYRXR76';
-
-	    /** DO NOT EDIT BELOW THIS LINE **/
-	    var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-	    script.src = "//s.swiftypecdn.com/embed.js";
-	    var entry = document.getElementsByTagName('script')[0];
-	    entry.parentNode.insertBefore(script, entry);
-	  }());
-	</script>
+    <form id="search-form" class="search-form">
+        <input  type="text" name="q" id="tipue_search_input" class="search-form-input" autocomplete="off" required placeholder="search" />
+    </form>
 </div>
 
               </div>
@@ -129,11 +111,12 @@ ga('send', 'pageview');
       <div class="main-body container-inner">
         <div class="main-body-inner">
           <section id="main">
-            <div class="main-body-header">
+            <div id="tipue_search_content" style="display: none"></div>
+            <div class="main-body-header raw_content">
 
               <h1 class="header"><em class="page-title-link" data-url="/LeetCode/LeetCode-Search-a-2D-Matrix-II.html">LeetCode: Search a 2D Matrix II</em></h1>
             </div>
-            <div class="main-body-content">
+            <div class="main-body-content raw_content">
               
   <article id="page-undefined" class="article article-single article-type-page" itemscope itemprop="blogPost">
     <div class="article-inner">
@@ -164,7 +147,7 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchA2DMatrixII</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> w = matrix[<span class="number">0</span>].length;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] arr : matrix) &#123;</div><div class="line">            <span class="keyword">if</span> (arr[<span class="number">0</span>] &lt;= target &amp;&amp; arr[w - <span class="number">1</span>] &gt;= target &amp;&amp; (Arrays.binarySearch(arr, target) &gt;= <span class="number">0</span>)) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/LeetCode/LeetCode-Search-a-2D-Matrix-II.html" data-id="cizevp6f300gbwulxkshx3hel" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/LeetCode/LeetCode-Search-a-2D-Matrix-II.html" data-id="cizewlr9100g94slxkvg6arnr" class="article-share-link">Share</a>
         
           <a href="http://hzhou.me/LeetCode/LeetCode-Search-a-2D-Matrix-II.html#comments" class="article-comment-link">Comments</a>
         
@@ -349,14 +332,39 @@ ga('send', 'pageview');
 <script src="/js/html-patch.js"></script>
 <script src="/js/script.js"></script>
 
+<link href="/tipuesearch/tipuesearch.css" rel="stylesheet">
+<script src="/tipuesearch/tipuesearch_set.js"></script>
+<script src="/tipuesearch/tipuesearch.js"></script>
+<!-- Other code may be here -->
 <script>
-(function(){
-    var bp = document.createElement('script');
-    bp.src = '//push.zhanzhang.baidu.com/push.js';
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+    $(document).ready(function () {
+
+        var search_input = $('#tipue_search_input');
+        var tipue_search_content = $('#tipue_search_content');
+        var raw_content= $('.raw_content');
+        search_input.tipuesearch({
+            'mode': 'json',
+            'minimumLength': 2,
+            'contentLocation': '/tipuesearch/tipuesearch_content.json',
+            highlightEveryTerm: true
+        });
+
+        $('#search-form').on('submit', function (e) {
+            e.preventDefault();
+            tipue_search_content.show();
+            raw_content.hide();
+        });
+
+        search_input.keyup(function () {
+            var length = $(this).val().length;
+            if (length < 1) {
+                tipue_search_content.hide();
+                raw_content.show();
+            }
+        });
+    });
 </script>
+
             
   </div>
 </body>

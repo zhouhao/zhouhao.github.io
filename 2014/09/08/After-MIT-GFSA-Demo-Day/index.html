@@ -95,27 +95,9 @@ ga('send', 'pageview');
             <nav id="sub-nav">
               <div id="search-form-wrap">
                 <div class="search">
-<!--
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="search">
-    <input type="hidden" name="q" value="site:hzhou.me">
-  </form>
--->
-  <form class="search-form">
-	  <input type="search" id="st-search-input" class="search-form-input" placeholder="search" />
-	</form>
-	<script type="text/javascript">
-	var Swiftype = window.Swiftype || {};
-	  (function() {
-	    Swiftype.key = '7Q4fXSChRnPVrHYRXR76';
-
-	    /** DO NOT EDIT BELOW THIS LINE **/
-	    var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-	    script.src = "//s.swiftypecdn.com/embed.js";
-	    var entry = document.getElementsByTagName('script')[0];
-	    entry.parentNode.insertBefore(script, entry);
-	  }());
-	</script>
+    <form id="search-form" class="search-form">
+        <input  type="text" name="q" id="tipue_search_input" class="search-form-input" autocomplete="off" required placeholder="search" />
+    </form>
 </div>
 
               </div>
@@ -131,11 +113,12 @@ ga('send', 'pageview');
       <div class="main-body container-inner">
         <div class="main-body-inner">
           <section id="main">
-            <div class="main-body-header">
+            <div id="tipue_search_content" style="display: none"></div>
+            <div class="main-body-header raw_content">
 
               <h1 class="header"><a class="page-title-link" href="/categories/程序员的日常/">程序员的日常</a><i class="icon" id="icon-angle-right"></i><a class="page-title-link" href="/categories/程序员的日常/文艺/">文艺</a></h1>
             </div>
-            <div class="main-body-content">
+            <div class="main-body-content raw_content">
               
   <article id="post-After-MIT-GFSA-Demo-Day" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
@@ -166,7 +149,7 @@ People came and left in Smarking team, and also the same in my life. After demo 
 <h3 id="Life-is-a-progress-of-learning"><a href="#Life-is-a-progress-of-learning" class="headerlink" title="Life is a progress of learning!"></a>Life is a progress of learning!</h3>
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/2014/09/08/After-MIT-GFSA-Demo-Day/" data-id="cizevp69o0003wulxxq3o8dsi" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/2014/09/08/After-MIT-GFSA-Demo-Day/" data-id="cizewlr3m00024slxrxgfqqib" class="article-share-link">Share</a>
         
           <a href="http://hzhou.me/2014/09/08/After-MIT-GFSA-Demo-Day/#comments" class="article-comment-link">Comments</a>
         
@@ -376,14 +359,39 @@ People came and left in Smarking team, and also the same in my life. After demo 
 <script src="/js/html-patch.js"></script>
 <script src="/js/script.js"></script>
 
+<link href="/tipuesearch/tipuesearch.css" rel="stylesheet">
+<script src="/tipuesearch/tipuesearch_set.js"></script>
+<script src="/tipuesearch/tipuesearch.js"></script>
+<!-- Other code may be here -->
 <script>
-(function(){
-    var bp = document.createElement('script');
-    bp.src = '//push.zhanzhang.baidu.com/push.js';
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+    $(document).ready(function () {
+
+        var search_input = $('#tipue_search_input');
+        var tipue_search_content = $('#tipue_search_content');
+        var raw_content= $('.raw_content');
+        search_input.tipuesearch({
+            'mode': 'json',
+            'minimumLength': 2,
+            'contentLocation': '/tipuesearch/tipuesearch_content.json',
+            highlightEveryTerm: true
+        });
+
+        $('#search-form').on('submit', function (e) {
+            e.preventDefault();
+            tipue_search_content.show();
+            raw_content.hide();
+        });
+
+        search_input.keyup(function () {
+            var length = $(this).val().length;
+            if (length < 1) {
+                tipue_search_content.hide();
+                raw_content.show();
+            }
+        });
+    });
 </script>
+
             
   </div>
 </body>

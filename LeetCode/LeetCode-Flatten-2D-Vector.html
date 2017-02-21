@@ -99,27 +99,9 @@ ga('send', 'pageview');
             <nav id="sub-nav">
               <div id="search-form-wrap">
                 <div class="search">
-<!--
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="search">
-    <input type="hidden" name="q" value="site:hzhou.me">
-  </form>
--->
-  <form class="search-form">
-	  <input type="search" id="st-search-input" class="search-form-input" placeholder="search" />
-	</form>
-	<script type="text/javascript">
-	var Swiftype = window.Swiftype || {};
-	  (function() {
-	    Swiftype.key = '7Q4fXSChRnPVrHYRXR76';
-
-	    /** DO NOT EDIT BELOW THIS LINE **/
-	    var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-	    script.src = "//s.swiftypecdn.com/embed.js";
-	    var entry = document.getElementsByTagName('script')[0];
-	    entry.parentNode.insertBefore(script, entry);
-	  }());
-	</script>
+    <form id="search-form" class="search-form">
+        <input  type="text" name="q" id="tipue_search_input" class="search-form-input" autocomplete="off" required placeholder="search" />
+    </form>
 </div>
 
               </div>
@@ -135,11 +117,12 @@ ga('send', 'pageview');
       <div class="main-body container-inner">
         <div class="main-body-inner">
           <section id="main">
-            <div class="main-body-header">
+            <div id="tipue_search_content" style="display: none"></div>
+            <div class="main-body-header raw_content">
 
               <h1 class="header"><em class="page-title-link" data-url="/LeetCode/LeetCode-Flatten-2D-Vector.html">LeetCode: Flatten 2D Vector</em></h1>
             </div>
-            <div class="main-body-content">
+            <div class="main-body-content raw_content">
               
   <article id="page-undefined" class="article article-single article-type-page" itemscope itemprop="blogPost">
     <div class="article-inner">
@@ -168,7 +151,7 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Vector2D</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] arrCounters;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Vector2D</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; vec2d)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (vec2d == <span class="keyword">null</span>) &#123;</div><div class="line">            arrCounters = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (List&lt;Integer&gt; l : vec2d) &#123;</div><div class="line">                cnt += (l == <span class="keyword">null</span>) ? <span class="number">0</span> : l.size();</div><div class="line">            &#125;</div><div class="line">            arrCounters = <span class="keyword">new</span> <span class="keyword">int</span>[cnt];</div><div class="line"></div><div class="line">            cnt = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (List&lt;Integer&gt; l : vec2d) &#123;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> in : l) &#123;</div><div class="line">                    arrCounters[cnt++] = in;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> val = Integer.MIN_VALUE;</div><div class="line">        <span class="keyword">if</span> (counter &lt; arrCounters.length) &#123;</div><div class="line">            val = arrCounters[counter];</div><div class="line">        &#125;</div><div class="line">        counter++;</div><div class="line">        <span class="keyword">return</span> val;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> counter &lt; arrCounters.length;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/LeetCode/LeetCode-Flatten-2D-Vector.html" data-id="cizevp6ef00czwulxfg0ixk0e" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/LeetCode/LeetCode-Flatten-2D-Vector.html" data-id="cizewlr8f00d04slx87lhrs28" class="article-share-link">Share</a>
         
           <a href="http://hzhou.me/LeetCode/LeetCode-Flatten-2D-Vector.html#comments" class="article-comment-link">Comments</a>
         
@@ -353,14 +336,39 @@ ga('send', 'pageview');
 <script src="/js/html-patch.js"></script>
 <script src="/js/script.js"></script>
 
+<link href="/tipuesearch/tipuesearch.css" rel="stylesheet">
+<script src="/tipuesearch/tipuesearch_set.js"></script>
+<script src="/tipuesearch/tipuesearch.js"></script>
+<!-- Other code may be here -->
 <script>
-(function(){
-    var bp = document.createElement('script');
-    bp.src = '//push.zhanzhang.baidu.com/push.js';
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+    $(document).ready(function () {
+
+        var search_input = $('#tipue_search_input');
+        var tipue_search_content = $('#tipue_search_content');
+        var raw_content= $('.raw_content');
+        search_input.tipuesearch({
+            'mode': 'json',
+            'minimumLength': 2,
+            'contentLocation': '/tipuesearch/tipuesearch_content.json',
+            highlightEveryTerm: true
+        });
+
+        $('#search-form').on('submit', function (e) {
+            e.preventDefault();
+            tipue_search_content.show();
+            raw_content.hide();
+        });
+
+        search_input.keyup(function () {
+            var length = $(this).val().length;
+            if (length < 1) {
+                tipue_search_content.hide();
+                raw_content.show();
+            }
+        });
+    });
 </script>
+
             
   </div>
 </body>
