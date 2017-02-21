@@ -171,7 +171,7 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TheSkylineProblem</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> List&lt;<span class="keyword">int</span>[]&gt; getSkyline(<span class="keyword">int</span>[][] buildings) &#123;</div><div class="line">        List&lt;<span class="keyword">int</span>[]&gt; result = <span class="keyword">new</span> ArrayList&lt;<span class="keyword">int</span>[]&gt;();</div><div class="line">        List&lt;<span class="keyword">int</span>[]&gt; height = <span class="keyword">new</span> ArrayList&lt;<span class="keyword">int</span>[]&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] b : buildings) &#123;</div><div class="line">            height.add(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;b[<span class="number">0</span>], -b[<span class="number">2</span>]&#125;);</div><div class="line">            height.add(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;b[<span class="number">1</span>], b[<span class="number">2</span>]&#125;);</div><div class="line">        &#125;</div><div class="line">        Collections.sort(height, <span class="keyword">new</span> Comparator&lt;<span class="keyword">int</span>[]&gt;() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span>[] b)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (a[<span class="number">0</span>] != b[<span class="number">0</span>]) <span class="keyword">return</span> a[<span class="number">0</span>] - b[<span class="number">0</span>];</div><div class="line">                <span class="keyword">return</span> a[<span class="number">1</span>] - b[<span class="number">1</span>];</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        Queue&lt;Integer&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;Integer&gt;(<span class="keyword">new</span> Comparator&lt;Integer&gt;() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer a, Integer b)</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> b - a;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        pq.offer(<span class="number">0</span>);</div><div class="line">        <span class="keyword">int</span> prev = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] h : height) &#123;</div><div class="line">            <span class="keyword">if</span> (h[<span class="number">1</span>] &lt; <span class="number">0</span>) &#123;</div><div class="line">                pq.offer(-h[<span class="number">1</span>]);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                pq.remove(h[<span class="number">1</span>]);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">int</span> cur = pq.peek();</div><div class="line">            <span class="keyword">if</span> (prev != cur) &#123;</div><div class="line">                result.add(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;h[<span class="number">0</span>], cur&#125;);</div><div class="line">                prev = cur;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/LeetCode/LeetCode-The-Skyline-Problem.html" data-id="cizemg4l900hah1lx9ag2f2ws" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/LeetCode/LeetCode-The-Skyline-Problem.html" data-id="cizev20kr00ghjelxkqoyncyd" class="article-share-link">Share</a>
         
           <a href="http://hzhou.me/LeetCode/LeetCode-The-Skyline-Problem.html#comments" class="article-comment-link">Comments</a>
         
@@ -196,11 +196,9 @@ ga('send', 'pageview');
     <p>follow:</p>
     <ul class="social-links">
       
-        <li><a class="social-tooltip" title="linkedin" href="http://www.linkedin.com/in/sbzhouhao/" target="_blank"><i id="icon-linkedin" class="icon"></i></a></li>
+        <li><a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/sbzhouhao/" target="_blank"><i id="icon-linkedin" class="icon"></i></a></li>
       
         <li><a class="social-tooltip" title="github" href="https://github.com/zhouhao" target="_blank"><i id="icon-github" class="icon"></i></a></li>
-      
-        <li><a class="social-tooltip" title="weibo" href="http://www.weibo.com/sbzhouhao/" target="_blank"><i id="icon-weibo" class="icon"></i></a></li>
       
         <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i id="icon-rss" class="icon"></i></a></li>
       
@@ -223,20 +221,9 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">recents</h3>
     <div class="widget">
-      <ul id="recent-post" class="">
+      <ul id="recent-post" class="no-thumbnail">
         
           <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2017/02/13/Quick-start-swagger-spring-boot-and-Jersey/" class="thumbnail">
-  
-    <span style="background-image:url(/img/swagger-ui-api.png
-)" alt="Quick start: swagger, spring-boot and Jersey" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/计算机那些事/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/计算机那些事/服务/">服务</a></p>
@@ -247,16 +234,6 @@ ga('send', 'pageview');
         
           <li>
             
-            <div class="item-thumbnail">
-              
-<a href="/2016/08/22/local-search-with-tipue/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/程序员的日常/">程序员的日常</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/程序员的日常/普通/">普通</a></p>
               <p class="item-title"><a href="/2016/08/22/local-search-with-tipue/" class="title">Hexo site search plugin with Tipue </a></p>
@@ -265,16 +242,6 @@ ga('send', 'pageview');
           </li>
         
           <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2016/05/27/Teeth-Extraction-Boston/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/程序员的日常/">程序员的日常</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/程序员的日常/操蛋/">操蛋</a></p>
@@ -285,16 +252,6 @@ ga('send', 'pageview');
         
           <li>
             
-            <div class="item-thumbnail">
-              
-<a href="/2016/05/08/第一次看牙医-疼/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/程序员的日常/">程序员的日常</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/程序员的日常/日常/">日常</a></p>
               <p class="item-title"><a href="/2016/05/08/第一次看牙医-疼/" class="title">第一次看牙医-疼</a></p>
@@ -303,16 +260,6 @@ ga('send', 'pageview');
           </li>
         
           <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2016/05/01/Tip-Upload-Multiple-Files-with-Jersey/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/计算机那些事/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/计算机那些事/Java/">Java</a></p>

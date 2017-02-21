@@ -162,7 +162,7 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImplementStackUsingQueues</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Queue&lt;Integer&gt; q1 = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</div><div class="line">    <span class="keyword">private</span> Queue&lt;Integer&gt; q2 = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</div><div class="line"></div><div class="line">    <span class="comment">// Push element x onto stack.</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (empty()) &#123;</div><div class="line">            q1.add(x);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (q1.isEmpty()) &#123;</div><div class="line">            q1.add(x);</div><div class="line">            <span class="keyword">while</span> (!q2.isEmpty()) &#123;</div><div class="line">                q1.add(q2.poll());</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            q2.add(x);</div><div class="line">            <span class="keyword">while</span> (!q1.isEmpty()) &#123;</div><div class="line">                q2.add(q1.poll());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Removes the element on top of the stack.</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (empty()) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (q1.isEmpty()) &#123;</div><div class="line">            q2.poll();</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            q1.poll();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Get the top element.</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result;</div><div class="line">        <span class="keyword">if</span> (q1.isEmpty()) &#123;</div><div class="line">            result = q2.peek();</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            result = q1.peek();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Return whether the stack is empty.</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> q1.isEmpty() &amp;&amp; q2.isEmpty();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/LeetCode/LeetCode-Implement-Stack-using-Queues.html" data-id="cizemg4k500dch1lxr8l2ftbi" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/LeetCode/LeetCode-Implement-Stack-using-Queues.html" data-id="cizev20gr008fjelx9stjvcww" class="article-share-link">Share</a>
         
           <a href="http://hzhou.me/LeetCode/LeetCode-Implement-Stack-using-Queues.html#comments" class="article-comment-link">Comments</a>
         
@@ -187,11 +187,9 @@ ga('send', 'pageview');
     <p>follow:</p>
     <ul class="social-links">
       
-        <li><a class="social-tooltip" title="linkedin" href="http://www.linkedin.com/in/sbzhouhao/" target="_blank"><i id="icon-linkedin" class="icon"></i></a></li>
+        <li><a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/sbzhouhao/" target="_blank"><i id="icon-linkedin" class="icon"></i></a></li>
       
         <li><a class="social-tooltip" title="github" href="https://github.com/zhouhao" target="_blank"><i id="icon-github" class="icon"></i></a></li>
-      
-        <li><a class="social-tooltip" title="weibo" href="http://www.weibo.com/sbzhouhao/" target="_blank"><i id="icon-weibo" class="icon"></i></a></li>
       
         <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i id="icon-rss" class="icon"></i></a></li>
       
@@ -214,20 +212,9 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">recents</h3>
     <div class="widget">
-      <ul id="recent-post" class="">
+      <ul id="recent-post" class="no-thumbnail">
         
           <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2017/02/13/Quick-start-swagger-spring-boot-and-Jersey/" class="thumbnail">
-  
-    <span style="background-image:url(/img/swagger-ui-api.png
-)" alt="Quick start: swagger, spring-boot and Jersey" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/计算机那些事/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/计算机那些事/服务/">服务</a></p>
@@ -238,16 +225,6 @@ ga('send', 'pageview');
         
           <li>
             
-            <div class="item-thumbnail">
-              
-<a href="/2016/08/22/local-search-with-tipue/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/程序员的日常/">程序员的日常</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/程序员的日常/普通/">普通</a></p>
               <p class="item-title"><a href="/2016/08/22/local-search-with-tipue/" class="title">Hexo site search plugin with Tipue </a></p>
@@ -256,16 +233,6 @@ ga('send', 'pageview');
           </li>
         
           <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2016/05/27/Teeth-Extraction-Boston/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/程序员的日常/">程序员的日常</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/程序员的日常/操蛋/">操蛋</a></p>
@@ -276,16 +243,6 @@ ga('send', 'pageview');
         
           <li>
             
-            <div class="item-thumbnail">
-              
-<a href="/2016/05/08/第一次看牙医-疼/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/程序员的日常/">程序员的日常</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/程序员的日常/日常/">日常</a></p>
               <p class="item-title"><a href="/2016/05/08/第一次看牙医-疼/" class="title">第一次看牙医-疼</a></p>
@@ -294,16 +251,6 @@ ga('send', 'pageview');
           </li>
         
           <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2016/05/01/Tip-Upload-Multiple-Files-with-Jersey/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/计算机那些事/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/计算机那些事/Java/">Java</a></p>
