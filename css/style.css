@@ -936,7 +936,6 @@ body {
   clear: both;
 }
 .article-summary {
-  width: 50%;
   float: left;
   margin-bottom: 30px;
 }
@@ -1000,8 +999,6 @@ body {
   color: #aaa;
   font-size: 16px;
   line-height: 1.6em;
-  overflow: hidden;
-  height: 6.4em;
 }
 .article-summary:hover .thumbnail .thumbnail-image {
   opacity: 0.7;
