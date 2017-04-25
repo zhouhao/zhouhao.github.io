@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hzhou.me/"/>
-  <updated>2017-02-20T02:14:28.000Z</updated>
+  <updated>2017-04-25T01:52:57.000Z</updated>
   <id>http://hzhou.me/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jetbrains-toolbox connection issue with OpenSSL 1.1+</title>
+    <link href="http://hzhou.me/2017/04/23/Jetbrains-toolbox-connection-issue-with-OpenSSL-1-1/"/>
+    <id>http://hzhou.me/2017/04/23/Jetbrains-toolbox-connection-issue-with-OpenSSL-1-1/</id>
+    <published>2017-04-23T21:33:12.000Z</published>
+    <updated>2017-04-25T01:52:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>作为一个以Java为主开发语言的攻城狮，我觉得我已经离不开Jetbrains的产品了。JB公司前段时间推出的toolbox小工具我也在第一时间使用了（不用的话根本就追不上版本帝的更新节奏）。然而，最近我吧我的系统改为深度的Linux(15.4)之后，我发现toolbox挂了。。。挂了。。。</p>
+<a id="more"></a>
+<p><img src="/img/toolbox-error.png" alt="链接失败"></p>
+<p>一阵Google之后，找到了这个<a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000160850--resolved-JetBrains-Toolbox-Error-creating-SSL-context" target="_blank" rel="external">https://intellij-support.jetbrains.com/hc/en-us/community/posts/115000160850--resolved-JetBrains-Toolbox-Error-creating-SSL-context</a>
+里面提到在新版本中会修复这个问题，问题是我不能就这么坐以待毙等下一个版本吧。</p>
+<p>于是在(这个里面)[<a href="https://youtrack.jetbrains.com/issue/ALL-1486]找到了临时的解决方法。" target="_blank" rel="external">https://youtrack.jetbrains.com/issue/ALL-1486]找到了临时的解决方法。</a></p>
+<blockquote>
+<p>错误原因就是toolbox不支持openssl1.1+版本。</p>
+</blockquote>
+<h3 id="临时解决方案如下（方法来自上述链接）"><a href="#临时解决方案如下（方法来自上述链接）" class="headerlink" title="临时解决方案如下（方法来自上述链接）"></a>临时解决方案如下（方法来自上述链接）</h3><ol>
+<li>安装旧版本的openssl（需要<code>sudo</code>）</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mkdir -p <span class="string">"/opt/openssl-1.0.2k"</span></div><div class="line"><span class="built_in">cd</span> <span class="string">"/opt/openssl-1.0.2k"</span></div><div class="line">curl -O https://www.openssl.org/<span class="built_in">source</span>/openssl-1.0.2k.tar.gz</div><div class="line">tar xzf openssl-1.0.2k.tar.gz</div><div class="line"><span class="built_in">cd</span> openssl-1.0.2k</div><div class="line">./config shared --prefix=<span class="string">"/opt/openssl-1.0.2k"</span></div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<ol>
+<li>添加自己的启动脚本</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/opt/openssl-1.0.2k/lib</div><div class="line"><span class="built_in">exec</span> <span class="variable">$HOME</span>/bin/jetbrains-toolbox <span class="string">"<span class="variable">$@</span>"</span></div></pre></td></tr></table></figure>
+<h3 id="至此，toolbox应该可以正常启动了。"><a href="#至此，toolbox应该可以正常启动了。" class="headerlink" title="至此，toolbox应该可以正常启动了。"></a>至此，toolbox应该可以正常启动了。</h3><p>Note: 如果设置了toolbox的开机启动，就会发现还是会有链接问题，只需要关了，再通过启动脚本打开就行。坐等JB公司更新toolbox新版本。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为一个以Java为主开发语言的攻城狮，我觉得我已经离不开Jetbrains的产品了。JB公司前段时间推出的toolbox小工具我也在第一时间使用了（不用的话根本就追不上版本帝的更新节奏）。然而，最近我吧我的系统改为深度的Linux(15.4)之后，我发现toolbox挂了。。。挂了。。。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="普通" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
+    
+    
+      <category term="Jetbrains" scheme="http://hzhou.me/tags/Jetbrains/"/>
+    
+      <category term="Toolbox" scheme="http://hzhou.me/tags/Toolbox/"/>
+    
+      <category term="OpenSSL" scheme="http://hzhou.me/tags/OpenSSL/"/>
+    
+  </entry>
   
   <entry>
     <title>Quick start: swagger, spring-boot and Jersey</title>
@@ -530,9 +576,9 @@ Comes 2 solutions now:</p>
       <category term="Java" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
     
     
-      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
-    
       <category term="压缩" scheme="http://hzhou.me/tags/%E5%8E%8B%E7%BC%A9/"/>
+    
+      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
     
   </entry>
   
@@ -752,71 +798,6 @@ Comes 2 solutions now:</p>
     
     
       <category term="Nginx" scheme="http://hzhou.me/tags/Nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>My Windows Tools</title>
-    <link href="http://hzhou.me/2015/07/08/My-Windows-Tools/"/>
-    <id>http://hzhou.me/2015/07/08/My-Windows-Tools/</id>
-    <published>2015-07-08T18:04:33.000Z</published>
-    <updated>2017-02-20T02:14:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>I am a software developer, and during my daily work time I use a DELL laptop with Win7. Since I have used windows for a long time, and used and am using a lot of awesome tools, below is the list of tools I recommend.</p>
-<a id="more"></a>
-<h3 id="Basic-must-have"><a href="#Basic-must-have" class="headerlink" title="Basic(must have)"></a>Basic(must have)</h3><ol>
-<li>JDK 6, 8 (My company uses 6, and 8 is for my personal use)</li>
-<li><a href="https://nodejs.org/" target="_blank" rel="external">Node.js</a></li>
-<li><a href="https://msysgit.github.io/" target="_blank" rel="external">Git</a>(<a href="https://windows.github.com/" target="_blank" rel="external">GitHub</a>)</li>
-</ol>
-<h3 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h3><ol>
-<li><a href="https://www.jetbrains.com/idea/" target="_blank" rel="external">Intellij</a>: [The community version is free] I used eclipse before, but after I use Intellij, I fall love with it</li>
-<li><a href="https://www.jetbrains.com/phpstorm/" target="_blank" rel="external">PHPStorm</a>: for PHP</li>
-</ol>
-<h3 id="Text-Editor"><a href="#Text-Editor" class="headerlink" title="Text Editor"></a>Text Editor</h3><ol>
-<li><a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text 3</a>: faster than Atom</li>
-<li><a href="https://atom.io/" target="_blank" rel="external">Atom</a></li>
-<li><a href="http://www.listary.com/text-editor-anywhere" target="_blank" rel="external">Text Editor Anywhere</a>: Edit Text Anywhere with Your Favorite Editor</li>
-<li><a href="http://markdownpad.com/" target="_blank" rel="external">MarkdownPad 2</a>: bought before, but not used so much</li>
-<li><a href="http://brackets.io/" target="_blank" rel="external">Brackets</a>: Just use this for front-end development</li>
-</ol>
-<h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><ol>
-<li><a href="https://winscp.net/eng/download.php" target="_blank" rel="external">WinSCP</a> + <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank" rel="external">Putty</a>: the best SFTP(SSH) combination so far in my mind</li>
-<li><a href="https://github.com/Maximus5/ConEmu" target="_blank" rel="external">ConEmu</a>: a cmd tool</li>
-<li><a href="https://github.com/bmatzelle/gow" target="_blank" rel="external">Gow(Gnu On Windows)</a>: lightweight alternative to Cygwin</li>
-<li><a href="http://www.xuetr.com/?p=191" target="_blank" rel="external">PC Hunter</a>: A poweful windows system tool(hasn’t been updated for a long time)</li>
-<li><a href="https://www.getwox.com/" target="_blank" rel="external">Wox</a>: An effective launcher for windows, like Alfred in Mac</li>
-<li><a href="http://zealdocs.org/" target="_blank" rel="external">Zeal</a>: Zeal is an offline documentation browser inspired by Dash</li>
-<li><a href="http://www.softwareok.com/?seite=Freeware/Q-Dir" target="_blank" rel="external">Q-Dir</a>: Another Windows Explorer</li>
-<li><a href="https://github.com/papplampe/virgo" target="_blank" rel="external">virgo</a>: Virtual desktops for Windows</li>
-<li><a href="https://github.com/java-decompiler/jd-gui" target="_blank" rel="external">jd-gui</a>: Standalone Java Decompiler GUI</li>
-<li><a href="https://www.elby.ch/en/products/vcd.html" target="_blank" rel="external">Virtual CloneDrive</a></li>
-<li><a href="http://ad-safe.com/" target="_blank" rel="external">ADSafe净网大师</a>: a client which can remove ads</li>
-<li><a href="http://www.rapidee.com/en/about" target="_blank" rel="external">Rapid Environment Editor</a>: an environment variables editor</li>
-</ol>
-<h3 id="Email"><a href="#Email" class="headerlink" title="Email"></a>Email</h3><ol>
-<li><a href="http://www.foxmail.com/" target="_blank" rel="external">Foxmail</a>: I use this both in Windows and Mac</li>
-</ol>
-<h3 id="Intellij-Plugins"><a href="#Intellij-Plugins" class="headerlink" title="Intellij Plugins"></a>Intellij Plugins</h3><ol>
-<li><a href="https://plugins.jetbrains.com/plugin/7275" target="_blank" rel="external">CodeGlance</a>: Embeds a code minimap, not very stable, sometimes crashes</li>
-<li><a href="https://plugins.jetbrains.com/plugin/7293" target="_blank" rel="external">MyBatis plugin</a>: Useful for MyBatis related operations, not free</li>
-<li><a href="https://plugins.jetbrains.com/plugin/7115" target="_blank" rel="external">VisualVM Launcher</a>: Launches <a href="https://visualvm.java.net/" target="_blank" rel="external">VisualVM</a> from within IDEA</li>
-<li>[JRebel]: <a href="https://my.jrebel.com/" target="_blank" rel="external">myJRebel</a>, a free version for personal usage</li>
-</ol>
-<h3 id="Music"><a href="#Music" class="headerlink" title="Music"></a>Music</h3><ol>
-<li><a href="http://music.163.com/" target="_blank" rel="external">网易云音乐</a></li>
-</ol>
-<p>### </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I am a software developer, and during my daily work time I use a DELL laptop with Win7. Since I have used windows for a long time, and used and am using a lot of awesome tools, below is the list of tools I recommend.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Tool" scheme="http://hzhou.me/tags/Tool/"/>
     
   </entry>
   
