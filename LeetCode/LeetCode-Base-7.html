@@ -3,18 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>LeetCode: Sort List | 疯狂de咸蛋</title>
+  <title>LeetCode: Base 7 | 疯狂de咸蛋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960/** * Description * * @author hzhou */public class SortList &amp;#123;    public ListNode sor">
+  <meta name="description" content="Given an integer, return its base 7 string representation.
+Example 1:
+12Input: 100Output: &amp;quot;202&amp;quot;
+Example 2:
+12Input: -7Output: &amp;quot;-10&amp;quot;
+Note: The input will be in range of [-1e7, 1e7].">
 <meta property="og:type" content="website">
-<meta property="og:title" content="LeetCode: Sort List">
-<meta property="og:url" content="http://hzhou.me/LeetCode/LeetCode-Sort-List.html">
+<meta property="og:title" content="LeetCode: Base 7">
+<meta property="og:url" content="http://hzhou.me/LeetCode/LeetCode-Base-7.html">
 <meta property="og:site_name" content="疯狂de咸蛋">
-<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960/** * Description * * @author hzhou */public class SortList &amp;#123;    public ListNode sor">
-<meta property="og:updated_time" content="2017-02-20T02:14:28.000Z">
+<meta property="og:description" content="Given an integer, return its base 7 string representation.
+Example 1:
+12Input: 100Output: &amp;quot;202&amp;quot;
+Example 2:
+12Input: -7Output: &amp;quot;-10&amp;quot;
+Note: The input will be in range of [-1e7, 1e7].">
+<meta property="og:updated_time" content="2017-04-26T02:20:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode: Sort List">
-<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960/** * Description * * @author hzhou */public class SortList &amp;#123;    public ListNode sor">
+<meta name="twitter:title" content="LeetCode: Base 7">
+<meta name="twitter:description" content="Given an integer, return its base 7 string representation.
+Example 1:
+12Input: 100Output: &amp;quot;202&amp;quot;
+Example 2:
+12Input: -7Output: &amp;quot;-10&amp;quot;
+Note: The input will be in range of [-1e7, 1e7].">
   
   
     <link rel="icon" href="/favicon.png">
@@ -111,7 +126,7 @@ ga('send', 'pageview');
             <div id="tipue_search_content" style="display: none"></div>
             <div class="main-body-header raw_content">
 
-              <h1 class="header"><em class="page-title-link" data-url="/LeetCode/LeetCode-Sort-List.html">LeetCode: Sort List</em></h1>
+              <h1 class="header"><em class="page-title-link" data-url="/LeetCode/LeetCode-Base-7.html">LeetCode: Base 7</em></h1>
             </div>
             <div class="main-body-content raw_content">
               
@@ -123,25 +138,32 @@ ga('send', 'pageview');
           
   
     <h1 class="article-title" itemprop="name">
-      LeetCode: Sort List
+      LeetCode: Base 7
     </h1>
   
 
         </header>
       
       <p class="article-byline">
-        <a href="/LeetCode/LeetCode-Sort-List.html" class="article-date">
-  <time datetime="2015-06-24T04:03:22.000Z" itemprop="datePublished">Jun 24 2015</time>
+        <a href="/LeetCode/LeetCode-Base-7.html" class="article-date">
+  <time datetime="2015-06-26T00:03:22.000Z" itemprop="datePublished">Jun 25 2015</time>
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Description</div><div class="line"> *</div><div class="line"> * <span class="doctag">@author</span> hzhou</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SortList</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">sortList</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> head;</div><div class="line">        &#125;</div><div class="line">        ListNode fast = head;</div><div class="line">        ListNode slow = head;</div><div class="line">        <span class="keyword">while</span> (fast.next != <span class="keyword">null</span> &amp;&amp; fast.next.next != <span class="keyword">null</span>) &#123;</div><div class="line">            fast = fast.next.next;</div><div class="line">            slow = slow.next;</div><div class="line">        &#125;</div><div class="line">        fast = slow;</div><div class="line">        slow = slow.next;</div><div class="line">        fast.next = <span class="keyword">null</span>;</div><div class="line">        fast = sortList(head);</div><div class="line">        slow = sortList(slow);</div><div class="line">        <span class="keyword">return</span> merge(fast, slow);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> ListNode <span class="title">merge</span><span class="params">(ListNode a, ListNode b)</span> </span>&#123;</div><div class="line">        ListNode result;</div><div class="line">        <span class="keyword">if</span> (a == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> b;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (b == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> a;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (a.val &gt;= b.val) &#123;</div><div class="line">            result = b;</div><div class="line">            b = b.next;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            result = a;</div><div class="line">            a = a.next;</div><div class="line">        &#125;</div><div class="line">        ListNode cursor = result;</div><div class="line">        <span class="keyword">while</span> (a != <span class="keyword">null</span> &amp;&amp; b != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (a.val &gt;= b.val) &#123;</div><div class="line">                cursor.next = b;</div><div class="line">                b = b.next;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                cursor.next = a;</div><div class="line">                a = a.next;</div><div class="line">            &#125;</div><div class="line">            cursor = cursor.next;</div><div class="line">        &#125;</div><div class="line">        cursor.next = a == <span class="keyword">null</span> ? b : a;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">        ListNode head = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</div><div class="line">        head.next = <span class="keyword">new</span> ListNode(<span class="number">2</span>);</div><div class="line">        sortList(head);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Given an integer, return its base 7 string representation.</p>
+<p><strong>Example 1:</strong>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: 100</div><div class="line">Output: &quot;202&quot;</div></pre></td></tr></table></figure></p>
+<p><strong>Example 2:</strong>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: -7</div><div class="line">Output: &quot;-10&quot;</div></pre></td></tr></table></figure></p>
+<p><em>Note</em>: The input will be in range of [-1e7, 1e7].</p>
+<p>其实理解了进制转换之后，这题确实不难。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Base7</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">convertToBase7</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line"></div><div class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line">        <span class="keyword">boolean</span> isNegative = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;</div><div class="line">            isNegative = <span class="keyword">true</span>;</div><div class="line">            num = Math.abs(num);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> a = num;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (a &gt;= <span class="number">7</span>) &#123;</div><div class="line">            <span class="keyword">int</span> b = a % <span class="number">7</span>;</div><div class="line">            a = a / <span class="number">7</span>;</div><div class="line">            sb.insert(<span class="number">0</span>, b);</div><div class="line">        &#125;</div><div class="line">        sb.insert(<span class="number">0</span>, a);</div><div class="line">        <span class="keyword">if</span> (isNegative) &#123;</div><div class="line">            sb.insert(<span class="number">0</span>, <span class="string">"-"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> sb.toString();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/LeetCode/LeetCode-Sort-List.html" data-id="cj1ycr74000fpf9lxwk54tqb0" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/LeetCode/LeetCode-Base-7.html" data-id="cj1ycr6zo0018f9lx9thzn85e" class="article-share-link">Share</a>
         
-          <a href="http://hzhou.me/LeetCode/LeetCode-Sort-List.html#comments" class="article-comment-link">Comments</a>
+          <a href="http://hzhou.me/LeetCode/LeetCode-Base-7.html#comments" class="article-comment-link">Comments</a>
         
         
       </footer>
@@ -298,7 +320,7 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'zhouhao';
   
-  var disqus_url = 'http://hzhou.me/LeetCode/LeetCode-Sort-List.html';
+  var disqus_url = 'http://hzhou.me/LeetCode/LeetCode-Base-7.html';
   
   (function(){
     var dsq = document.createElement('script');
