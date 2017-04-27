@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>LeetCode: Longest Substring with At Most Two Distinct Characters | 疯狂de咸蛋</title>
+  <title>LeetCode: Reverse Integer | 疯狂de咸蛋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243/** * Created by hzhou on 2015/6/4. * Email: i@hzhou.me * &amp;lt;p&amp;gt; * Given a string, find the length of the longest substr">
+  <meta name="description" content="Given a string and an integer k, you need to reverse the first k characters for every 2k characters counting from the start of the string. If there are less than k characters left, reverse all of them">
 <meta property="og:type" content="website">
-<meta property="og:title" content="LeetCode: Longest Substring with At Most Two Distinct Characters">
-<meta property="og:url" content="http://hzhou.me/LeetCode/LeetCode-Longest-Substring-with-At-Most-Two-Distinct-Characters.html">
+<meta property="og:title" content="LeetCode: Reverse Integer">
+<meta property="og:url" content="http://hzhou.me/LeetCode/LeetCode-Reverse-String-II.html">
 <meta property="og:site_name" content="疯狂de咸蛋">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243/** * Created by hzhou on 2015/6/4. * Email: i@hzhou.me * &amp;lt;p&amp;gt; * Given a string, find the length of the longest substr">
-<meta property="og:updated_time" content="2017-02-20T02:14:28.000Z">
+<meta property="og:description" content="Given a string and an integer k, you need to reverse the first k characters for every 2k characters counting from the start of the string. If there are less than k characters left, reverse all of them">
+<meta property="og:updated_time" content="2017-04-27T02:16:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode: Longest Substring with At Most Two Distinct Characters">
-<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243/** * Created by hzhou on 2015/6/4. * Email: i@hzhou.me * &amp;lt;p&amp;gt; * Given a string, find the length of the longest substr">
+<meta name="twitter:title" content="LeetCode: Reverse Integer">
+<meta name="twitter:description" content="Given a string and an integer k, you need to reverse the first k characters for every 2k characters counting from the start of the string. If there are less than k characters left, reverse all of them">
   
   
     <link rel="icon" href="/favicon.png">
@@ -111,7 +111,7 @@ ga('send', 'pageview');
             <div id="tipue_search_content" style="display: none"></div>
             <div class="main-body-header raw_content">
 
-              <h1 class="header"><em class="page-title-link" data-url="/LeetCode/LeetCode-Longest-Substring-with-At-Most-Two-Distinct-Characters.html">LeetCode: Longest Substring with At Most Two Distinct Characters</em></h1>
+              <h1 class="header"><em class="page-title-link" data-url="/LeetCode/LeetCode-Reverse-String-II.html">LeetCode: Reverse Integer</em></h1>
             </div>
             <div class="main-body-content raw_content">
               
@@ -123,25 +123,32 @@ ga('send', 'pageview');
           
   
     <h1 class="article-title" itemprop="name">
-      LeetCode: Longest Substring with At Most Two Distinct Characters
+      LeetCode: Reverse Integer
     </h1>
   
 
         </header>
       
       <p class="article-byline">
-        <a href="/LeetCode/LeetCode-Longest-Substring-with-At-Most-Two-Distinct-Characters.html" class="article-date">
+        <a href="/LeetCode/LeetCode-Reverse-String-II.html" class="article-date">
   <time datetime="2015-06-24T04:03:22.000Z" itemprop="datePublished">Jun 24 2015</time>
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by hzhou on 2015/6/4.</div><div class="line"> * Email: i@hzhou.me</div><div class="line"> * &lt;p&gt;</div><div class="line"> * Given a string, find the length of the longest substring T that contains at most 2 distinct characters.</div><div class="line"> * &lt;p&gt;</div><div class="line"> * For example, Given s = "eceba",</div><div class="line"> * &lt;p&gt;</div><div class="line"> * T is "ece" which its length is 3.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongestSubstringWithAtMostTwoDistinctCharacters</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstringTwoDistinct</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() &lt; <span class="number">3</span>) &#123;</div><div class="line">            <span class="keyword">return</span> s == <span class="keyword">null</span> ? <span class="number">0</span> : s.length();</div><div class="line">        &#125;</div><div class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Character, Integer&gt;();</div><div class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (; i &lt; s.length(); i++) &#123;</div><div class="line">            <span class="keyword">char</span> c = s.charAt(i);</div><div class="line">            <span class="keyword">if</span> (map.size() == <span class="number">2</span> &amp;&amp; !map.containsKey(c)) &#123;</div><div class="line">                max = Math.max(max, i - start);</div><div class="line">                <span class="keyword">int</span> leftMost = s.length();</div><div class="line">                <span class="keyword">for</span> (Map.Entry&lt;Character, Integer&gt; entry : map.entrySet()) &#123;</div><div class="line">                    <span class="keyword">if</span> (entry.getValue() &lt; leftMost) &#123;</div><div class="line">                        leftMost = entry.getValue();</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                start = leftMost + <span class="number">1</span>;</div><div class="line">                map.remove(s.charAt(leftMost));</div><div class="line">            &#125;</div><div class="line">            map.put(c, i);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> Math.max(max, i - start);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">        String s =<span class="string">"aab"</span>;</div><div class="line">        <span class="keyword">int</span> i = lengthOfLongestSubstringTwoDistinct(s);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Given a string and an integer k, you need to reverse the first k characters for every 2k characters counting from the start of the string. If there are less than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and left the other as original.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input: s = &quot;abcdefg&quot;, k = 2</div><div class="line">Output: &quot;bacdfeg&quot;</div></pre></td></tr></table></figure>
+<h3 id="Restrictions"><a href="#Restrictions" class="headerlink" title="Restrictions:"></a>Restrictions:</h3><ol>
+<li>The string consists of lower English letters only.</li>
+<li>Length of the given string and k will in the range [1, 10000]</li>
+</ol>
+<p>关键点在于把s按k得长度分成子串，然后把index位偶数的子串反转一下就行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReverseStringII</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reverseStr</span><span class="params">(String s, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.isEmpty() || k &lt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> s;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        String[] arr = s.split(<span class="string">"(?&lt;=\\G.&#123;"</span> + k + <span class="string">"&#125;)"</span>);</div><div class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">1</span>) &#123;</div><div class="line">                sb.append(arr[i]);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                sb.append(<span class="keyword">new</span> StringBuilder(arr[i]).reverse().toString());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> sb.toString();</div><div class="line">    &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/LeetCode/LeetCode-Longest-Substring-with-At-Most-Two-Distinct-Characters.html" data-id="cj1zs08hb0030zhlxbajjaw3o" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/LeetCode/LeetCode-Reverse-String-II.html" data-id="cj1zs08hr004zzhlxbaqshexx" class="article-share-link">Share</a>
         
-          <a href="http://hzhou.me/LeetCode/LeetCode-Longest-Substring-with-At-Most-Two-Distinct-Characters.html#comments" class="article-comment-link">Comments</a>
+          <a href="http://hzhou.me/LeetCode/LeetCode-Reverse-String-II.html#comments" class="article-comment-link">Comments</a>
         
         
       </footer>
@@ -298,7 +305,7 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'zhouhao';
   
-  var disqus_url = 'http://hzhou.me/LeetCode/LeetCode-Longest-Substring-with-At-Most-Two-Distinct-Characters.html';
+  var disqus_url = 'http://hzhou.me/LeetCode/LeetCode-Reverse-String-II.html';
   
   (function(){
     var dsq = document.createElement('script');
