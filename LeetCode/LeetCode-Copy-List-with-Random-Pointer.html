@@ -5,19 +5,16 @@
   
   <title>LeetCode: Copy List with Random Pointer | 疯狂de咸蛋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.
-Return a deep copy of the list.">
+  <meta name="description" content="A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LeetCode: Copy List with Random Pointer">
 <meta property="og:url" content="http://hzhou.me/LeetCode/LeetCode-Copy-List-with-Random-Pointer.html">
 <meta property="og:site_name" content="疯狂de咸蛋">
-<meta property="og:description" content="A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.
-Return a deep copy of the list.">
+<meta property="og:description" content="A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list.">
 <meta property="og:updated_time" content="2017-02-20T02:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode: Copy List with Random Pointer">
-<meta name="twitter:description" content="A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.
-Return a deep copy of the list.">
+<meta name="twitter:description" content="A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list.">
   
   
     <link rel="icon" href="/favicon.png">
@@ -146,7 +143,7 @@ Link: <a href="https://oj.leetcode.com/problems/copy-list-with-random-pointer/" 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list with a random pointer.</div><div class="line"> * class RandomListNode &#123;</div><div class="line"> *     int label;</div><div class="line"> *     RandomListNode next, random;</div><div class="line"> *     RandomListNode(int x) &#123; this.label = x; &#125;</div><div class="line"> * &#125;;</div><div class="line"> */</div><div class="line">public class Solution &#123;</div><div class="line">    public RandomListNode copyRandomList(RandomListNode head) &#123;</div><div class="line">        RandomListNode result = new RandomListNode(0);</div><div class="line">        if(head == null) return null;</div><div class="line">        </div><div class="line">        // Use a hashmap to store the mapping</div><div class="line">        Map&lt;RandomListNode, RandomListNode&gt; oldToNew = new HashMap&lt;RandomListNode, RandomListNode&gt;();</div><div class="line">        </div><div class="line">        RandomListNode cursor = head;</div><div class="line">        // create new nodes for new list</div><div class="line">        while(cursor != null) &#123;</div><div class="line">            RandomListNode tmp = new RandomListNode(cursor.label);</div><div class="line">            oldToNew.put(cursor, tmp);</div><div class="line">            cursor = cursor.next;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        // build the new list below</div><div class="line">        cursor = head;</div><div class="line">        RandomListNode tmp = result;</div><div class="line">        while(cursor != null) &#123;</div><div class="line">            RandomListNode t = oldToNew.get(cursor);</div><div class="line">            tmp.next = t;</div><div class="line">            t.next = oldToNew.get(cursor.next);</div><div class="line">            t.random = oldToNew.get(cursor.random);</div><div class="line">            cursor = cursor.next;</div><div class="line">            tmp = tmp.next;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        return result.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/LeetCode/LeetCode-Copy-List-with-Random-Pointer.html" data-id="cj1zvz04w00cq5jlxr6fp0a7e" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/LeetCode/LeetCode-Copy-List-with-Random-Pointer.html" data-id="cj219ew4g0052n2lxxui4ncbj" class="article-share-link">Share</a>
         
           <a href="http://hzhou.me/LeetCode/LeetCode-Copy-List-with-Random-Pointer.html#comments" class="article-comment-link">Comments</a>
         

@@ -5,19 +5,17 @@
   
   <title>Nginx: 简单负载均衡 | 疯狂de咸蛋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="工作之前的时候，做任何web项目，我都会选择用PHP，简洁，快速，有时候很赞同PHP是世界上最好的语言，但是有些时候还是不如Java来的利索。可惜的是Java“不支持”热部署（至少在生产环境下不建议热部署），
-导致每次部署都会有一段服务下线的时间（更糟糕的是用户的session也会随之丢失，最最糟糕的时候，每次部署，有时候还不得不重启一下Tomcat）。">
+  <meta name="description" content="工作之前的时候，做任何web项目，我都会选择用PHP，简洁，快速，有时候很赞同PHP是世界上最好的语言，但是有些时候还是不如Java来的利索。可惜的是Java“不支持”热部署（至少在生产环境下不建议热部署）， 导致每次部署都会有一段服务下线的时间（更糟糕的是用户的session也会随之丢失，最最糟糕的时候，每次部署，有时候还不得不重启一下Tomcat）。">
+<meta name="keywords" content="Nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx: 简单负载均衡">
 <meta property="og:url" content="http://hzhou.me/2015/07/09/Nginx-简单负载均衡/index.html">
 <meta property="og:site_name" content="疯狂de咸蛋">
-<meta property="og:description" content="工作之前的时候，做任何web项目，我都会选择用PHP，简洁，快速，有时候很赞同PHP是世界上最好的语言，但是有些时候还是不如Java来的利索。可惜的是Java“不支持”热部署（至少在生产环境下不建议热部署），
-导致每次部署都会有一段服务下线的时间（更糟糕的是用户的session也会随之丢失，最最糟糕的时候，每次部署，有时候还不得不重启一下Tomcat）。">
+<meta property="og:description" content="工作之前的时候，做任何web项目，我都会选择用PHP，简洁，快速，有时候很赞同PHP是世界上最好的语言，但是有些时候还是不如Java来的利索。可惜的是Java“不支持”热部署（至少在生产环境下不建议热部署）， 导致每次部署都会有一段服务下线的时间（更糟糕的是用户的session也会随之丢失，最最糟糕的时候，每次部署，有时候还不得不重启一下Tomcat）。">
 <meta property="og:updated_time" content="2017-02-20T02:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx: 简单负载均衡">
-<meta name="twitter:description" content="工作之前的时候，做任何web项目，我都会选择用PHP，简洁，快速，有时候很赞同PHP是世界上最好的语言，但是有些时候还是不如Java来的利索。可惜的是Java“不支持”热部署（至少在生产环境下不建议热部署），
-导致每次部署都会有一段服务下线的时间（更糟糕的是用户的session也会随之丢失，最最糟糕的时候，每次部署，有时候还不得不重启一下Tomcat）。">
+<meta name="twitter:description" content="工作之前的时候，做任何web项目，我都会选择用PHP，简洁，快速，有时候很赞同PHP是世界上最好的语言，但是有些时候还是不如Java来的利索。可惜的是Java“不支持”热部署（至少在生产环境下不建议热部署）， 导致每次部署都会有一段服务下线的时间（更糟糕的是用户的session也会随之丢失，最最糟糕的时候，每次部署，有时候还不得不重启一下Tomcat）。">
   
   
     <link rel="icon" href="/favicon.png">
@@ -159,7 +157,7 @@ ga('send', 'pageview');
 <h3 id="感谢博客园的日志Nginx负载均衡，更多详情，大家可以参考这边文章"><a href="#感谢博客园的日志Nginx负载均衡，更多详情，大家可以参考这边文章" class="headerlink" title="感谢博客园的日志Nginx负载均衡，更多详情，大家可以参考这边文章"></a>感谢博客园的日志<a href="http://www.cnblogs.com/xiaogangqq123/archive/2011/03/04/1971002.html" target="_blank" rel="external">Nginx负载均衡</a>，更多详情，大家可以参考这边文章</h3>
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/2015/07/09/Nginx-简单负载均衡/" data-id="cj1zvz00d001s5jlxpll6c4sb" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/2015/07/09/Nginx-简单负载均衡/" data-id="cj219ew3e002nn2lx0raog982" class="article-share-link">Share</a>
         
           <a href="http://hzhou.me/2015/07/09/Nginx-简单负载均衡/#comments" class="article-comment-link">Comments</a>
         
@@ -198,20 +196,20 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
   
-    <a href="/2015/07/22/Java-Mail中文乱码/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/07/08/My-Windows-Tools/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">newer</strong>
       <p class="article-nav-title">
         
-          Java Mail中文乱码
+          My Windows Tools
         
       </p>
       <i class="icon" id="icon-chevron-right"></i>
     </a>
   
   
-    <a href="/2015/07/08/My-Windows-Tools/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/07/22/Java-Mail中文乱码/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">older</strong>
-      <p class="article-nav-title">My Windows Tools</p>
+      <p class="article-nav-title">Java Mail中文乱码</p>
       <i class="icon" id="icon-chevron-left"></i>
     </a>
   

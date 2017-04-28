@@ -5,19 +5,16 @@
   
   <title>LeetCode: Delete Node in a Linked List | 疯狂de咸蛋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
-Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node wit">
+  <meta name="description" content="Write a function to delete a node (except the tail) in a singly linked list, given only access to that node. Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node wit">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LeetCode: Delete Node in a Linked List">
 <meta property="og:url" content="http://hzhou.me/LeetCode/LeetCode-Delete-Node-in-a-Linked-List.html">
 <meta property="og:site_name" content="疯狂de咸蛋">
-<meta property="og:description" content="Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
-Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node wit">
+<meta property="og:description" content="Write a function to delete a node (except the tail) in a singly linked list, given only access to that node. Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node wit">
 <meta property="og:updated_time" content="2017-02-20T02:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode: Delete Node in a Linked List">
-<meta name="twitter:description" content="Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
-Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node wit">
+<meta name="twitter:description" content="Write a function to delete a node (except the tail) in a singly linked list, given only access to that node. Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node wit">
   
   
     <link rel="icon" href="/favicon.png">
@@ -143,7 +140,7 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeleteNodeInALinkedList</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode node)</span> </span>&#123;</div><div class="line">        <span class="keyword">assert</span> node.next != <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (node != <span class="keyword">null</span> &amp;&amp; node.next != <span class="keyword">null</span>) &#123;</div><div class="line">            ListNode next = node.next;</div><div class="line">            node.val = next.val;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (next.next == <span class="keyword">null</span>) &#123;</div><div class="line">                node.next = <span class="keyword">null</span>;</div><div class="line">            &#125;</div><div class="line">            node = node.next;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/LeetCode/LeetCode-Delete-Node-in-a-Linked-List.html" data-id="cj1zvz04y00d05jlxfox4zseo" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/LeetCode/LeetCode-Delete-Node-in-a-Linked-List.html" data-id="cj219ew4s005xn2lx9ck1br1y" class="article-share-link">Share</a>
         
           <a href="http://hzhou.me/LeetCode/LeetCode-Delete-Node-in-a-Linked-List.html#comments" class="article-comment-link">Comments</a>
         

@@ -5,27 +5,19 @@
   
   <title>博客：从GitHub迁移到OpenShift | 疯狂de咸蛋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="之前博客一直以纯静态的方式托管在GitHub Page里面（是基于Hexo的），遗憾的是
-
-百度蜘蛛频繁乱爬，导致GitHub对它采取了屏蔽。（参考：解决 Github Pages 禁止百度爬虫的方法与可行性分析）另外这篇文章末尾给出了一个解决该问题的可行方法，但是我个人没有试。
-GitHub Page虽然支持自定义域名，但是对https支持的不好（这是一个次要的理由）。">
+  <meta name="description" content="之前博客一直以纯静态的方式托管在GitHub Page里面（是基于Hexo的），遗憾的是  百度蜘蛛频繁乱爬，导致GitHub对它采取了屏蔽。（参考：解决 Github Pages 禁止百度爬虫的方法与可行性分析）另外这篇文章末尾给出了一个解决该问题的可行方法，但是我个人没有试。 GitHub Page虽然支持自定义域名，但是对https支持的不好（这是一个次要的理由）。">
+<meta name="keywords" content="OpenShift,GitHub,CloudFlare">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客：从GitHub迁移到OpenShift">
 <meta property="og:url" content="http://hzhou.me/2015/07/28/博客-从GitHub迁移到OpenShift/index.html">
 <meta property="og:site_name" content="疯狂de咸蛋">
-<meta property="og:description" content="之前博客一直以纯静态的方式托管在GitHub Page里面（是基于Hexo的），遗憾的是
-
-百度蜘蛛频繁乱爬，导致GitHub对它采取了屏蔽。（参考：解决 Github Pages 禁止百度爬虫的方法与可行性分析）另外这篇文章末尾给出了一个解决该问题的可行方法，但是我个人没有试。
-GitHub Page虽然支持自定义域名，但是对https支持的不好（这是一个次要的理由）。">
+<meta property="og:description" content="之前博客一直以纯静态的方式托管在GitHub Page里面（是基于Hexo的），遗憾的是  百度蜘蛛频繁乱爬，导致GitHub对它采取了屏蔽。（参考：解决 Github Pages 禁止百度爬虫的方法与可行性分析）另外这篇文章末尾给出了一个解决该问题的可行方法，但是我个人没有试。 GitHub Page虽然支持自定义域名，但是对https支持的不好（这是一个次要的理由）。">
 <meta property="og:image" content="https://dn-myblog.qbox.me/img/blog/openshift/1.png">
 <meta property="og:image" content="https://dn-myblog.qbox.me/img/blog/openshift/2.png">
 <meta property="og:updated_time" content="2017-02-20T02:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客：从GitHub迁移到OpenShift">
-<meta name="twitter:description" content="之前博客一直以纯静态的方式托管在GitHub Page里面（是基于Hexo的），遗憾的是
-
-百度蜘蛛频繁乱爬，导致GitHub对它采取了屏蔽。（参考：解决 Github Pages 禁止百度爬虫的方法与可行性分析）另外这篇文章末尾给出了一个解决该问题的可行方法，但是我个人没有试。
-GitHub Page虽然支持自定义域名，但是对https支持的不好（这是一个次要的理由）。">
+<meta name="twitter:description" content="之前博客一直以纯静态的方式托管在GitHub Page里面（是基于Hexo的），遗憾的是  百度蜘蛛频繁乱爬，导致GitHub对它采取了屏蔽。（参考：解决 Github Pages 禁止百度爬虫的方法与可行性分析）另外这篇文章末尾给出了一个解决该问题的可行方法，但是我个人没有试。 GitHub Page虽然支持自定义域名，但是对https支持的不好（这是一个次要的理由）。">
 <meta name="twitter:image" content="https://dn-myblog.qbox.me/img/blog/openshift/1.png">
   
   
@@ -163,7 +155,7 @@ ga('send', 'pageview');
  1). 因为没有采用直接的<code>hexo</code>应用，所以<a href="https://github.com/hexojs/hexo-deployer-openshift" target="_blank" rel="external"><code>hexo-openshift</code></a>插件我也没用，而是直接通过<code>git</code>的方式直接上传到OpenShift远程服务器上
  2). 这里需要配置ssh的key文件，考虑不同系统的差异，暂时先不介绍了</li>
 <li><p>配置hexo配置文件（虽然这个<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external"><code>hexo-git</code></a>插件的文档说可以支持多个repo，但是我实际发现会出一个git的<code>index.lock</code>的问题，所以这里把<code>github</code>的先注释了）</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> git</div><div class="line"><span class="attr">  message:</span> <span class="string">"Sync blog from my local machine"</span></div><div class="line"><span class="attr">  repo:</span></div><div class="line">    <span class="comment">#github: https://github.com/zhouhao/zhouhao.github.io.git</span></div><div class="line"><span class="attr">    git:</span> ssh://<span class="number">55</span>b7e9de4382ecce1b000085@php-codeashobby.rhcloud.com/~/git/php.git/</div></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Deployment</span></div><div class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></div><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  message:</span> <span class="string">"Sync blog from my local machine"</span></div><div class="line"><span class="attr">  repo:</span></div><div class="line">    <span class="comment">#github: https://github.com/zhouhao/zhouhao.github.io.git</span></div><div class="line"><span class="attr">    git:</span> <span class="attr">ssh://55b7e9de4382ecce1b000085@php-codeashobby.rhcloud.com/~/git/php.git/</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>至此，每次你写完博客，<code>hexo generate</code> -&gt; <code>hexo deploy</code>就可以直接部署到OpenShift上了。</p>
 </li>
@@ -183,7 +175,7 @@ ga('send', 'pageview');
 
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/2015/07/28/博客-从GitHub迁移到OpenShift/" data-id="cj1zvz02h004w5jlx2ibnpp6z" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/2015/07/28/博客-从GitHub迁移到OpenShift/" data-id="cj219ew50006kn2lxl6oipbhn" class="article-share-link">Share</a>
         
           <a href="http://hzhou.me/2015/07/28/博客-从GitHub迁移到OpenShift/#comments" class="article-comment-link">Comments</a>
         
@@ -222,20 +214,20 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
   
-    <a href="/2015/08/05/万恶的Adobe-Reader安装/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/07/28/我的加密进化史/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">newer</strong>
       <p class="article-nav-title">
         
-          万恶的Adobe Reader安装
+          我的加密进化史
         
       </p>
       <i class="icon" id="icon-chevron-right"></i>
     </a>
   
   
-    <a href="/2015/07/28/我的加密进化史/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/08/05/万恶的Adobe-Reader安装/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">older</strong>
-      <p class="article-nav-title">我的加密进化史</p>
+      <p class="article-nav-title">万恶的Adobe Reader安装</p>
       <i class="icon" id="icon-chevron-left"></i>
     </a>
   

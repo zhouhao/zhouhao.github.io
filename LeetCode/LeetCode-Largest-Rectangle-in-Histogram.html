@@ -5,21 +5,18 @@
   
   <title>LeetCode: Largest Rectangle in Histogram | 疯狂de咸蛋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Given n non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.    
-Above is a histogram where width of ea">
+  <meta name="description" content="Given n non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.     Above is a histogram where width of ea">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LeetCode: Largest Rectangle in Histogram">
 <meta property="og:url" content="http://hzhou.me/LeetCode/LeetCode-Largest-Rectangle-in-Histogram.html">
 <meta property="og:site_name" content="疯狂de咸蛋">
-<meta property="og:description" content="Given n non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.    
-Above is a histogram where width of ea">
+<meta property="og:description" content="Given n non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.     Above is a histogram where width of ea">
 <meta property="og:image" content="https://dn-myblog.qbox.me/img/leetcode/histogram.png">
 <meta property="og:image" content="https://dn-myblog.qbox.me/img/leetcode/histogram_area.png">
 <meta property="og:updated_time" content="2017-02-20T02:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode: Largest Rectangle in Histogram">
-<meta name="twitter:description" content="Given n non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.    
-Above is a histogram where width of ea">
+<meta name="twitter:description" content="Given n non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.     Above is a histogram where width of ea">
 <meta name="twitter:image" content="https://dn-myblog.qbox.me/img/leetcode/histogram.png">
   
   
@@ -148,7 +145,7 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LargestRectangleInHistogram</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (height == <span class="keyword">null</span> || height.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</div><div class="line">        <span class="keyword">int</span>[] arr = Arrays.copyOf(height, height.length + <span class="number">1</span>);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> crt = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (crt &lt; arr.length) &#123;</div><div class="line">            <span class="keyword">if</span> (stack.isEmpty() || arr[crt] &gt;= arr[stack.peek()]) &#123;</div><div class="line">                stack.push(crt++);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">int</span> i = stack.pop();</div><div class="line">                max = Math.max(max, arr[i] * (stack.isEmpty() ? crt : crt - stack.peek() - <span class="number">1</span>));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> max;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/LeetCode/LeetCode-Largest-Rectangle-in-Histogram.html" data-id="cj1zvz05700e55jlxqwj48mv4" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/LeetCode/LeetCode-Largest-Rectangle-in-Histogram.html" data-id="cj219ew5r009qn2lxm1rp1tdb" class="article-share-link">Share</a>
         
           <a href="http://hzhou.me/LeetCode/LeetCode-Largest-Rectangle-in-Histogram.html#comments" class="article-comment-link">Comments</a>
         

@@ -5,23 +5,17 @@
   
   <title>LeetCode: Rectangle Area | 疯狂de咸蛋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Find the total area covered by two rectilinear rectangles in a 2D plane.Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.   
-
-Assume that the total area">
+  <meta name="description" content="Find the total area covered by two rectilinear rectangles in a 2D plane.Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.     Assume that the total area">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LeetCode: Rectangle Area">
 <meta property="og:url" content="http://hzhou.me/LeetCode/LeetCode-Rectangle-Area.html">
 <meta property="og:site_name" content="疯狂de咸蛋">
-<meta property="og:description" content="Find the total area covered by two rectilinear rectangles in a 2D plane.Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.   
-
-Assume that the total area">
+<meta property="og:description" content="Find the total area covered by two rectilinear rectangles in a 2D plane.Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.     Assume that the total area">
 <meta property="og:image" content="https://dn-myblog.qbox.me/img/leetcode/rectangle_area.png">
 <meta property="og:updated_time" content="2017-02-20T02:14:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode: Rectangle Area">
-<meta name="twitter:description" content="Find the total area covered by two rectilinear rectangles in a 2D plane.Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.   
-
-Assume that the total area">
+<meta name="twitter:description" content="Find the total area covered by two rectilinear rectangles in a 2D plane.Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.     Assume that the total area">
 <meta name="twitter:image" content="https://dn-myblog.qbox.me/img/leetcode/rectangle_area.png">
   
   
@@ -149,7 +143,7 @@ ga('send', 'pageview');
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RectangleArea</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">computeArea</span><span class="params">(<span class="keyword">int</span> A, <span class="keyword">int</span> B, <span class="keyword">int</span> C, <span class="keyword">int</span> D, <span class="keyword">int</span> E, <span class="keyword">int</span> F, <span class="keyword">int</span> G, <span class="keyword">int</span> H)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> all = (C - A) * (D - B) + (G - E) * (H - F);</div><div class="line">        <span class="keyword">int</span> lbx = Math.max(A, E);</div><div class="line">        <span class="keyword">int</span> lby = Math.max(B, F);</div><div class="line">        <span class="keyword">int</span> rtx = Math.min(C, G);</div><div class="line">        <span class="keyword">int</span> rty = Math.min(D, H);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> width = rtx - lbx;</div><div class="line">        <span class="keyword">int</span> height = rty - lby;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (width &gt; <span class="number">0</span> &amp;&amp; height &gt; <span class="number">0</span>) &#123;</div><div class="line">            result = width * height;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> all - result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       </div>
       <footer class="article-footer">
-        <a data-url="http://hzhou.me/LeetCode/LeetCode-Rectangle-Area.html" data-id="cj1zvz05q00fy5jlxq17e9fni" class="article-share-link">Share</a>
+        <a data-url="http://hzhou.me/LeetCode/LeetCode-Rectangle-Area.html" data-id="cj219ew7000dan2lxqbryrfva" class="article-share-link">Share</a>
         
           <a href="http://hzhou.me/LeetCode/LeetCode-Rectangle-Area.html#comments" class="article-comment-link">Comments</a>
         
