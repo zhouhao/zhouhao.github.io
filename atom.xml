@@ -550,39 +550,6 @@ Comes 2 solutions now:</p>
   </entry>
   
   <entry>
-    <title>Apache Zip Compress Example</title>
-    <link href="https://hzhou.me/2015/08/05/Apache-Zip-Compress-Example/"/>
-    <id>https://hzhou.me/2015/08/05/Apache-Zip-Compress-Example/</id>
-    <published>2015-08-05T18:21:48.000Z</published>
-    <updated>2017-02-20T02:14:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>简单的hello world一下Apache compress中的zip压缩。正好最近项目中需要把一些xml文件分类打包成多个zip包。</p>
-<a id="more"></a>
-<p>这边也给出了一个example，和我调用的API不一样：
-<a href="http://thinktibits.blogspot.com/2012/12/Apache-Commons-Compress-How-to-create-zip-file-in-java-example-program.html" target="_blank" rel="external">Create Zip Files in Java - Example Program</a>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Note： 他这个FileInputStream没有关闭</span></div><div class="line">IOUtils.copy(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"test_file_1.xml"</span>)), logical_zip);</div></pre></td></tr></table></figure></p>
-<h3 id="My-Example"><a href="#My-Example" class="headerlink" title="My Example"></a>My Example</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> me.hzhou.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.Closeable;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileInputStream;</div><div class="line"><span class="keyword">import</span> java.io.FileOutputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"><span class="keyword">import</span> java.util.zip.ZipEntry;</div><div class="line"><span class="keyword">import</span> java.util.zip.ZipOutputStream;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.apache.commons.compress.utils.IOUtils;</div><div class="line"><span class="keyword">import</span> org.jetbrains.annotations.NotNull;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">* Description: A utility class for zip files</div><div class="line">*</div><div class="line">* <span class="doctag">@author</span> hzhou</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ZipUtil</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ZipUtil</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">create</span><span class="params">(@NotNull List&lt;File&gt; srcs, @NotNull File dest)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        create(srcs, <span class="keyword">new</span> FileOutputStream(dest));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">create</span><span class="params">(@NotNull List&lt;File&gt; srcs, @NotNull String dest)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        create(srcs, <span class="keyword">new</span> FileOutputStream(dest));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">create</span><span class="params">(@NotNull List&lt;File&gt; srcs, @NotNull FileOutputStream dest)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        ZipOutputStream zip_output = <span class="keyword">new</span> ZipOutputStream(dest);</div><div class="line"></div><div class="line">        <span class="comment">// put files into zip output stream</span></div><div class="line">        <span class="keyword">for</span> (File file : srcs) &#123;</div><div class="line">            zip_output.putNextEntry(<span class="keyword">new</span> ZipEntry(file.getName()));</div><div class="line">            FileInputStream in = <span class="keyword">new</span> FileInputStream(file);</div><div class="line">            IOUtils.copy(in, zip_output);</div><div class="line">            closeQuietly(in); <span class="comment">// if you use common-compress-1.9, you can call IOUtils.closeQuietly(in) directly</span></div><div class="line">        &#125;</div><div class="line">        <span class="comment">/* Close output stream, our files are zipped */</span></div><div class="line">        closeQuietly(zip_output);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">    * Since common-compress 1.9, this function is added for IOUtils</div><div class="line">    * However, in 1.5, it doesn't have this one</div><div class="line">    * <span class="doctag">@param</span> c closeable</div><div class="line">    */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">closeQuietly</span><span class="params">(Closeable c)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (c != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                c.close();</div><div class="line">            &#125; <span class="keyword">catch</span> (IOException ignored) &#123; <span class="comment">// NOPMD</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="https://dn-myblog.qbox.me/img/blog/code/apache_zip.png" alt="Apache Zip Compress" title="Apache Zip Compress"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;简单的hello world一下Apache compress中的zip压缩。正好最近项目中需要把一些xml文件分类打包成多个zip包。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机那些事" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-      <category term="Java" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
-    
-    
-      <category term="Java" scheme="https://hzhou.me/tags/Java/"/>
-    
-      <category term="压缩" scheme="https://hzhou.me/tags/%E5%8E%8B%E7%BC%A9/"/>
-    
-  </entry>
-  
-  <entry>
     <title>万恶的Adobe Reader安装</title>
     <link href="https://hzhou.me/2015/08/05/%E4%B8%87%E6%81%B6%E7%9A%84Adobe-Reader%E5%AE%89%E8%A3%85/"/>
     <id>https://hzhou.me/2015/08/05/万恶的Adobe-Reader安装/</id>
@@ -798,6 +765,71 @@ Comes 2 solutions now:</p>
     
     
       <category term="Nginx" scheme="https://hzhou.me/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>My Windows Tools</title>
+    <link href="https://hzhou.me/2015/07/08/My-Windows-Tools/"/>
+    <id>https://hzhou.me/2015/07/08/My-Windows-Tools/</id>
+    <published>2015-07-08T18:04:33.000Z</published>
+    <updated>2017-02-20T02:14:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>I am a software developer, and during my daily work time I use a DELL laptop with Win7. Since I have used windows for a long time, and used and am using a lot of awesome tools, below is the list of tools I recommend.</p>
+<a id="more"></a>
+<h3 id="Basic-must-have"><a href="#Basic-must-have" class="headerlink" title="Basic(must have)"></a>Basic(must have)</h3><ol>
+<li>JDK 6, 8 (My company uses 6, and 8 is for my personal use)</li>
+<li><a href="https://nodejs.org/" target="_blank" rel="external">Node.js</a></li>
+<li><a href="https://msysgit.github.io/" target="_blank" rel="external">Git</a>(<a href="https://windows.github.com/" target="_blank" rel="external">GitHub</a>)</li>
+</ol>
+<h3 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h3><ol>
+<li><a href="https://www.jetbrains.com/idea/" target="_blank" rel="external">Intellij</a>: [The community version is free] I used eclipse before, but after I use Intellij, I fall love with it</li>
+<li><a href="https://www.jetbrains.com/phpstorm/" target="_blank" rel="external">PHPStorm</a>: for PHP</li>
+</ol>
+<h3 id="Text-Editor"><a href="#Text-Editor" class="headerlink" title="Text Editor"></a>Text Editor</h3><ol>
+<li><a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text 3</a>: faster than Atom</li>
+<li><a href="https://atom.io/" target="_blank" rel="external">Atom</a></li>
+<li><a href="http://www.listary.com/text-editor-anywhere" target="_blank" rel="external">Text Editor Anywhere</a>: Edit Text Anywhere with Your Favorite Editor</li>
+<li><a href="http://markdownpad.com/" target="_blank" rel="external">MarkdownPad 2</a>: bought before, but not used so much</li>
+<li><a href="http://brackets.io/" target="_blank" rel="external">Brackets</a>: Just use this for front-end development</li>
+</ol>
+<h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><ol>
+<li><a href="https://winscp.net/eng/download.php" target="_blank" rel="external">WinSCP</a> + <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank" rel="external">Putty</a>: the best SFTP(SSH) combination so far in my mind</li>
+<li><a href="https://github.com/Maximus5/ConEmu" target="_blank" rel="external">ConEmu</a>: a cmd tool</li>
+<li><a href="https://github.com/bmatzelle/gow" target="_blank" rel="external">Gow(Gnu On Windows)</a>: lightweight alternative to Cygwin</li>
+<li><a href="http://www.xuetr.com/?p=191" target="_blank" rel="external">PC Hunter</a>: A poweful windows system tool(hasn’t been updated for a long time)</li>
+<li><a href="https://www.getwox.com/" target="_blank" rel="external">Wox</a>: An effective launcher for windows, like Alfred in Mac</li>
+<li><a href="http://zealdocs.org/" target="_blank" rel="external">Zeal</a>: Zeal is an offline documentation browser inspired by Dash</li>
+<li><a href="http://www.softwareok.com/?seite=Freeware/Q-Dir" target="_blank" rel="external">Q-Dir</a>: Another Windows Explorer</li>
+<li><a href="https://github.com/papplampe/virgo" target="_blank" rel="external">virgo</a>: Virtual desktops for Windows</li>
+<li><a href="https://github.com/java-decompiler/jd-gui" target="_blank" rel="external">jd-gui</a>: Standalone Java Decompiler GUI</li>
+<li><a href="https://www.elby.ch/en/products/vcd.html" target="_blank" rel="external">Virtual CloneDrive</a></li>
+<li><a href="http://ad-safe.com/" target="_blank" rel="external">ADSafe净网大师</a>: a client which can remove ads</li>
+<li><a href="http://www.rapidee.com/en/about" target="_blank" rel="external">Rapid Environment Editor</a>: an environment variables editor</li>
+</ol>
+<h3 id="Email"><a href="#Email" class="headerlink" title="Email"></a>Email</h3><ol>
+<li><a href="http://www.foxmail.com/" target="_blank" rel="external">Foxmail</a>: I use this both in Windows and Mac</li>
+</ol>
+<h3 id="Intellij-Plugins"><a href="#Intellij-Plugins" class="headerlink" title="Intellij Plugins"></a>Intellij Plugins</h3><ol>
+<li><a href="https://plugins.jetbrains.com/plugin/7275" target="_blank" rel="external">CodeGlance</a>: Embeds a code minimap, not very stable, sometimes crashes</li>
+<li><a href="https://plugins.jetbrains.com/plugin/7293" target="_blank" rel="external">MyBatis plugin</a>: Useful for MyBatis related operations, not free</li>
+<li><a href="https://plugins.jetbrains.com/plugin/7115" target="_blank" rel="external">VisualVM Launcher</a>: Launches <a href="https://visualvm.java.net/" target="_blank" rel="external">VisualVM</a> from within IDEA</li>
+<li>[JRebel]: <a href="https://my.jrebel.com/" target="_blank" rel="external">myJRebel</a>, a free version for personal usage</li>
+</ol>
+<h3 id="Music"><a href="#Music" class="headerlink" title="Music"></a>Music</h3><ol>
+<li><a href="http://music.163.com/" target="_blank" rel="external">网易云音乐</a></li>
+</ol>
+<p>### </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I am a software developer, and during my daily work time I use a DELL laptop with Win7. Since I have used windows for a long time, and used and am using a lot of awesome tools, below is the list of tools I recommend.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Tool" scheme="https://hzhou.me/tags/Tool/"/>
     
   </entry>
   

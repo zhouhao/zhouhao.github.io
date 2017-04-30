@@ -6,7 +6,7 @@
 <p>我以为这样是万事无忧的，然而实际中，我发现我的<code>Ehcache</code>根本没派上用场，每次service的调用都会执行数据库操作语句。经过丛丛调试，终于发现即使我每次的输入参数数据一模一样，但是每次生成的<code>key</code>值不一样。</p>
 <h3 id="问题所在"><a href="#问题所在" class="headerlink" title="问题所在"></a>问题所在</h3><p>后来发现问题出现是数字的<code>hashCode()</code>上，如SO的评论所说，<code>int[]</code>没有覆写<code>hashCode()</code>（如果没记错的话，Java反射机制通过<code>java.lang.reflect.Array</code>类来创建数组）。</p>
 <h3 id="修改如下"><a href="#修改如下" class="headerlink" title="修改如下"></a>修改如下</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> key = Objects.hashCode(method.getName(), Arrays.hashCode(params));</div></pre></td></tr></table></figure>
-</div><p class="post-tags"><i class="fa fa-tags" aria-hidden="true"></i><a href="/tags/Java/">#Java</a></p></article></div><footer><div class="paginator"><a href="/2015/08/05/Apache-Zip-Compress-Example/" class="prev">PREV</a><a href="/2015/08/15/Java-JDK居然有个叫整型池/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'zhouhao';
+</div><p class="post-tags"><i class="fa fa-tags" aria-hidden="true"></i><a href="/tags/Java/">#Java</a></p></article></div><footer><div class="paginator"><a href="/2015/08/05/万恶的Adobe-Reader安装/" class="prev">PREV</a><a href="/2015/08/15/Java-JDK居然有个叫整型池/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'zhouhao';
 var disqus_identifier = '2015/08/06/困惑的Java-数组的hashCode/';
 var disqus_title = '困惑的Java: 数组的hashCode()';
 var disqus_url = 'https://hzhou.me/2015/08/06/困惑的Java-数组的hashCode/';
