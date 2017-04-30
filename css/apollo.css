@@ -488,6 +488,8 @@ header {
     font-size: 12px;
     color: white;
     background-color: #E36B6B; }
+  .post-block .post-info a.post-category {
+    margin-left: 10px; }
 .post-block .post-tags a {
   margin-left: 10px; }
 

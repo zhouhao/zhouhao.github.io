@@ -353,10 +353,6 @@ td,
 th {
   padding: 0; }
 
-::-moz-selection {
-  color: #FFFFFF;
-  background-color: #42b983; }
-
 ::selection {
   color: #FFFFFF;
   background-color: #42b983; }
@@ -492,6 +488,8 @@ header {
     font-size: 12px;
     color: white;
     background-color: #E36B6B; }
+  .post-block .post-info a.post-category {
+    margin-left: 10px; }
 .post-block .post-tags a {
   margin-left: 10px; }
 
@@ -815,3 +813,5 @@ footer {
   font-style: normal; }
 .datatable {
   padding-top: 10px; }
+
+/*# sourceMappingURL=apollo.css.map */
