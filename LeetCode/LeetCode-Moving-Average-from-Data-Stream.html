@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> LeetCode: Moving Average from Data Stream · 疯狂de咸蛋</title><meta name="description" content="LeetCode: Moving Average from Data Stream - Salty Egg"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://hzhou.me/atom.xml" title="疯狂de咸蛋"><script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/tags/" target="_self" class="nav-list-link">TAG</a></li><li class="nav-list-item"><a href="/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/LeetCode/" target="_self" class="nav-list-link active">LEETCODE</a></li><li class="nav-list-item"><a href="https://github.com/zhouhao" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"></main><div class="post"><article class="post-block"><h1 class="post-title">LeetCode: Moving Average from Data Stream</h1><div class="post-info">Jun 25, 2016</div><div class="post-content"><p>Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.</p>
+<p>For example,
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">MovingAverage m = new MovingAverage(3);</div><div class="line">m.next(1) = 1</div><div class="line">m.next(10) = (1 + 10) / 2</div><div class="line">m.next(3) = (1 + 10 + 3) / 3</div><div class="line">m.next(5) = (10 + 3 + 5) / 3</div></pre></td></tr></table></figure></p>
+<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MovingAverage</span> </span>{
+
+    <span class="keyword">private</span> <span class="keyword">int</span> size;
+    <span class="keyword">private</span> Queue&lt;Integer&gt; queue;
+
+    <span class="function"><span class="keyword">public</span> <span class="title">MovingAverage</span><span class="params">(<span class="keyword">int</span> size)</span> </span>{
+        <span class="keyword">this</span>.queue = <span class="keyword">new</span> LinkedList&lt;&gt;();
+        <span class="keyword">this</span>.size = size;
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">next</span><span class="params">(<span class="keyword">int</span> val)</span> </span>{
+        queue.add(val);
+        <span class="keyword">if</span> (queue.size() &gt; <span class="keyword">this</span>.size) {
+            queue.poll();
+        }
+
+        <span class="keyword">int</span> sum = <span class="number">0</span>;
+        <span class="keyword">for</span> (<span class="keyword">int</span> i : queue) {
+            sum += i;
+        }
+        <span class="keyword">return</span> <span class="number">1.0</span> * sum / <span class="keyword">this</span>.size;
+    }
+}
+
+<span class="comment">/**
+ * Your MovingAverage object will be instantiated and called as such:
+ * MovingAverage obj = new MovingAverage(size);
+ * double param_1 = obj.next(val);
+ */</span>
+</code></pre>
+</div></article></div><footer><div class="paginator"></div><div id="disqus_thread"></div><script>var disqus_shortname = 'zhouhao';
+var disqus_identifier = 'LeetCode/LeetCode-Moving-Average-from-Data-Stream.html';
+var disqus_title = 'LeetCode: Moving Average from Data Stream';
+var disqus_url = 'https://hzhou.me/LeetCode/LeetCode-Moving-Average-from-Data-Stream.html';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//zhouhao.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="https://hzhou.me">Salty Egg</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p><p>Note: site logo -> People graphic by <a href="http://www.flaticon.com/authors/freepik">Freepik</a> from <a href="http://www.flaticon.com/">Flaticon</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a href="http://logomakr.com" title="Logo Maker">Logo Maker</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-39886095-1",'auto');ga('send','pageview');</script><link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" media="screen" type="text/css"><script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script><script>$(function(){$('.datatable').dataTable( {"order": [[ 0, "desc" ]],"iDisplayLength": -1,"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]} );});</script></body></html>

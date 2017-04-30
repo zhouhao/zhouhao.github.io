@@ -4,9 +4,9 @@
   <subtitle>Salty Egg</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://hzhou.me/"/>
+  <link href="https://hzhou.me/"/>
   <updated>2017-04-25T01:52:57.000Z</updated>
-  <id>http://hzhou.me/</id>
+  <id>https://hzhou.me/</id>
   
   <author>
     <name>Salty Egg</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Jetbrains-toolbox connection issue with OpenSSL 1.1+</title>
-    <link href="http://hzhou.me/2017/04/23/Jetbrains-toolbox-connection-issue-with-OpenSSL-1-1/"/>
-    <id>http://hzhou.me/2017/04/23/Jetbrains-toolbox-connection-issue-with-OpenSSL-1-1/</id>
+    <link href="https://hzhou.me/2017/04/23/Jetbrains-toolbox-connection-issue-with-OpenSSL-1-1/"/>
+    <id>https://hzhou.me/2017/04/23/Jetbrains-toolbox-connection-issue-with-OpenSSL-1-1/</id>
     <published>2017-04-23T21:33:12.000Z</published>
     <updated>2017-04-25T01:52:57.000Z</updated>
     
@@ -48,23 +48,23 @@
     
     </summary>
     
-      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+      <category term="程序员的日常" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
     
-      <category term="普通" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
+      <category term="普通" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
     
     
-      <category term="Jetbrains" scheme="http://hzhou.me/tags/Jetbrains/"/>
+      <category term="Jetbrains" scheme="https://hzhou.me/tags/Jetbrains/"/>
     
-      <category term="Toolbox" scheme="http://hzhou.me/tags/Toolbox/"/>
+      <category term="Toolbox" scheme="https://hzhou.me/tags/Toolbox/"/>
     
-      <category term="OpenSSL" scheme="http://hzhou.me/tags/OpenSSL/"/>
+      <category term="OpenSSL" scheme="https://hzhou.me/tags/OpenSSL/"/>
     
   </entry>
   
   <entry>
     <title>Quick start: swagger, spring-boot and Jersey</title>
-    <link href="http://hzhou.me/2017/02/13/Quick-start-swagger-spring-boot-and-Jersey/"/>
-    <id>http://hzhou.me/2017/02/13/Quick-start-swagger-spring-boot-and-Jersey/</id>
+    <link href="https://hzhou.me/2017/02/13/Quick-start-swagger-spring-boot-and-Jersey/"/>
+    <id>https://hzhou.me/2017/02/13/Quick-start-swagger-spring-boot-and-Jersey/</id>
     <published>2017-02-13T18:56:40.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -103,25 +103,25 @@
     
     </summary>
     
-      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+      <category term="计算机那些事" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
-      <category term="服务" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%9C%8D%E5%8A%A1/"/>
+      <category term="服务" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%9C%8D%E5%8A%A1/"/>
     
     
-      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
+      <category term="Java" scheme="https://hzhou.me/tags/Java/"/>
     
-      <category term="Swagger" scheme="http://hzhou.me/tags/Swagger/"/>
+      <category term="Swagger" scheme="https://hzhou.me/tags/Swagger/"/>
     
-      <category term="Spring Boot" scheme="http://hzhou.me/tags/Spring-Boot/"/>
+      <category term="Spring Boot" scheme="https://hzhou.me/tags/Spring-Boot/"/>
     
-      <category term="Jersey" scheme="http://hzhou.me/tags/Jersey/"/>
+      <category term="Jersey" scheme="https://hzhou.me/tags/Jersey/"/>
     
   </entry>
   
   <entry>
     <title>Hexo site search plugin with Tipue </title>
-    <link href="http://hzhou.me/2016/08/22/local-search-with-tipue/"/>
-    <id>http://hzhou.me/2016/08/22/local-search-with-tipue/</id>
+    <link href="https://hzhou.me/2016/08/22/local-search-with-tipue/"/>
+    <id>https://hzhou.me/2016/08/22/local-search-with-tipue/</id>
     <published>2016-08-23T01:22:01.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -150,21 +150,21 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+      <category term="程序员的日常" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
     
-      <category term="普通" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
+      <category term="普通" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
     
     
-      <category term="hexo" scheme="http://hzhou.me/tags/hexo/"/>
+      <category term="hexo" scheme="https://hzhou.me/tags/hexo/"/>
     
-      <category term="search" scheme="http://hzhou.me/tags/search/"/>
+      <category term="search" scheme="https://hzhou.me/tags/search/"/>
     
   </entry>
   
   <entry>
     <title>在美拔牙</title>
-    <link href="http://hzhou.me/2016/05/27/Teeth-Extraction-Boston/"/>
-    <id>http://hzhou.me/2016/05/27/Teeth-Extraction-Boston/</id>
+    <link href="https://hzhou.me/2016/05/27/Teeth-Extraction-Boston/"/>
+    <id>https://hzhou.me/2016/05/27/Teeth-Extraction-Boston/</id>
     <published>2016-05-28T00:29:01.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -188,19 +188,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+      <category term="程序员的日常" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
     
-      <category term="操蛋" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%93%8D%E8%9B%8B/"/>
+      <category term="操蛋" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%93%8D%E8%9B%8B/"/>
     
     
-      <category term="拔牙" scheme="http://hzhou.me/tags/%E6%8B%94%E7%89%99/"/>
+      <category term="拔牙" scheme="https://hzhou.me/tags/%E6%8B%94%E7%89%99/"/>
     
   </entry>
   
   <entry>
     <title>第一次看牙医-疼</title>
-    <link href="http://hzhou.me/2016/05/08/%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%9C%8B%E7%89%99%E5%8C%BB-%E7%96%BC/"/>
-    <id>http://hzhou.me/2016/05/08/第一次看牙医-疼/</id>
+    <link href="https://hzhou.me/2016/05/08/%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%9C%8B%E7%89%99%E5%8C%BB-%E7%96%BC/"/>
+    <id>https://hzhou.me/2016/05/08/第一次看牙医-疼/</id>
     <published>2016-05-08T04:03:14.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -224,19 +224,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+      <category term="程序员的日常" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
     
-      <category term="日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%97%A5%E5%B8%B8/"/>
+      <category term="日常" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%97%A5%E5%B8%B8/"/>
     
     
-      <category term="就医" scheme="http://hzhou.me/tags/%E5%B0%B1%E5%8C%BB/"/>
+      <category term="就医" scheme="https://hzhou.me/tags/%E5%B0%B1%E5%8C%BB/"/>
     
   </entry>
   
   <entry>
     <title>Tip: Upload Multiple Files with Jersey</title>
-    <link href="http://hzhou.me/2016/05/01/Tip-Upload-Multiple-Files-with-Jersey/"/>
-    <id>http://hzhou.me/2016/05/01/Tip-Upload-Multiple-Files-with-Jersey/</id>
+    <link href="https://hzhou.me/2016/05/01/Tip-Upload-Multiple-Files-with-Jersey/"/>
+    <id>https://hzhou.me/2016/05/01/Tip-Upload-Multiple-Files-with-Jersey/</id>
     <published>2016-05-02T02:30:17.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -258,21 +258,21 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+      <category term="计算机那些事" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
-      <category term="Java" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
+      <category term="Java" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
     
     
-      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
+      <category term="Java" scheme="https://hzhou.me/tags/Java/"/>
     
-      <category term="RESTful" scheme="http://hzhou.me/tags/RESTful/"/>
+      <category term="RESTful" scheme="https://hzhou.me/tags/RESTful/"/>
     
   </entry>
   
   <entry>
     <title>读书:历史深处的民国</title>
-    <link href="http://hzhou.me/2016/04/29/%E8%AF%BB%E4%B9%A6-%E5%8E%86%E5%8F%B2%E6%B7%B1%E5%A4%84%E7%9A%84%E6%B0%91%E5%9B%BD/"/>
-    <id>http://hzhou.me/2016/04/29/读书-历史深处的民国/</id>
+    <link href="https://hzhou.me/2016/04/29/%E8%AF%BB%E4%B9%A6-%E5%8E%86%E5%8F%B2%E6%B7%B1%E5%A4%84%E7%9A%84%E6%B0%91%E5%9B%BD/"/>
+    <id>https://hzhou.me/2016/04/29/读书-历史深处的民国/</id>
     <published>2016-04-30T03:11:26.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -295,19 +295,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+      <category term="程序员的日常" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
     
-      <category term="文艺" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%96%87%E8%89%BA/"/>
+      <category term="文艺" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%96%87%E8%89%BA/"/>
     
     
-      <category term="读书" scheme="http://hzhou.me/tags/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="https://hzhou.me/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>OpenShift简单折腾小记</title>
-    <link href="http://hzhou.me/2016/04/13/OpenShift%E7%AE%80%E5%8D%95%E6%8A%98%E8%85%BE%E5%B0%8F%E8%AE%B0/"/>
-    <id>http://hzhou.me/2016/04/13/OpenShift简单折腾小记/</id>
+    <link href="https://hzhou.me/2016/04/13/OpenShift%E7%AE%80%E5%8D%95%E6%8A%98%E8%85%BE%E5%B0%8F%E8%AE%B0/"/>
+    <id>https://hzhou.me/2016/04/13/OpenShift简单折腾小记/</id>
     <published>2016-04-13T18:59:00.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -333,19 +333,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+      <category term="计算机那些事" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
     
-      <category term="OpenShift" scheme="http://hzhou.me/tags/OpenShift/"/>
+      <category term="OpenShift" scheme="https://hzhou.me/tags/OpenShift/"/>
     
-      <category term="PaaS" scheme="http://hzhou.me/tags/PaaS/"/>
+      <category term="PaaS" scheme="https://hzhou.me/tags/PaaS/"/>
     
   </entry>
   
   <entry>
     <title>Welcome to 2016</title>
-    <link href="http://hzhou.me/2016/02/08/Welcome-to-2016/"/>
-    <id>http://hzhou.me/2016/02/08/Welcome-to-2016/</id>
+    <link href="https://hzhou.me/2016/02/08/Welcome-to-2016/"/>
+    <id>https://hzhou.me/2016/02/08/Welcome-to-2016/</id>
     <published>2016-02-08T18:55:31.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -376,19 +376,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+      <category term="程序员的日常" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
     
-      <category term="普通" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
+      <category term="普通" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
     
     
-      <category term="生活" scheme="http://hzhou.me/tags/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="https://hzhou.me/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
   <entry>
     <title>改个密码都这么难-微博和网易</title>
-    <link href="http://hzhou.me/2015/11/04/%E6%94%B9%E4%B8%AA%E5%AF%86%E7%A0%81%E9%83%BD%E8%BF%99%E4%B9%88%E9%9A%BE-%E7%BD%91%E6%98%93%E5%BE%AE%E5%8D%9A/"/>
-    <id>http://hzhou.me/2015/11/04/改个密码都这么难-网易微博/</id>
+    <link href="https://hzhou.me/2015/11/04/%E6%94%B9%E4%B8%AA%E5%AF%86%E7%A0%81%E9%83%BD%E8%BF%99%E4%B9%88%E9%9A%BE-%E7%BD%91%E6%98%93%E5%BE%AE%E5%8D%9A/"/>
+    <id>https://hzhou.me/2015/11/04/改个密码都这么难-网易微博/</id>
     <published>2015-11-05T04:39:15.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -414,19 +414,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+      <category term="程序员的日常" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
     
-      <category term="操蛋" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%93%8D%E8%9B%8B/"/>
+      <category term="操蛋" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%93%8D%E8%9B%8B/"/>
     
     
-      <category term="渣应用" scheme="http://hzhou.me/tags/%E6%B8%A3%E5%BA%94%E7%94%A8/"/>
+      <category term="渣应用" scheme="https://hzhou.me/tags/%E6%B8%A3%E5%BA%94%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title>TripAdvisor的生活</title>
-    <link href="http://hzhou.me/2015/09/18/TripAdvisor%E7%9A%84%E7%94%9F%E6%B4%BB/"/>
-    <id>http://hzhou.me/2015/09/18/TripAdvisor的生活/</id>
+    <link href="https://hzhou.me/2015/09/18/TripAdvisor%E7%9A%84%E7%94%9F%E6%B4%BB/"/>
+    <id>https://hzhou.me/2015/09/18/TripAdvisor的生活/</id>
     <published>2015-09-18T21:59:52.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -444,19 +444,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+      <category term="程序员的日常" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
     
-      <category term="普通" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
+      <category term="普通" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
     
     
-      <category term="Life" scheme="http://hzhou.me/tags/Life/"/>
+      <category term="Life" scheme="https://hzhou.me/tags/Life/"/>
     
   </entry>
   
   <entry>
     <title>Last Day in Ovitas</title>
-    <link href="http://hzhou.me/2015/09/04/Last-Day-in-Ovitas/"/>
-    <id>http://hzhou.me/2015/09/04/Last-Day-in-Ovitas/</id>
+    <link href="https://hzhou.me/2015/09/04/Last-Day-in-Ovitas/"/>
+    <id>https://hzhou.me/2015/09/04/Last-Day-in-Ovitas/</id>
     <published>2015-09-04T18:26:31.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -475,19 +475,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+      <category term="程序员的日常" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
     
-      <category term="普通" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
+      <category term="普通" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/"/>
     
     
-      <category term="Life" scheme="http://hzhou.me/tags/Life/"/>
+      <category term="Life" scheme="https://hzhou.me/tags/Life/"/>
     
   </entry>
   
   <entry>
     <title>Java: JDK居然有个叫整型池的东西</title>
-    <link href="http://hzhou.me/2015/08/15/Java-JDK%E5%B1%85%E7%84%B6%E6%9C%89%E4%B8%AA%E5%8F%AB%E6%95%B4%E5%9E%8B%E6%B1%A0/"/>
-    <id>http://hzhou.me/2015/08/15/Java-JDK居然有个叫整型池/</id>
+    <link href="https://hzhou.me/2015/08/15/Java-JDK%E5%B1%85%E7%84%B6%E6%9C%89%E4%B8%AA%E5%8F%AB%E6%95%B4%E5%9E%8B%E6%B1%A0/"/>
+    <id>https://hzhou.me/2015/08/15/Java-JDK居然有个叫整型池/</id>
     <published>2015-08-15T20:15:48.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -508,19 +508,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+      <category term="计算机那些事" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
-      <category term="Java" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
+      <category term="Java" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
     
     
-      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
+      <category term="Java" scheme="https://hzhou.me/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>困惑的Java: 数组的hashCode()</title>
-    <link href="http://hzhou.me/2015/08/06/%E5%9B%B0%E6%83%91%E7%9A%84Java-%E6%95%B0%E7%BB%84%E7%9A%84hashCode/"/>
-    <id>http://hzhou.me/2015/08/06/困惑的Java-数组的hashCode/</id>
+    <link href="https://hzhou.me/2015/08/06/%E5%9B%B0%E6%83%91%E7%9A%84Java-%E6%95%B0%E7%BB%84%E7%9A%84hashCode/"/>
+    <id>https://hzhou.me/2015/08/06/困惑的Java-数组的hashCode/</id>
     <published>2015-08-06T22:13:11.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -540,19 +540,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+      <category term="计算机那些事" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
-      <category term="Java" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
+      <category term="Java" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
     
     
-      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
+      <category term="Java" scheme="https://hzhou.me/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Apache Zip Compress Example</title>
-    <link href="http://hzhou.me/2015/08/05/Apache-Zip-Compress-Example/"/>
-    <id>http://hzhou.me/2015/08/05/Apache-Zip-Compress-Example/</id>
+    <link href="https://hzhou.me/2015/08/05/Apache-Zip-Compress-Example/"/>
+    <id>https://hzhou.me/2015/08/05/Apache-Zip-Compress-Example/</id>
     <published>2015-08-05T18:21:48.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -571,21 +571,21 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+      <category term="计算机那些事" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
-      <category term="Java" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
+      <category term="Java" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
     
     
-      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
+      <category term="压缩" scheme="https://hzhou.me/tags/%E5%8E%8B%E7%BC%A9/"/>
     
-      <category term="压缩" scheme="http://hzhou.me/tags/%E5%8E%8B%E7%BC%A9/"/>
+      <category term="Java" scheme="https://hzhou.me/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>万恶的Adobe Reader安装</title>
-    <link href="http://hzhou.me/2015/08/05/%E4%B8%87%E6%81%B6%E7%9A%84Adobe-Reader%E5%AE%89%E8%A3%85/"/>
-    <id>http://hzhou.me/2015/08/05/万恶的Adobe-Reader安装/</id>
+    <link href="https://hzhou.me/2015/08/05/%E4%B8%87%E6%81%B6%E7%9A%84Adobe-Reader%E5%AE%89%E8%A3%85/"/>
+    <id>https://hzhou.me/2015/08/05/万恶的Adobe-Reader安装/</id>
     <published>2015-08-05T17:53:43.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -611,19 +611,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="程序员的日常" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+      <category term="程序员的日常" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
     
-      <category term="二逼" scheme="http://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E4%BA%8C%E9%80%BC/"/>
+      <category term="二逼" scheme="https://hzhou.me/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E4%BA%8C%E9%80%BC/"/>
     
     
-      <category term="应用软件" scheme="http://hzhou.me/tags/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
+      <category term="应用软件" scheme="https://hzhou.me/tags/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>博客：从GitHub迁移到OpenShift</title>
-    <link href="http://hzhou.me/2015/07/28/%E5%8D%9A%E5%AE%A2-%E4%BB%8EGitHub%E8%BF%81%E7%A7%BB%E5%88%B0OpenShift/"/>
-    <id>http://hzhou.me/2015/07/28/博客-从GitHub迁移到OpenShift/</id>
+    <link href="https://hzhou.me/2015/07/28/%E5%8D%9A%E5%AE%A2-%E4%BB%8EGitHub%E8%BF%81%E7%A7%BB%E5%88%B0OpenShift/"/>
+    <id>https://hzhou.me/2015/07/28/博客-从GitHub迁移到OpenShift/</id>
     <published>2015-07-29T02:59:04.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -672,23 +672,23 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+      <category term="计算机那些事" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
-      <category term="网站" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%BD%91%E7%AB%99/"/>
+      <category term="网站" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%BD%91%E7%AB%99/"/>
     
     
-      <category term="OpenShift" scheme="http://hzhou.me/tags/OpenShift/"/>
+      <category term="OpenShift" scheme="https://hzhou.me/tags/OpenShift/"/>
     
-      <category term="GitHub" scheme="http://hzhou.me/tags/GitHub/"/>
+      <category term="GitHub" scheme="https://hzhou.me/tags/GitHub/"/>
     
-      <category term="CloudFlare" scheme="http://hzhou.me/tags/CloudFlare/"/>
+      <category term="CloudFlare" scheme="https://hzhou.me/tags/CloudFlare/"/>
     
   </entry>
   
   <entry>
     <title>我的加密进化史</title>
-    <link href="http://hzhou.me/2015/07/28/%E6%88%91%E7%9A%84%E5%8A%A0%E5%AF%86%E8%BF%9B%E5%8C%96%E5%8F%B2/"/>
-    <id>http://hzhou.me/2015/07/28/我的加密进化史/</id>
+    <link href="https://hzhou.me/2015/07/28/%E6%88%91%E7%9A%84%E5%8A%A0%E5%AF%86%E8%BF%9B%E5%8C%96%E5%8F%B2/"/>
+    <id>https://hzhou.me/2015/07/28/我的加密进化史/</id>
     <published>2015-07-28T18:53:09.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -719,19 +719,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+      <category term="计算机那些事" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
-      <category term="安全" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%AE%89%E5%85%A8/"/>
+      <category term="安全" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%AE%89%E5%85%A8/"/>
     
     
-      <category term="Encrypt" scheme="http://hzhou.me/tags/Encrypt/"/>
+      <category term="Encrypt" scheme="https://hzhou.me/tags/Encrypt/"/>
     
   </entry>
   
   <entry>
     <title>Java Mail中文乱码</title>
-    <link href="http://hzhou.me/2015/07/22/Java-Mail%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/"/>
-    <id>http://hzhou.me/2015/07/22/Java-Mail中文乱码/</id>
+    <link href="https://hzhou.me/2015/07/22/Java-Mail%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/"/>
+    <id>https://hzhou.me/2015/07/22/Java-Mail中文乱码/</id>
     <published>2015-07-22T21:05:12.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -749,19 +749,19 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+      <category term="计算机那些事" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
-      <category term="Java" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
+      <category term="Java" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/"/>
     
     
-      <category term="Java" scheme="http://hzhou.me/tags/Java/"/>
+      <category term="Java" scheme="https://hzhou.me/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Nginx: 简单负载均衡</title>
-    <link href="http://hzhou.me/2015/07/09/Nginx-%E7%AE%80%E5%8D%95%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
-    <id>http://hzhou.me/2015/07/09/Nginx-简单负载均衡/</id>
+    <link href="https://hzhou.me/2015/07/09/Nginx-%E7%AE%80%E5%8D%95%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+    <id>https://hzhou.me/2015/07/09/Nginx-简单负载均衡/</id>
     <published>2015-07-09T23:52:58.000Z</published>
     <updated>2017-02-20T02:14:28.000Z</updated>
     
@@ -792,12 +792,12 @@ Comes 2 solutions now:</p>
     
     </summary>
     
-      <category term="计算机那些事" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+      <category term="计算机那些事" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
-      <category term="网站" scheme="http://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%BD%91%E7%AB%99/"/>
+      <category term="网站" scheme="https://hzhou.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%BD%91%E7%AB%99/"/>
     
     
-      <category term="Nginx" scheme="http://hzhou.me/tags/Nginx/"/>
+      <category term="Nginx" scheme="https://hzhou.me/tags/Nginx/"/>
     
   </entry>
   
