@@ -753,14 +753,14 @@ pre {
 main.container {
   margin: 2em 10px; }
 
-@media screen and (min-width: 888px) {
+@media screen and (min-width: 800px) {
   .wrap {
-    width: 888px;
+    width: 800px;
     margin: 0 auto; }
 
   header {
     padding: 20px 100px; } }
-@media screen and (max-width: 888px) {
+@media screen and (max-width: 800px) {
   .wrap {
     width: 100%; }
 
