@@ -1,0 +1,2457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>LeetCode Answers | LeetCode答案 | Salty Egg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="# Question Difficulty    1882 Process Tasks Using Servers Medium   829 Consecutive Numbers Sum Medium   726 Number of Atoms Hard   720 Longest Word in Dictionary Easy   395 Longest Substring with A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LeetCode Answers | LeetCode答案">
+<meta property="og:url" content="https://hzhou.me/LeetCode/index.html">
+<meta property="og:site_name" content="Salty Egg">
+<meta property="og:description" content="# Question Difficulty    1882 Process Tasks Using Servers Medium   829 Consecutive Numbers Sum Medium   726 Number of Atoms Hard   720 Longest Word in Dictionary Easy   395 Longest Substring with A">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-06-23T16:41:14.000Z">
+<meta property="article:modified_time" content="2023-10-21T04:38:34.574Z">
+<meta property="article:author" content="Salty Egg">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/scrollLoading/style.css">
+
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B1YT9R9SJW"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-B1YT9R9SJW');
+</script>
+
+  
+    <style type="text/css">
+      .logo { background-image:url(/logo-salty-egg.png); }
+    </style>
+  
+
+  <link href='//fonts.googleapis.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" media="screen" type="text/css">
+  <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4600841817764546" crossorigin="anonymous"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+<div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">疯狂de咸蛋</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">Home</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/">程序员的日常</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E4%BA%8C%E9%80%BC/">二逼</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%93%8D%E8%9B%8B/">操蛋</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%96%87%E8%89%BA/">文艺</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%97%A5%E5%B8%B8/">日常</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/">普通</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Chrome-Extension/">Chrome Extension</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/microservice/">microservice</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%AE%89%E5%85%A8/">安全</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%89%8B%E6%9C%BA%E5%BC%80%E5%8F%91/">手机开发</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%93%8D%E8%9B%8B/">操蛋</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%99%AE%E9%80%9A/">普通</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%9C%8D%E5%8A%A1/">服务</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%9D%82%E9%A1%B9/">杂项</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%BD%91%E7%AB%99/">网站</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li></ul></li></ul>
+                  
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/about/">About</a></li>
+              
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+<script type="text/javascript">
+    algoliasearchNetlify({
+        appId: 'KOX699T4XU',
+        apiKey: '53bba46ae156cbb4c2b5c6f3fdd6f893',
+        siteId: 'd6865537-5303-4d56-83f8-6a70f853b626',
+        branch: 'master',
+        selector: 'div#search',
+        detached: true,
+    });
+</script>
+
+<div class="search" id="search">
+
+</div>
+
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <div class="container">
+        <div class="main-body container-inner">
+            <div class="main-body-inner">
+                <section id="main">
+                    <div class="main-body-header raw_content">
+                        
+                        <h1 class="header">
+                            
+                            <em class="page-title-link" data-url="/LeetCode/index.html">LeetCode Answers | LeetCode答案</em>
+                            
+                        </h1>
+                    </div>
+                    <div class="main-body-content raw_content">
+                        
+  <article id="page-undefined" class="article article-single article-type-page" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      LeetCode Answers | LeetCode答案
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/LeetCode/index.html" class="article-date">
+  <time datetime="2015-06-23T16:41:14.000Z" itemprop="datePublished">Jun 23 2015</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Difficulty</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1882</td>
+<td><a href="LeetCode-Process-Tasks-Using-Servers.html">Process Tasks Using Servers</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>829</td>
+<td><a href="LeetCode-Consecutive-Numbers-Sum.html">Consecutive Numbers Sum</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>726</td>
+<td><a href="LeetCode-Number-of-Atoms.html">Number of Atoms</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>720</td>
+<td><a href="LeetCode-Longest-Word-in-Dictionary.html">Longest Word in Dictionary</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>395</td>
+<td><a href="LeetCode-Longest-Substring-with-At-Least-K-Repeating-Characters.html">Longest Substring with At Least K Repeating Characters</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>351</td>
+<td><a href="LeetCode-Android-Unlock-Patterns.html">Android Unlock Patterns</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>533</td>
+<td><a href="LeetCode-Lonely-Pixel-II.html">Lonely Pixel II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>531</td>
+<td><a href="LeetCode-Lonely-Pixel-I.html">Lonely Pixel I</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>354</td>
+<td><a href="LeetCode-Russian-Doll-Envelopes.html">Russian Doll Envelopes</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>663</td>
+<td><a href="LeetCode-Equal-Tree-Partition.html">Equal Tree Partition</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>661</td>
+<td><a href="LeetCode-Image-Smoother.html">Image Smoother</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>657</td>
+<td><a href="LeetCode-Judge-Route-Circle.html">Judge Route Circle</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>654</td>
+<td><a href="LeetCode-Maximum-Binary-Tree.html">Maximum Binary Tree</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>653</td>
+<td><a href="LeetCode-Two-Sum-IV---Input-is-a-BST.html">Two Sum IV - Input is a BST</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>650</td>
+<td><a href="LeetCode-2-Keys-Keyboard.html">2 Keys Keyboard</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>648</td>
+<td><a href="LeetCode-Replace-Words.html">Replace Words</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>645</td>
+<td><a href="LeetCode-Set-Mismatch.html">Set Mismatch</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>643</td>
+<td><a href="LeetCode-Maximum-Average-Subarray-I.html">Maximum Average Subarray I</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>637</td>
+<td><a href="LeetCode-Average-of-Levels-in-Binary-Tree.html">Average of Levels in Binary Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>633</td>
+<td><a href="LeetCode-Sum-of-Square-Numbers.html">Sum of Square Numbers</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>628</td>
+<td><a href="LeetCode-Maximum-Product-of-Three-Numbers.html">Maximum Product of Three Numbers</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>627</td>
+<td><a href="LeetCode-Swap-Salary.html">Swap Salary</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>625</td>
+<td><a href="LeetCode-Minimum-Factorization.html">Minimum Factorization</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>624</td>
+<td><a href="LeetCode-Maximum-Distance-in-Arrays.html">Maximum Distance in Arrays</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>620</td>
+<td><a href="LeetCode-Not-Boring-Movies.html">Not Boring Movies</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>619</td>
+<td><a href="LeetCode-Biggest-Single-Number.html">Biggest Single Number</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>617</td>
+<td><a href="LeetCode-Merge-Two-Binary-Trees.html">Merge Two Binary Trees</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>616</td>
+<td><a href="LeetCode-Add-Bold-Tag-in-String.html">Add Bold Tag in String</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>613</td>
+<td><a href="LeetCode-Shortest-Distance-in-a-Line.html">Shortest Distance in a Line</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>610</td>
+<td><a href="LeetCode-Triangle-Judgement.html">Triangle Judgement</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>607</td>
+<td><a href="LeetCode-Sales-Person.html">Sales Person</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>606</td>
+<td><a href="LeetCode-Construct-String-from-Binary-Tree.html">Construct String from Binary Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>605</td>
+<td><a href="LeetCode-Can-Place-Flowers.html">Can Place Flowers</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>604</td>
+<td><a href="LeetCode-Design-Compressed-String-Iterator.html">Design Compressed String Iterator</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>603</td>
+<td><a href="LeetCode-Consecutive-Available-Seats.html">Consecutive Available Seats</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>601</td>
+<td><a href="LeetCode-Human-Traffic-of-Stadium.html">Human Traffic of Stadium</a></td>
+<td>hard</td>
+</tr>
+<tr>
+<td>599</td>
+<td><a href="LeetCode-Minimum-Index-Sum-of-Two-Lists.html">Minimum Index Sum of Two Lists</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>598</td>
+<td><a href="LeetCode-Range-Addition-II.html">Range Addition II</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>597</td>
+<td><a href="LeetCode-Friend-Requests-I-Overall-Acceptance-Rate.html">Friend Requests I: Overall Acceptance Rate</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>596</td>
+<td><a href="LeetCode-Classes-More-Than-5-Students.html">Classes More Than 5 Students</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>595</td>
+<td><a href="LeetCode-Big-Countries.html">Big Countries</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>594</td>
+<td><a href="LeetCode-Longest-Harmonious-Subsequence.html">Longest Harmonious Subsequence</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>586</td>
+<td><a href="LeetCode-Customer-Placing-the-Largest-Number-of-Orders.html">Customer Placing the Largest Number of Orders</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>584</td>
+<td><a href="LeetCode-Find-Customer-Referee.html">Find Customer Referee</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>583</td>
+<td><a href="LeetCode-Delete-Operation-for-Two-Strings.html">Delete Operation for Two Strings</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>581</td>
+<td><a href="LeetCode-Shortest-Unsorted-Continuous-Subarray.html">Shortest Unsorted Continuous Subarray</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>580</td>
+<td><a href="LeetCode-Count-Student-Number-in-Departments.html">Count Student Number in Departments</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>577</td>
+<td><a href="LeetCode-Employee-Bonus.html">Employee Bonus</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>575</td>
+<td><a href="LeetCode-Distribute-Candies.html">Distribute Candies</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>572</td>
+<td><a href="LeetCode-Subtree-of-Another-Tree.html">Subtree of Another Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>570</td>
+<td><a href="LeetCode-Managers-with-at-Least-5-Direct-Reports.html">Managers with at Least 5 Direct Reports</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>566</td>
+<td><a href="LeetCode-Reshape-the-Matrix.html">Reshape the Matrix</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>563</td>
+<td><a href="LeetCode-Binary-Tree-Tilt.html">Binary Tree Tilt</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>562</td>
+<td><a href="LeetCode-Longest-Line-of-Consecutive-One-in-Matrix.html">Longest Line of Consecutive One in Matrix</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>561</td>
+<td><a href="LeetCode-Array-Partition-I.html">Array Partition I</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>560</td>
+<td><a href="LeetCode-Subarray-Sum-Equals-K.html">Subarray Sum Equals K</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>551</td>
+<td><a href="LeetCode-Student-Attendance-Record-I.html">Student Attendance Record I</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>548</td>
+<td><a href="LeetCode-Split-Array-with-Equal-Sum.html">Split Array with Equal Sum</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>543</td>
+<td><a href="LeetCode-Diameter-of-Binary-Tree.html">Diameter of Binary Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>539</td>
+<td><a href="LeetCode-Minimum-Time-Difference.html">Minimum Time Difference</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>538</td>
+<td><a href="LeetCode-Convert-BST-to-Greater-Tree.html">Convert BST to Greater Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>537</td>
+<td><a href="LeetCode-Complex-Number-Multiplication.html">Complex Number Multiplication</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>535</td>
+<td><a href="LeetCode-Encode-and-Decode-TinyURL.html">Encode and Decode TinyURL</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>532</td>
+<td><a href="LeetCode-K-diff-Pairs-in-an-Array.html">K-diff Pairs in an Array</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>530</td>
+<td><a href="LeetCode-Minimum-Absolute-Difference-in-BST.html">Minimum Absolute Difference in BST</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>526</td>
+<td><a href="LeetCode-Beautiful-Arrangement.html">Beautiful Arrangement</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>525</td>
+<td><a href="LeetCode-Contiguous-Array.html">Contiguous Array</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>524</td>
+<td><a href="LeetCode-Longest-Word-in-Dictionary-through-Deleting.html">Longest Word in Dictionary through Deleting</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>521</td>
+<td><a href="LeetCode-Longest-Uncommon-Subsequence-I.html">Longest Uncommon Subsequence I</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>515</td>
+<td><a href="LeetCode-Find-Largest-Value-in-Each-Tree-Row.html">Find Largest Value in Each Tree Row</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>507</td>
+<td><a href="LeetCode-Perfect-Number.html">Perfect Number</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>506</td>
+<td><a href="LeetCode-Relative-Ranks.html">Relative Ranks</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>503</td>
+<td><a href="LeetCode-Next-Greater-Element-II.html">Next Greater Element II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>501</td>
+<td><a href="LeetCode-Find-Mode-in-Binary-Search-Tree.html">Find Mode in Binary Search Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>500</td>
+<td><a href="LeetCode-Keyboard-Row.html">Keyboard Row</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>496</td>
+<td><a href="LeetCode-Next-Greater-Element-I.html">Next Greater Element I</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>492</td>
+<td><a href="LeetCode-Construct-the-Rectangle.html">Construct the Rectangle</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>486</td>
+<td><a href="LeetCode-Predict-the-Winner.html">Predict the Winner</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>479</td>
+<td><a href="LeetCode-Largest-Palindrome-Product.html">Largest Palindrome Product</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>477</td>
+<td><a href="LeetCode-Total-Hamming-Distance.html">Total Hamming Distance</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>468</td>
+<td><a href="LeetCode-Validate-IP-Address.html">Validate IP Address</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>463</td>
+<td><a href="LeetCode-Island-Perimeter.html">Island Perimeter</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>459</td>
+<td><a href="LeetCode-Repeated-Substring-Pattern.html">Repeated Substring Pattern</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>458</td>
+<td><a href="LeetCode-Poor-Pigs.html">Poor Pigs</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>455</td>
+<td><a href="LeetCode-Assign-Cookies.html">Assign Cookies</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>454</td>
+<td><a href="LeetCode-4Sum-II.html">4Sum II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>453</td>
+<td><a href="LeetCode-Minimum-Moves-to-Equal-Array-Elements.html">Minimum Moves to Equal Array Elements</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>448</td>
+<td><a href="LeetCode-Find-All-Numbers-Disappeared-in-an-Array.html">Find All Numbers Disappeared in an Array</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>447</td>
+<td><a href="LeetCode-Number-of-Boomerangs.html">Number of Boomerangs</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>442</td>
+<td><a href="LeetCode-Find-All-Duplicates-in-an-Array.html">Find All Duplicates in an Array</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>441</td>
+<td><a href="LeetCode-Arranging-Coins.html">Arranging Coins</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>438</td>
+<td><a href="LeetCode-Find-All-Anagrams-in-a-String.html">Find All Anagrams in a String</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>437</td>
+<td><a href="LeetCode-Path-Sum-III.html">Path Sum III</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>435</td>
+<td><a href="LeetCode-Non-overlapping-Intervals.html">Non-overlapping Intervals</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>434</td>
+<td><a href="LeetCode-Number-of-Segments-in-a-String.html">Number of Segments in a String</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>422</td>
+<td><a href="LeetCode-Valid-Word-Square.html">Valid Word Square</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>415</td>
+<td><a href="LeetCode-Add-Strings.html">Add Strings</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>414</td>
+<td><a href="LeetCode-Third-Maximum-Number.html">Third Maximum Number</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>413</td>
+<td><a href="LeetCode-Arithmetic-Slices.html">Arithmetic Slices</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>412</td>
+<td><a href="LeetCode-Fizz-Buzz.html">Fizz Buzz</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>409</td>
+<td><a href="LeetCode-Longest-Palindrome.html">Longest Palindrome</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>408</td>
+<td><a href="LeetCode-Valid-Word-Abbreviation.html">Valid Word Abbreviation</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>405</td>
+<td><a href="LeetCode-Convert-a-Number-to-Hexadecimal.html">Convert a Number to Hexadecimal</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>404</td>
+<td><a href="LeetCode-Sum-of-Left-Leaves.html">Sum of Left Leaves</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>402</td>
+<td><a href="LeetCode-Remove-K-Digits.html">Remove K Digits</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>401</td>
+<td><a href="LeetCode-Binary-Watch.html">Binary Watch</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>392</td>
+<td><a href="LeetCode-Is-Subsequence.html">Is Subsequence</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>389</td>
+<td><a href="LeetCode-Find-the-Difference.html">Find the Difference</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>557</td>
+<td><a href="LeetCode-Reverse-Words-in-a-String-III.html">Reverse Words in a String III</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>542</td>
+<td><a href="LeetCode-01-Matrix.html">01 Matrix</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>541</td>
+<td><a href="LeetCode-Reverse-String-II.html">Reverse String II</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>520</td>
+<td><a href="LeetCode-Detect-Capital.html">Detect Capital</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>504</td>
+<td><a href="LeetCode-Base-7.html">Base 7</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>485</td>
+<td><a href="LeetCode-Max-Consecutive-Ones.html">Max Consecutive Ones</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>476</td>
+<td><a href="LeetCode-Number-Complement.html">Number Complement</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>461</td>
+<td><a href="LeetCode-Hamming-Distance.html">Hamming Distance</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>394</td>
+<td><a href="LeetCode-Decode-String.html">Decode String</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>387</td>
+<td><a href="LeetCode-First-Unique-Character-in-a-String.html">First Unique Character in a String</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>383</td>
+<td><a href="LeetCode-Ransom-Note.html">Ransom Note</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>374</td>
+<td><a href="LeetCode-Guess-Number-Higher-or-Lower.html">Guess Number Higher or Lower</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>371</td>
+<td><a href="LeetCode-Sum-of-Two-Integers.html">Sum of Two Integers</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>369</td>
+<td><a href="LeetCode-Plus-One-Linked-List.html">Plus One Linked List</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>367</td>
+<td><a href="LeetCode-Valid-Perfect-Square.html">Valid Perfect Square</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>362</td>
+<td><a href="LeetCode-Design-Hit-Counter.html">Design Hit Counter</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>359</td>
+<td><a href="LeetCode-Logger-Rate-Limiter.html">Logger Rate Limiter</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>350</td>
+<td><a href="LeetCode-Intersection-of-Two-Arrays-II.html">Intersection of Two Arrays II</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>349</td>
+<td><a href="LeetCode-Intersection-of-Two-Arrays.html">Intersection of Two Arrays</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>347</td>
+<td><a href="LeetCode-Top-K-Frequent-Elements.html">Top K Frequent Elements</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>346</td>
+<td><a href="LeetCode-Moving-Average-from-Data-Stream.html">Moving Average from Data Stream</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>345</td>
+<td><a href="LeetCode-Reverse-Vowels-of-a-String.html">Reverse Vowels of a String</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>344</td>
+<td><a href="LeetCode-Reverse-String.html">Reverse String</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>343</td>
+<td><a href="LeetCode-Integer-Break.html">Integer Break</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>342</td>
+<td><a href="LeetCode-Power-of-Four.html">Power of Four</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>341</td>
+<td><a href="LeetCode-Flatten-Nested-List-Iterator.html">Flatten Nested List Iterator</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>340</td>
+<td><a href="LeetCode-Longest-Substring-with-At-Most-K-Distinct-Characters.html">Longest Substring with At Most K Distinct Characters</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>339</td>
+<td><a href="LeetCode-Nested-List-Weight-Sum.html">Nested List Weight Sum</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>338</td>
+<td><a href="LeetCode-Counting-Bits.html">Counting Bits</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>336</td>
+<td><a href="LeetCode-Palindrome-Pairs.html">Palindrome Pairs</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>332</td>
+<td><a href="LeetCode-Reconstruct-Itinerary.html">Reconstruct Itinerary</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>331</td>
+<td><a href="LeetCode-Verify-Preorder-Serialization-of-a-Binary-Tree.html">Verify Preorder Serialization of a Binary Tree</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>330</td>
+<td><a href="LeetCode-Patching-Array.html">Patching Array</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>328</td>
+<td><a href="LeetCode-Odd-Even-Linked-List.html">Odd Even Linked List</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>326</td>
+<td><a href="LeetCode-Power-of-Three.html">Power of Three</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>325</td>
+<td><a href="LeetCode-Maximum-Size-Subarray-Sum-Equals-k.html">Maximum Size Subarray Sum Equals k</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>319</td>
+<td><a href="LeetCode-Bulb-Switcher.html">Bulb Switcher</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>316</td>
+<td><a href="LeetCode-Remove-Duplicate-Letters.html">Remove Duplicate Letters</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>313</td>
+<td><a href="LeetCode-Super-Ugly-Number.html">Super Ugly Number</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>311</td>
+<td><a href="LeetCode-Sparse-Matrix-Multiplication.html">Sparse Matrix Multiplication</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>306</td>
+<td><a href="LeetCode-Additive-Number.html">Additive Number</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>304</td>
+<td><a href="LeetCode-Range-Sum-Query-2D---Immutable.html">Range Sum Query 2D - Immutable</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>303</td>
+<td><a href="LeetCode-Range-Sum-Query---Immutable.html">Range Sum Query - Immutable</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>299</td>
+<td><a href="LeetCode-Bulls-and-Cows.html">Bulls and Cows</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>298</td>
+<td><a href="LeetCode-Binary-Tree-Longest-Consecutive-Sequence.html">Binary Tree Longest Consecutive Sequence</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>293</td>
+<td><a href="LeetCode-Flip-Game.html">Flip Game</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>292</td>
+<td><a href="LeetCode-Nim-Game.html">Nim Game</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>290</td>
+<td><a href="LeetCode-Word-Pattern.html">Word Pattern</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>288</td>
+<td><a href="LeetCode-Unique-Word-Abbreviation.html">Unique Word Abbreviation</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>287</td>
+<td><a href="LeetCode-Find-the-Duplicate-Number.html">Find the Duplicate Number</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>283</td>
+<td><a href="LeetCode-Move-Zeroes.html">Move Zeroes</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>281</td>
+<td><a href="LeetCode-Zigzag-Iterator.html">Zigzag Iterator</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>280</td>
+<td><a href="LeetCode-Wiggle-Sort.html">Wiggle Sort</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>278</td>
+<td><a href="LeetCode-First-Bad-Version.html">First Bad Version</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>276</td>
+<td><a href="LeetCode-Paint-Fence.html">Paint Fence</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>273</td>
+<td><a href="LeetCode-Integer-to-English-Words.html">Integer to English Words</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>272</td>
+<td><a href="LeetCode-Closest-Binary-Search-Tree-Value-II.html">Closest Binary Search Tree Value II</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>271</td>
+<td><a href="LeetCode-Encode-and-Decode-Strings.html">Encode and Decode Strings</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>270</td>
+<td><a href="LeetCode-Closest-Binary-Search-Tree-Value.html">Closest Binary Search Tree Value</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>269</td>
+<td><a href="LeetCode-Alien-Dictionary.html">Alien Dictionary</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>268</td>
+<td><a href="LeetCode-Missing-Number.html">Missing Number</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>267</td>
+<td><a href="LeetCode-Palindrome-Permutation-II.html">Palindrome Permutation II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>266</td>
+<td><a href="LeetCode-Palindrome-Permutation.html">Palindrome Permutation</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>265</td>
+<td><a href="LeetCode-Paint-House-II.html">Paint House II</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>264</td>
+<td><a href="LeetCode-Ugly-Number-II.html">Ugly Number II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>263</td>
+<td><a href="LeetCode-Ugly-Number.html">Ugly Number</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>261</td>
+<td><a href="LeetCode-Graph-Valid-Tree.html">Graph Valid Tree</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>260</td>
+<td><a href="LeetCode-Single-Number-III.html">Single Number III</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>259</td>
+<td><a href="LeetCode-3Sum-Smaller.html">3Sum Smaller</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>258</td>
+<td><a href="LeetCode-Add-Digits.html">Add Digits</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>257</td>
+<td><a href="LeetCode-Binary-Tree-Paths.html">Binary Tree Paths</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>256</td>
+<td><a href="LeetCode-Paint-House.html">Paint House</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>255</td>
+<td><a href="LeetCode-Verify-Preorder-Sequence-in-Binary-Search-Tree.html">Verify Preorder Sequence in Binary Search Tree</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>254</td>
+<td><a href="LeetCode-Factor-Combinations.html">Factor Combinations</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>253</td>
+<td><a href="LeetCode-Meeting-Rooms-II.html">Meeting Rooms II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>252</td>
+<td><a href="LeetCode-Meeting-Rooms.html">Meeting Rooms</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>251</td>
+<td><a href="LeetCode-Flatten-2D-Vector.html">Flatten 2D Vector</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>250</td>
+<td><a href="LeetCode-Count-Univalue-Subtrees.html">Count Univalue Subtrees</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>249</td>
+<td><a href="LeetCode-Group-Shifted-Strings.html">Group Shifted Strings</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>248</td>
+<td><a href="LeetCode-Strobogrammatic-Number-III.html">Strobogrammatic Number III</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>247</td>
+<td><a href="LeetCode-Strobogrammatic-Number-II.html">Strobogrammatic Number II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>246</td>
+<td><a href="LeetCode-Strobogrammatic-Number.html">Strobogrammatic Number</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>245</td>
+<td><a href="LeetCode-Shortest-Word-Distance-III.html">Shortest Word Distance III</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>244</td>
+<td><a href="LeetCode-Shortest-Word-Distance-II.html">Shortest Word Distance II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>243</td>
+<td><a href="LeetCode-Shortest-Word-Distance.html">Shortest Word Distance</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>242</td>
+<td><a href="LeetCode-Valid-Anagram.html">Valid Anagram</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>241</td>
+<td><a href="LeetCode-Different-Ways-to-Add-Parentheses.html">Different Ways to Add Parentheses</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>240</td>
+<td><a href="LeetCode-Search-a-2D-Matrix-II.html">Search a 2D Matrix II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>239</td>
+<td><a href="LeetCode-Sliding-Window-Maximum.html">Sliding Window Maximum</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>238</td>
+<td><a href="LeetCode-Product-of-Array-Except-Self.html">Product of Array Except Self</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>237</td>
+<td><a href="LeetCode-Delete-Node-in-a-Linked-List.html">Delete Node in a Linked List</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>236</td>
+<td><a href="LeetCode-Lowest-Common-Ancestor-of-a-Binary-Tree.html">Lowest Common Ancestor of a Binary Tree</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>235</td>
+<td><a href="LeetCode-Lowest-Common-Ancestor-of-a-Binary-Search-Tree.html">Lowest Common Ancestor of a Binary Search Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>234</td>
+<td><a href="LeetCode-Palindrome-Linked-List.html">Palindrome Linked List</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>233</td>
+<td><a href="LeetCode-Number-of-Digit-One.html">Number of Digit One</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>232</td>
+<td><a href="LeetCode-Implement-Queue-Using-Stacks.html">Implement Queue using Stacks</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>231</td>
+<td><a href="LeetCode-Power-Of-Two.html">Power of Two</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>230</td>
+<td><a href="LeetCode-Kth-Smallest-Element-in-a-BST.html">Kth Smallest Element in a BST</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>229</td>
+<td><a href="LeetCode-MajorityElementII.html">Majority Element II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>228</td>
+<td><a href="LeetCode-Summary-Ranges.html">Summary Ranges</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>227</td>
+<td><a href="LeetCode-Basic-Calculator-II.html">Basic Calculator II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>226</td>
+<td><a href="LeetCode-Invert-Binary-Tree.html">Invert Binary Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>225</td>
+<td><a href="LeetCode-Implement-Stack-using-Queues.html">Implement Stack using Queues</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>224</td>
+<td><a href="LeetCode-Basic-Calculator.html">Basic Calculator</a> - <a href="LeetCode-Basic-Calculator-Reverse-Polish-Notation.html">[Reverse Polish Notation]</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>223</td>
+<td><a href="LeetCode-Rectangle-Area.html">Rectangle Area</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>222</td>
+<td><a href="LeetCode-Count-Complete-Tree-Nodes.html">Count Complete Tree Nodes</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>221</td>
+<td><a href="LeetCode-Maximal-Square.html">Maximal Square</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>220</td>
+<td><a href="LeetCode-Contains-Duplicate-III.html">Contains Duplicate III</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>219</td>
+<td><a href="LeetCode-Contains-Duplicate-II.html">Contains Duplicate II</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>218</td>
+<td><a href="LeetCode-The-Skyline-Problem.html">The Skyline Problem</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>217</td>
+<td><a href="LeetCode-Contains-Duplicate.html">Contains Duplicate</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>216</td>
+<td><a href="LeetCode-Combination-Sum-III.html">Combination Sum III</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>215</td>
+<td><a href="LeetCode-Kth-Largest-Element-in-an-Array.html">Kth Largest Element in an Array</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>214</td>
+<td><a href="LeetCode-Shortest-Palindrome.html">Shortest Palindrome</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>213</td>
+<td><a href="LeetCode-House-Robber-II.html">House Robber II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>212</td>
+<td><a href="LeetCode-Word-Search-II.html">Word Search II</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>211</td>
+<td><a href="LeetCode-Add-and-Search-Word-Data-structure-design.html">Add and Search Word - Data structure design</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>210</td>
+<td><a href="LeetCode-Course-Schedule-II.html">Course Schedule II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>209</td>
+<td><a href="LeetCode-Minimum-Size-Subarray-Sum.html">Minimum Size Subarray Sum</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>208</td>
+<td><a href="LeetCode-Implement-Trie-Prefix-Tree.html">Implement Trie (Prefix Tree)</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>207</td>
+<td><a href="LeetCode-Course-Schedule.html">Course Schedule</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>206</td>
+<td><a href="LeetCode-Reverse-Linked-List.html">Reverse Linked List</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>205</td>
+<td><a href="LeetCode-Isomorphic-Strings.html">Isomorphic Strings</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>204</td>
+<td><a href="LeetCode-Count-Primes.html">Count Primes</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>203</td>
+<td><a href="LeetCode-Remove-Linked-List-Elements.html">Remove Linked List Elements</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>202</td>
+<td><a href="LeetCode-Happy-Number.html">Happy Number</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>201</td>
+<td><a href="LeetCode-Bitwise-AND-of-Numbers-Range.html">Bitwise AND of Numbers Range</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>200</td>
+<td><a href="LeetCode-Number-of-Islands.html">Number of Islands</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>199</td>
+<td><a href="LeetCode-Binary-Tree-Right-Side-View.html">Binary Tree Right Side View</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>198</td>
+<td><a href="LeetCode-House-Robber.html">House Robber</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>191</td>
+<td><a href="LeetCode-Number-Of-One-Bits.html">Number of 1 Bits</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>190</td>
+<td><a href="LeetCode-Reverse-Bits.html">Reverse Bits</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>189</td>
+<td><a href="LeetCode-Rotate-Array.html">Rotate Array</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>188</td>
+<td><a href="LeetCode-Best-Time-to-Buy-and-Sell-Stock-IV.html">Best Time to Buy and Sell Stock IV</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>187</td>
+<td><a href="LeetCode-Repeated-DNA-Sequences.html">Repeated DNA Sequences</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>186</td>
+<td><a href="LeetCode-Reverse-Words-in-a-String-II.html">Reverse Words in a String II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>179</td>
+<td><a href="LeetCode-Largest-Number.html">Largest Number</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>174</td>
+<td><a href="LeetCode-Dungeon-Game.html">Dungeon Game</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>173</td>
+<td><a href="LeetCode-BST-Iterator.html">Binary Search Tree Iterator</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>172</td>
+<td><a href="LeetCode-Factorial-Trailing-Zeroes.html">Factorial Trailing Zeroes</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>171</td>
+<td><a href="LeetCode-Excel-Sheet-Column-Number.html">Excel Sheet Column Number</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>170</td>
+<td><a href="LeetCode-Two-Sum-III---Data-structure-design.html">Two Sum III - Data structure design</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>169</td>
+<td><a href="LeetCode-Majority-Element.html">Majority Element</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>168</td>
+<td><a href="LeetCode-Excel-Sheet-Column-Title.html">Excel Sheet Column Title</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>167</td>
+<td><a href="LeetCode-Two-Sum-II---Input-array-is-sorted.html">Two Sum II - Input array is sorted</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>166</td>
+<td><a href="LeetCode-Fraction-to-Recurring-Decimal.html">Fraction to Recurring Decimal</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>165</td>
+<td><a href="LeetCode-Compare-Version-Numbers.html">Compare Version Numbers</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>164</td>
+<td><a href="LeetCode-Maximum-Gap.html">Maximum Gap</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>163</td>
+<td><a href="LeetCode-Missing-Ranges.html">Missing Ranges</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>162</td>
+<td><a href="LeetCode-Find-Peak-Element.html">Find Peak Element</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>161</td>
+<td><a href="LeetCode-One-Edit-Distance.html">One Edit Distance</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>160</td>
+<td><a href="LeetCode-Intersection-of-Two-Linked-Lists.html">Intersection of Two Linked Lists</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>159</td>
+<td><a href="LeetCode-Longest-Substring-with-At-Most-Two-Distinct-Characters.html">Longest Substring with At Most Two Distinct Characters</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>158</td>
+<td><a href="LeetCode-Read-N-Characters-Given-Read4-II---Call-multiple-times.html">Read N Characters Given Read4 II - Call multiple times</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>157</td>
+<td><a href="LeetCode-Read-N-Characters-Given-Read4.html">Read N Characters Given Read4</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>156</td>
+<td><a href="LeetCode-Binary-Tree-Upside-Down.html">Binary Tree Upside Down</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>155</td>
+<td><a href="LeetCode-Min-Stack.html">Min Stack</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>154</td>
+<td><a href="LeetCode-Find-Minimum-in-Rotated-Sorted-Array-II.html">Find Minimum in Rotated Sorted Array II</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>153</td>
+<td><a href="LeetCode-Find-Minimum-in-Rotated-Sorted-Array.html">Find Minimum in Rotated Sorted Array</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>152</td>
+<td><a href="LeetCode-Maximum-Product-Subarray.html">Maximum Product Subarray</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>151</td>
+<td><a href="LeetCode-Reverse-Words-in-a-String.html">Reverse Words in a String</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>150</td>
+<td><a href="LeetCode-Evaluate-Reverse-Polish-Notation.html">Evaluate Reverse Polish Notation</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>149</td>
+<td><a href="LeetCode-Max-Points-on-a-Line.html">Max Points on a Line</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>148</td>
+<td><a href="LeetCode-Sort-List.html">Sort List</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>147</td>
+<td><a href="LeetCode-Insertion-Sort-List.html">Insertion Sort List</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>146</td>
+<td><a href="LeetCode-LRU-Cache.html">LRU Cache</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>145</td>
+<td><a href="LeetCode-Binary-Tree-Postorder-Traversal.html">Binary Tree Postorder Traversal</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>144</td>
+<td><a href="LeetCode-Binary-Tree-Preorder-Traversal.html">Binary Tree Preorder Traversal</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>143</td>
+<td><a href="LeetCode-Reorder-List.html">Reorder List</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>142</td>
+<td><a href="LeetCode-Linked-List-Cycle-II.html">Linked List Cycle II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>141</td>
+<td><a href="LeetCode-Linked-List-Cycle.html">Linked List Cycle</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>140</td>
+<td><a href="LeetCode-Word-Break-II.html">Word Break II</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>139</td>
+<td><a href="LeetCode-Word-Break.html">Word Break</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>138</td>
+<td><a href="LeetCode-Copy-List-with-Random-Pointer.html">Copy List with Random Pointer</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>137</td>
+<td><a href="LeetCode-Single-Number-II.html">Single Number II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>136</td>
+<td><a href="LeetCode-Single-Number.html">Single Number</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>135</td>
+<td><a href="LeetCode-Candy.html">Candy</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>134</td>
+<td><a href="LeetCode-Gas-Station.html">Gas Station</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>133</td>
+<td><a href="LeetCode-Clone-Graph.html">Clone Graph</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>132</td>
+<td><a href="LeetCode-Palindrome-Partitioning-II.html">Palindrome Partitioning II</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>131</td>
+<td><a href="LeetCode-Palindrome-Partitioning.html">Palindrome Partitioning</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>130</td>
+<td><a href="LeetCode-Surrounded-Regions.html">Surrounded Regions</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>129</td>
+<td><a href="LeetCode-Sum-Root-to-Leaf-Numbers.html">Sum Root to Leaf Numbers</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>128</td>
+<td><a href="LeetCode-Longest-Consecutive-Sequence.html">Longest Consecutive Sequence</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>127</td>
+<td><a href="LeetCode-Word-Ladder.html">Word Ladder</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>126</td>
+<td><a href="LeetCode-Word-Ladder-II.html">Word Ladder II</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>125</td>
+<td><a href="LeetCode-Valid-Palindrome.html">Valid Palindrome</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>124</td>
+<td><a href="LeetCode-Binary-Tree-Maximum-Path-Sum.html">Binary Tree Maximum Path Sum</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>123</td>
+<td><a href="LeetCode-Best-Time-to-Buy-and-Sell-Stock-III.html">Best Time to Buy and Sell Stock III</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>122</td>
+<td><a href="LeetCode-Best-Time-to-Buy-and-Sell-Stock-II.html">Best Time to Buy and Sell Stock II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>121</td>
+<td><a href="LeetCode-Best-Time-to-Buy-and-Sell-Stock.html">Best Time to Buy and Sell Stock</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>120</td>
+<td><a href="LeetCode-Triangle.html">Triangle</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>119</td>
+<td><a href="LeetCode-Pascals-Triangle-II.html">Pascal’s Triangle II</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>118</td>
+<td><a href="LeetCode-Pascals-Triangle.html">Pascal’s Triangle</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>117</td>
+<td><a href="LeetCode-Populating-Next-Right-Pointers-in-Each-Node-II.html">Populating Next Right Pointers in Each Node II</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>116</td>
+<td><a href="LeetCode-Populating-Next-Right-Pointers-in-Each-Node.html">Populating Next Right Pointers in Each Node</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>115</td>
+<td><a href="LeetCode-Distinct-Subsequences.html">Distinct Subsequences</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>114</td>
+<td><a href="LeetCode-Flatten-Binary-Tree-to-Linked-List.html">Flatten Binary Tree to Linked List</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>113</td>
+<td><a href="LeetCode-Path-Sum-II.html">Path Sum II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>112</td>
+<td><a href="LeetCode-Path-Sum.html">Path Sum</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>111</td>
+<td><a href="LeetCode-Minimum-Depth-of-Binary-Tree.html">Minimum Depth of Binary Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>110</td>
+<td><a href="LeetCode-Balanced-Binary-Tree.html">Balanced Binary Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>109</td>
+<td><a href="LeetCode-Convert-Sorted-List-to-Binary-Search-Tree.html">Convert Sorted List to Binary Search Tree</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>108</td>
+<td><a href="LeetCode-Convert-Sorted-Array-to-Binary-Search-Tree.html">Convert Sorted Array to Binary Search Tree</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>107</td>
+<td><a href="LeetCode-Binary-Tree-Level-Order-Traversal-II.html">Binary Tree Level Order Traversal II</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>106</td>
+<td><a href="LeetCode-Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal.html">Construct Binary Tree from Inorder and Postorder Traversal</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>105</td>
+<td><a href="LeetCode-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal.html">Construct Binary Tree from Preorder and Inorder Traversal</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>104</td>
+<td><a href="LeetCode-Maximum-Depth-of-Binary-Tree.html">Maximum Depth of Binary Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>103</td>
+<td><a href="LeetCode-Binary-Tree-Zigzag-Level-Order-Traversal.html">Binary Tree Zigzag Level Order Traversal</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>102</td>
+<td><a href="LeetCode-Binary-Tree-Level-Order-Traversal.html">Binary Tree Level Order Traversal</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>101</td>
+<td><a href="LeetCode-Symmetric-Tree.html">Symmetric Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>100</td>
+<td><a href="LeetCode-Same-Tree.html">Same Tree</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>99</td>
+<td><a href="LeetCode-Recover-Binary-Search-Tree.html">Recover Binary Search Tree</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>98</td>
+<td><a href="LeetCode-Validate-Binary-Search-Tree.html">Validate Binary Search Tree</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>97</td>
+<td><a href="LeetCode-Interleaving-String.html">Interleaving String</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>96</td>
+<td><a href="LeetCode-Unique-Binary-Search-Trees.html">Unique Binary Search Trees</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>95</td>
+<td><a href="LeetCode-Unique-Binary-Search-Trees-II.html">Unique Binary Search Trees II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>94</td>
+<td><a href="LeetCode-Binary-Tree-Inorder-Traversal.html">Binary Tree Inorder Traversal</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>93</td>
+<td><a href="LeetCode-Restore-IP-Addresses.html">Restore IP Addresses</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>92</td>
+<td><a href="LeetCode-Reverse-Linked-List-II.html">Reverse Linked List II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>91</td>
+<td><a href="LeetCode-Decode-Ways.html">Decode Ways</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>90</td>
+<td><a href="LeetCode-Subsets-II.html">Subsets II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>89</td>
+<td><a href="LeetCode-Gray-Code.html">Gray Code</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>88</td>
+<td><a href="LeetCode-Merge-Sorted-Array.html">Merge Sorted Array</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>87</td>
+<td><a href="LeetCode-Scramble-String.html">Scramble String</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>86</td>
+<td><a href="LeetCode-Partition-List.html">Partition List</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>85</td>
+<td><a href="LeetCode-Maximal-Rectangle.html">Maximal Rectangle</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>84</td>
+<td><a href="LeetCode-Largest-Rectangle-in-Histogram.html">Largest Rectangle in Histogram</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>83</td>
+<td><a href="LeetCode-Remove-Duplicates-from-Sorted-List.html">Remove Duplicates from Sorted List</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>82</td>
+<td><a href="LeetCode-Remove-Duplicates-from-Sorted-List-II.html">Remove Duplicates from Sorted List II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>81</td>
+<td><a href="LeetCode-Search-in-Rotated-Sorted-Array-II.html">Search in Rotated Sorted Array II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>80</td>
+<td><a href="LeetCode-Remove-Duplicates-from-Sorted-Array-II.html">Remove Duplicates from Sorted Array II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>79</td>
+<td><a href="LeetCode-Word-Search.html">Word Search</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>78</td>
+<td><a href="LeetCode-Subsets.html">Subsets</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>77</td>
+<td><a href="LeetCode-Combinations.html">Combinations</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>76</td>
+<td><a href="LeetCode-Minimum-Window-Substring.html">Minimum Window Substring</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>75</td>
+<td><a href="LeetCode-Sort-Colors.html">Sort Colors</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>74</td>
+<td><a href="LeetCode-Search-a-2D-Matrix.html">Search a 2D Matrix</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>73</td>
+<td><a href="LeetCode-Set-Matrix-Zeroes.html">Set Matrix Zeroes</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>72</td>
+<td><a href="LeetCode-Edit-Distance.html">Edit Distance</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>71</td>
+<td><a href="LeetCode-Simplify-Path.html">Simplify Path</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>70</td>
+<td><a href="LeetCode-Climbing-Stairs.html">Climbing Stairs</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>69</td>
+<td><a href="LeetCode-Sqrtx.html">Sqrt(x)</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>68</td>
+<td><a href="LeetCode-Text-Justification.html">Text Justification</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>67</td>
+<td><a href="LeetCode-Add-Binary.html">Add Binary</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>66</td>
+<td><a href="LeetCode-Plus-One.html">Plus One</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>65</td>
+<td><a href="LeetCode-Valid-Number.html">Valid Number</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>64</td>
+<td><a href="LeetCode-Minimum-Path-Sum.html">Minimum Path Sum</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>63</td>
+<td><a href="LeetCode-Unique-Paths-II.html">Unique Paths II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>62</td>
+<td><a href="LeetCode-Unique-Paths.html">Unique Paths</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>61</td>
+<td><a href="LeetCode-Rotate-List.html">Rotate List</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>60</td>
+<td><a href="LeetCode-Permutation-Sequence.html">Permutation Sequence</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>59</td>
+<td><a href="LeetCode-Spiral-Matrix-II.html">Spiral Matrix II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>58</td>
+<td><a href="LeetCode-Length-of-Last-Word.html">Length of Last Word</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>57</td>
+<td><a href="LeetCode-Insert-Interval.html">Insert Interval</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>56</td>
+<td><a href="LeetCode-Merge-Intervals.html">Merge Intervals</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>55</td>
+<td><a href="LeetCode-Jump-Game.html">Jump Game</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>54</td>
+<td><a href="LeetCode-Spiral-Matrix.html">Spiral Matrix</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>53</td>
+<td><a href="LeetCode-Maximum-Subarray.html">Maximum Subarray</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>52</td>
+<td><a href="LeetCode-N-Queens-II.html">N-Queens II</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>51</td>
+<td><a href="LeetCode-N-Queens.html">N-Queens</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>50</td>
+<td><a href="LeetCode-Pow.html">Pow(x, n)</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>49</td>
+<td><a href="LeetCode-Anagrams.html">Anagrams</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>48</td>
+<td><a href="LeetCode-Rotate-Image.html">Rotate Image</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>47</td>
+<td><a href="LeetCode-Permutations-II.html">Permutations II</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>46</td>
+<td><a href="LeetCode-Permutations.html">Permutations</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>45</td>
+<td><a href="LeetCode-Jump-Game-II.html">Jump Game II</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>44</td>
+<td><a href="LeetCode-Wildcard-Matching.html">Wildcard Matching</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>43</td>
+<td><a href="LeetCode-Multiply-Strings.html">Multiply Strings</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>42</td>
+<td><a href="LeetCode-Trapping-Rain-Water.html">Trapping Rain Water</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>41</td>
+<td><a href="LeetCode-First-Missing-Positive.html">First Missing Positive</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>40</td>
+<td><a href="LeetCode-Combination-Sum-2.html">Combination Sum II</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>39</td>
+<td><a href="LeetCode-Combination-Sum-1.html">Combination Sum</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>38</td>
+<td><a href="LeetCode-Count-and-Say.html">Count and Say</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>37</td>
+<td><a href="LeetCode-Sudoku-Solver.html">Sudoku Solver</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>36</td>
+<td><a href="LeetCode-Valid-Sudoku.html">Valid Sudoku</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>35</td>
+<td><a href="LeetCode-Search-Insert-Position.html">Search Insert Position</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>34</td>
+<td><a href="LeetCode-Search-for-a-Range.html">Search for a Range</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>33</td>
+<td><a href="LeetCode-Search-in-Rotated-Sorted-Array.html">Search in Rotated Sorted Array</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>32</td>
+<td><a href="LeetCode-Longest-Valid-Parentheses.html">Longest Valid Parentheses</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>31</td>
+<td><a href="LeetCode-Next-Permutation.html">Next Permutation</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>30</td>
+<td><a href="LeetCode-Substring-with-Concatenation-of-All-Words.html">Substring with Concatenation of All Words</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>29</td>
+<td><a href="LeetCode-Divide-Two-Integers.html">Divide Two Integers</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>28</td>
+<td><a href="LeetCode-Implement-strStr.html">Implement strStr()</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>27</td>
+<td><a href="LeetCode-Remove-Element.html">Remove Element</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>26</td>
+<td><a href="LeetCode-Remove-Duplicates-from-Sorted-Array.html">Remove Duplicates from Sorted Array</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>25</td>
+<td><a href="LeetCode-Reverse-Nodes-in-k-Group.html">Reverse Nodes in k-Group</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>24</td>
+<td><a href="LeetCode-Swap-Nodes-in-Pairs.html">Swap Nodes in Pairs</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>23</td>
+<td><a href="LeetCode-Merge-k-Sorted-Lists.html">Merge k Sorted Lists</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>22</td>
+<td><a href="LeetCode-Generate-Parentheses.html">Generate Parentheses</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>21</td>
+<td><a href="LeetCode-Merge-Two-Sorted-Lists.html">Merge Two Sorted Lists</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>20</td>
+<td><a href="LeetCode-Valid-Parentheses.html">Valid Parentheses</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="LeetCode-Remove-Nth-Node-From-End-of-List.html">Remove Nth Node From End of List</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="LeetCode-4Sum.html">4Sum</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="LeetCode-Letter-Combinations-of-a-Phone-Number.html">Letter Combinations of a Phone Number</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="LeetCode-3Sum-Closest.html">3Sum Closest</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="LeetCode-3Sum.html">3Sum</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="LeetCode-Longest-Common-Prefix.html">Longest Common Prefix</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="LeetCode-Roman-to-Integer.html">Roman to Integer</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="LeetCode-Integer-to-Roman.html">Integer to Roman</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="LeetCode-Container-With-Most-Water.html">Container With Most Water</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="LeetCode-Regular-Expression-Matching.html">Regular Expression Matching</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="LeetCode-Palindrome-Number.html">Palindrome Number</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="LeetCode-String-to-Integer.html">String to Integer (atoi)</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="LeetCode-Reverse-Integer.html">Reverse Integer</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="LeetCode-ZigZag-Conversion.html">ZigZag Conversion</a></td>
+<td>Easy</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="LeetCode-Longest-Palindromic-Substring.html">Longest Palindromic Substring</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="LeetCode-Median-of-Two-Sorted-Arrays.html">Median of Two Sorted Arrays</a></td>
+<td>Hard</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="LeetCode-Longest-Substring-Without-Repeating-Characters.html">Longest Substring Without Repeating Characters</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="LeetCode-Add-Two-Numbers.html">Add Two Numbers</a></td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>1</td>
+<td><a href="LeetCode-Two-Sum.html">Two Sum</a></td>
+<td>Medium</td>
+</tr>
+</tbody></table>
+<script>
+$('table').addClass('display datatable');
+</script>
+
+      </div>
+      <footer class="article-footer">
+        
+      </footer>
+    </div>
+  </article>
+  
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+      </div>
+    </section>
+  
+
+                    </div>
+                </section>
+                <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/sbzhouhao/" target="_blank"><i id="icon-linkedin" class="icon"></i></a></li>
+      
+        <li><a class="social-tooltip" title="github" href="https://github.com/zhouhao" target="_blank"><i id="icon-github" class="icon"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i id="icon-rss" class="icon"></i></a></li>
+      
+    </ul>
+  </div>
+  
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">recents</h3>
+    <div class="widget">
+      <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a></p>
+              <p class="item-title"><a href="/2024/03/16/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5%E7%9A%84%E5%88%97%E4%B8%BE%E5%92%8C%E6%AF%94%E8%BE%83/" class="title">缓存更新策略的列举和比较</a></p>
+              <p class="item-date"><time datetime="2024-03-17T01:03:42.000Z" itemprop="datePublished">Mar 16 2024</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a></p>
+              <p class="item-title"><a href="/2024/03/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E5%88%B6%E7%AD%96%E7%95%A5%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E6%AF%94%E8%BE%83/" class="title">数据库复制策略的优缺点比较</a></p>
+              <p class="item-date"><time datetime="2024-03-15T07:47:32.000Z" itemprop="datePublished">Mar 15 2024</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Backend/">Backend</a></p>
+              <p class="item-title"><a href="/2023/07/25/enable-postman-json-tree-view/" class="title">Enable postman json tree view</a></p>
+              <p class="item-date"><time datetime="2023-07-25T18:34:01.000Z" itemprop="datePublished">Jul 25 2023</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%93%8D%E8%9B%8B/">操蛋</a></p>
+              <p class="item-title"><a href="/2023/07/14/When-git-force-pushed-before-a-pull/" class="title">When git force pushed before a pull</a></p>
+              <p class="item-date"><time datetime="2023-07-14T23:13:35.000Z" itemprop="datePublished">Jul 14 2023</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/microservice/">microservice</a></p>
+              <p class="item-title"><a href="/2023/05/01/Migrate-to-Mongo-from-Mariadb-for-SaltyNote-Service/" class="title">Migrate to MongoDB from MariaDB for SaltyNote Service</a></p>
+              <p class="item-date"><time datetime="2023-05-01T18:19:33.000Z" itemprop="datePublished">May 1 2023</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">tag cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 11.67px;">Ajax</a> <a href="/tags/AngularJS/" style="font-size: 16.67px;">AngularJS</a> <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/Bower/" style="font-size: 10px;">Bower</a> <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Computer-Graphics/" style="font-size: 15px;">Computer Graphics</a> <a href="/tags/Design-Pattern/" style="font-size: 10px;">Design Pattern</a> <a href="/tags/Encrypt/" style="font-size: 10px;">Encrypt</a> <a href="/tags/Firebase/" style="font-size: 10px;">Firebase</a> <a href="/tags/Front-End/" style="font-size: 10px;">Front End</a> <a href="/tags/GitHub/" style="font-size: 11.67px;">GitHub</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/Grunt/" style="font-size: 11.67px;">Grunt</a> <a href="/tags/Hackthon/" style="font-size: 10px;">Hackthon</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/IE/" style="font-size: 11.67px;">IE</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Jackson/" style="font-size: 13.33px;">Jackson</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Jersey/" style="font-size: 10px;">Jersey</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/Json/" style="font-size: 13.33px;">Json</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Life/" style="font-size: 15px;">Life</a> <a href="/tags/MINT/" style="font-size: 10px;">MINT</a> <a href="/tags/MIT-GFSA/" style="font-size: 10px;">MIT GFSA</a> <a href="/tags/MariaDB/" style="font-size: 13.33px;">MariaDB</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Mod-Rewrite/" style="font-size: 10px;">Mod Rewrite</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/MySQL/" style="font-size: 13.33px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/OpenGL/" style="font-size: 15px;">OpenGL</a> <a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a> <a href="/tags/OpenShift/" style="font-size: 11.67px;">OpenShift</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/PaaS/" style="font-size: 10px;">PaaS</a> <a href="/tags/PayPal/" style="font-size: 10px;">PayPal</a> <a href="/tags/Payment/" style="font-size: 10px;">Payment</a> <a href="/tags/Perl/" style="font-size: 10px;">Perl</a> <a href="/tags/PhoneGap/" style="font-size: 10px;">PhoneGap</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/QRCode/" style="font-size: 10px;">QRCode</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/Regular-Expression/" style="font-size: 10px;">Regular Expression</a> <a href="/tags/Resposive/" style="font-size: 10px;">Resposive</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/SaltyNote/" style="font-size: 16.67px;">SaltyNote</a> <a href="/tags/Spring-Boot/" style="font-size: 10px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 13.33px;">SpringBoot</a> <a href="/tags/Stylish/" style="font-size: 10px;">Stylish</a> <a href="/tags/Swagger/" style="font-size: 10px;">Swagger</a> <a href="/tags/Todo/" style="font-size: 10px;">Todo</a> <a href="/tags/TodoApps/" style="font-size: 10px;">TodoApps</a> <a href="/tags/Tomcat-7/" style="font-size: 16.67px;">Tomcat 7</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Toolbox/" style="font-size: 10px;">Toolbox</a> <a href="/tags/Ubuntu/" style="font-size: 18.33px;">Ubuntu</a> <a href="/tags/Ubuntu%EF%BC%8C-cli/" style="font-size: 10px;">Ubuntu， cli</a> <a href="/tags/WIFI/" style="font-size: 10px;">WIFI</a> <a href="/tags/Web/" style="font-size: 13.33px;">Web</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/XSLT/" style="font-size: 10px;">XSLT</a> <a href="/tags/YCombinator/" style="font-size: 10px;">YCombinator</a> <a href="/tags/Yeoman/" style="font-size: 10px;">Yeoman</a> <a href="/tags/Zhihu/" style="font-size: 10px;">Zhihu</a> <a href="/tags/deserialize/" style="font-size: 13.33px;">deserialize</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/jFinal/" style="font-size: 10px;">jFinal</a> <a href="/tags/layoff/" style="font-size: 10px;">layoff</a> <a href="/tags/microservice/" style="font-size: 13.33px;">microservice</a> <a href="/tags/push/" style="font-size: 10px;">push</a> <a href="/tags/recover/" style="font-size: 10px;">recover</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/%E5%B0%B1%E5%8C%BB/" style="font-size: 10px;">就医</a> <a href="/tags/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">应用软件</a> <a href="/tags/%E6%8B%94%E7%89%99/" style="font-size: 10px;">拔牙</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.67px;">数据库</a> <a href="/tags/%E6%B8%A3%E5%BA%94%E7%94%A8/" style="font-size: 10px;">渣应用</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">系统设计</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 10px;">缓存</a> <a href="/tags/%E7%BD%91%E6%98%93/" style="font-size: 10px;">网易</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/">程序员的日常</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E4%BA%8C%E9%80%BC/">二逼</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%93%8D%E8%9B%8B/">操蛋</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%96%87%E8%89%BA/">文艺</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/">普通</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><span class="category-list-count">48</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Backend/">Backend</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Chrome-Extension/">Chrome Extension</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Chrome-Extension/microservice/">microservice</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/">Java</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/microservice/">microservice</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/microservice/database/">database</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%89%8B%E6%9C%BA%E5%BC%80%E5%8F%91/">手机开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%93%8D%E8%9B%8B/">操蛋</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%99%AE%E9%80%9A/">普通</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%9C%8D%E5%8A%A1/">服务</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%9D%82%E9%A1%B9/">杂项</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%BD%91%E7%AB%99/">网站</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="https://mitchief.org" target="_blank" rel="noopener">MIT-CHIEF</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon" id="icon-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2024 Salty Egg</p>
+
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+<script>
+  var disqus_shortname = 'zhouhao';
+  
+  var disqus_url = 'https://hzhou.me/LeetCode/index.html';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+  
+<script src="/scrollLoading/jquery.scrollLoading.js"></script>
+
+  
+<script src="/scrollLoading/main.js"></script>
+
+
+
+
+<script src="/js/html-patch.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+        }
+    </script>
+
+
+</div>
+</body>
+</html>

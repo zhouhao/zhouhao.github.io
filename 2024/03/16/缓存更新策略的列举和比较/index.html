@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>缓存更新策略的列举和比较 | Salty Egg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在现代软件架构中，缓存是提高系统性能和扩展性的关键组件之一。然而，缓存的有效管理，特别是缓存更新策略，对于保持数据一致性和系统可靠性至关重要。 本文将简单探讨和比较几种常见的缓存更新策略，以及它们各自的优缺点。 Note: 启发自 《从程序员到架构师：大数据量 缓存、高并发、微服务 多团队协同等核心场景实战》一书的第四章：读缓存。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="缓存更新策略的列举和比较">
+<meta property="og:url" content="https://hzhou.me/2024/03/16/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5%E7%9A%84%E5%88%97%E4%B8%BE%E5%92%8C%E6%AF%94%E8%BE%83/index.html">
+<meta property="og:site_name" content="Salty Egg">
+<meta property="og:description" content="在现代软件架构中，缓存是提高系统性能和扩展性的关键组件之一。然而，缓存的有效管理，特别是缓存更新策略，对于保持数据一致性和系统可靠性至关重要。 本文将简单探讨和比较几种常见的缓存更新策略，以及它们各自的优缺点。 Note: 启发自 《从程序员到架构师：大数据量 缓存、高并发、微服务 多团队协同等核心场景实战》一书的第四章：读缓存。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-03-17T01:03:42.000Z">
+<meta property="article:modified_time" content="2024-03-17T09:03:18.361Z">
+<meta property="article:author" content="Salty Egg">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="缓存">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+  
+    
+<link rel="stylesheet" href="/scrollLoading/style.css">
+
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B1YT9R9SJW"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-B1YT9R9SJW');
+</script>
+
+  
+    <style type="text/css">
+      .logo { background-image:url(/logo-salty-egg.png); }
+    </style>
+  
+
+  <link href='//fonts.googleapis.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" media="screen" type="text/css">
+  <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4600841817764546" crossorigin="anonymous"></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+<div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+            <h2 class="subtitle-wrap">
+              <p class="subtitle">疯狂de咸蛋</p>
+            </h2>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">Home</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/">程序员的日常</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E4%BA%8C%E9%80%BC/">二逼</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%93%8D%E8%9B%8B/">操蛋</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%96%87%E8%89%BA/">文艺</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%97%A5%E5%B8%B8/">日常</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/">普通</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Backend/">Backend</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Chrome-Extension/">Chrome Extension</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/microservice/">microservice</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%AE%89%E5%85%A8/">安全</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%89%8B%E6%9C%BA%E5%BC%80%E5%8F%91/">手机开发</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%93%8D%E8%9B%8B/">操蛋</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%99%AE%E9%80%9A/">普通</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%9C%8D%E5%8A%A1/">服务</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%9D%82%E9%A1%B9/">杂项</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%BD%91%E7%AB%99/">网站</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li></ul></li></ul>
+                  
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/about/">About</a></li>
+              
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+<script type="text/javascript">
+    algoliasearchNetlify({
+        appId: 'KOX699T4XU',
+        apiKey: '53bba46ae156cbb4c2b5c6f3fdd6f893',
+        siteId: 'd6865537-5303-4d56-83f8-6a70f853b626',
+        branch: 'master',
+        selector: 'div#search',
+        detached: true,
+    });
+</script>
+
+<div class="search" id="search">
+
+</div>
+
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <div class="container">
+        <div class="main-body container-inner">
+            <div class="main-body-inner">
+                <section id="main">
+                    <div class="main-body-header raw_content">
+                        
+                        <h1 class="header">
+                            
+                            <a class="page-title-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="page-title-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a>
+                            
+                        </h1>
+                    </div>
+                    <div class="main-body-content raw_content">
+                        
+  <article id="post-缓存更新策略的列举和比较" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      缓存更新策略的列举和比较
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/2024/03/16/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5%E7%9A%84%E5%88%97%E4%B8%BE%E5%92%8C%E6%AF%94%E8%BE%83/" class="article-date">
+  <time datetime="2024-03-17T01:03:42.000Z" itemprop="datePublished">Mar 16 2024</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p>在现代软件架构中，缓存是提高系统性能和扩展性的关键组件之一。然而，缓存的有效管理，特别是缓存更新策略，对于保持数据一致性和系统可靠性至关重要。</p>
+<p>本文将简单探讨和比较几种常见的缓存更新策略，以及它们各自的优缺点。</p>
+<p>Note: 启发自 <a href="https://book.douban.com/subject/35834352/" target="_blank" rel="noopener">《从程序员到架构师：大数据量 缓存、高并发、微服务 多团队协同等核心场景实战》</a>一书的<code>第四章：读缓存</code>。</p>
+<a id="more"></a>
+
+<h2 id="更新缓存的挑战"><a href="#更新缓存的挑战" class="headerlink" title="更新缓存的挑战"></a>更新缓存的挑战</h2><p>更新缓存涉及到两个基本步骤：<code>更新数据库</code>和<code>更新缓存</code>。</p>
+<p>尽管这两步听起来简单，但在实际操作中需要考虑多个问题：</p>
+<ol>
+<li>是否先更新数据库还是先更新缓存？</li>
+<li>更新缓存时是先删除还是直接更新？</li>
+<li>如果第一步成功而第二步失败，该如何处理？</li>
+<li>如果两个线程同时更新同一个数据，如何保证数据一致性？</li>
+</ol>
+<p>这些问题的复杂性导致了多种缓存更新组合方案的产生。</p>
+<div class="admonition note"><p class="admonition-title">我们假设一下
+</p><p>假设，我们采用Redis作为缓存，MySQL作为数据库。</p>
+</div>
+
+<h2 id="缓存更新策略的比较"><a href="#缓存更新策略的比较" class="headerlink" title="缓存更新策略的比较"></a>缓存更新策略的比较</h2><h3 id="组合1：先更新缓存，再更新数据库"><a href="#组合1：先更新缓存，再更新数据库" class="headerlink" title="组合1：先更新缓存，再更新数据库"></a>组合1：先更新缓存，再更新数据库</h3><pre class="mermaid">graph LR
+    A[开始] --> B[更新缓存]
+    B --> C[更新数据库]
+    C --> D[结束]</pre>
+<p>虽然redis支持事务，但是不支持回滚。因此，这种方案可能导致更新数据库失败后，只能手动回滚redis的操作。</p>
+<p>如果在多线程同时更新的时候，会导致不一致的问题，如果更新过程中加锁，虽然可以保证数据一致性，但会大大降低系统的可用性。</p>
+<p>因此，这种方案成本较高，不推荐使用。</p>
+<h3 id="组合2：先删除缓存，再更新数据库"><a href="#组合2：先删除缓存，再更新数据库" class="headerlink" title="组合2：先删除缓存，再更新数据库"></a>组合2：先删除缓存，再更新数据库</h3><pre class="mermaid">graph LR
+    A[开始] --> B[删除缓存]
+    B --> C[更新数据库]
+    C --> D[结束]</pre>
+
+<p>这种方案避免了更新失败需要回滚缓存的问题，但可能引入缓存与数据库不一致的情况。</p>
+<pre class="mermaid">gantt
+title Race Condition
+dateFormat  YYYY-MM-DD
+section A
+删除缓存           :2014-01-01, 1d
+更新数据库         :2014-01-04, 1d
+读取数据（来自B的旧值）           :2014-01-05, 1d
+section B
+更新数据库         :2014-01-02, 1d
+读取数据&建缓存     :2014-01-03, 1d</pre>
+
+<p>如图，A和B几乎都在同一时间更新数据X，A先删除了缓存，但是B在A完成数据库更新前，就完成了缓存重建的工作，最后A读取X的时候就是缓存的B的旧值。</p>
+<p>按照惯例，依旧可以通过加锁来解决这个问题，但是这样会大大降低系统的可用性。</p>
+<p>这里就涉及了高可用性和一致性取舍的问题。这就需要根据具体业务和需求来讨论了。</p>
+<h3 id="组合3：先更新数据库，再更新缓存"><a href="#组合3：先更新数据库，再更新缓存" class="headerlink" title="组合3：先更新数据库，再更新缓存"></a>组合3：先更新数据库，再更新缓存</h3><pre class="mermaid">graph LR
+    A[开始] --> B[更新数据库]
+    B --> C[更新缓存]
+    C --> D[结束]</pre>
+
+<p>如果更新数据库成功，而更新缓存失败，本身问题不大，不需回滚，后期在读取的时候，系统会自动尝试建缓存。</p>
+<pre class="mermaid">gantt
+title Race Condition
+dateFormat  YYYY-MM-DD
+section A
+更新数据库         :2014-01-01, 1d
+更新缓存           :2014-01-04, 1d
+section B
+更新数据库         :2014-01-02, 1d
+更新缓存           :2014-01-03, 1d</pre>
+<p>这样又悲剧了，A把缓存又改成了旧值。</p>
+<p>又来了：+🔒，蛋都碎了，为了更新缓存，给数据库读写加锁，有点杀鸡用牛刀了。</p>
+<h3 id="组合4：先更新数据库，再删除缓存"><a href="#组合4：先更新数据库，再删除缓存" class="headerlink" title="组合4：先更新数据库，再删除缓存"></a>组合4：先更新数据库，再删除缓存</h3><pre class="mermaid">graph LR
+    A[开始] --> B[更新数据库]
+    B --> C[删除缓存]
+    C --> D[结束]</pre>
+<p>这种方案解决了组合3中的一些问题，尤其是在处理并发更新时。通过删除缓存来强制后续的读操作去数据库中获取最新值，从而保证了数据的一致性。但是又引入了新的问题：<code>这个时候B读取的时候，读到的是旧值</code>。</p>
+<pre class="mermaid">gantt
+title Race Condition
+dateFormat  YYYY-MM-DD
+section A
+更新数据库         :2014-01-01, 1d
+删除缓存           :2014-01-03, 1d
+section B
+读取数据           :2014-01-02, 1d</pre>
+
+
+<h3 id="组合5：先删除缓存，更新数据库，再删除缓存"><a href="#组合5：先删除缓存，更新数据库，再删除缓存" class="headerlink" title="组合5：先删除缓存，更新数据库，再删除缓存"></a>组合5：先删除缓存，更新数据库，再删除缓存</h3><pre class="mermaid">graph LR
+    A[开始] --> B[删除缓存]
+    B --> C[更新数据库]
+    C --> D[再次删除缓存]
+    D --> E[结束]</pre>
+<p>这个方案试图通过在更新操作前后都删除缓存来最小化数据不一致的风险。尽管这种方案并不完美(如下图，<code>C会读到B存放在缓存中的旧数据</code>)，但它在减少脏数据读取的概率方面做得更好。</p>
+<pre class="mermaid">gantt
+title Race Condition
+dateFormat  YYYY-MM-DD
+section A
+删除缓存           :2014-01-01, 1d
+更新数据库         :2014-01-03, 1d
+删除缓存           :2014-01-05, 1d
+section B
+读取数据(会重建缓存)           :2014-01-02, 1d
+section C
+读取数据(B放的旧数据)           :2014-01-04, 1d</pre>
+
+
+<h2 id="解决方案的选择"><a href="#解决方案的选择" class="headerlink" title="解决方案的选择"></a>解决方案的选择</h2><p>选择哪种缓存更新策略取决于具体的应用场景和对一致性、可用性以及系统性能的要求。没有一种方案是完美的，每种方案都有可能读取到脏数据，但是通过合理的设计可以最小化这种风险。</p>
+<div class="admonition note"><p class="admonition-title">原文引用书作者的建议
+</p><p>任何一个方案都不是完美的，但如果剩下1%的问题需要花好几倍的代价去解决，从技术上来讲得不偿失，这就要求架构师去说服业务方，去平衡技术的成本和收益。</p>
+</div>
+
+
+      </div>
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a></li></ul>
+
+      </footer>
+    </div>
+  </article>
+  
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+      </div>
+    </section>
+  
+
+                    </div>
+                </section>
+                <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>follow:</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/sbzhouhao/" target="_blank"><i id="icon-linkedin" class="icon"></i></a></li>
+      
+        <li><a class="social-tooltip" title="github" href="https://github.com/zhouhao" target="_blank"><i id="icon-github" class="icon"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/atom.xml" target="_blank"><i id="icon-rss" class="icon"></i></a></li>
+      
+    </ul>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/03/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E5%88%B6%E7%AD%96%E7%95%A5%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E6%AF%94%E8%BE%83/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">older</strong>
+      <p class="article-nav-title">数据库复制策略的优缺点比较</p>
+      <i class="icon" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+  
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">recents</h3>
+    <div class="widget">
+      <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a></p>
+              <p class="item-title"><a href="/2024/03/16/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5%E7%9A%84%E5%88%97%E4%B8%BE%E5%92%8C%E6%AF%94%E8%BE%83/" class="title">缓存更新策略的列举和比较</a></p>
+              <p class="item-date"><time datetime="2024-03-17T01:03:42.000Z" itemprop="datePublished">Mar 16 2024</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a></p>
+              <p class="item-title"><a href="/2024/03/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%8D%E5%88%B6%E7%AD%96%E7%95%A5%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E6%AF%94%E8%BE%83/" class="title">数据库复制策略的优缺点比较</a></p>
+              <p class="item-date"><time datetime="2024-03-15T07:47:32.000Z" itemprop="datePublished">Mar 15 2024</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Backend/">Backend</a></p>
+              <p class="item-title"><a href="/2023/07/25/enable-postman-json-tree-view/" class="title">Enable postman json tree view</a></p>
+              <p class="item-date"><time datetime="2023-07-25T18:34:01.000Z" itemprop="datePublished">Jul 25 2023</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%93%8D%E8%9B%8B/">操蛋</a></p>
+              <p class="item-title"><a href="/2023/07/14/When-git-force-pushed-before-a-pull/" class="title">When git force pushed before a pull</a></p>
+              <p class="item-date"><time datetime="2023-07-14T23:13:35.000Z" itemprop="datePublished">Jul 14 2023</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><i class="icon" id="icon-angle-right"></i><a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/microservice/">microservice</a></p>
+              <p class="item-title"><a href="/2023/05/01/Migrate-to-Mongo-from-Mariadb-for-SaltyNote-Service/" class="title">Migrate to MongoDB from MariaDB for SaltyNote Service</a></p>
+              <p class="item-date"><time datetime="2023-05-01T18:19:33.000Z" itemprop="datePublished">May 1 2023</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">tag cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 11.67px;">Ajax</a> <a href="/tags/AngularJS/" style="font-size: 16.67px;">AngularJS</a> <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/Bower/" style="font-size: 10px;">Bower</a> <a href="/tags/CloudFlare/" style="font-size: 10px;">CloudFlare</a> <a href="/tags/Computer-Graphics/" style="font-size: 15px;">Computer Graphics</a> <a href="/tags/Design-Pattern/" style="font-size: 10px;">Design Pattern</a> <a href="/tags/Encrypt/" style="font-size: 10px;">Encrypt</a> <a href="/tags/Firebase/" style="font-size: 10px;">Firebase</a> <a href="/tags/Front-End/" style="font-size: 10px;">Front End</a> <a href="/tags/GitHub/" style="font-size: 11.67px;">GitHub</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/Gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/Grunt/" style="font-size: 11.67px;">Grunt</a> <a href="/tags/Hackthon/" style="font-size: 10px;">Hackthon</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/IE/" style="font-size: 11.67px;">IE</a> <a href="/tags/Interview/" style="font-size: 10px;">Interview</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Jackson/" style="font-size: 13.33px;">Jackson</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Jersey/" style="font-size: 10px;">Jersey</a> <a href="/tags/Jetbrains/" style="font-size: 10px;">Jetbrains</a> <a href="/tags/Json/" style="font-size: 13.33px;">Json</a> <a href="/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/tags/Life/" style="font-size: 15px;">Life</a> <a href="/tags/MINT/" style="font-size: 10px;">MINT</a> <a href="/tags/MIT-GFSA/" style="font-size: 10px;">MIT GFSA</a> <a href="/tags/MariaDB/" style="font-size: 13.33px;">MariaDB</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Mobile/" style="font-size: 10px;">Mobile</a> <a href="/tags/Mod-Rewrite/" style="font-size: 10px;">Mod Rewrite</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/MySQL/" style="font-size: 13.33px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/OpenGL/" style="font-size: 15px;">OpenGL</a> <a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a> <a href="/tags/OpenShift/" style="font-size: 11.67px;">OpenShift</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/PaaS/" style="font-size: 10px;">PaaS</a> <a href="/tags/PayPal/" style="font-size: 10px;">PayPal</a> <a href="/tags/Payment/" style="font-size: 10px;">Payment</a> <a href="/tags/Perl/" style="font-size: 10px;">Perl</a> <a href="/tags/PhoneGap/" style="font-size: 10px;">PhoneGap</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/QRCode/" style="font-size: 10px;">QRCode</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/Regular-Expression/" style="font-size: 10px;">Regular Expression</a> <a href="/tags/Resposive/" style="font-size: 10px;">Resposive</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/SaltyNote/" style="font-size: 16.67px;">SaltyNote</a> <a href="/tags/Spring-Boot/" style="font-size: 10px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 13.33px;">SpringBoot</a> <a href="/tags/Stylish/" style="font-size: 10px;">Stylish</a> <a href="/tags/Swagger/" style="font-size: 10px;">Swagger</a> <a href="/tags/Todo/" style="font-size: 10px;">Todo</a> <a href="/tags/TodoApps/" style="font-size: 10px;">TodoApps</a> <a href="/tags/Tomcat-7/" style="font-size: 16.67px;">Tomcat 7</a> <a href="/tags/Tool/" style="font-size: 10px;">Tool</a> <a href="/tags/Toolbox/" style="font-size: 10px;">Toolbox</a> <a href="/tags/Ubuntu/" style="font-size: 18.33px;">Ubuntu</a> <a href="/tags/Ubuntu%EF%BC%8C-cli/" style="font-size: 10px;">Ubuntu， cli</a> <a href="/tags/WIFI/" style="font-size: 10px;">WIFI</a> <a href="/tags/Web/" style="font-size: 13.33px;">Web</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/XSLT/" style="font-size: 10px;">XSLT</a> <a href="/tags/YCombinator/" style="font-size: 10px;">YCombinator</a> <a href="/tags/Yeoman/" style="font-size: 10px;">Yeoman</a> <a href="/tags/Zhihu/" style="font-size: 10px;">Zhihu</a> <a href="/tags/deserialize/" style="font-size: 13.33px;">deserialize</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interview/" style="font-size: 10px;">interview</a> <a href="/tags/jFinal/" style="font-size: 10px;">jFinal</a> <a href="/tags/layoff/" style="font-size: 10px;">layoff</a> <a href="/tags/microservice/" style="font-size: 13.33px;">microservice</a> <a href="/tags/push/" style="font-size: 10px;">push</a> <a href="/tags/recover/" style="font-size: 10px;">recover</a> <a href="/tags/search/" style="font-size: 10px;">search</a> <a href="/tags/%E5%B0%B1%E5%8C%BB/" style="font-size: 10px;">就医</a> <a href="/tags/%E5%BA%94%E7%94%A8%E8%BD%AF%E4%BB%B6/" style="font-size: 10px;">应用软件</a> <a href="/tags/%E6%8B%94%E7%89%99/" style="font-size: 10px;">拔牙</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 11.67px;">数据库</a> <a href="/tags/%E6%B8%A3%E5%BA%94%E7%94%A8/" style="font-size: 10px;">渣应用</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">系统设计</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 10px;">缓存</a> <a href="/tags/%E7%BD%91%E6%98%93/" style="font-size: 10px;">网易</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/">程序员的日常</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E4%BA%8C%E9%80%BC/">二逼</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%93%8D%E8%9B%8B/">操蛋</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%96%87%E8%89%BA/">文艺</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%97%A5%E5%B8%B8/">日常</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%97%A5%E5%B8%B8/%E6%99%AE%E9%80%9A/">普通</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/">计算机那些事</a><span class="category-list-count">48</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Backend/">Backend</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Chrome-Extension/">Chrome Extension</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Chrome-Extension/microservice/">microservice</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/Java/">Java</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/microservice/">microservice</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/microservice/database/">database</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E5%AE%89%E5%85%A8/">安全</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%89%8B%E6%9C%BA%E5%BC%80%E5%8F%91/">手机开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%93%8D%E8%9B%8B/">操蛋</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%99%AE%E9%80%9A/">普通</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%9C%8D%E5%8A%A1/">服务</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E6%9D%82%E9%A1%B9/">杂项</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E7%BD%91%E7%AB%99/">网站</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="https://mitchief.org" target="_blank" rel="noopener">MIT-CHIEF</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon" id="icon-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2024 Salty Egg</p>
+
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+<script>
+  var disqus_shortname = 'zhouhao';
+  
+  var disqus_url = 'https://hzhou.me/2024/03/16/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5%E7%9A%84%E5%88%97%E4%B8%BE%E5%92%8C%E6%AF%94%E8%BE%83/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+  
+<script src="/scrollLoading/jquery.scrollLoading.js"></script>
+
+  
+<script src="/scrollLoading/main.js"></script>
+
+
+
+
+<script src="/js/html-patch.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'></script>
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+        }
+    </script>
+
+
+</div>
+</body>
+</html>
