@@ -1,158 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to hzhou.dev</title>
-
-    <!--
-      - favicon
-    -->
-    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/2281521?v=4" type="image/x-icon">
-
-    <!--
-      - custom css link
-    -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-
-    <!--
-      - google font link
-    -->
+    <title>Hao Zhou - Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body class="bg-orange-50 text-slate-800 font-sans antialiased">
 
-<body>
-
-<!--
-  - #MAIN
--->
-
-<main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-        <div class="sidebar-info">
-
-            <figure class="avatar-box">
-                <img src="https://avatars.githubusercontent.com/u/2281521?v=4" alt="Hao Zhou" width="80">
-            </figure>
-
-            <div class="info-content">
-                <h1 class="name" title="Hao Zhou">Hao Zhou</h1>
-
-                <p class="title">Software Engineer</p>
+    <div id="root" class="overflow-x-hidden">
+        <header class="bg-white/70 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200">
+            <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#home" class="text-xl font-bold text-slate-900">Hao Zhou</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-slate-600 hover:text-orange-600 transition-colors duration-300 font-medium">About</a>
+                    <a href="#where-ive-been" class="text-slate-600 hover:text-orange-600 transition-colors duration-300 font-medium">Where I've Been</a>
+                </div>
+                 <button id="mobile-menu-button" class="md:hidden">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </nav>
+            <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col space-y-2">
+                 <a href="#about" class="text-slate-600 hover:text-orange-600 transition-colors duration-300 py-2">About</a>
+                 <a href="#where-ive-been" class="text-slate-600 hover:text-orange-600 transition-colors duration-300 py-2">Where I've Been</a>
             </div>
+        </header>
 
-            <button class="info_more-btn" data-sidebar-btn>
-                <span>Show Contacts</span>
-
-                <ion-icon name="chevron-down"></ion-icon>
-            </button>
-
-        </div>
-
-        <div class="sidebar-info_more">
-
-            <div class="separator"></div>
-
-            <ul class="contacts-list">
-
-
-                <li class="contact-item">
-
-                    <div class="icon-box">
-                        <ion-icon name="location-outline"></ion-icon>
+        <main>
+            <!-- Hero Section -->
+            <section id="home" class="min-h-[90vh] flex items-center relative" style="background-image: url('/img/playful_coding_website_hero_image.png'); background-size: cover; background-position: center;">
+                <div class="absolute inset-0 bg-black/60"></div>
+                <div class="container mx-auto px-6 py-20 text-center relative z-10">
+                    <div class="animate-fade-in-up">
+                        <h1 class="text-5xl md:text-7xl font-black text-white leading-tight">
+                            Hao Zhou
+                        </h1>
+                        <p class="mt-4 text-xl md:text-2xl text-slate-300 font-medium">
+                            Software Engineer <span class="text-orange-400 font-black">|</span> Ex-Kid <span class="text-orange-400 font-black">|</span> Ex-Teen
+                        </p>
+                        <div class="mt-12 flex justify-center items-center">
+                            <a href="https://github.com/zhouhao" target="_blank" rel="noopener noreferrer" class="bg-orange-500 text-white font-bold py-3 px-8 rounded-full flex items-center gap-3 hover:bg-orange-600 transition-all duration-300 shadow-lg transform hover:-translate-y-1">
+                                <i data-lucide="github"></i>
+                                <span>My GitHub</span>
+                            </a>
+                        </div>
+                        <div class="mt-12 flex justify-center items-center flex-wrap gap-x-8 gap-y-4 text-slate-300">
+                            <div class="flex items-center space-x-2">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-orange-400"></i>
+                                <span>Sunnyvale, California, US</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i data-lucide="graduation-cap" class="w-5 h-5 text-orange-400"></i>
+                                <span>Master in Computer Science</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i data-lucide="languages" class="w-5 h-5 text-orange-400"></i>
+                                <span>English, Chinese</span>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="contact-info">
-                        <p class="contact-title">Location</p>
-
-                        <address>California, USA</address>
-                    </div>
-
-                </li>
-
-            </ul>
-
-            <div class="separator"></div>
-
-            <ul class="social-list">
-
-                <li class="social-item">
-                    <a href="https://www.linkedin.com/in/sbzhouhao/" target="_blank" class="social-link">
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                </li>
-
-                <li class="social-item">
-                    <a href="https://github.com/zhouhao" target="_blank" class="social-link">
-                        <ion-icon name="logo-github"></ion-icon>
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </aside>
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-
-        <!--
-          - #ABOUT
-        -->
-
-        <article class="about  active" data-page="about">
-
-            <header>
-                <h2 class="h2 article-title">About me</h2>
-            </header>
-
-            <section class="about-text">
-                <p>
-                    I am a software engineer with a passion for modern systems.
-                </p>
-                <p>You can find more information about me:</p>
-                <ol>
-                    <li><a href="https://github.com/zhouhao/">1. GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/sbzhouhao/">2. LinkedIn</a></li>
-                    <li><a href="https://hzhou.me">3. https://hzhou.me</a></li>
-                </ol>
+                </div>
             </section>
 
+            <!-- About Section -->
+            <section id="about" class="py-20 md:py-32 bg-white scroll-mt-20">
+                <div class="container mx-auto px-6 animated-section">
+                    <h2 class="text-4xl font-bold text-center text-slate-900 mb-4">A Little About Me...</h2>
+                    <p class="text-center text-lg text-slate-600 max-w-3xl mx-auto mb-16">
+                        I'm an ex-kid and an ex-teen. I'm a proud father to a 3-year-old boy, I like dogs, I love coding and sleep. When I'm not coding, you might find me playing Halo and Destiny 2 on Xbox. Oh, and I absolutely cannot play the guitar or write poetry.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                        <div class="p-6 bg-orange-100 rounded-2xl shadow-md transform hover:scale-105 transition-transform duration-300">
+                            <img src="/img/father_and_son_playing_with_tech_toys.png" alt="Father and son playing with tech toys" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <h3 class="font-bold text-slate-800">Fatherhood</h3>
+                            <p class="text-slate-600 text-sm">Proud dad to a 3-year-old boy.</p>
+                        </div>
+                        <div class="p-6 bg-sky-100 rounded-2xl shadow-md transform hover:scale-105 transition-transform duration-300">
+                             <img src="/img/happy_coder_and_dog.png" alt="Happy coder with a dog" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <h3 class="font-bold text-slate-800">Passions</h3>
+                            <p class="text-slate-600 text-sm">I like dogs and I love coding.</p>
+                        </div>
+                         <div class="p-6 bg-indigo-100 rounded-2xl shadow-md transform hover:scale-105 transition-transform duration-300">
+                             <img src="/img/sleepy_coder.png" alt="Sleepy coder" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <h3 class="font-bold text-slate-800">...and Sleep</h3>
+                            <p class="text-slate-600 text-sm">An essential part of the process.</p>
+                        </div>
+                         <div class="p-6 bg-rose-100 rounded-2xl shadow-md transform hover:scale-105 transition-transform duration-300">
+                             <img src="/img/humorous_artistic_failure_cartoon.png" alt="Humorous artistic failure" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <h3 class="font-bold text-slate-800">Anti-Hobbies</h3>
+                            <p class="text-slate-600 text-sm">Can't play guitar or write poetry.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        </article>
+            <!-- Work Experience Section -->
+            <section id="where-ive-been" class="py-20 md:py-32 bg-orange-50 scroll-mt-20">
+                <div class="container mx-auto px-6 animated-section">
+                    <h2 class="text-4xl font-bold text-center text-slate-900 mb-16">Where I've Been</h2>
+                    <div class="flex flex-wrap justify-center items-center gap-4 max-w-4xl mx-auto">
+                        <span class="bg-white text-slate-700 font-semibold py-2 px-5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-default">Meta</span>
+                        <span class="bg-white text-slate-700 font-semibold py-2 px-5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-default">AppLovin</span>
+                        <span class="bg-white text-slate-700 font-semibold py-2 px-5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-default">Salesforce Quip</span>
+                        <span class="bg-white text-slate-700 font-semibold py-2 px-5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-default">Google</span>
+                        <span class="bg-white text-slate-700 font-semibold py-2 px-5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-default">CarGurus</span>
+                        <span class="bg-white text-slate-700 font-semibold py-2 px-5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-default">Mobi Systems</span>
+                        <span class="bg-white text-slate-700 font-semibold py-2 px-5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-default">TripAdvisor</span>
+                        <span class="bg-white text-slate-700 font-semibold py-2 px-5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-default">Ovitas</span>
+                        <span class="bg-white text-slate-700 font-semibold py-2 px-5 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-default">Smarking Inc.</span>
+                    </div>
+                </div>
+            </section>
+        </main>
 
+        <footer class="bg-slate-900 text-slate-400">
+            <div class="container mx-auto px-6 py-8 text-center">
+                <p>&copy; 2025 Hao Zhou. All rights reserved.</p>
+                <p class="text-sm mt-2">Crafted with fun and functions.</p>
+            </div>
+        </footer>
     </div>
-
-</main>
-
-
-<!--
-  - custom js link
--->
-<!--<script src="./assets/js/script.js"></script>-->
-
-<!--
-  - ionicon link
--->
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    
+    <script type="module" src="script.js"></script>
 </body>
-
 </html>
